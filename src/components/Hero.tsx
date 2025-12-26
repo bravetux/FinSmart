@@ -26,7 +26,7 @@ const Hero = () => {
               Learn how to manage, invest, and grow your wealth with confidence.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
-              <Button size="lg" className="px-8 text-md gap-2" onClick={() => navigate('/login')}>
+              <Button size="lg" className="px-8 text-md gap-2" onClick={() => navigate('/dashboard')}>
                 Start Learning Now <ArrowRight className="w-4 h-4" />
               </Button>
               <Button size="lg" variant="outline" className="px-8 text-md">

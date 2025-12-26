@@ -32,9 +32,9 @@ const Index = () => {
                 <div className="pt-4">
                   <button 
                     className="px-10 py-4 bg-white text-slate-900 font-bold rounded-2xl hover:bg-slate-100 transition-all transform hover:scale-105 active:scale-95"
-                    onClick={() => navigate('/login')}
+                    onClick={() => navigate('/dashboard')}
                   >
-                    Create Your Free Account
+                    Start Your Journey
                   </button>
                 </div>
               </div>
