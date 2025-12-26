@@ -65,7 +65,7 @@ const TypesOfMF = () => {
             <AlertTriangle className="w-6 h-6 text-orange-600 shrink-0" />
             <div>
               <h4 className="font-bold text-orange-900">Key Rule</h4>
-              <p className="text-sm text-orange-700">Higher the potential return, higher the risk. Never put money you need next month into Equity funds!</p>
+              <p className="text-sm text-orange-700">Higher the potential return, higher the risk. Never put money you need next 6 months into Equity funds!</p>
             </div>
           </div>
         </div>
