@@ -93,11 +93,11 @@ const Lumpsum = () => {
           <div className="space-y-4">
             <h3 className="text-2xl font-bold text-red-900">The Short-Term Equity Trap</h3>
             <p className="text-red-800 leading-relaxed">
-              If you need your money back in <strong>less than 3 years</strong>, avoid Lumpsum investments in Equity Mutual Funds. Short-term volatility can wipe out 10-20% of your capital exactly when you need it.
+              If you need your money back in <strong>less than 1 year</strong>, avoid Lumpsum investments in Equity Mutual Funds. Short-term volatility can wipe out 10-20% of your capital exactly when you need it.
             </p>
             <div className="flex flex-wrap gap-4">
               <div className="bg-white/50 px-4 py-2 rounded-xl text-sm font-medium text-red-900 border border-red-200">
-                ❌ No Equity for &lt; 3 Years
+                ❌ No Equity for &lt; 1 Year
               </div>
               <div className="bg-white/50 px-4 py-2 rounded-xl text-sm font-medium text-emerald-900 border border-emerald-200">
                 ✅ Use Debt or Liquid Funds
