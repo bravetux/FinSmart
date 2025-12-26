@@ -61,6 +61,7 @@ const BondsOverview = () => {
 
   return (
     <div className="space-y-12 animate-in fade-in duration-500 pb-12">
+      {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-700 to-blue-900 text-white rounded-[2.5rem] p-8 md:p-12 shadow-xl relative overflow-hidden">
         <div className="relative z-10 space-y-6">
           <div className="flex flex-wrap gap-3">
@@ -80,9 +81,6 @@ const BondsOverview = () => {
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
             <Button size="lg" className="bg-white text-blue-900 hover:bg-blue-50 font-bold px-8">
               Start Investing Now
-            </Button>
-            <Button size="lg" variant="outline" className="text-white border-white/30 hover:bg-white/10">
-              Download App
             </Button>
           </div>
         </div>
