@@ -31,7 +31,6 @@ const Lumpsum = () => {
       {/* Introduction & Chart */}
       <div className="grid lg:grid-cols-2 gap-8 items-start">
         <div className="space-y-6">
-          <h2 className="text-3xl font-bold text-slate-900">Lumpsum Investment</h2>
           <p className="text-lg text-slate-600 leading-relaxed">
             Investing a large sum of money in one go. While SIP is about discipline, Lumpsum is about <strong>opportunity</strong> and <strong>surplus management</strong>.
           </p>
