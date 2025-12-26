@@ -13,8 +13,8 @@ const Login = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate login and redirect to home for now
-    navigate('/');
+    // Navigate to dashboard after login
+    navigate('/dashboard');
   };
 
   return (
