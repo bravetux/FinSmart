@@ -17,8 +17,8 @@ import {
   HelpCircle,
   Zap,
   RefreshCcw,
-  ReceiptText,
-  MousePointer2
+  MousePointer2,
+  Coins
 } from 'lucide-react';
 import {
   Accordion,
@@ -57,6 +57,34 @@ const BondsOverview = () => {
           <Landmark size={240} strokeWidth={0.5} />
         </div>
       </section>
+
+      {/* Minimum Investment Info */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <Card className="border-none bg-blue-50 shadow-sm overflow-hidden">
+          <CardContent className="p-6 flex items-center gap-4">
+            <div className="w-12 h-12 rounded-2xl bg-blue-600 text-white flex items-center justify-center shrink-0">
+              <Coins className="w-6 h-6" />
+            </div>
+            <div>
+              <p className="text-xs font-bold text-blue-600 uppercase tracking-widest">Unit Size</p>
+              <p className="text-xl font-bold text-slate-900">{currency.symbol}1,000</p>
+              <p className="text-[10px] text-slate-500 mt-0.5">Minimum investment unit size</p>
+            </div>
+          </CardContent>
+        </Card>
+        <Card className="border-none bg-emerald-50 shadow-sm overflow-hidden">
+          <CardContent className="p-6 flex items-center gap-4">
+            <div className="w-12 h-12 rounded-2xl bg-emerald-600 text-white flex items-center justify-center shrink-0">
+              <Wallet className="w-6 h-6" />
+            </div>
+            <div>
+              <p className="text-xs font-bold text-emerald-600 uppercase tracking-widest">Min. Investment</p>
+              <p className="text-xl font-bold text-slate-900">{currency.symbol}10,000</p>
+              <p className="text-[10px] text-slate-500 mt-0.5">Most common minimum starting amount</p>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
 
       {/* Introduction */}
       <section className="grid lg:grid-cols-2 gap-12 items-center">
@@ -199,34 +227,6 @@ const BondsOverview = () => {
             <p className="text-sm text-slate-400">Start your corporate debt journey today with fixed returns and low risk.</p>
             <Button size="lg" className="w-full bg-blue-600 hover:bg-blue-700 mt-4">Get Started</Button>
           </div>
-        </div>
-      </section>
-
-      {/* Taxation Section */}
-      <section className="space-y-6">
-        <h3 className="text-2xl font-bold flex items-center gap-2">
-          <ReceiptText className="w-6 h-6 text-orange-600" />
-          Taxation Rules
-        </h3>
-        <div className="grid md:grid-cols-2 gap-6">
-          <Card className="border-orange-100 bg-orange-50/50">
-            <CardHeader>
-              <CardTitle className="text-lg">Short-Term (STCG)</CardTitle>
-              <CardDescription>Holding &lt; 3 Years</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-slate-700">Tax is calculated using your <strong>applicable income tax slab rate</strong>.</p>
-            </CardContent>
-          </Card>
-          <Card className="border-orange-100 bg-orange-50/50">
-            <CardHeader>
-              <CardTitle className="text-lg">Long-Term (LTCG)</CardTitle>
-              <CardDescription>Holding &gt; 3 Years</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-slate-700">Taxed at <strong>20%</strong> after the indexation benefit is applied.</p>
-            </CardContent>
-          </Card>
         </div>
       </section>
 
