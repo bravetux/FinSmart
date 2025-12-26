@@ -1,10 +1,13 @@
 "use client";
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { ArrowRight, TrendingUp, ShieldCheck, GraduationCap } from 'lucide-react';
 
 const Hero = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="relative pt-32 pb-20 overflow-hidden">
       <div className="container mx-auto px-4">
@@ -23,7 +26,7 @@ const Hero = () => {
               Learn how to manage, invest, and grow your wealth with confidence.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
-              <Button size="lg" className="px-8 text-md gap-2">
+              <Button size="lg" className="px-8 text-md gap-2" onClick={() => navigate('/login')}>
                 Start Learning Now <ArrowRight className="w-4 h-4" />
               </Button>
               <Button size="lg" variant="outline" className="px-8 text-md">
@@ -63,7 +66,6 @@ const Hero = () => {
                 </div>
               </div>
             </div>
-            {/* Background decorative elements */}
             <div className="absolute -top-10 -right-10 w-64 h-64 bg-blue-400/10 rounded-full blur-3xl -z-10" />
             <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-emerald-400/10 rounded-full blur-3xl -z-10" />
           </div>

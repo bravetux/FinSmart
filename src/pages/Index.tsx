@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Stats from '@/components/Stats';
@@ -9,6 +10,8 @@ import Footer from '@/components/Footer';
 import { MadeWithDyad } from "@/components/made-with-dyad";
 
 const Index = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-white selection:bg-blue-100 selection:text-blue-900">
       <Navbar />
@@ -27,7 +30,10 @@ const Index = () => {
                   Join 50,000+ others who are building their financial future today. Free to start, forever valuable.
                 </p>
                 <div className="pt-4">
-                  <button className="px-10 py-4 bg-white text-slate-900 font-bold rounded-2xl hover:bg-slate-100 transition-all transform hover:scale-105 active:scale-95">
+                  <button 
+                    className="px-10 py-4 bg-white text-slate-900 font-bold rounded-2xl hover:bg-slate-100 transition-all transform hover:scale-105 active:scale-95"
+                    onClick={() => navigate('/login')}
+                  >
                     Create Your Free Account
                   </button>
                 </div>

@@ -1,14 +1,17 @@
 "use client";
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Wallet } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
   return (
     <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 cursor-pointer" onClick={() => navigate('/')}>
           <div className="bg-primary p-1.5 rounded-lg">
             <Wallet className="w-6 h-6 text-primary-foreground" />
           </div>
@@ -22,8 +25,8 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-4">
-          <Button variant="ghost" size="sm">Log in</Button>
-          <Button size="sm">Get Started</Button>
+          <Button variant="ghost" size="sm" onClick={() => navigate('/login')}>Log in</Button>
+          <Button size="sm" onClick={() => navigate('/login')}>Get Started</Button>
         </div>
       </div>
     </nav>
