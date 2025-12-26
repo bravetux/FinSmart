@@ -3,7 +3,8 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from 'recharts';
-import { Combine } from 'lucide-react';
+import { Combine, ArrowRight, Zap, ShieldCheck, Target } from 'lucide-react';
+import { useCurrency } from "@/context/CurrencyContext";
 
 const portfolio = [
   { name: 'Lumpsum (Core)', value: 70, color: '#3b82f6' },
@@ -11,21 +12,85 @@ const portfolio = [
 ];
 
 const SIPandLumpsum = () => {
+  const { currency } = useCurrency();
+
+  const steps = [
+    { icon: <Zap className="w-6 h-6 text-blue-600" />, title: "Lumpsum Start", description: `Invest a large sum (${currency.symbol}X) when markets are favorable or you receive a bonus.` },
+    { icon: <ArrowRight className="w-6 h-6 text-slate-400" />, title: "Transition", description: "Move from one-time investment to regular discipline." },
+    { icon: <ShieldCheck className="w-6 h-6 text-emerald-600" />, title: "SIP Discipline", description: `Continue monthly investments (${currency.symbol}Y) regardless of market volatility.` },
+    { icon: <Target className="w-6 h-6 text-purple-600" />, title: "Goal Achieved", description: "Benefit from both compounding (Lumpsum) and averaging (SIP)." },
+  ];
+
   return (
-    <div className="space-y-8 animate-in slide-in-from-bottom-4 duration-500">
-      <div className="flex gap-4">
+    <div className="space-y-12 animate-in slide-in-from-bottom-4 duration-500 pb-12">
+      {/* Header */}
+      <div className="flex gap-4 items-start">
         <div className="w-12 h-12 rounded-2xl bg-primary text-primary-foreground flex items-center justify-center shrink-0">
           <Combine className="w-6 h-6" />
         </div>
         <div>
-          <h3 className="text-xl font-bold">The "Hybrid" Strategy</h3>
-          <p className="text-slate-600 mt-1">Start with a Lumpsum and continue with a SIP to build wealth brick-by-brick.</p>
+          <h3 className="text-3xl font-bold">The "Hybrid" Strategy</h3>
+          <p className="text-lg text-slate-600 mt-1">Combining Lumpsum and SIP offers the best of both worlds: capitalizing on opportunities while maintaining discipline.</p>
         </div>
       </div>
 
+      {/* Benefits Grid */}
+      <section className="grid md:grid-cols-3 gap-6">
+        <Card className="bg-blue-50 border-blue-100">
+          <CardHeader className="pb-2">
+            <CardTitle className="text-lg text-blue-800">Mitigate Timing Risk</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-blue-700">Lumpsum gets you in the market immediately, while SIP averages out the cost over time, reducing the risk of investing at a market peak.</p>
+          </CardContent>
+        </Card>
+        <Card className="bg-emerald-50 border-emerald-100">
+          <CardHeader className="pb-2">
+            <CardTitle className="text-lg text-emerald-800">Maximize Compounding</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-emerald-700">The initial large sum starts compounding immediately, giving your wealth a significant head start compared to starting only with SIP.</p>
+          </CardContent>
+        </Card>
+        <Card className="bg-purple-50 border-purple-100">
+          <CardHeader className="pb-2">
+            <CardTitle className="text-lg text-purple-800">Financial Flexibility</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-purple-700">Allows you to deploy sudden surplus funds (bonus, inheritance) efficiently while maintaining regular, affordable monthly contributions.</p>
+          </CardContent>
+        </Card>
+      </section>
+
+      {/* Infographic: The Combined Flow */}
+      <section className="space-y-6">
+        <h3 className="text-2xl font-bold text-slate-900">How the Hybrid Strategy Works</h3>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 relative">
+          {/* Connector lines (Desktop) */}
+          <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-slate-200 -translate-y-1/2 -z-10" />
+          
+          {steps.map((step, i) => (
+            <div key={i} className="bg-white p-6 rounded-2xl border border-slate-200 text-center space-y-4 hover:shadow-lg transition-shadow relative">
+              <div className="w-14 h-14 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center mx-auto shadow-inner">
+                {step.icon}
+              </div>
+              <div className="space-y-1">
+                <h4 className="font-bold text-slate-900">{step.title}</h4>
+                <p className="text-xs text-slate-500 leading-relaxed">{step.description}</p>
+              </div>
+              {i < steps.length - 1 && (
+                <ArrowRight className="hidden md:block absolute -right-3 top-1/2 -translate-y-1/2 text-slate-400 w-6 h-6 bg-white rounded-full p-0.5 border border-slate-200" />
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Ideal Portfolio Structure Chart */}
       <Card>
         <CardHeader>
           <CardTitle>Ideal Portfolio Structure</CardTitle>
+          <p className="text-sm text-slate-500">A common allocation for moderate-to-aggressive investors.</p>
         </CardHeader>
         <CardContent className="h-[350px]">
           <ResponsiveContainer width="100%" height="100%">
