@@ -4,6 +4,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { ArrowDownToLine } from 'lucide-react';
+import { useCurrency } from "@/context/CurrencyContext";
 
 const swpData = [
   { month: 1, balance: 1000000 },
@@ -14,6 +15,8 @@ const swpData = [
 ];
 
 const SWP = () => {
+  const { currency } = useCurrency();
+
   return (
     <div className="space-y-8 animate-in slide-in-from-bottom-4 duration-500">
       <div className="bg-blue-50 p-8 rounded-[2rem] flex flex-col md:flex-row gap-8 items-center">
@@ -33,8 +36,8 @@ const SWP = () => {
             <AreaChart data={swpData}>
               <CartesianGrid strokeDasharray="3 3" vertical={false} />
               <XAxis dataKey="month" />
-              <YAxis tickFormatter={(val) => `$${val/1000}k`} />
-              <Tooltip />
+              <YAxis tickFormatter={(val) => `${currency.symbol}${val/1000}k`} />
+              <Tooltip formatter={(val) => [`${currency.symbol}${Number(val).toLocaleString()}`, 'Balance']} />
               <Area type="monotone" dataKey="balance" stroke="#3b82f6" fill="#dbeafe" />
             </AreaChart>
           </ResponsiveContainer>

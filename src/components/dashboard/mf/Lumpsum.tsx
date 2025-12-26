@@ -3,7 +3,8 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import { Wallet, Timer } from 'lucide-react';
+import { Wallet } from 'lucide-react';
+import { useCurrency } from "@/context/CurrencyContext";
 
 const data = [
   { name: 'Fixed Deposit (6%)', value: 179000 },
@@ -12,6 +13,8 @@ const data = [
 ];
 
 const Lumpsum = () => {
+  const { currency } = useCurrency();
+
   return (
     <div className="space-y-8 animate-in slide-in-from-bottom-4 duration-500">
       <div className="flex flex-col md:flex-row gap-6">
@@ -32,7 +35,7 @@ const Lumpsum = () => {
 
         <Card className="flex-1">
           <CardHeader>
-            <CardTitle>Wealth after 10 Years ($100,000 Invested)</CardTitle>
+            <CardTitle>Wealth after 10 Years ({currency.symbol}100,000 Invested)</CardTitle>
           </CardHeader>
           <CardContent className="h-[300px]">
             <ResponsiveContainer width="100%" height="100%">
@@ -40,7 +43,7 @@ const Lumpsum = () => {
                 <CartesianGrid strokeDasharray="3 3" vertical={false} />
                 <XAxis dataKey="name" />
                 <YAxis hide />
-                <Tooltip formatter={(value) => [`$${(Number(value)).toLocaleString()}`, 'Final Value']} />
+                <Tooltip formatter={(value) => [`${currency.symbol}${(Number(value)).toLocaleString()}`, 'Final Value']} />
                 <Bar dataKey="value" fill="#3b82f6" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>

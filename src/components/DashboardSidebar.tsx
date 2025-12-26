@@ -4,18 +4,14 @@ import React from 'react';
 import { 
   BarChart3, 
   LineChart, 
-  Coins, 
   Building2, 
   ScrollText, 
-  Layers, 
   Bitcoin, 
   Globe, 
   ShieldCheck, 
   Gem,
   ChevronDown,
-  ChevronRight,
-  BookOpen,
-  MousePointerClick
+  Coins
 } from 'lucide-react';
 import { cn } from "@/lib/utils";
 import { 
@@ -23,6 +19,14 @@ import {
   CollapsibleContent, 
   CollapsibleTrigger 
 } from "@/components/ui/collapsible";
+import { useCurrency } from "@/context/CurrencyContext";
+import { 
+  DropdownMenu, 
+  DropdownMenuContent, 
+  DropdownMenuItem, 
+  DropdownMenuTrigger 
+} from "@/components/ui/dropdown-menu";
+import { Button } from "@/components/ui/button";
 
 interface SidebarItemProps {
   icon?: React.ReactNode;
@@ -57,18 +61,48 @@ const DashboardSidebar = ({
   currentSection: string, 
   onSectionChange: (s: string) => void 
 }) => {
+  const { currency, setCurrencyByCode, currencies } = useCurrency();
+
   return (
     <aside className="w-64 border-r bg-white h-screen flex flex-col sticky top-0 overflow-y-auto">
       <div className="p-6">
-        <div className="flex items-center gap-2 mb-8">
-          <div className="bg-primary p-1.5 rounded-lg text-primary-foreground">
-            <LineChart className="w-5 h-5" />
+        <div className="flex items-center justify-between mb-8">
+          <div className="flex items-center gap-2">
+            <div className="bg-primary p-1.5 rounded-lg text-primary-foreground">
+              <LineChart className="w-5 h-5" />
+            </div>
+            <span className="font-bold text-xl tracking-tight">FinSmart</span>
           </div>
-          <span className="font-bold text-xl tracking-tight">FinSmart</span>
+        </div>
+
+        {/* Currency Selector */}
+        <div className="mb-6 px-4">
+          <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">Display Currency</p>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline" size="sm" className="w-full justify-between gap-2 h-9">
+                <div className="flex items-center gap-2">
+                  <Coins className="w-3.5 h-3.5 text-slate-400" />
+                  <span>{currency.label} ({currency.symbol})</span>
+                </div>
+                <ChevronDown className="w-3.5 h-3.5 opacity-50" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-48" align="start">
+              {currencies.map((c) => (
+                <DropdownMenuItem 
+                  key={c.code} 
+                  onClick={() => setCurrencyByCode(c.code)}
+                  className="justify-between"
+                >
+                  {c.label} <span>({c.symbol})</span>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
 
         <nav className="space-y-1">
-          {/* Mutual Funds with Subsections */}
           <Collapsible defaultOpen={currentSection.startsWith('mf-')} className="space-y-1">
             <CollapsibleTrigger className="w-full">
               <div className={cn(
@@ -107,30 +141,10 @@ const DashboardSidebar = ({
             </CollapsibleContent>
           </Collapsible>
 
-          <SidebarItem 
-            icon={<LineChart className="w-4 h-4" />} 
-            label="Equity" 
-            active={currentSection === 'equity'}
-            onClick={() => onSectionChange('equity')}
-          />
-          <SidebarItem 
-            icon={<Gem className="w-4 h-4" />} 
-            label="Gold" 
-            active={currentSection === 'gold'}
-            onClick={() => onSectionChange('gold')}
-          />
-          <SidebarItem 
-            icon={<Building2 className="w-4 h-4" />} 
-            label="Real Estate" 
-            active={currentSection === 'real-estate'}
-            onClick={() => onSectionChange('real-estate')}
-          />
-          <SidebarItem 
-            icon={<ScrollText className="w-4 h-4" />} 
-            label="Bonds" 
-            active={currentSection === 'bonds'}
-            onClick={() => onSectionChange('bonds')}
-          />
+          <SidebarItem icon={<LineChart className="w-4 h-4" />} label="Equity" active={currentSection === 'equity'} onClick={() => onSectionChange('equity')} />
+          <SidebarItem icon={<Gem className="w-4 h-4" />} label="Gold" active={currentSection === 'gold'} onClick={() => onSectionChange('gold')} />
+          <SidebarItem icon={<Building2 className="w-4 h-4" />} label="Real Estate" active={currentSection === 'real-estate'} onClick={() => onSectionChange('real-estate')} />
+          <SidebarItem icon={<ScrollText className="w-4 h-4" />} label="Bonds" active={currentSection === 'bonds'} onClick={() => onSectionChange('bonds')} />
 
           <Collapsible className="pt-2">
             <CollapsibleTrigger className="w-full">

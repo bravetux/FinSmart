@@ -4,6 +4,7 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { Repeat, Zap, TrendingUp } from 'lucide-react';
+import { useCurrency } from "@/context/CurrencyContext";
 
 const compoundingData = [
   { year: 0, invested: 0, wealth: 0 },
@@ -14,6 +15,8 @@ const compoundingData = [
 ];
 
 const SIP = () => {
+  const { currency } = useCurrency();
+
   return (
     <div className="space-y-8 animate-in slide-in-from-bottom-4 duration-500">
       <div className="grid md:grid-cols-3 gap-6">
@@ -50,7 +53,7 @@ const SIP = () => {
 
       <Card>
         <CardHeader>
-          <CardTitle>Power of Compounding (SIP @ $10,000/mo)</CardTitle>
+          <CardTitle>Power of Compounding (SIP @ {currency.symbol}10,000/mo)</CardTitle>
         </CardHeader>
         <CardContent className="h-[400px]">
           <ResponsiveContainer width="100%" height="100%">
@@ -63,8 +66,8 @@ const SIP = () => {
               </defs>
               <CartesianGrid strokeDasharray="3 3" vertical={false} />
               <XAxis dataKey="year" />
-              <YAxis tickFormatter={(value) => `$${value/1000000}M`} />
-              <Tooltip formatter={(value) => [`$${(Number(value)).toLocaleString()}`, 'Value']} />
+              <YAxis tickFormatter={(value) => `${currency.symbol}${value/1000000}M`} />
+              <Tooltip formatter={(value) => [`${currency.symbol}${(Number(value)).toLocaleString()}`, 'Value']} />
               <Area type="monotone" dataKey="wealth" stroke="#3b82f6" fillOpacity={1} fill="url(#colorWealth)" />
               <Area type="monotone" dataKey="invested" stroke="#94a3b8" fill="#f1f5f9" />
             </AreaChart>
