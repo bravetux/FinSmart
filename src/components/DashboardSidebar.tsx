@@ -179,7 +179,24 @@ const DashboardSidebar = ({
           </Collapsible>
 
           {/* Real Estate */}
-          <SidebarItem icon={<Building2 className="w-4 h-4" />} label="Real Estate" active={currentSection === 'real-estate'} onClick={() => onSectionChange('real-estate')} />
+          <Collapsible defaultOpen={currentSection.startsWith('re-')} className="space-y-1">
+            <CollapsibleTrigger className="w-full">
+              <div className={cn(
+                "flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-colors",
+                currentSection.startsWith('re-') ? "text-primary" : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+              )}>
+                <div className="flex items-center gap-3">
+                  <Building2 className="w-4 h-4" />
+                  <span>Real Estate</span>
+                </div>
+                <ChevronDown className={cn("w-4 h-4 transition-transform", !currentSection.startsWith('re-') && "-rotate-90")} />
+              </div>
+            </CollapsibleTrigger>
+            <CollapsibleContent className="space-y-1">
+              <SidebarItem label="Overview" active={currentSection === 're-overview'} onClick={() => onSectionChange('re-overview')} isSubItem />
+              <SidebarItem label="Document Check" active={currentSection === 're-documents'} onClick={() => onSectionChange('re-documents')} isSubItem />
+            </CollapsibleContent>
+          </Collapsible>
           
           {/* Bonds */}
           <SidebarItem icon={<ScrollText className="w-4 h-4" />} label="Bonds" active={currentSection === 'bonds'} onClick={() => onSectionChange('bonds')} />

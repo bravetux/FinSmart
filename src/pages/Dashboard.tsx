@@ -26,6 +26,10 @@ import PhysicalGold from '@/components/dashboard/gold/PhysicalGold';
 import GoldETF from '@/components/dashboard/gold/GoldETF';
 import DigitalGold from '@/components/dashboard/gold/DigitalGold';
 
+// Real Estate Components
+import RealEstateOverview from '@/components/dashboard/real-estate/RealEstateOverview';
+import DocumentCheck from '@/components/dashboard/real-estate/DocumentCheck';
+
 const Dashboard = () => {
   const [activeSection, setActiveSection] = useState('mf-equity-types');
 
@@ -50,6 +54,10 @@ const Dashboard = () => {
       case 'gold-physical': return <PhysicalGold />;
       case 'gold-etf': return <GoldETF />;
       case 'gold-digital': return <DigitalGold />;
+
+      // Real Estate
+      case 're-overview': return <RealEstateOverview />;
+      case 're-documents': return <DocumentCheck />;
       
       default:
         return (
@@ -87,6 +95,8 @@ const Dashboard = () => {
       'gold-physical': 'Physical Gold',
       'gold-etf': 'Gold ETFs & Funds',
       'gold-digital': 'Digital Gold (SGB)',
+      're-overview': 'Real Estate Overview',
+      're-documents': 'Document Verification Checklist',
     };
     return titles[id] || 'Financial Dashboard';
   };
@@ -94,6 +104,7 @@ const Dashboard = () => {
   const getModuleLabel = (id: string) => {
     if (id.startsWith('mf-')) return "Mutual Funds Masterclass";
     if (id.startsWith('gold-')) return "Precious Metals Module";
+    if (id.startsWith('re-')) return "Real Estate Module";
     return "Wealth Management";
   }
 
