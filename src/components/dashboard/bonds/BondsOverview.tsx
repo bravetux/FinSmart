@@ -174,10 +174,10 @@ const BondsOverview = () => {
         </div>
       </section>
 
+      {/* Bond Examples List */}
       <section className="space-y-8">
         <div className="flex items-center justify-between">
-          <h3 className="text-2xl font-bold">Top Corporate Bonds Available</h3>
-          <Button variant="ghost" className="text-primary gap-2">View All Bonds <ArrowRight className="w-4 h-4" /></Button>
+          <h3 className="text-2xl font-bold">Example of Corporate Bonds</h3>
         </div>
         <div className="grid lg:grid-cols-3 gap-6">
           {topBonds.map((bond, i) => (
