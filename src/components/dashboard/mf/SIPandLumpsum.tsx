@@ -2,13 +2,22 @@
 
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from 'recharts';
+import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip, LineChart, Line, XAxis, YAxis, CartesianGrid } from 'recharts';
 import { Combine, ArrowRight, Zap, ShieldCheck, Target } from 'lucide-react';
 import { useCurrency } from "@/context/CurrencyContext";
 
 const portfolio = [
   { name: 'Lumpsum (Core)', value: 70, color: '#3b82f6' },
   { name: 'SIP (Growth)', value: 30, color: '#10b981' },
+];
+
+// Illustrative data comparing Pure SIP vs Hybrid (Lumpsum + SIP) over 20 years
+const wealthData = [
+  { year: 0, pureSIP: 0, hybrid: 500000 }, 
+  { year: 5, pureSIP: 824000, hybrid: 1300000 },
+  { year: 10, pureSIP: 2320000, hybrid: 3500000 },
+  { year: 15, pureSIP: 5040000, hybrid: 6800000 },
+  { year: 20, pureSIP: 9980000, hybrid: 12500000 },
 ];
 
 const SIPandLumpsum = () => {
@@ -86,7 +95,31 @@ const SIPandLumpsum = () => {
         </div>
       </section>
 
-      {/* Ideal Portfolio Structure Chart */}
+      {/* NEW: Wealth Creation Comparison Chart */}
+      <Card>
+        <CardHeader>
+          <CardTitle>Wealth Creation Comparison (20 Years @ 12% CAGR)</CardTitle>
+          <p className="text-sm text-slate-500">Hybrid strategy provides a significant head start due to early compounding of the lumpsum amount.</p>
+        </CardHeader>
+        <CardContent className="h-[400px]">
+          <ResponsiveContainer width="100%" height="100%">
+            <LineChart data={wealthData}>
+              <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" />
+              <XAxis dataKey="year" stroke="#94a3b8" />
+              <YAxis tickFormatter={(value) => `${currency.symbol}${value/1000000}M`} stroke="#94a3b8" />
+              <Tooltip 
+                contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}
+                formatter={(value, name) => [`${currency.symbol}${(Number(value)).toLocaleString()}`, name]} 
+              />
+              <Legend verticalAlign="top" height={36} />
+              <Line type="monotone" dataKey="hybrid" name="Hybrid (Lumpsum + SIP)" stroke="#3b82f6" strokeWidth={3} dot={false} />
+              <Line type="monotone" dataKey="pureSIP" name="Pure SIP" stroke="#10b981" strokeWidth={3} dot={false} />
+            </LineChart>
+          </ResponsiveContainer>
+        </CardContent>
+      </Card>
+
+      {/* Ideal Portfolio Structure Chart (Existing) */}
       <Card>
         <CardHeader>
           <CardTitle>Ideal Portfolio Structure</CardTitle>
