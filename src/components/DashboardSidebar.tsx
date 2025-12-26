@@ -118,7 +118,7 @@ const DashboardSidebar = ({
             </CollapsibleTrigger>
             <CollapsibleContent className="space-y-1">
               <SidebarItem 
-                label="Types of MF" 
+                label="Types of Equity Funds"
                 active={currentSection === 'mf-types'}
                 onClick={() => onSectionChange('mf-types')}
                 isSubItem

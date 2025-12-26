@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowUpRight, LineChart } from 'lucide-react';
 
 // Mutual Fund Components
-import TypesOfMF from '@/components/dashboard/mf/Types';
+import TypesOfEquityFunds from '@/components/dashboard/mf/TypesOfEquityFunds';
 import SIP from '@/components/dashboard/mf/SIP';
 import Lumpsum from '@/components/dashboard/mf/Lumpsum';
 import SIPandLumpsum from '@/components/dashboard/mf/SIPandLumpsum';
@@ -19,7 +19,7 @@ const Dashboard = () => {
 
   const renderContent = () => {
     switch (activeSection) {
-      case 'mf-types': return <TypesOfMF />;
+      case 'mf-types': return <TypesOfEquityFunds />;
       case 'mf-sip': return <SIP />;
       case 'mf-lumpsum': return <Lumpsum />;
       case 'mf-combined': return <SIPandLumpsum />;
@@ -45,7 +45,7 @@ const Dashboard = () => {
 
   const getSectionTitle = (id: string) => {
     const titles: Record<string, string> = {
-      'mf-types': 'Types of Mutual Funds',
+      'mf-types': 'Types of Equity Funds',
       'mf-sip': 'SIP (Systematic Investment Plan)',
       'mf-lumpsum': 'Lumpsum Investment',
       'mf-combined': 'Hybrid Strategy (SIP + Lumpsum)',

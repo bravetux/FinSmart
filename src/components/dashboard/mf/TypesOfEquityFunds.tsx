@@ -110,7 +110,7 @@ const equityFunds = [
   }
 ];
 
-const TypesOfMF = () => {
+const TypesOfEquityFunds = () => {
   return (
     <div className="space-y-12 animate-in fade-in duration-500 pb-12">
       {/* Introduction */}
@@ -171,4 +171,4 @@ const TypesOfMF = () => {
   );
 };
 
-export default TypesOfMF;
+export default TypesOfEquityFunds;
