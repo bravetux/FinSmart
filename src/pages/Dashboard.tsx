@@ -30,6 +30,9 @@ import DigitalGold from '@/components/dashboard/gold/DigitalGold';
 import RealEstateOverview from '@/components/dashboard/real-estate/RealEstateOverview';
 import DocumentCheck from '@/components/dashboard/real-estate/DocumentCheck';
 
+// Bonds Components
+import BondsOverview from '@/components/dashboard/bonds/BondsOverview';
+
 const Dashboard = () => {
   const [activeSection, setActiveSection] = useState('mf-equity-types');
 
@@ -58,6 +61,9 @@ const Dashboard = () => {
       // Real Estate
       case 're-overview': return <RealEstateOverview />;
       case 're-documents': return <DocumentCheck />;
+
+      // Bonds
+      case 'bonds': return <BondsOverview />;
       
       default:
         return (
@@ -97,6 +103,7 @@ const Dashboard = () => {
       'gold-digital': 'Digital Gold (SGB)',
       're-overview': 'Real Estate Overview',
       're-documents': 'Document Verification Checklist',
+      'bonds': 'Corporate Bond Markets',
     };
     return titles[id] || 'Financial Dashboard';
   };
@@ -105,6 +112,7 @@ const Dashboard = () => {
     if (id.startsWith('mf-')) return "Mutual Funds Masterclass";
     if (id.startsWith('gold-')) return "Precious Metals Module";
     if (id.startsWith('re-')) return "Real Estate Module";
+    if (id === 'bonds') return "Fixed Income Module";
     return "Wealth Management";
   }
 
