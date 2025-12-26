@@ -181,7 +181,7 @@ const STP = () => {
           <h4 className="text-lg font-bold text-amber-900">Taxability Check</h4>
           <p className="text-sm text-amber-800 leading-relaxed">
             Every transfer is considered a <strong>Redemption</strong>. 
-            Gains are subject to tax: <span className="font-bold">15%</span> for Short Term (&lt;3 years) or variable for Long Term based on your income slab.
+            Gains are subject to tax: <span className="font-bold">20%</span> for Short Term (&lt;1 year) or <span className="font-bold">12.5%</span> for Long Term. For debt funds variable based on your income slab.
           </p>
         </div>
       </div>
