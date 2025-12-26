@@ -92,16 +92,8 @@ const BondsOverview = () => {
         </div>
       </section>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm text-center">
-          <p className="text-3xl font-bold text-slate-900">{currency.symbol}5,000 Cr+*</p>
-          <p className="text-xs text-slate-400 uppercase tracking-widest font-bold mt-1">Investment Done</p>
-        </div>
-        <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm text-center">
-          <p className="text-3xl font-bold text-slate-900">3,50,000+*</p>
-          <p className="text-xs text-slate-400 uppercase tracking-widest font-bold mt-1">Registered Users</p>
-        </div>
-        <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm text-center">
+      <div className="flex justify-center">
+        <div className="bg-white p-6 px-12 rounded-2xl border border-slate-100 shadow-sm text-center">
           <p className="text-3xl font-bold text-slate-900">{currency.symbol}10,000</p>
           <p className="text-xs text-slate-400 uppercase tracking-widest font-bold mt-1">Min. Investment</p>
         </div>
