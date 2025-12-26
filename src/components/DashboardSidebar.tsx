@@ -119,7 +119,7 @@ const DashboardSidebar = ({
             <CollapsibleContent className="space-y-1">
               
               {/* NEW: Types Collapsible */}
-              <Collapsible defaultOpen className="space-y-1">
+              <Collapsible defaultOpen={currentSection.includes('-types')} className="space-y-1">
                 <CollapsibleTrigger className="w-full">
                    <div className="flex items-center justify-between pl-11 pr-4 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900">
                      <span>Types</span>
@@ -129,15 +129,45 @@ const DashboardSidebar = ({
                 <CollapsibleContent className="space-y-1">
                   <SidebarItem 
                     label="Equity Funds"
-                    active={currentSection === 'mf-types'}
-                    onClick={() => onSectionChange('mf-types')}
+                    active={currentSection === 'mf-equity-types'}
+                    onClick={() => onSectionChange('mf-equity-types')}
+                    className="pl-14 text-xs" 
+                  />
+                  <SidebarItem 
+                    label="Debt Funds"
+                    active={currentSection === 'mf-debt-types'}
+                    onClick={() => onSectionChange('mf-debt-types')}
+                    className="pl-14 text-xs" 
+                  />
+                  <SidebarItem 
+                    label="Hybrid Funds"
+                    active={currentSection === 'mf-hybrid-types'}
+                    onClick={() => onSectionChange('mf-hybrid-types')}
+                    className="pl-14 text-xs" 
+                  />
+                  <SidebarItem 
+                    label="Goal Based"
+                    active={currentSection === 'mf-goal-types'}
+                    onClick={() => onSectionChange('mf-goal-types')}
+                    className="pl-14 text-xs" 
+                  />
+                  <SidebarItem 
+                    label="Risk Based"
+                    active={currentSection === 'mf-risk-types'}
+                    onClick={() => onSectionChange('mf-risk-types')}
+                    className="pl-14 text-xs" 
+                  />
+                  <SidebarItem 
+                    label="Structure Based"
+                    active={currentSection === 'mf-structure-types'}
+                    onClick={() => onSectionChange('mf-structure-types')}
                     className="pl-14 text-xs" 
                   />
                 </CollapsibleContent>
               </Collapsible>
 
               {/* Existing Options Collapsible */}
-              <Collapsible defaultOpen className="space-y-1">
+              <Collapsible defaultOpen={!currentSection.includes('-types')} className="space-y-1">
                 <CollapsibleTrigger className="w-full">
                    <div className="flex items-center justify-between pl-11 pr-4 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900">
                      <span>Options</span>

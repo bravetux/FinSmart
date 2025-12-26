@@ -13,13 +13,23 @@ import Lumpsum from '@/components/dashboard/mf/Lumpsum';
 import SIPandLumpsum from '@/components/dashboard/mf/SIPandLumpsum';
 import SWP from '@/components/dashboard/mf/SWP';
 import STP from '@/components/dashboard/mf/STP';
+import DebtFunds from '@/components/dashboard/mf/DebtFunds';
+import HybridFunds from '@/components/dashboard/mf/HybridFunds';
+import GoalBasedFunds from '@/components/dashboard/mf/GoalBasedFunds';
+import RiskBasedFunds from '@/components/dashboard/mf/RiskBasedFunds';
+import StructureBasedFunds from '@/components/dashboard/mf/StructureBasedFunds';
 
 const Dashboard = () => {
   const [activeSection, setActiveSection] = useState('mf-types');
 
   const renderContent = () => {
     switch (activeSection) {
-      case 'mf-types': return <TypesOfEquityFunds />;
+      case 'mf-equity-types': return <TypesOfEquityFunds />;
+      case 'mf-debt-types': return <DebtFunds />;
+      case 'mf-hybrid-types': return <HybridFunds />;
+      case 'mf-goal-types': return <GoalBasedFunds />;
+      case 'mf-risk-types': return <RiskBasedFunds />;
+      case 'mf-structure-types': return <StructureBasedFunds />;
       case 'mf-sip': return <SIP />;
       case 'mf-lumpsum': return <Lumpsum />;
       case 'mf-combined': return <SIPandLumpsum />;
@@ -36,7 +46,7 @@ const Dashboard = () => {
               <p className="text-slate-500 max-w-sm mb-6">
                 We are currently building the educational content for this section. Stay tuned!
               </p>
-              <Button variant="outline" onClick={() => setActiveSection('mf-types')}>Back to Basics</Button>
+              <Button variant="outline" onClick={() => setActiveSection('mf-equity-types')}>Back to Basics</Button>
             </Card>
           </div>
         );
@@ -45,7 +55,12 @@ const Dashboard = () => {
 
   const getSectionTitle = (id: string) => {
     const titles: Record<string, string> = {
-      'mf-types': 'Types of Equity Funds',
+      'mf-equity-types': 'Equity Funds',
+      'mf-debt-types': 'Debt Funds',
+      'mf-hybrid-types': 'Hybrid Funds',
+      'mf-goal-types': 'Goal Based Funds',
+      'mf-risk-types': 'Risk Based Funds',
+      'mf-structure-types': 'Structure Based Funds',
       'mf-sip': 'SIP (Systematic Investment Plan)',
       'mf-lumpsum': 'Lumpsum Investment',
       'mf-combined': 'Hybrid Strategy (SIP + Lumpsum)',
