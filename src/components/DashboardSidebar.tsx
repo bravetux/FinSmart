@@ -103,6 +103,7 @@ const DashboardSidebar = ({
         </div>
 
         <nav className="space-y-1">
+          {/* Mutual Funds */}
           <Collapsible defaultOpen={currentSection.startsWith('mf-')} className="space-y-1">
             <CollapsibleTrigger className="w-full">
               <div className={cn(
@@ -117,8 +118,6 @@ const DashboardSidebar = ({
               </div>
             </CollapsibleTrigger>
             <CollapsibleContent className="space-y-1">
-              
-              {/* Types Collapsible */}
               <Collapsible defaultOpen={currentSection.includes('-types')} className="space-y-1">
                 <CollapsibleTrigger className="w-full">
                    <div className="flex items-center justify-between pl-11 pr-4 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900">
@@ -127,47 +126,15 @@ const DashboardSidebar = ({
                    </div>
                 </CollapsibleTrigger>
                 <CollapsibleContent className="space-y-1">
-                  <SidebarItem 
-                    label="Equity Funds"
-                    active={currentSection === 'mf-equity-types'}
-                    onClick={() => onSectionChange('mf-equity-types')}
-                    className="pl-14 text-xs" 
-                  />
-                  <SidebarItem 
-                    label="Debt Funds"
-                    active={currentSection === 'mf-debt-types'}
-                    onClick={() => onSectionChange('mf-debt-types')}
-                    className="pl-14 text-xs" 
-                  />
-                  <SidebarItem 
-                    label="Hybrid Funds"
-                    active={currentSection === 'mf-hybrid-types'}
-                    onClick={() => onSectionChange('mf-hybrid-types')}
-                    className="pl-14 text-xs" 
-                  />
-                  <SidebarItem 
-                    label="Goal Based"
-                    active={currentSection === 'mf-goal-types'}
-                    onClick={() => onSectionChange('mf-goal-types')}
-                    className="pl-14 text-xs" 
-                  />
-                  <SidebarItem 
-                    label="Risk Based"
-                    active={currentSection === 'mf-risk-types'}
-                    onClick={() => onSectionChange('mf-risk-types')}
-                    className="pl-14 text-xs" 
-                  />
-                  <SidebarItem 
-                    label="Structure Based"
-                    active={currentSection === 'mf-structure-types'}
-                    onClick={() => onSectionChange('mf-structure-types')}
-                    className="pl-14 text-xs" 
-                  />
+                  <SidebarItem label="Equity Funds" active={currentSection === 'mf-equity-types'} onClick={() => onSectionChange('mf-equity-types')} className="pl-14 text-xs" />
+                  <SidebarItem label="Debt Funds" active={currentSection === 'mf-debt-types'} onClick={() => onSectionChange('mf-debt-types')} className="pl-14 text-xs" />
+                  <SidebarItem label="Hybrid Funds" active={currentSection === 'mf-hybrid-types'} onClick={() => onSectionChange('mf-hybrid-types')} className="pl-14 text-xs" />
+                  <SidebarItem label="Goal Based" active={currentSection === 'mf-goal-types'} onClick={() => onSectionChange('mf-goal-types')} className="pl-14 text-xs" />
+                  <SidebarItem label="Risk Based" active={currentSection === 'mf-risk-types'} onClick={() => onSectionChange('mf-risk-types')} className="pl-14 text-xs" />
+                  <SidebarItem label="Structure Based" active={currentSection === 'mf-structure-types'} onClick={() => onSectionChange('mf-structure-types')} className="pl-14 text-xs" />
                 </CollapsibleContent>
               </Collapsible>
-
-              {/* Options Collapsible */}
-              <Collapsible defaultOpen={!currentSection.includes('-types') && currentSection !== 'mf-taxation'} className="space-y-1">
+              <Collapsible defaultOpen={!currentSection.includes('-types') && currentSection.startsWith('mf-') && currentSection !== 'mf-taxation'} className="space-y-1">
                 <CollapsibleTrigger className="w-full">
                    <div className="flex items-center justify-between pl-11 pr-4 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900">
                      <span>Options</span>
@@ -182,22 +149,42 @@ const DashboardSidebar = ({
                   <SidebarItem label="STP" active={currentSection === 'mf-stp'} onClick={() => onSectionChange('mf-stp')} className="pl-14 text-xs" />
                 </CollapsibleContent>
               </Collapsible>
-
-              {/* Taxation moved outside Options */}
-              <SidebarItem 
-                label="Taxation" 
-                active={currentSection === 'mf-taxation'} 
-                onClick={() => onSectionChange('mf-taxation')} 
-                className="pl-11" 
-              />
+              <SidebarItem label="Taxation" active={currentSection === 'mf-taxation'} onClick={() => onSectionChange('mf-taxation')} className="pl-11" />
             </CollapsibleContent>
           </Collapsible>
 
+          {/* Equity */}
           <SidebarItem icon={<LineChart className="w-4 h-4" />} label="Equity" active={currentSection === 'equity'} onClick={() => onSectionChange('equity')} />
-          <SidebarItem icon={<Gem className="w-4 h-4" />} label="Gold" active={currentSection === 'gold'} onClick={() => onSectionChange('gold')} />
+          
+          {/* Gold */}
+          <Collapsible defaultOpen={currentSection.startsWith('gold-')} className="space-y-1">
+            <CollapsibleTrigger className="w-full">
+              <div className={cn(
+                "flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-colors",
+                currentSection.startsWith('gold-') ? "text-primary" : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+              )}>
+                <div className="flex items-center gap-3">
+                  <Gem className="w-4 h-4" />
+                  <span>Gold</span>
+                </div>
+                <ChevronDown className={cn("w-4 h-4 transition-transform", !currentSection.startsWith('gold-') && "-rotate-90")} />
+              </div>
+            </CollapsibleTrigger>
+            <CollapsibleContent className="space-y-1">
+              <SidebarItem label="Overview" active={currentSection === 'gold-overview'} onClick={() => onSectionChange('gold-overview')} isSubItem />
+              <SidebarItem label="Physical Gold" active={currentSection === 'gold-physical'} onClick={() => onSectionChange('gold-physical')} isSubItem />
+              <SidebarItem label="Gold ETFs" active={currentSection === 'gold-etf'} onClick={() => onSectionChange('gold-etf')} isSubItem />
+              <SidebarItem label="Digital (SGB)" active={currentSection === 'gold-digital'} onClick={() => onSectionChange('gold-digital')} isSubItem />
+            </CollapsibleContent>
+          </Collapsible>
+
+          {/* Real Estate */}
           <SidebarItem icon={<Building2 className="w-4 h-4" />} label="Real Estate" active={currentSection === 'real-estate'} onClick={() => onSectionChange('real-estate')} />
+          
+          {/* Bonds */}
           <SidebarItem icon={<ScrollText className="w-4 h-4" />} label="Bonds" active={currentSection === 'bonds'} onClick={() => onSectionChange('bonds')} />
 
+          {/* Diversification */}
           <Collapsible className="pt-2">
             <CollapsibleTrigger className="w-full">
               <div className="flex items-center justify-between px-4 py-2 text-xs font-semibold text-slate-400 uppercase tracking-wider hover:text-slate-600">
@@ -222,7 +209,7 @@ const DashboardSidebar = ({
           <div className="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden">
             <div className="bg-primary h-full w-[45%]" />
           </div>
-          <p className="text-[10px] text-slate-400 mt-2">Module: Mutual Funds Masterclass</p>
+          <p className="text-[10px] text-slate-400 mt-2">Module: Financial Literacy</p>
         </div>
       </div>
     </aside>

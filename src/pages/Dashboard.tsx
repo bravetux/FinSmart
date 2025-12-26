@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import DashboardSidebar from '@/components/DashboardSidebar';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight, LineChart } from 'lucide-react';
 
@@ -20,11 +20,18 @@ import RiskBasedFunds from '@/components/dashboard/mf/RiskBasedFunds';
 import StructureBasedFunds from '@/components/dashboard/mf/StructureBasedFunds';
 import Taxation from '@/components/dashboard/mf/Taxation';
 
+// Gold Components
+import GoldOverview from '@/components/dashboard/gold/GoldOverview';
+import PhysicalGold from '@/components/dashboard/gold/PhysicalGold';
+import GoldETF from '@/components/dashboard/gold/GoldETF';
+import DigitalGold from '@/components/dashboard/gold/DigitalGold';
+
 const Dashboard = () => {
   const [activeSection, setActiveSection] = useState('mf-equity-types');
 
   const renderContent = () => {
     switch (activeSection) {
+      // Mutual Funds
       case 'mf-equity-types': return <TypesOfEquityFunds />;
       case 'mf-debt-types': return <DebtFunds />;
       case 'mf-hybrid-types': return <HybridFunds />;
@@ -37,6 +44,13 @@ const Dashboard = () => {
       case 'mf-swp': return <SWP />;
       case 'mf-stp': return <STP />;
       case 'mf-taxation': return <Taxation />;
+      
+      // Gold
+      case 'gold-overview': return <GoldOverview />;
+      case 'gold-physical': return <PhysicalGold />;
+      case 'gold-etf': return <GoldETF />;
+      case 'gold-digital': return <DigitalGold />;
+      
       default:
         return (
           <div className="grid grid-cols-1 gap-6">
@@ -69,18 +83,19 @@ const Dashboard = () => {
       'mf-swp': 'SWP (Systematic Withdrawal Plan)',
       'mf-stp': 'STP (Systematic Transfer Plan)',
       'mf-taxation': 'Taxation of Mutual Funds',
-      'equity': 'Equity Markets',
-      'gold': 'Gold Investment',
-      'real-estate': 'Real Estate',
-      'bonds': 'Bond Markets',
-      'pms': 'PMS',
-      'aif': 'AIF',
-      'sif': 'SIF',
-      'bitcoin': 'Bitcoin',
-      'overseas': 'Overseas Investment'
+      'gold-overview': 'Gold Investment Overview',
+      'gold-physical': 'Physical Gold',
+      'gold-etf': 'Gold ETFs & Funds',
+      'gold-digital': 'Digital Gold (SGB)',
     };
-    return titles[id] || 'Mutual Funds';
+    return titles[id] || 'Financial Dashboard';
   };
+
+  const getModuleLabel = (id: string) => {
+    if (id.startsWith('mf-')) return "Mutual Funds Masterclass";
+    if (id.startsWith('gold-')) return "Precious Metals Module";
+    return "Wealth Management";
+  }
 
   return (
     <div className="flex min-h-screen bg-slate-50/50">
@@ -90,7 +105,7 @@ const Dashboard = () => {
         <header className="flex items-center justify-between mb-8">
           <div className="space-y-1">
             <div className="flex items-center gap-2 text-xs font-bold text-blue-600 uppercase tracking-widest">
-              Mutual Funds Masterclass
+              {getModuleLabel(activeSection)}
             </div>
             <h1 className="text-3xl font-bold text-slate-900">{getSectionTitle(activeSection)}</h1>
           </div>
