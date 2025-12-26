@@ -4,88 +4,84 @@ import React, { useState } from 'react';
 import DashboardSidebar from '@/components/DashboardSidebar';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { TrendingUp, ArrowUpRight, LineChart } from 'lucide-react';
+import { ArrowUpRight, LineChart } from 'lucide-react';
+
+// Mutual Fund Components
+import TypesOfMF from '@/components/dashboard/mf/Types';
+import SIP from '@/components/dashboard/mf/SIP';
+import Lumpsum from '@/components/dashboard/mf/Lumpsum';
+import SIPandLumpsum from '@/components/dashboard/mf/SIPandLumpsum';
+import SWP from '@/components/dashboard/mf/SWP';
+import STP from '@/components/dashboard/mf/STP';
 
 const Dashboard = () => {
-  const [activeSection, setActiveSection] = useState('mutual-funds');
+  const [activeSection, setActiveSection] = useState('mf-types');
+
+  const renderContent = () => {
+    switch (activeSection) {
+      case 'mf-types': return <TypesOfMF />;
+      case 'mf-sip': return <SIP />;
+      case 'mf-lumpsum': return <Lumpsum />;
+      case 'mf-combined': return <SIPandLumpsum />;
+      case 'mf-swp': return <SWP />;
+      case 'mf-stp': return <STP />;
+      default:
+        return (
+          <div className="grid grid-cols-1 gap-6">
+            <Card className="min-h-[400px] flex flex-col items-center justify-center text-center p-8 bg-white border-dashed border-2">
+              <div className="bg-slate-50 p-4 rounded-full mb-4">
+                <LineChart className="w-8 h-8 text-slate-400" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Module coming soon</h3>
+              <p className="text-slate-500 max-w-sm mb-6">
+                We are currently building the educational content for this section. Stay tuned!
+              </p>
+              <Button variant="outline" onClick={() => setActiveSection('mf-types')}>Back to Basics</Button>
+            </Card>
+          </div>
+        );
+    }
+  };
 
   const getSectionTitle = (id: string) => {
     const titles: Record<string, string> = {
-      'mutual-funds': 'Mutual Funds',
+      'mf-types': 'Types of Mutual Funds',
+      'mf-sip': 'SIP (Systematic Investment Plan)',
+      'mf-lumpsum': 'Lumpsum Investment',
+      'mf-combined': 'Hybrid Strategy (SIP + Lumpsum)',
+      'mf-swp': 'SWP (Systematic Withdrawal Plan)',
+      'mf-stp': 'STP (Systematic Transfer Plan)',
       'equity': 'Equity Markets',
       'gold': 'Gold Investment',
       'real-estate': 'Real Estate',
       'bonds': 'Bond Markets',
-      'pms': 'Portfolio Management Services (PMS)',
-      'aif': 'Alternative Investment Funds (AIF)',
-      'sif': 'Specialized Investment Funds (SIF)',
-      'bitcoin': 'Bitcoin & Crypto Assets',
+      'pms': 'PMS',
+      'aif': 'AIF',
+      'sif': 'SIF',
+      'bitcoin': 'Bitcoin',
       'overseas': 'Overseas Investment'
     };
-    return titles[id] || 'Dashboard';
+    return titles[id] || 'Mutual Funds';
   };
 
   return (
     <div className="flex min-h-screen bg-slate-50/50">
       <DashboardSidebar currentSection={activeSection} onSectionChange={setActiveSection} />
       
-      <main className="flex-1 p-8">
+      <main className="flex-1 p-8 overflow-y-auto">
         <header className="flex items-center justify-between mb-8">
-          <div>
+          <div className="space-y-1">
+            <div className="flex items-center gap-2 text-xs font-bold text-blue-600 uppercase tracking-widest">
+              Mutual Funds Masterclass
+            </div>
             <h1 className="text-3xl font-bold text-slate-900">{getSectionTitle(activeSection)}</h1>
-            <p className="text-slate-500 mt-1">Track and manage your {activeSection.replace('-', ' ')} portfolio.</p>
           </div>
-          <Button className="gap-2">
-            Explore {getSectionTitle(activeSection)} <ArrowUpRight className="w-4 h-4" />
+          <Button className="gap-2 shadow-lg shadow-blue-200">
+            Take Quiz <ArrowUpRight className="w-4 h-4" />
           </Button>
         </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <Card>
-            <CardHeader className="pb-2">
-              <CardDescription>Total Value</CardDescription>
-              <CardTitle className="text-2xl">$12,450.00</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="flex items-center text-emerald-600 text-sm font-medium">
-                <TrendingUp className="w-4 h-4 mr-1" /> +2.4% this month
-              </div>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader className="pb-2">
-              <CardDescription>Average Yield</CardDescription>
-              <CardTitle className="text-2xl">8.2%</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="text-slate-400 text-sm italic">Estimated annual return</div>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader className="pb-2">
-              <CardDescription>Risk Profile</CardDescription>
-              <CardTitle className="text-2xl">Moderate</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="w-full bg-slate-100 h-2 rounded-full mt-1">
-                <div className="bg-orange-500 h-full w-[60%] rounded-full" />
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-
-        <div className="grid grid-cols-1 gap-6">
-          <Card className="min-h-[400px] flex flex-col items-center justify-center text-center p-8 bg-white border-dashed border-2">
-            <div className="bg-slate-50 p-4 rounded-full mb-4">
-              <LineChart className="w-8 h-8 text-slate-400" />
-            </div>
-            <h3 className="text-xl font-semibold mb-2">No active investments found</h3>
-            <p className="text-slate-500 max-w-sm mb-6">
-              You haven't added any {getSectionTitle(activeSection)} to your tracker yet. Start by exploring our top-rated options.
-            </p>
-            <Button variant="outline">Learn the Basics</Button>
-          </Card>
-        </div>
+        {renderContent()}
       </main>
     </div>
   );
