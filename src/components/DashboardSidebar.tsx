@@ -180,6 +180,7 @@ const DashboardSidebar = ({
                   <SidebarItem label="SIP & Lumpsum" active={currentSection === 'mf-combined'} onClick={() => onSectionChange('mf-combined')} className="pl-14 text-xs" />
                   <SidebarItem label="SWP" active={currentSection === 'mf-swp'} onClick={() => onSectionChange('mf-swp')} className="pl-14 text-xs" />
                   <SidebarItem label="STP" active={currentSection === 'mf-stp'} onClick={() => onSectionChange('mf-stp')} className="pl-14 text-xs" />
+                  <SidebarItem label="Taxation" active={currentSection === 'mf-taxation'} onClick={() => onSectionChange('mf-taxation')} className="pl-14 text-xs" />
                 </CollapsibleContent>
               </Collapsible>
             </CollapsibleContent>

@@ -18,9 +18,10 @@ import HybridFunds from '@/components/dashboard/mf/HybridFunds';
 import GoalBasedFunds from '@/components/dashboard/mf/GoalBasedFunds';
 import RiskBasedFunds from '@/components/dashboard/mf/RiskBasedFunds';
 import StructureBasedFunds from '@/components/dashboard/mf/StructureBasedFunds';
+import Taxation from '@/components/dashboard/mf/Taxation';
 
 const Dashboard = () => {
-  const [activeSection, setActiveSection] = useState('mf-types');
+  const [activeSection, setActiveSection] = useState('mf-equity-types');
 
   const renderContent = () => {
     switch (activeSection) {
@@ -35,6 +36,7 @@ const Dashboard = () => {
       case 'mf-combined': return <SIPandLumpsum />;
       case 'mf-swp': return <SWP />;
       case 'mf-stp': return <STP />;
+      case 'mf-taxation': return <Taxation />;
       default:
         return (
           <div className="grid grid-cols-1 gap-6">
@@ -66,6 +68,7 @@ const Dashboard = () => {
       'mf-combined': 'Hybrid Strategy (SIP + Lumpsum)',
       'mf-swp': 'SWP (Systematic Withdrawal Plan)',
       'mf-stp': 'STP (Systematic Transfer Plan)',
+      'mf-taxation': 'Taxation of Mutual Funds',
       'equity': 'Equity Markets',
       'gold': 'Gold Investment',
       'real-estate': 'Real Estate',
