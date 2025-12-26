@@ -67,7 +67,7 @@ const STP = () => {
             </div>
           </div>
         </div>
-        <p className="text-center text-xs text-slate-400 mt-8 italic">
+        <p className="text-center text-sm font-medium text-slate-500 mt-8 italic">
           *Note: Transfers only work within the same Asset Management Company (AMC).
         </p>
       </div>
@@ -151,7 +151,7 @@ const STP = () => {
               <div className="mt-1 bg-green-500/20 p-1 rounded-full"><TrendingUp className="w-4 h-4 text-green-400" /></div>
               <div>
                 <p className="font-bold">Higher Returns</p>
-                <p className="text-sm text-slate-400">Maximize profits by shifting to securities during market swings.</p>
+                <p className="text-sm text-slate-400">Maximize profits by shifting to more profitable ventures during market swings.</p>
               </div>
             </li>
             <li className="flex gap-3">
