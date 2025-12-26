@@ -128,7 +128,7 @@ const DashboardSidebar = ({
                 </CollapsibleTrigger>
                 <CollapsibleContent className="space-y-1">
                   <SidebarItem 
-                    label="Types of Equity Funds"
+                    label="Equity Funds"
                     active={currentSection === 'mf-types'}
                     onClick={() => onSectionChange('mf-types')}
                     className="pl-14 text-xs" 
