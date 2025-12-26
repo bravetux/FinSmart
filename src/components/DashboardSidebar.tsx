@@ -118,7 +118,7 @@ const DashboardSidebar = ({
             </CollapsibleTrigger>
             <CollapsibleContent className="space-y-1">
               
-              {/* NEW: Types Collapsible */}
+              {/* Types Collapsible */}
               <Collapsible defaultOpen={currentSection.includes('-types')} className="space-y-1">
                 <CollapsibleTrigger className="w-full">
                    <div className="flex items-center justify-between pl-11 pr-4 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900">
@@ -166,8 +166,8 @@ const DashboardSidebar = ({
                 </CollapsibleContent>
               </Collapsible>
 
-              {/* Existing Options Collapsible */}
-              <Collapsible defaultOpen={!currentSection.includes('-types')} className="space-y-1">
+              {/* Options Collapsible */}
+              <Collapsible defaultOpen={!currentSection.includes('-types') && currentSection !== 'mf-taxation'} className="space-y-1">
                 <CollapsibleTrigger className="w-full">
                    <div className="flex items-center justify-between pl-11 pr-4 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900">
                      <span>Options</span>
@@ -180,9 +180,16 @@ const DashboardSidebar = ({
                   <SidebarItem label="SIP & Lumpsum" active={currentSection === 'mf-combined'} onClick={() => onSectionChange('mf-combined')} className="pl-14 text-xs" />
                   <SidebarItem label="SWP" active={currentSection === 'mf-swp'} onClick={() => onSectionChange('mf-swp')} className="pl-14 text-xs" />
                   <SidebarItem label="STP" active={currentSection === 'mf-stp'} onClick={() => onSectionChange('mf-stp')} className="pl-14 text-xs" />
-                  <SidebarItem label="Taxation" active={currentSection === 'mf-taxation'} onClick={() => onSectionChange('mf-taxation')} className="pl-14 text-xs" />
                 </CollapsibleContent>
               </Collapsible>
+
+              {/* Taxation moved outside Options */}
+              <SidebarItem 
+                label="Taxation" 
+                active={currentSection === 'mf-taxation'} 
+                onClick={() => onSectionChange('mf-taxation')} 
+                className="pl-11" 
+              />
             </CollapsibleContent>
           </Collapsible>
 
