@@ -140,7 +140,7 @@ const TypesOfMF = () => {
           </CardHeader>
           <CardContent>
              <p className="text-xs text-orange-700 leading-relaxed">
-               Always align fund categories with your time horizon. <strong>Small caps</strong> need 10+ years, while <strong>Large caps</strong> can be considered for 5-7 year horizons.
+               Always align fund categories with your time horizon. <strong>Small/Mid caps</strong> need 7+ years, while <strong>Large caps</strong> can be considered for 2+ year horizons.
              </p>
           </CardContent>
         </Card>
