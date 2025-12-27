@@ -26,6 +26,11 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { useCurrency } from "@/context/CurrencyContext";
 
+// New sub-components
+import BondRatings from './BondRatings';
+import BondRisks from './BondRisks';
+import BondResearch from './BondResearch';
+
 const topBonds = [
   {
     issuer: "KRAZYBEE SERVICES LIMITED",
@@ -131,6 +136,11 @@ const BondsOverview = () => {
           </p>
         </Card>
       </section>
+
+      {/* New Research & Education Sections */}
+      <BondRatings />
+      <BondRisks />
+      <BondResearch />
 
       <section className="space-y-8">
         <div className="text-center space-y-2">
