@@ -56,7 +56,7 @@ const GoldOverview = () => {
           {[
             { title: "Physical", icon: <Gem />, desc: "Jewelry, coins, and bars. Tangible but involves storage risks." },
             { title: "Gold ETF", icon: <Zap />, desc: "Paper gold tracking market prices. High liquidity, no storage hassle." },
-            { title: "Sovereign Bonds", icon: <FileText />, desc: "Govt issued bonds. Earns 2.5% interest + gold price appreciation." }
+            { title: "Sovereign Bonds", icon: <FileText />, desc: "Govt issued bonds. Earns 2.5% interest + gold price appreciation. Redemtion maturity after 8 years, Premature redemption is after 5 years. This bond is no longer issued." }
           ].map((item, i) => (
             <div key={i} className="p-6 bg-white border border-slate-200 rounded-2xl flex flex-col items-center text-center space-y-3 hover:shadow-md transition-shadow">
               <div className="w-12 h-12 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center">
