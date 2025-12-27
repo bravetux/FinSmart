@@ -215,6 +215,7 @@ const DashboardSidebar = ({
             <CollapsibleContent className="space-y-1">
               <SidebarItem label="Overview" active={currentSection === 'bonds-overview'} onClick={() => onSectionChange('bonds-overview')} isSubItem />
               <SidebarItem label="CRISIL Rating Scale" active={currentSection === 'bonds-ratings'} onClick={() => onSectionChange('bonds-ratings')} isSubItem />
+              <SidebarItem label="Importance of Ratings" active={currentSection === 'bonds-importance'} onClick={() => onSectionChange('bonds-importance')} isSubItem />
             </CollapsibleContent>
           </Collapsible>
 

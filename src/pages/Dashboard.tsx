@@ -33,6 +33,7 @@ import DocumentCheck from '@/components/dashboard/real-estate/DocumentCheck';
 // Bonds Components
 import BondsOverview from '@/components/dashboard/bonds/BondsOverview';
 import BondRatings from '@/components/dashboard/bonds/BondRatings';
+import BondImportance from '@/components/dashboard/bonds/BondImportance';
 
 const Dashboard = () => {
   const [activeSection, setActiveSection] = useState('mf-equity-types');
@@ -66,6 +67,7 @@ const Dashboard = () => {
       // Bonds
       case 'bonds-overview': return <BondsOverview />;
       case 'bonds-ratings': return <BondRatings />;
+      case 'bonds-importance': return <BondImportance />;
       
       default:
         return (
@@ -107,6 +109,7 @@ const Dashboard = () => {
       're-documents': 'Document Verification Checklist',
       'bonds-overview': 'Corporate Bond Markets',
       'bonds-ratings': 'CRISIL Rating Scale',
+      'bonds-importance': 'Importance of Credit Ratings',
     };
     return titles[id] || 'Financial Dashboard';
   };
