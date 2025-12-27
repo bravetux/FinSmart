@@ -199,7 +199,24 @@ const DashboardSidebar = ({
           </Collapsible>
           
           {/* Bonds */}
-          <SidebarItem icon={<ScrollText className="w-4 h-4" />} label="Bonds" active={currentSection === 'bonds'} onClick={() => onSectionChange('bonds')} />
+          <Collapsible defaultOpen={currentSection.startsWith('bonds-')} className="space-y-1">
+            <CollapsibleTrigger className="w-full">
+              <div className={cn(
+                "flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-colors",
+                currentSection.startsWith('bonds-') ? "text-primary" : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+              )}>
+                <div className="flex items-center gap-3">
+                  <ScrollText className="w-4 h-4" />
+                  <span>Bonds</span>
+                </div>
+                <ChevronDown className={cn("w-4 h-4 transition-transform", !currentSection.startsWith('bonds-') && "-rotate-90")} />
+              </div>
+            </CollapsibleTrigger>
+            <CollapsibleContent className="space-y-1">
+              <SidebarItem label="Overview" active={currentSection === 'bonds-overview'} onClick={() => onSectionChange('bonds-overview')} isSubItem />
+              <SidebarItem label="CRISIL Rating Scale" active={currentSection === 'bonds-ratings'} onClick={() => onSectionChange('bonds-ratings')} isSubItem />
+            </CollapsibleContent>
+          </Collapsible>
 
           {/* Diversification */}
           <Collapsible className="pt-2">

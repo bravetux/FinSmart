@@ -32,6 +32,7 @@ import DocumentCheck from '@/components/dashboard/real-estate/DocumentCheck';
 
 // Bonds Components
 import BondsOverview from '@/components/dashboard/bonds/BondsOverview';
+import BondRatings from '@/components/dashboard/bonds/BondRatings';
 
 const Dashboard = () => {
   const [activeSection, setActiveSection] = useState('mf-equity-types');
@@ -63,7 +64,8 @@ const Dashboard = () => {
       case 're-documents': return <DocumentCheck />;
 
       // Bonds
-      case 'bonds': return <BondsOverview />;
+      case 'bonds-overview': return <BondsOverview />;
+      case 'bonds-ratings': return <BondRatings />;
       
       default:
         return (
@@ -103,7 +105,8 @@ const Dashboard = () => {
       'gold-digital': 'Digital Gold (SGB)',
       're-overview': 'Real Estate Overview',
       're-documents': 'Document Verification Checklist',
-      'bonds': 'Corporate Bond Markets',
+      'bonds-overview': 'Corporate Bond Markets',
+      'bonds-ratings': 'CRISIL Rating Scale',
     };
     return titles[id] || 'Financial Dashboard';
   };
@@ -112,7 +115,7 @@ const Dashboard = () => {
     if (id.startsWith('mf-')) return "Mutual Funds Masterclass";
     if (id.startsWith('gold-')) return "Precious Metals Module";
     if (id.startsWith('re-')) return "Real Estate Module";
-    if (id === 'bonds') return "Fixed Income Module";
+    if (id.startsWith('bonds-')) return "Fixed Income Module";
     return "Wealth Management";
   }
 
