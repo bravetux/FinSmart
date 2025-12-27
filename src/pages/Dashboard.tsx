@@ -34,6 +34,7 @@ import DocumentCheck from '@/components/dashboard/real-estate/DocumentCheck';
 import BondsOverview from '@/components/dashboard/bonds/BondsOverview';
 import BondRatings from '@/components/dashboard/bonds/BondRatings';
 import BondImportance from '@/components/dashboard/bonds/BondImportance';
+import ThingsToConsider from '@/components/dashboard/bonds/ThingsToConsider';
 
 const Dashboard = () => {
   const [activeSection, setActiveSection] = useState('mf-equity-types');
@@ -68,6 +69,7 @@ const Dashboard = () => {
       case 'bonds-overview': return <BondsOverview />;
       case 'bonds-ratings': return <BondRatings />;
       case 'bonds-importance': return <BondImportance />;
+      case 'bonds-consider': return <ThingsToConsider />;
       
       default:
         return (
@@ -110,6 +112,7 @@ const Dashboard = () => {
       'bonds-overview': 'Corporate Bond Markets',
       'bonds-ratings': 'CRISIL Rating Scale',
       'bonds-importance': 'Credit Ratings',
+      'bonds-consider': 'Things to Consider',
     };
     return titles[id] || 'Financial Dashboard';
   };

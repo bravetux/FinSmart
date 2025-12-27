@@ -214,7 +214,8 @@ const DashboardSidebar = ({
             </CollapsibleTrigger>
             <CollapsibleContent className="space-y-1">
               <SidebarItem label="Overview" active={currentSection === 'bonds-overview'} onClick={() => onSectionChange('bonds-overview')} isSubItem />
-              <Collapsible defaultOpen={currentSection.startsWith('bonds-') && currentSection !== 'bonds-overview'}>
+              <SidebarItem label="Things to Consider" active={currentSection === 'bonds-consider'} onClick={() => onSectionChange('bonds-consider')} isSubItem />
+              <Collapsible defaultOpen={currentSection.startsWith('bonds-') && currentSection !== 'bonds-overview' && currentSection !== 'bonds-consider'}>
                 <CollapsibleTrigger className="w-full">
                   <div className="flex items-center justify-between pl-11 pr-4 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900">
                     <span>Credit Ratings</span>
