@@ -12,7 +12,8 @@ import {
   Info,
   AlertTriangle,
   Zap,
-  CheckCircle2
+  CheckCircle2,
+  Lock
 } from 'lucide-react';
 
 const considerationPoints = [
@@ -23,31 +24,37 @@ const considerationPoints = [
     badge: "Safety First"
   },
   {
-    title: "2. Secondary Market Liquidity",
+    title: "2. Senior Secured Bonds",
+    description: "Senior secured bonds are bonds that get priority rights of receiving payments over subordinated bonds and loans, unsecured bonds and equity investors in case of default by the Issuer. Also, such bonds are backed by some sort of collateral like property, receivables, etc. which can be used to recover money in case of default by the Issuer. Senior secured bonds are one of the investment options available for investors in India who want to diversify their portfolio but want to minimise the risk.",
+    icon: <Lock className="w-6 h-6 text-blue-600" />,
+    badge: "Priority Access"
+  },
+  {
+    title: "3. Secondary Market Liquidity",
     description: "Check for secondary market liquidity. Most corporate bonds are either liquid or the traders are limited. In case you don’t intend to hold for the full tenure, you must have adequate exit options on the table.",
-    icon: <ArrowRightLeft className="w-6 h-6 text-blue-600" />,
+    icon: <ArrowRightLeft className="w-6 h-6 text-slate-600" />,
     badge: "Exit Strategy"
   },
   {
-    title: "3. Coupon Rate Competitiveness",
+    title: "4. Coupon Rate Competitiveness",
     description: "Check out if the coupon rate or the rate of interest is competitive. There will be minor differences, but the coupon cannot be off the market. Remember that bonds with coupons lower than the market tend to trade at a discount.",
     icon: <Percent className="w-6 h-6 text-purple-600" />,
     badge: "Market Alignment"
   },
   {
-    title: "4. Credit Rating",
+    title: "5. Credit Rating",
     description: "This is perhaps the most important criteria. Typically, the AAA bonds are the safest bonds with very low chance of default. Many investors deliberately go down the rating curve for higher yields, but that can be a dangerous strategy.",
     icon: <Star className="w-6 h-6 text-amber-600" />,
     badge: "Default Risk"
   },
   {
-    title: "5. Callability Clause",
+    title: "6. Callability Clause",
     description: "Most long term bonds have a callability clause. If market rates fall sharply, the issuer might call back and redeem the bonds forcibly. If you are counting on high yields for long-term planning, this is a major risk factor.",
     icon: <PhoneOff className="w-6 h-6 text-red-600" />,
     badge: "Forced Redemption"
   },
   {
-    title: "6. Post-Tax Yields",
+    title: "7. Post-Tax Yields",
     description: "Bond interest is fully taxable. However, there are tax-free infrastructure bonds like those issued by REC and PFC where the interest is entirely tax-free. Always calculate the yield after taxes.",
     icon: <Receipt className="w-6 h-6 text-sky-600" />,
     badge: "Tax Efficiency"
