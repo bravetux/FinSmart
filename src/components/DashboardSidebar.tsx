@@ -214,8 +214,18 @@ const DashboardSidebar = ({
             </CollapsibleTrigger>
             <CollapsibleContent className="space-y-1">
               <SidebarItem label="Overview" active={currentSection === 'bonds-overview'} onClick={() => onSectionChange('bonds-overview')} isSubItem />
-              <SidebarItem label="CRISIL Rating Scale" active={currentSection === 'bonds-ratings'} onClick={() => onSectionChange('bonds-ratings')} isSubItem />
-              <SidebarItem label="Importance of Ratings" active={currentSection === 'bonds-importance'} onClick={() => onSectionChange('bonds-importance')} isSubItem />
+              <Collapsible defaultOpen={currentSection.startsWith('bonds-') && currentSection !== 'bonds-overview'}>
+                <CollapsibleTrigger className="w-full">
+                  <div className="flex items-center justify-between pl-11 pr-4 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900">
+                    <span>Credit Ratings</span>
+                    <ChevronDown className="w-3 h-3" />
+                  </div>
+                </CollapsibleTrigger>
+                <CollapsibleContent className="space-y-1">
+                  <SidebarItem label="Importance" active={currentSection === 'bonds-importance'} onClick={() => onSectionChange('bonds-importance')} className="pl-14 text-xs" />
+                  <SidebarItem label="Rating Scale" active={currentSection === 'bonds-ratings'} onClick={() => onSectionChange('bonds-ratings')} className="pl-14 text-xs" />
+                </CollapsibleContent>
+              </Collapsible>
             </CollapsibleContent>
           </Collapsible>
 

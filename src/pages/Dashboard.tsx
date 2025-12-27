@@ -109,7 +109,7 @@ const Dashboard = () => {
       're-documents': 'Document Verification Checklist',
       'bonds-overview': 'Corporate Bond Markets',
       'bonds-ratings': 'CRISIL Rating Scale',
-      'bonds-importance': 'Importance of Credit Ratings',
+      'bonds-importance': 'Credit Ratings',
     };
     return titles[id] || 'Financial Dashboard';
   };
