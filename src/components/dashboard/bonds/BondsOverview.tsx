@@ -27,7 +27,6 @@ import { Badge } from "@/components/ui/badge";
 import { useCurrency } from "@/context/CurrencyContext";
 
 // New sub-components
-import BondRatings from './BondRatings';
 import BondRisks from './BondRisks';
 import BondResearch from './BondResearch';
 
@@ -138,7 +137,6 @@ const BondsOverview = () => {
       </section>
 
       {/* New Research & Education Sections */}
-      <BondRatings />
       <BondRisks />
       <BondResearch />
 
