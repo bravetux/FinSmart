@@ -125,6 +125,7 @@ const DashboardSidebar = ({
             <CollapsibleContent className="space-y-1">
               <SidebarItem label="Adventure Map" active={currentSection === 'kids-overview'} onClick={() => onSectionChange('kids-overview')} isSubItem />
               <SidebarItem label="Magic Money" active={currentSection === 'kids-money'} onClick={() => onSectionChange('kids-money')} isSubItem />
+              <SidebarItem label="Piggy Bank Power" active={currentSection === 'kids-piggy-bank'} onClick={() => onSectionChange('kids-piggy-bank')} isSubItem />
               
               <Collapsible defaultOpen={currentSection.startsWith('kids-bank')} className="space-y-1">
                 <CollapsibleTrigger className="w-full">

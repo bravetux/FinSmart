@@ -9,6 +9,7 @@ import { ArrowUpRight, LineChart } from 'lucide-react';
 // Kids Components
 import KidsOverview from '@/components/dashboard/kids/KidsOverview';
 import MoneySection from '@/components/dashboard/kids/MoneySection';
+import PiggyBankSection from '@/components/dashboard/kids/PiggyBankSection';
 import BankSection from '@/components/dashboard/kids/BankSection';
 import BankAccounts from '@/components/dashboard/kids/BankAccounts';
 import OperatingAccount from '@/components/dashboard/kids/OperatingAccount';
@@ -53,6 +54,7 @@ const Dashboard = () => {
       // Kids
       case 'kids-overview': return <KidsOverview />;
       case 'kids-money': return <MoneySection />;
+      case 'kids-piggy-bank': return <PiggyBankSection />;
       case 'kids-bank': return <BankSection />;
       case 'kids-bank-accounts': return <BankAccounts />;
       case 'kids-bank-operating': return <OperatingAccount />;
@@ -111,6 +113,7 @@ const Dashboard = () => {
     const titles: Record<string, string> = {
       'kids-overview': 'Kids Wealth Adventure',
       'kids-money': 'The Magic of Money',
+      'kids-piggy-bank': 'Piggy Bank Power',
       'kids-bank': 'How Banks Work',
       'kids-bank-accounts': 'The Account Store',
       'kids-bank-operating': 'Operating Your Account',
