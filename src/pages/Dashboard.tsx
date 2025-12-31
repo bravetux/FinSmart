@@ -10,6 +10,9 @@ import { ArrowUpRight, LineChart } from 'lucide-react';
 import KidsOverview from '@/components/dashboard/kids/KidsOverview';
 import MoneySection from '@/components/dashboard/kids/MoneySection';
 import BankSection from '@/components/dashboard/kids/BankSection';
+import BankAccounts from '@/components/dashboard/kids/BankAccounts';
+import BankLoans from '@/components/dashboard/kids/BankLoans';
+import BankServices from '@/components/dashboard/kids/BankServices';
 
 // Mutual Fund Components
 import TypesOfEquityFunds from '@/components/dashboard/mf/TypesOfEquityFunds';
@@ -50,6 +53,9 @@ const Dashboard = () => {
       case 'kids-overview': return <KidsOverview />;
       case 'kids-money': return <MoneySection />;
       case 'kids-bank': return <BankSection />;
+      case 'kids-bank-accounts': return <BankAccounts />;
+      case 'kids-bank-loans': return <BankLoans />;
+      case 'kids-bank-services': return <BankServices />;
 
       // Mutual Funds
       case 'mf-equity-types': return <TypesOfEquityFunds />;
@@ -104,6 +110,9 @@ const Dashboard = () => {
       'kids-overview': 'Kids Wealth Adventure',
       'kids-money': 'The Magic of Money',
       'kids-bank': 'How Banks Work',
+      'kids-bank-accounts': 'The Account Store',
+      'kids-bank-loans': 'The Loan Counter',
+      'kids-bank-services': 'Digital Magic & More',
       'mf-equity-types': 'Equity Funds',
       'mf-debt-types': 'Debt Funds',
       'mf-hybrid-types': 'Hybrid Funds',

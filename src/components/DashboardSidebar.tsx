@@ -13,7 +13,10 @@ import {
   ChevronDown,
   Coins,
   Baby,
-  Banknote
+  Banknote,
+  PiggyBank,
+  HandCoins,
+  Zap
 } from 'lucide-react';
 import { cn } from "@/lib/utils";
 import { 
@@ -122,7 +125,24 @@ const DashboardSidebar = ({
             <CollapsibleContent className="space-y-1">
               <SidebarItem label="Adventure Map" active={currentSection === 'kids-overview'} onClick={() => onSectionChange('kids-overview')} isSubItem />
               <SidebarItem label="Magic Money" active={currentSection === 'kids-money'} onClick={() => onSectionChange('kids-money')} isSubItem />
-              <SidebarItem label="The Bank Store" active={currentSection === 'kids-bank'} onClick={() => onSectionChange('kids-bank')} isSubItem />
+              
+              <Collapsible defaultOpen={currentSection.startsWith('kids-bank')} className="space-y-1">
+                <CollapsibleTrigger className="w-full">
+                   <div className={cn(
+                     "flex items-center justify-between pl-11 pr-4 py-1.5 text-sm font-medium transition-colors",
+                     currentSection.startsWith('kids-bank') ? "text-primary" : "text-slate-600 hover:text-slate-900"
+                   )}>
+                     <span>The Bank Store</span>
+                     <ChevronDown className="w-3 h-3" />
+                   </div>
+                </CollapsibleTrigger>
+                <CollapsibleContent className="space-y-1">
+                  <SidebarItem label="How it Works" active={currentSection === 'kids-bank'} onClick={() => onSectionChange('kids-bank')} className="pl-14 text-xs" />
+                  <SidebarItem label="Accounts" active={currentSection === 'kids-bank-accounts'} onClick={() => onSectionChange('kids-bank-accounts')} className="pl-14 text-xs" />
+                  <SidebarItem label="Loans" active={currentSection === 'kids-bank-loans'} onClick={() => onSectionChange('kids-bank-loans')} className="pl-14 text-xs" />
+                  <SidebarItem label="Other Services" active={currentSection === 'kids-bank-services'} onClick={() => onSectionChange('kids-bank-services')} className="pl-14 text-xs" />
+                </CollapsibleContent>
+              </Collapsible>
             </CollapsibleContent>
           </Collapsible>
 
