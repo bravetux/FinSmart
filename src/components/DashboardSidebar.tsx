@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { 
   BarChart3, 
   LineChart, 
@@ -69,13 +70,17 @@ const DashboardSidebar = ({
   currentSection: string, 
   onSectionChange: (s: string) => void 
 }) => {
+  const navigate = useNavigate();
   const { currency, setCurrencyByCode, currencies } = useCurrency();
 
   return (
     <aside className="w-64 border-r bg-white h-screen flex flex-col sticky top-0 overflow-y-auto">
       <div className="p-6">
         <div className="flex items-center justify-between mb-8">
-          <div className="flex items-center gap-2">
+          <div 
+            className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity" 
+            onClick={() => navigate('/')}
+          >
             <div className="bg-primary p-1.5 rounded-lg text-primary-foreground">
               <LineChart className="w-5 h-5" />
             </div>
