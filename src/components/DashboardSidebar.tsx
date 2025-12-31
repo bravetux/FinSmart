@@ -12,7 +12,8 @@ import {
   Gem,
   ChevronDown,
   Coins,
-  Baby
+  Baby,
+  Banknote
 } from 'lucide-react';
 import { cn } from "@/lib/utils";
 import { 
@@ -119,7 +120,9 @@ const DashboardSidebar = ({
               </div>
             </CollapsibleTrigger>
             <CollapsibleContent className="space-y-1">
-              <SidebarItem label="Overview" active={currentSection === 'kids-overview'} onClick={() => onSectionChange('kids-overview')} isSubItem />
+              <SidebarItem label="Adventure Map" active={currentSection === 'kids-overview'} onClick={() => onSectionChange('kids-overview')} isSubItem />
+              <SidebarItem label="Magic Money" active={currentSection === 'kids-money'} onClick={() => onSectionChange('kids-money')} isSubItem />
+              <SidebarItem label="The Bank Store" active={currentSection === 'kids-bank'} onClick={() => onSectionChange('kids-bank')} isSubItem />
             </CollapsibleContent>
           </Collapsible>
 

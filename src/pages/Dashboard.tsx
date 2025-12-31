@@ -8,6 +8,8 @@ import { ArrowUpRight, LineChart } from 'lucide-react';
 
 // Kids Components
 import KidsOverview from '@/components/dashboard/kids/KidsOverview';
+import MoneySection from '@/components/dashboard/kids/MoneySection';
+import BankSection from '@/components/dashboard/kids/BankSection';
 
 // Mutual Fund Components
 import TypesOfEquityFunds from '@/components/dashboard/mf/TypesOfEquityFunds';
@@ -46,6 +48,8 @@ const Dashboard = () => {
     switch (activeSection) {
       // Kids
       case 'kids-overview': return <KidsOverview />;
+      case 'kids-money': return <MoneySection />;
+      case 'kids-bank': return <BankSection />;
 
       // Mutual Funds
       case 'mf-equity-types': return <TypesOfEquityFunds />;
@@ -98,6 +102,8 @@ const Dashboard = () => {
   const getSectionTitle = (id: string) => {
     const titles: Record<string, string> = {
       'kids-overview': 'Kids Wealth Adventure',
+      'kids-money': 'The Magic of Money',
+      'kids-bank': 'How Banks Work',
       'mf-equity-types': 'Equity Funds',
       'mf-debt-types': 'Debt Funds',
       'mf-hybrid-types': 'Hybrid Funds',
