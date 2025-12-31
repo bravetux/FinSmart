@@ -11,7 +11,8 @@ import {
   ShieldCheck, 
   Gem,
   ChevronDown,
-  Coins
+  Coins,
+  Baby
 } from 'lucide-react';
 import { cn } from "@/lib/utils";
 import { 
@@ -103,6 +104,25 @@ const DashboardSidebar = ({
         </div>
 
         <nav className="space-y-1">
+          {/* Kids */}
+          <Collapsible defaultOpen={currentSection.startsWith('kids-')} className="space-y-1">
+            <CollapsibleTrigger className="w-full">
+              <div className={cn(
+                "flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-colors",
+                currentSection.startsWith('kids-') ? "text-primary" : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+              )}>
+                <div className="flex items-center gap-3">
+                  <Baby className="w-4 h-4" />
+                  <span>Kids</span>
+                </div>
+                <ChevronDown className={cn("w-4 h-4 transition-transform", !currentSection.startsWith('kids-') && "-rotate-90")} />
+              </div>
+            </CollapsibleTrigger>
+            <CollapsibleContent className="space-y-1">
+              <SidebarItem label="Overview" active={currentSection === 'kids-overview'} onClick={() => onSectionChange('kids-overview')} isSubItem />
+            </CollapsibleContent>
+          </Collapsible>
+
           {/* Mutual Funds */}
           <Collapsible defaultOpen={currentSection.startsWith('mf-')} className="space-y-1">
             <CollapsibleTrigger className="w-full">

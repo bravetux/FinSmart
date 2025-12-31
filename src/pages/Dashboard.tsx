@@ -6,6 +6,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight, LineChart } from 'lucide-react';
 
+// Kids Components
+import KidsOverview from '@/components/dashboard/kids/KidsOverview';
+
 // Mutual Fund Components
 import TypesOfEquityFunds from '@/components/dashboard/mf/TypesOfEquityFunds';
 import SIP from '@/components/dashboard/mf/SIP';
@@ -37,10 +40,13 @@ import BondImportance from '@/components/dashboard/bonds/BondImportance';
 import ThingsToConsider from '@/components/dashboard/bonds/ThingsToConsider';
 
 const Dashboard = () => {
-  const [activeSection, setActiveSection] = useState('mf-equity-types');
+  const [activeSection, setActiveSection] = useState('kids-overview');
 
   const renderContent = () => {
     switch (activeSection) {
+      // Kids
+      case 'kids-overview': return <KidsOverview />;
+
       // Mutual Funds
       case 'mf-equity-types': return <TypesOfEquityFunds />;
       case 'mf-debt-types': return <DebtFunds />;
@@ -91,6 +97,7 @@ const Dashboard = () => {
 
   const getSectionTitle = (id: string) => {
     const titles: Record<string, string> = {
+      'kids-overview': 'Kids Wealth Adventure',
       'mf-equity-types': 'Equity Funds',
       'mf-debt-types': 'Debt Funds',
       'mf-hybrid-types': 'Hybrid Funds',
@@ -118,6 +125,7 @@ const Dashboard = () => {
   };
 
   const getModuleLabel = (id: string) => {
+    if (id.startsWith('kids-')) return "Early Foundations";
     if (id.startsWith('mf-')) return "Mutual Funds Masterclass";
     if (id.startsWith('gold-')) return "Precious Metals Module";
     if (id.startsWith('re-')) return "Real Estate Module";
