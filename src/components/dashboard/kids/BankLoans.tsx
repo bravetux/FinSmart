@@ -8,10 +8,66 @@ import {
   GraduationCap, 
   HandCoins,
   History,
-  ArrowRight
+  ArrowRight,
+  Sprout,
+  Gem,
+  Bike,
+  Truck,
+  ShoppingBag
 } from 'lucide-react';
 
 const BankLoans = () => {
+  const loans = [
+    {
+      title: "Home Loan",
+      icon: <Home className="w-5 h-5" />,
+      desc: "For building or buying a castle for your family to live in!",
+      color: "bg-orange-100 text-orange-600"
+    },
+    {
+      title: "Car Loan",
+      icon: <Car className="w-5 h-5" />,
+      desc: "For getting that new set of wheels to zoom around town.",
+      color: "bg-blue-100 text-blue-600"
+    },
+    {
+      title: "Education Loan",
+      icon: <GraduationCap className="w-5 h-5" />,
+      desc: "To pay for big schools or college to feed your super-brain!",
+      color: "bg-emerald-100 text-emerald-600"
+    },
+    {
+      title: "Personal Loan",
+      icon: <ShoppingBag className="w-5 h-5" />,
+      desc: "For anything you might need, like a big family celebration or fixed repairs!",
+      color: "bg-purple-100 text-purple-600"
+    },
+    {
+      title: "Agri Loan",
+      icon: <Sprout className="w-5 h-5" />,
+      desc: "Special help for farmers to buy seeds, tools, and big tractors.",
+      color: "bg-green-100 text-green-600"
+    },
+    {
+      title: "Gold Loan",
+      icon: <Gem className="w-5 h-5" />,
+      desc: "Using your gold jewelry as a promise to borrow money quickly.",
+      color: "bg-amber-100 text-amber-600"
+    },
+    {
+      title: "Two Wheeler Loan",
+      icon: <Bike className="w-5 h-5" />,
+      desc: "Specifically for buying a cool bike or a fast scooter.",
+      color: "bg-sky-100 text-sky-600"
+    },
+    {
+      title: "Motor Loan",
+      icon: <Truck className="w-5 h-5" />,
+      desc: "For buying big vehicles like trucks and buses that carry lots of things.",
+      color: "bg-indigo-100 text-indigo-600"
+    }
+  ];
+
   return (
     <div className="space-y-12 animate-in slide-in-from-bottom-4 duration-500 pb-12">
       {/* Introduction */}
@@ -39,7 +95,7 @@ const BankLoans = () => {
         </h3>
         <div className="grid md:grid-cols-3 gap-6 text-center">
           <div className="space-y-3">
-            <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto shadow-sm text-blue-600">1</div>
+            <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto shadow-sm text-blue-600 font-bold">1</div>
             <h4 className="font-bold">Borrow</h4>
             <p className="text-xs text-slate-500">The bank gives you the money you need now.</p>
           </div>
@@ -47,7 +103,7 @@ const BankLoans = () => {
             <ArrowRight className="text-slate-300 hidden md:block" />
           </div>
           <div className="space-y-3">
-            <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto shadow-sm text-blue-600">2</div>
+            <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mx-auto shadow-sm text-blue-600 font-bold">2</div>
             <h4 className="font-bold">Pay Back</h4>
             <p className="text-xs text-slate-500">You pay the bank back a little bit every month.</p>
           </div>
@@ -59,45 +115,28 @@ const BankLoans = () => {
         </div>
       </section>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <Card className="border-none shadow-md hover:shadow-lg transition-shadow">
-          <CardHeader>
-            <div className="w-10 h-10 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center mb-2">
-              <Home className="w-5 h-5" />
-            </div>
-            <CardTitle className="text-lg">Home Loan</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-xs text-slate-500">For building or buying a castle for your family to live in!</p>
-          </CardContent>
-        </Card>
-
-        <Card className="border-none shadow-md hover:shadow-lg transition-shadow">
-          <CardHeader>
-            <div className="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center mb-2">
-              <Car className="w-5 h-5" />
-            </div>
-            <CardTitle className="text-lg">Car Loan</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-xs text-slate-500">For getting that new set of wheels to zoom around town.</p>
-          </CardContent>
-        </Card>
-
-        <Card className="border-none shadow-md hover:shadow-lg transition-shadow">
-          <CardHeader>
-            <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center mb-2">
-              <GraduationCap className="w-5 h-5" />
-            </div>
-            <CardTitle className="text-lg">Education Loan</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-xs text-slate-500">To pay for big schools or college to feed your super-brain!</p>
-          </CardContent>
-        </Card>
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {loans.map((loan, i) => (
+          <Card key={i} className="border-none shadow-md hover:shadow-lg transition-shadow">
+            <CardHeader>
+              <div className={cn("w-10 h-10 rounded-xl flex items-center justify-center mb-2", loan.color)}>
+                {loan.icon}
+              </div>
+              <CardTitle className="text-lg">{loan.title}</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-xs text-slate-500">{loan.desc}</p>
+            </CardContent>
+          </Card>
+        ))}
       </div>
     </div>
   );
 };
+
+// Helper for class merging
+function cn(...classes: any[]) {
+  return classes.filter(Boolean).join(' ');
+}
 
 export default BankLoans;
