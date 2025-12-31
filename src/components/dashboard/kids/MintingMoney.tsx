@@ -34,35 +34,35 @@ const MintingMoney = () => {
       deposit: initialDeposit, 
       reserve: initialDeposit * reserveRatio, 
       loan: initialDeposit * (1 - reserveRatio), 
-      description: "Round 1: Initial Deposit (Bank A)" 
+      description: "Round 1 (Bank A): Initial Deposit Received" 
     },
     { 
       date: "5-Apr-2020", 
       deposit: initialDeposit * (1 - reserveRatio), 
       reserve: initialDeposit * (1 - reserveRatio) * reserveRatio, 
       loan: initialDeposit * (1 - reserveRatio) * (1 - reserveRatio), 
-      description: "Round 2: Loan 1 is deposited (Bank B)" 
+      description: "Round 2 (Bank B): Loan 1 is deposited" 
     },
     { 
       date: "10-Apr-2020", 
       deposit: initialDeposit * (1 - reserveRatio) * (1 - reserveRatio), 
       reserve: initialDeposit * (1 - reserveRatio) * (1 - reserveRatio) * reserveRatio, 
       loan: initialDeposit * (1 - reserveRatio) * (1 - reserveRatio) * (1 - reserveRatio), 
-      description: "Round 3: Loan 2 is deposited (Bank C)" 
+      description: "Round 3 (Bank C): Loan 2 is deposited" 
     },
     { 
       date: "15-Apr-2020", 
       deposit: initialDeposit * Math.pow((1 - reserveRatio), 3), 
       reserve: initialDeposit * Math.pow((1 - reserveRatio), 3) * reserveRatio, 
       loan: initialDeposit * Math.pow((1 - reserveRatio), 4), 
-      description: "Round 4: Loan 3 is deposited (Bank D)" 
+      description: "Round 4 (Bank D): Loan 3 is deposited" 
     },
     { 
       date: "20-Apr-2020", 
       deposit: initialDeposit * Math.pow((1 - reserveRatio), 4), 
       reserve: initialDeposit * Math.pow((1 - reserveRatio), 4) * reserveRatio, 
       loan: initialDeposit * Math.pow((1 - reserveRatio), 5), 
-      description: "Round 5: Loan 4 is deposited (Bank E)" 
+      description: "Round 5 (Bank E): Loan 4 is deposited" 
     },
   ];
 
@@ -124,11 +124,11 @@ const MintingMoney = () => {
               </p>
               <div className="text-center py-3">
                 <span className="text-xl font-extrabold text-blue-600">
-                  1 / Reserve Ratio = 1 / 0.10 = 10
+                  Money Multiplier = 1 / Reserve Ratio = 1 / 0.10 = 10
                 </span>
               </div>
               <p className="text-xs text-slate-500 italic">
-                This means your initial {formatCurrency(initialDeposit)} can theoretically support {formatCurrency(totalCirculation)} in the economy.
+                Total Potential Money Created = Initial Deposit ({formatCurrency(initialDeposit)}) x Multiplier (10) = {formatCurrency(totalCirculation)}
               </p>
             </div>
           </div>
@@ -162,13 +162,13 @@ const MintingMoney = () => {
                 </TableRow>
               ))}
               <TableRow className="bg-slate-100">
-                <TableCell colSpan={2} className="font-bold text-slate-900">Cumulative Total (5 Rounds)</TableCell>
-                <TableCell className="text-right font-bold">{formatCurrency(cumulativeDeposit)}</TableCell>
+                <TableCell colSpan={2} className="font-bold text-slate-900">Cumulative Money Created (Total Deposits)</TableCell>
+                <TableCell className="text-right font-bold text-blue-700">{formatCurrency(cumulativeDeposit)}</TableCell>
                 <TableCell className="text-right font-bold text-emerald-700">{formatCurrency(cumulativeLoan)}</TableCell>
                 <TableCell className="text-right font-bold text-red-700">{formatCurrency(cumulativeReserve)}</TableCell>
               </TableRow>
               <TableRow className="bg-slate-50">
-                <TableCell colSpan={2} className="font-bold text-slate-900">Total Potential Money Created</TableCell>
+                <TableCell colSpan={2} className="font-bold text-slate-900">Theoretical Maximum</TableCell>
                 <TableCell colSpan={3} className="text-right font-extrabold text-xl text-blue-600">
                   {formatCurrency(totalCirculation)}
                 </TableCell>
