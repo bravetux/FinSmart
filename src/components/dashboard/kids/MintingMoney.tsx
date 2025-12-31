@@ -9,42 +9,66 @@ import {
   Zap, 
   Coins, 
   Building2,
-  ShieldCheck
+  ShieldCheck,
+  Calculator
 } from 'lucide-react';
 import { useCurrency } from "@/context/CurrencyContext";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 
 const MintingMoney = () => {
   const { currency } = useCurrency();
   const initialDeposit = 10000;
   const reserveRatio = 0.10; // 10%
 
-  // Corrected calculations for the money multiplier effect over three cycles
-  const steps = [
+  // Data for the table (3 cycles)
+  const circulationData = [
     { 
+      date: "2-Apr-2020", 
       deposit: initialDeposit, 
       reserve: initialDeposit * reserveRatio, 
       loan: initialDeposit * (1 - reserveRatio), 
       round: 1, 
-      cycle: "Cycle 1: Initial Deposit (Day 1)" 
+      description: "You deposit money (Bank A)" 
     },
     { 
+      date: "5-Apr-2020", 
       deposit: initialDeposit * (1 - reserveRatio), 
       reserve: initialDeposit * (1 - reserveRatio) * reserveRatio, 
       loan: initialDeposit * (1 - reserveRatio) * (1 - reserveRatio), 
       round: 2, 
-      cycle: "Cycle 2: First Loan Deposited (Day 5)" 
+      description: "Loan 1 is spent and deposited (Bank B)" 
     },
     { 
+      date: "10-Apr-2020", 
       deposit: initialDeposit * (1 - reserveRatio) * (1 - reserveRatio), 
       reserve: initialDeposit * (1 - reserveRatio) * (1 - reserveRatio) * reserveRatio, 
       loan: initialDeposit * (1 - reserveRatio) * (1 - reserveRatio) * (1 - reserveRatio), 
       round: 3, 
-      cycle: "Cycle 3: Second Loan Deposited (Day 10)" 
+      description: "Loan 2 is spent and deposited (Bank C)" 
     },
   ];
 
   const formatCurrency = (amount: number) => `${currency.symbol}${Math.round(amount).toLocaleString()}`;
   const totalCirculation = initialDeposit / reserveRatio;
+
+  // Profit Calculation for 16 months (1.33 years)
+  // Assumptions: Loan Interest Rate (LIR) = 10%, Deposit Interest Rate (DIR) = 4%
+  // We calculate profit based on the initial deposit and the first loan (Round 1)
+  const timeInYears = 16 / 12;
+  const loanAmount = circulationData[0].loan; // 9000
+  const depositAmount = circulationData[0].deposit; // 10000
+
+  const interestEarned = loanAmount * 0.10 * timeInYears; // 9000 * 0.10 * 1.333 = 1200
+  const interestPaid = depositAmount * 0.04 * timeInYears; // 10000 * 0.04 * 1.333 = 533.33
+
+  const netProfit = interestEarned - interestPaid; // 666.67
 
   return (
     <div className="space-y-12 animate-in slide-in-from-bottom-4 duration-500 pb-12">
@@ -70,12 +94,12 @@ const MintingMoney = () => {
       {/* Core Concept */}
       <section className="space-y-6">
         <h3 className="text-2xl font-bold flex items-center gap-3">
-          <Repeat className="text-blue-500" /> The Fractional Reserve Rule
+          <Repeat className="text-blue-500" /> The Fractional Reserve Rule (10% Reserve)
         </h3>
         <Card className="border-2 border-blue-100 bg-blue-50/50 p-8 rounded-[2.5rem]">
           <div className="space-y-4">
             <p className="text-blue-800 leading-relaxed">
-              When you deposit money, the bank doesn't keep all of it. They only keep a small part (called the <strong>Reserve</strong>, usually around 10%) safe, and loan out the rest.
+              When you deposit money, the bank only keeps a small part (the <strong>Reserve</strong>, 10%) safe, and loans out the rest. This loaned money is then deposited in another bank, starting the cycle again!
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 p-4 bg-white rounded-xl border border-blue-200">
               <div className="text-center">
@@ -97,43 +121,73 @@ const MintingMoney = () => {
         </Card>
       </section>
 
-      {/* Circulation Example */}
+      {/* Circulation Table */}
       <section className="space-y-6">
         <h3 className="text-2xl font-bold flex items-center gap-3">
-          <Coins className="text-emerald-500" /> Circulation Example: Starting with {formatCurrency(initialDeposit)}
+          <Coins className="text-emerald-500" /> Circulation Example: The First 3 Rounds
         </h3>
-        <div className="space-y-4">
-          {steps.map((step, i) => (
-            <Card key={i} className="border-slate-200 shadow-sm">
-              <CardContent className="p-4 flex items-center justify-between">
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center font-bold text-sm text-slate-600">
-                    {step.round}
-                  </div>
-                  <div>
-                    <p className="font-bold text-slate-900">{step.cycle}</p>
-                    <p className="text-xs text-slate-500">New Deposit: {formatCurrency(step.deposit)}</p>
-                  </div>
-                </div>
-                <div className="text-right">
-                  <p className="text-sm font-medium text-emerald-600">New Loan Created</p>
-                  <p className="text-xl font-bold">{formatCurrency(step.loan)}</p>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-        <div className="p-6 bg-slate-900 text-white rounded-2xl text-center space-y-2">
-          <p className="text-lg font-bold">The Final Magic</p>
-          <p className="text-slate-300">
-            The original {formatCurrency(initialDeposit)} can eventually create up to 
-            <span className="text-amber-400 font-extrabold text-2xl mx-2">{formatCurrency(totalCirculation)}</span> 
-            in total money circulating in the economy!
-          </p>
-        </div>
+        <Card>
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead className="w-[100px]">Date</TableHead>
+                <TableHead>Description</TableHead>
+                <TableHead className="text-right">New Deposit</TableHead>
+                <TableHead className="text-right">Loaned Out (90%)</TableHead>
+                <TableHead className="text-right">Reserve (10%)</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {circulationData.map((step, i) => (
+                <TableRow key={i}>
+                  <TableCell className="font-medium">{step.date}</TableCell>
+                  <TableCell>{step.description}</TableCell>
+                  <TableCell className="text-right font-medium">{formatCurrency(step.deposit)}</TableCell>
+                  <TableCell className="text-right text-emerald-600 font-bold">{formatCurrency(step.loan)}</TableCell>
+                  <TableCell className="text-right text-red-600">{formatCurrency(step.reserve)}</TableCell>
+                </TableRow>
+              ))}
+              <TableRow className="bg-slate-50">
+                <TableCell colSpan={2} className="font-bold text-slate-900">Total Potential Money Created</TableCell>
+                <TableCell colSpan={3} className="text-right font-extrabold text-xl text-blue-600">
+                  {formatCurrency(totalCirculation)}
+                </TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
+        </Card>
       </section>
 
-      {/* Why this is good */}
+      {/* Profit Calculation Section */}
+      <section className="space-y-6">
+        <h3 className="text-2xl font-bold flex items-center gap-3">
+          <Calculator className="text-purple-500" /> Bank Profit Calculation
+        </h3>
+        <Card className="bg-purple-50 border-purple-100 p-8 rounded-[2.5rem]">
+          <CardTitle className="text-xl text-purple-800 mb-4">
+            Profit from Initial Deposit ({circulationData[0].date} to 2-Aug-2021)
+          </CardTitle>
+          <div className="grid md:grid-cols-3 gap-6 text-center">
+            <div className="p-4 bg-white rounded-xl shadow-sm">
+              <p className="text-xs text-slate-500 uppercase font-semibold">Interest Earned (10% LIR)</p>
+              <p className="text-2xl font-bold text-emerald-600">{formatCurrency(interestEarned)}</p>
+            </div>
+            <div className="p-4 bg-white rounded-xl shadow-sm">
+              <p className="text-xs text-slate-500 uppercase font-semibold">Interest Paid (4% DIR)</p>
+              <p className="text-2xl font-bold text-red-600">{formatCurrency(interestPaid)}</p>
+            </div>
+            <div className="p-4 bg-white rounded-xl shadow-sm border-2 border-purple-300">
+              <p className="text-xs text-slate-500 uppercase font-semibold">Net Profit (16 Months)</p>
+              <p className="text-2xl font-bold text-purple-900">{formatCurrency(netProfit)}</p>
+            </div>
+          </div>
+          <p className="text-xs text-purple-700 mt-6 italic text-center">
+            *This is a simplified calculation based on the initial deposit and the first loan created from it over 16 months.
+          </p>
+        </Card>
+      </section>
+
+      {/* Why this is good (Existing Section) */}
       <section className="space-y-6">
         <h3 className="text-2xl font-bold flex items-center gap-3">
           <Building2 className="text-purple-500" /> Why Banks Do This
