@@ -18,10 +18,29 @@ const MintingMoney = () => {
   const initialDeposit = 10000;
   const reserveRatio = 0.10; // 10%
 
+  // Corrected calculations for the money multiplier effect over three cycles
   const steps = [
-    { deposit: initialDeposit, reserve: initialDeposit * reserveRatio, loan: initialDeposit * (1 - reserveRatio), round: 1 },
-    { deposit: initialDeposit * (1 - reserveRatio), reserve: initialDeposit * (1 - reserveRatio) * reserveRatio, loan: initialDeposit * (1 - reserveRatio) * (1 - reserveRatio), round: 2 },
-    { deposit: initialDeposit * (1 - reserveRatio) * (1 - reserveRatio), reserve: initialDeposit * (1 - reserveRatio) * (1 - reserveRatio) * reserveRatio, loan: initialDeposit * (1 - (1 - reserveRatio) * (1 - reserveRatio) * reserveRatio), round: 3 },
+    { 
+      deposit: initialDeposit, 
+      reserve: initialDeposit * reserveRatio, 
+      loan: initialDeposit * (1 - reserveRatio), 
+      round: 1, 
+      cycle: "Cycle 1: Initial Deposit (Day 1)" 
+    },
+    { 
+      deposit: initialDeposit * (1 - reserveRatio), 
+      reserve: initialDeposit * (1 - reserveRatio) * reserveRatio, 
+      loan: initialDeposit * (1 - reserveRatio) * (1 - reserveRatio), 
+      round: 2, 
+      cycle: "Cycle 2: First Loan Deposited (Day 5)" 
+    },
+    { 
+      deposit: initialDeposit * (1 - reserveRatio) * (1 - reserveRatio), 
+      reserve: initialDeposit * (1 - reserveRatio) * (1 - reserveRatio) * reserveRatio, 
+      loan: initialDeposit * (1 - reserveRatio) * (1 - reserveRatio) * (1 - reserveRatio), 
+      round: 3, 
+      cycle: "Cycle 3: Second Loan Deposited (Day 10)" 
+    },
   ];
 
   const formatCurrency = (amount: number) => `${currency.symbol}${Math.round(amount).toLocaleString()}`;
@@ -92,12 +111,12 @@ const MintingMoney = () => {
                     {step.round}
                   </div>
                   <div>
-                    <p className="font-bold text-slate-900">Round {step.round}</p>
+                    <p className="font-bold text-slate-900">{step.cycle}</p>
                     <p className="text-xs text-slate-500">New Deposit: {formatCurrency(step.deposit)}</p>
                   </div>
                 </div>
                 <div className="text-right">
-                  <p className="text-sm font-medium text-emerald-600">Loaned Out</p>
+                  <p className="text-sm font-medium text-emerald-600">New Loan Created</p>
                   <p className="text-xl font-bold">{formatCurrency(step.loan)}</p>
                 </div>
               </CardContent>
