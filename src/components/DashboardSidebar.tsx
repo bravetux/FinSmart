@@ -248,6 +248,7 @@ const DashboardSidebar = ({
                     </CollapsibleTrigger>
                     <CollapsibleContent className="space-y-1">
                       <SidebarItem label="How it Works" active={currentSection === 'kids-bank'} onClick={() => onSectionChange('kids-bank')} className="pl-14 text-xs" isCollapsed={isCollapsed} />
+                      <SidebarItem label="Minting Money" active={currentSection === 'kids-minting-money'} onClick={() => onSectionChange('kids-minting-money')} className="pl-14 text-xs" isCollapsed={isCollapsed} />
                       <Collapsible defaultOpen={currentSection.includes('kids-bank-accounts') || currentSection === 'kids-bank-operating' || currentSection === 'kids-bank-transfers'}>
                         <CollapsibleTrigger className="w-full">
                           <div className={cn(
@@ -432,7 +433,7 @@ const DashboardSidebar = ({
                   <SidebarItem label="AIF" active={currentSection === 'aif'} onClick={() => onSectionChange('aif')} isSubItem isCollapsed={isCollapsed} />
                   <SidebarItem label="SIF" active={currentSection === 'sif'} isSubItem isCollapsed={isCollapsed} />
                   <SidebarItem icon={<Bitcoin className="w-4 h-4" />} label="Bitcoin" active={currentSection === 'bitcoin'} onClick={() => onSectionChange('bitcoin')} isSubItem isCollapsed={isCollapsed} />
-                  <SidebarItem icon={<Globe className="w-4 h-4" />} label="Overseas" active={currentSection === 'overseas'} onClick={() => onSectionChange('overseas')} isSubItem isCollapsed={isCollapsed} />
+                  <SidebarItem icon={<Globe className="w-4 h-4" />} label="Overseas" active={currentSection === 'overseas'} isSubItem isCollapsed={isCollapsed} />
                 </CollapsibleContent>
               </Collapsible>
             ) : (

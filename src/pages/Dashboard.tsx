@@ -25,6 +25,7 @@ import CommunityPot from '@/components/dashboard/kids/CommunityPot';
 import AdvancedGiving from '@/components/dashboard/kids/AdvancedGiving';
 import CreditReputation from '@/components/dashboard/kids/CreditReputation';
 import GlobalMoney from '@/components/dashboard/kids/GlobalMoney';
+import MintingMoney from '@/components/dashboard/kids/MintingMoney';
 
 // Mutual Fund Components
 import TypesOfEquityFunds from '@/components/dashboard/mf/TypesOfEquityFunds';
@@ -80,6 +81,7 @@ const Dashboard = () => {
       case 'kids-giving': return <AdvancedGiving />;
       case 'kids-credit': return <CreditReputation />;
       case 'kids-global': return <GlobalMoney />;
+      case 'kids-minting-money': return <MintingMoney />;
 
       // Mutual Funds
       case 'mf-equity-types': return <TypesOfEquityFunds />;
@@ -149,6 +151,7 @@ const Dashboard = () => {
       'kids-giving': 'Advanced Giving',
       'kids-credit': 'Credit Reputation',
       'kids-global': 'Global Money',
+      'kids-minting-money': 'Minting Money (Money Multiplier)',
       'mf-equity-types': 'Equity Funds',
       'mf-debt-types': 'Debt Funds',
       'mf-hybrid-types': 'Hybrid Funds',
