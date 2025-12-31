@@ -22,7 +22,9 @@ import {
   Zap,
   ArrowRightLeft,
   PieChart,
-  ShieldAlert
+  ShieldAlert,
+  Calculator,
+  Scale
 } from 'lucide-react';
 import { cn } from "@/lib/utils";
 import { 
@@ -308,7 +310,7 @@ const DashboardSidebar = ({
                       <SidebarItem label="Structure Based" active={currentSection === 'mf-structure-types'} onClick={() => onSectionChange('mf-structure-types')} className="pl-14 text-xs" isCollapsed={isCollapsed} />
                     </CollapsibleContent>
                   </Collapsible>
-                  <Collapsible defaultOpen={!currentSection.includes('-types') && currentSection.startsWith('mf-') && currentSection !== 'mf-taxation'} className="space-y-1">
+                  <Collapsible defaultOpen={!currentSection.includes('-types') && currentSection.startsWith('mf-') && currentSection !== 'mf-taxation' && currentSection !== 'mf-metrics' && currentSection !== 'mf-passive'} className="space-y-1">
                     <CollapsibleTrigger className="w-full">
                        <div className="flex items-center justify-between pl-11 pr-4 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900">
                          <span>Options</span>
@@ -323,7 +325,19 @@ const DashboardSidebar = ({
                       <SidebarItem label="STP" active={currentSection === 'mf-stp'} onClick={() => onSectionChange('mf-stp')} className="pl-14 text-xs" isCollapsed={isCollapsed} />
                     </CollapsibleContent>
                   </Collapsible>
-                  <SidebarItem label="Taxation" active={currentSection === 'mf-taxation'} onClick={() => onSectionChange('mf-taxation')} className="pl-11" isCollapsed={isCollapsed} />
+                  <Collapsible defaultOpen={currentSection === 'mf-taxation' || currentSection === 'mf-metrics' || currentSection === 'mf-passive'} className="space-y-1">
+                    <CollapsibleTrigger className="w-full">
+                       <div className="flex items-center justify-between pl-11 pr-4 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900">
+                         <span>Analysis & Passive</span>
+                         <ChevronDown className="w-3 h-3" />
+                       </div>
+                    </CollapsibleTrigger>
+                    <CollapsibleContent className="space-y-1">
+                      <SidebarItem label="Fund Metrics" active={currentSection === 'mf-metrics'} onClick={() => onSectionChange('mf-metrics')} className="pl-14 text-xs" isCollapsed={isCollapsed} />
+                      <SidebarItem label="Passive Investing" active={currentSection === 'mf-passive'} onClick={() => onSectionChange('mf-passive')} className="pl-14 text-xs" isCollapsed={isCollapsed} />
+                      <SidebarItem label="Taxation" active={currentSection === 'mf-taxation'} onClick={() => onSectionChange('mf-taxation')} className="pl-14 text-xs" isCollapsed={isCollapsed} />
+                    </CollapsibleContent>
+                  </Collapsible>
                 </CollapsibleContent>
               </Collapsible>
             ) : (

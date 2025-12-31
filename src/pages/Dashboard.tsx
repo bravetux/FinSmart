@@ -40,6 +40,8 @@ import GoalBasedFunds from '@/components/dashboard/mf/GoalBasedFunds';
 import RiskBasedFunds from '@/components/dashboard/mf/RiskBasedFunds';
 import StructureBasedFunds from '@/components/dashboard/mf/StructureBasedFunds';
 import Taxation from '@/components/dashboard/mf/Taxation';
+import FundMetrics from '@/components/dashboard/mf/FundMetrics';
+import PassiveInvesting from '@/components/dashboard/mf/PassiveInvesting';
 
 // Gold Components
 import GoldOverview from '@/components/dashboard/gold/GoldOverview';
@@ -96,6 +98,8 @@ const Dashboard = () => {
       case 'mf-swp': return <SWP />;
       case 'mf-stp': return <STP />;
       case 'mf-taxation': return <Taxation />;
+      case 'mf-metrics': return <FundMetrics />;
+      case 'mf-passive': return <PassiveInvesting />;
       
       // Gold
       case 'gold-overview': return <GoldOverview />;
@@ -164,6 +168,8 @@ const Dashboard = () => {
       'mf-swp': 'SWP (Systematic Withdrawal Plan)',
       'mf-stp': 'STP (Systematic Transfer Plan)',
       'mf-taxation': 'Taxation of Mutual Funds',
+      'mf-metrics': 'Fund Metrics & Selection',
+      'mf-passive': 'Passive Investing (Index/ETF)',
       'gold-overview': 'Gold Investment Overview',
       'gold-physical': 'Physical Gold',
       'gold-etf': 'Gold ETFs & Funds',
