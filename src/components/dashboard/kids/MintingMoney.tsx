@@ -27,48 +27,64 @@ const MintingMoney = () => {
   const initialDeposit = 10000;
   const reserveRatio = 0.10; // 10%
 
-  // Data for the table (3 cycles)
+  // Data for the table (5 cycles)
   const circulationData = [
     { 
       date: "2-Apr-2020", 
       deposit: initialDeposit, 
       reserve: initialDeposit * reserveRatio, 
       loan: initialDeposit * (1 - reserveRatio), 
-      round: 1, 
-      description: "You deposit money (Bank A)" 
+      description: "Round 1: Initial Deposit (Bank A)" 
     },
     { 
       date: "5-Apr-2020", 
       deposit: initialDeposit * (1 - reserveRatio), 
       reserve: initialDeposit * (1 - reserveRatio) * reserveRatio, 
       loan: initialDeposit * (1 - reserveRatio) * (1 - reserveRatio), 
-      round: 2, 
-      description: "Loan 1 is spent and deposited (Bank B)" 
+      description: "Round 2: Loan 1 is deposited (Bank B)" 
     },
     { 
       date: "10-Apr-2020", 
       deposit: initialDeposit * (1 - reserveRatio) * (1 - reserveRatio), 
       reserve: initialDeposit * (1 - reserveRatio) * (1 - reserveRatio) * reserveRatio, 
       loan: initialDeposit * (1 - reserveRatio) * (1 - reserveRatio) * (1 - reserveRatio), 
-      round: 3, 
-      description: "Loan 2 is spent and deposited (Bank C)" 
+      description: "Round 3: Loan 2 is deposited (Bank C)" 
+    },
+    { 
+      date: "15-Apr-2020", 
+      deposit: initialDeposit * Math.pow((1 - reserveRatio), 3), 
+      reserve: initialDeposit * Math.pow((1 - reserveRatio), 3) * reserveRatio, 
+      loan: initialDeposit * Math.pow((1 - reserveRatio), 4), 
+      description: "Round 4: Loan 3 is deposited (Bank D)" 
+    },
+    { 
+      date: "20-Apr-2020", 
+      deposit: initialDeposit * Math.pow((1 - reserveRatio), 4), 
+      reserve: initialDeposit * Math.pow((1 - reserveRatio), 4) * reserveRatio, 
+      loan: initialDeposit * Math.pow((1 - reserveRatio), 5), 
+      description: "Round 5: Loan 4 is deposited (Bank E)" 
     },
   ];
 
   const formatCurrency = (amount: number) => `${currency.symbol}${Math.round(amount).toLocaleString()}`;
   const totalCirculation = initialDeposit / reserveRatio;
 
+  // Calculate cumulative totals for the first 5 rounds
+  const cumulativeDeposit = circulationData.reduce((sum, step) => sum + step.deposit, 0);
+  const cumulativeLoan = circulationData.reduce((sum, step) => sum + step.loan, 0);
+  const cumulativeReserve = circulationData.reduce((sum, step) => sum + step.reserve, 0);
+
+
   // Profit Calculation for 16 months (1.33 years)
   // Assumptions: Loan Interest Rate (LIR) = 10%, Deposit Interest Rate (DIR) = 4%
-  // We calculate profit based on the initial deposit and the first loan (Round 1)
   const timeInYears = 16 / 12;
   const loanAmount = circulationData[0].loan; // 9000
   const depositAmount = circulationData[0].deposit; // 10000
 
-  const interestEarned = loanAmount * 0.10 * timeInYears; // 9000 * 0.10 * 1.333 = 1200
-  const interestPaid = depositAmount * 0.04 * timeInYears; // 10000 * 0.04 * 1.333 = 533.33
+  const interestEarned = loanAmount * 0.10 * timeInYears; 
+  const interestPaid = depositAmount * 0.04 * timeInYears; 
 
-  const netProfit = interestEarned - interestPaid; // 666.67
+  const netProfit = interestEarned - interestPaid; 
 
   return (
     <div className="space-y-12 animate-in slide-in-from-bottom-4 duration-500 pb-12">
@@ -91,7 +107,7 @@ const MintingMoney = () => {
         </div>
       </div>
 
-      {/* Core Concept */}
+      {/* Core Concept & Formula */}
       <section className="space-y-6">
         <h3 className="text-2xl font-bold flex items-center gap-3">
           <Repeat className="text-blue-500" /> The Fractional Reserve Rule (10% Reserve)
@@ -101,21 +117,19 @@ const MintingMoney = () => {
             <p className="text-blue-800 leading-relaxed">
               When you deposit money, the bank only keeps a small part (the <strong>Reserve</strong>, 10%) safe, and loans out the rest. This loaned money is then deposited in another bank, starting the cycle again!
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 p-4 bg-white rounded-xl border border-blue-200">
-              <div className="text-center">
-                <p className="text-3xl font-bold text-slate-900">{formatCurrency(initialDeposit)}</p>
-                <p className="text-xs text-slate-500">Initial Deposit</p>
+            <div className="p-4 bg-white rounded-xl border border-blue-200">
+              <h4 className="font-bold text-slate-900 mb-2">The Money Multiplier Formula</h4>
+              <p className="text-sm text-slate-600">
+                The maximum amount of money that can be created is calculated by:
+              </p>
+              <div className="text-center py-3">
+                <span className="text-xl font-extrabold text-blue-600">
+                  1 / Reserve Ratio = 1 / 0.10 = 10
+                </span>
               </div>
-              <ArrowRight className="w-6 h-6 text-slate-400" />
-              <div className="text-center">
-                <p className="text-3xl font-bold text-emerald-600">90%</p>
-                <p className="text-xs text-slate-500">Loaned Out</p>
-              </div>
-              <ArrowRight className="w-6 h-6 text-slate-400" />
-              <div className="text-center">
-                <p className="text-3xl font-bold text-red-600">10%</p>
-                <p className="text-xs text-slate-500">Kept in Reserve</p>
-              </div>
+              <p className="text-xs text-slate-500 italic">
+                This means your initial {formatCurrency(initialDeposit)} can theoretically support {formatCurrency(totalCirculation)} in the economy.
+              </p>
             </div>
           </div>
         </Card>
@@ -124,7 +138,7 @@ const MintingMoney = () => {
       {/* Circulation Table */}
       <section className="space-y-6">
         <h3 className="text-2xl font-bold flex items-center gap-3">
-          <Coins className="text-emerald-500" /> Circulation Example: The First 3 Rounds
+          <Coins className="text-emerald-500" /> Circulation Example: The First 5 Rounds
         </h3>
         <Card>
           <Table>
@@ -147,6 +161,12 @@ const MintingMoney = () => {
                   <TableCell className="text-right text-red-600">{formatCurrency(step.reserve)}</TableCell>
                 </TableRow>
               ))}
+              <TableRow className="bg-slate-100">
+                <TableCell colSpan={2} className="font-bold text-slate-900">Cumulative Total (5 Rounds)</TableCell>
+                <TableCell className="text-right font-bold">{formatCurrency(cumulativeDeposit)}</TableCell>
+                <TableCell className="text-right font-bold text-emerald-700">{formatCurrency(cumulativeLoan)}</TableCell>
+                <TableCell className="text-right font-bold text-red-700">{formatCurrency(cumulativeReserve)}</TableCell>
+              </TableRow>
               <TableRow className="bg-slate-50">
                 <TableCell colSpan={2} className="font-bold text-slate-900">Total Potential Money Created</TableCell>
                 <TableCell colSpan={3} className="text-right font-extrabold text-xl text-blue-600">
