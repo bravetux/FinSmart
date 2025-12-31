@@ -1,4 +1,3 @@
-' character.">
 "use client";
 
 import React from 'react';
