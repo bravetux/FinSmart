@@ -120,7 +120,7 @@ const Dashboard = () => {
       'kids-overview': 'Kids Wealth Adventure',
       'kids-money': 'The Magic of Money',
       'kids-piggy-bank': 'Piggy Bank Power',
-      'kids-budgeting': 'Smart Spending',
+      'kids-budgeting': 'The Budgeting Adventure',
       'kids-bank': 'How Banks Work',
       'kids-bank-accounts': 'The Account Store',
       'kids-bank-operating': 'Operating Your Account',
