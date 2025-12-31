@@ -14,7 +14,8 @@ import {
   Info,
   PenTool,
   Building2,
-  Banknote
+  Landmark,
+  FileText
 } from 'lucide-react';
 import {
   Dialog,
@@ -97,6 +98,34 @@ const TransferSection = () => {
       dos: ["Write the name and amount clearly.", "Draw two lines on the top corner for safety ('Account Payee')."],
       donts: ["Don't leave empty spaces after the name or numbers.", "Don't sign a blank cheque."],
       safety: "A cheque is a legal document. Always keep your cheque book locked away!"
+    },
+    {
+      id: 'bankers_cheque',
+      title: "Banker's Cheque",
+      label: "The Bank's Guarantee",
+      icon: <Landmark className="w-8 h-8" />,
+      color: "rose",
+      details: "A special cheque issued by the bank itself. Since the bank makes it, it can never 'bounce'!",
+      needs: ["Bank Visit", "Sufficient Balance", "Processing Fee"],
+      when: "Local payments for high-value items where the seller wants a 100% guarantee.",
+      limits: "No specific limit, as long as you have the money in your account.",
+      dos: ["Double check the 'Payable to' name.", "Keep the counter-foil (receipt) for your records."],
+      donts: ["Don't lose it! Getting a refund for a lost banker's cheque is a long process."],
+      safety: "It's like cash but safer, because it's only payable to a specific person or office."
+    },
+    {
+      id: 'demand_draft',
+      title: "Demand Draft (DD)",
+      label: "The Super Cheque",
+      icon: <FileText className="w-8 h-8" />,
+      color: "amber",
+      details: "Similar to a banker's cheque, but it can be used to send money to a person in a different city.",
+      needs: ["Application Form", "Receiver's City Name", "Fee or Account Debit"],
+      when: "Paying college fees or official bills to a person or office in another city.",
+      limits: "No upper limit. You can send as much as you have.",
+      dos: ["Write the receiver's name exactly as it appears in their bank records.", "Check the city of payment carefully."],
+      donts: ["Don't make any scratches or overwriting on the draft."],
+      safety: "Demand drafts are very secure because they are prepaid and cannot be cancelled easily by the sender."
     }
   ];
 
@@ -131,7 +160,9 @@ const TransferSection = () => {
               method.color === 'purple' && "bg-purple-500",
               method.color === 'emerald' && "bg-emerald-500",
               method.color === 'indigo' && "bg-indigo-500",
-              method.color === 'orange' && "bg-orange-500"
+              method.color === 'orange' && "bg-orange-500",
+              method.color === 'rose' && "bg-rose-500",
+              method.color === 'amber' && "bg-amber-500"
             )} />
             <CardHeader className="flex flex-row items-center gap-4">
               <div className={cn(
@@ -140,7 +171,9 @@ const TransferSection = () => {
                 method.color === 'purple' && "bg-purple-50 text-purple-500 group-hover:bg-purple-500 group-hover:text-white",
                 method.color === 'emerald' && "bg-emerald-50 text-emerald-500 group-hover:bg-emerald-500 group-hover:text-white",
                 method.color === 'indigo' && "bg-indigo-50 text-indigo-500 group-hover:bg-indigo-500 group-hover:text-white",
-                method.color === 'orange' && "bg-orange-50 text-orange-500 group-hover:bg-orange-500 group-hover:text-white"
+                method.color === 'orange' && "bg-orange-50 text-orange-500 group-hover:bg-orange-500 group-hover:text-white",
+                method.color === 'rose' && "bg-rose-50 text-rose-500 group-hover:bg-rose-500 group-hover:text-white",
+                method.color === 'amber' && "bg-amber-50 text-amber-500 group-hover:bg-amber-500 group-hover:text-white"
               )}>
                 {method.icon}
               </div>
@@ -152,7 +185,9 @@ const TransferSection = () => {
                   method.color === 'purple' && "text-purple-600",
                   method.color === 'emerald' && "text-emerald-600",
                   method.color === 'indigo' && "text-indigo-600",
-                  method.color === 'orange' && "text-orange-600"
+                  method.color === 'orange' && "text-orange-600",
+                  method.color === 'rose' && "text-rose-600",
+                  method.color === 'amber' && "text-amber-600"
                 )}>{method.label}</p>
               </div>
             </CardHeader>
