@@ -3,8 +3,11 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Gem, ShieldCheck, Zap, TrendingUp, AlertCircle, FileText } from 'lucide-react';
+import { useCurrency } from "@/context/CurrencyContext";
 
 const GoldOverview = () => {
+  const { currency } = useCurrency();
+
   return (
     <div className="space-y-12 animate-in fade-in duration-500 pb-12">
       <div className="bg-amber-600 text-white p-8 rounded-[2.5rem] flex flex-col md:flex-row gap-8 items-center shadow-xl relative overflow-hidden">
@@ -78,7 +81,7 @@ const GoldOverview = () => {
         </CardHeader>
         <CardContent className="grid md:grid-cols-2 gap-8">
           <div className="space-y-2">
-            <h5 className="font-bold text-sm text-slate-700">Physical Gold (&gt; ₹2 Lakhs)</h5>
+            <h5 className="font-bold text-sm text-slate-700">Physical Gold (&gt; {currency.symbol}2 Lakhs)</h5>
             <p className="text-xs text-slate-500">Requires PAN Card for large purchases.</p>
           </div>
           <div className="space-y-2">

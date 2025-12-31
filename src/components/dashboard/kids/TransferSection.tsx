@@ -24,9 +24,11 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { useCurrency } from "@/context/CurrencyContext";
 
 const TransferSection = () => {
   const [selectedTransfer, setSelectedTransfer] = useState<any>(null);
+  const { currency } = useCurrency();
 
   const transferMethods = [
     {
@@ -38,7 +40,7 @@ const TransferSection = () => {
       details: "The fastest way to pay using your phone. Just scan a code and the money moves instantly!",
       needs: ["A Smartphone", "A UPI App (like BHIM or Google Pay)", "Your secret UPI PIN"],
       when: "Small daily things like buying ice cream, toys, or paying back a friend.",
-      limits: "Usually up to ₹1 Lakh per day.",
+      limits: `Usually up to ${currency.symbol}1 Lakh per day.`,
       dos: ["Verify the shop's name on the screen before paying.", "Keep your UPI PIN secret.", "Check your balance after paying."],
       donts: ["Don't share your PIN with anyone.", "Don't scan a code to 'receive' money (you only scan to pay!)."],
       safety: "RBI says: Never enter your PIN if you are expecting to receive money. PIN is only for sending money!"
@@ -52,7 +54,7 @@ const TransferSection = () => {
       details: "A quick way to send money to someone else's bank account instantly, 24/7.",
       needs: ["Mobile/Netbanking", "Receiver's Account Number", "IFSC Code"],
       when: "When you need to send money urgently to someone you know.",
-      limits: "Usually up to ₹5 Lakhs (depends on your bank).",
+      limits: `Usually up to ${currency.symbol}5 Lakhs (depends on your bank).`,
       dos: ["Double-check the account number.", "Wait for the 'Success' message."],
       donts: ["Don't use it if you are not in a hurry (use NEFT instead).", "Don't share your login password."],
       safety: "IMPS is real-time. Once sent, it cannot be stopped!"
@@ -80,7 +82,7 @@ const TransferSection = () => {
       details: "Used for moving VERY large amounts of money. It's meant for the biggest transactions.",
       needs: ["Bank Visit or Netbanking", "IFSC Code", "Receiver's Full Name"],
       when: "Buying a house or a very big car.",
-      limits: "Minimum ₹2 Lakhs (no maximum limit!).",
+      limits: `Minimum ${currency.symbol}2 Lakhs (no maximum limit!).`,
       dos: ["Fill the form very carefully.", "Get a stamped receipt from the bank."],
       donts: ["Don't use this for small amounts of money."],
       safety: "RTGS is 'Gross' settlement, meaning each transfer is handled individually and immediately."

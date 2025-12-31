@@ -24,9 +24,11 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { useCurrency } from "@/context/CurrencyContext";
 
 const OperatingAccount = () => {
   const [selectedPower, setSelectedPower] = useState<any>(null);
+  const { currency } = useCurrency();
 
   const steps = [
     { 

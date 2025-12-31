@@ -17,8 +17,11 @@ import {
   Briefcase
 } from 'lucide-react';
 import { Badge } from "@/components/ui/badge";
+import { useCurrency } from "@/context/CurrencyContext";
 
 const STP = () => {
+  const { currency } = useCurrency();
+
   return (
     <div className="max-w-5xl mx-auto space-y-12 animate-in slide-in-from-bottom-4 duration-500 pb-12">
       {/* Hero Section */}
@@ -126,7 +129,7 @@ const STP = () => {
           </h3>
           <div className="space-y-4">
             {[
-              { label: "Minimum Investment", value: "₹12,000 (typical AMC requirement)", icon: <Briefcase /> },
+              { label: "Minimum Investment", value: `${currency.symbol}12,000 (typical AMC requirement)`, icon: <Briefcase /> },
               { label: "Minimum Transfers", value: "At least 6 transfers required", icon: <History /> },
               { label: "Entry Load", value: "Zero (No charges to join)", icon: <Percent /> },
               { label: "Exit Load", value: "Up to 2% (0% for Liquid to Equity)", icon: <AlertTriangle /> },
@@ -181,7 +184,7 @@ const STP = () => {
           <h4 className="text-lg font-bold text-amber-900">Taxability Check</h4>
           <p className="text-sm text-amber-800 leading-relaxed">
             Every transfer is considered a <strong>Redemption</strong>. 
-            Gains are subject to tax: <span className="font-bold">20%</span> for Short Term (&lt;1 year) or <span className="font-bold">12.5%</span> for Long Term. For debt funds variable based on your income slab.
+            Gains are subject to tax based on holding period and fund type. Check the <span className="font-bold">Taxation</span> section for details.
           </p>
         </div>
       </div>

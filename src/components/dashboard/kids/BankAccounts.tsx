@@ -23,9 +23,11 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { useCurrency } from "@/context/CurrencyContext";
 
 const BankAccounts = () => {
   const [selectedAccount, setSelectedAccount] = useState<any>(null);
+  const { currency } = useCurrency();
 
   const accountsData = [
     {
@@ -42,7 +44,7 @@ const BankAccounts = () => {
       ],
       dos: ["Put your gift money in here.", "Check your balance to see it grow.", "Keep saving for your big goals!"],
       donts: ["Don't take money out for every small candy.", "Don't share your account number with strangers."],
-      regulations: "The RBI (The Big Boss Bank) says your money is 100% safe here up to ₹5 Lakhs, even if the bank has a bad day!"
+      regulations: `The RBI (The Big Boss Bank) says your money is 100% safe here up to ${currency.symbol}5 Lakhs, even if the bank has a bad day!`
     },
     {
       id: 'current',

@@ -10,8 +10,11 @@ import {
   Zap,
   History
 } from 'lucide-react';
+import { useCurrency } from "@/context/CurrencyContext";
 
 const MoneySection = () => {
+  const { currency } = useCurrency();
+
   return (
     <div className="space-y-12 animate-in slide-in-from-bottom-4 duration-500 pb-12">
       {/* Introduction */}
@@ -83,7 +86,7 @@ const MoneySection = () => {
             <CardTitle className="text-lg">Price Tag</CardTitle>
           </CardHeader>
           <CardContent className="text-center text-slate-600 text-sm">
-            It tells you how much something is worth. A candy bar might be $1, and a bike might be $100.
+            It tells you how much something is worth. A candy bar might be {currency.symbol}1, and a bike might be {currency.symbol}100.
           </CardContent>
         </Card>
 

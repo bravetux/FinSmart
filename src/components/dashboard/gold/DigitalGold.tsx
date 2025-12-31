@@ -3,10 +3,14 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { FileText, Percent, ShieldCheck, History, Calendar, CheckCircle2, UserCheck, AlertTriangle } from 'lucide-react';
+import { useCurrency } from "@/context/CurrencyContext";
 
 const DigitalGold = () => {
+  const { currency } = useCurrency();
+
   return (
     <div className="space-y-12 animate-in slide-in-from-bottom-4 duration-500 pb-12">
+      {/* Header */}
       <div className="text-center space-y-4">
         <h2 className="text-4xl font-extrabold tracking-tight">Sovereign Gold Bonds (SGB)</h2>
         <p className="text-slate-500 max-w-2xl mx-auto">
