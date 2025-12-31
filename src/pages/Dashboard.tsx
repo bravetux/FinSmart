@@ -11,6 +11,7 @@ import KidsOverview from '@/components/dashboard/kids/KidsOverview';
 import MoneySection from '@/components/dashboard/kids/MoneySection';
 import BankSection from '@/components/dashboard/kids/BankSection';
 import BankAccounts from '@/components/dashboard/kids/BankAccounts';
+import OperatingAccount from '@/components/dashboard/kids/OperatingAccount';
 import BankLoans from '@/components/dashboard/kids/BankLoans';
 import BankServices from '@/components/dashboard/kids/BankServices';
 
@@ -54,6 +55,7 @@ const Dashboard = () => {
       case 'kids-money': return <MoneySection />;
       case 'kids-bank': return <BankSection />;
       case 'kids-bank-accounts': return <BankAccounts />;
+      case 'kids-bank-operating': return <OperatingAccount />;
       case 'kids-bank-loans': return <BankLoans />;
       case 'kids-bank-services': return <BankServices />;
 
@@ -111,6 +113,7 @@ const Dashboard = () => {
       'kids-money': 'The Magic of Money',
       'kids-bank': 'How Banks Work',
       'kids-bank-accounts': 'The Account Store',
+      'kids-bank-operating': 'Operating Your Account',
       'kids-bank-loans': 'The Loan Counter',
       'kids-bank-services': 'Digital Magic & More',
       'mf-equity-types': 'Equity Funds',

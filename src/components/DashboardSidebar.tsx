@@ -138,7 +138,21 @@ const DashboardSidebar = ({
                 </CollapsibleTrigger>
                 <CollapsibleContent className="space-y-1">
                   <SidebarItem label="How it Works" active={currentSection === 'kids-bank'} onClick={() => onSectionChange('kids-bank')} className="pl-14 text-xs" />
-                  <SidebarItem label="Accounts" active={currentSection === 'kids-bank-accounts'} onClick={() => onSectionChange('kids-bank-accounts')} className="pl-14 text-xs" />
+                  <Collapsible defaultOpen={currentSection.includes('kids-bank-accounts') || currentSection === 'kids-bank-operating'}>
+                    <CollapsibleTrigger className="w-full">
+                      <div className={cn(
+                        "flex items-center justify-between pl-14 pr-4 py-1.5 text-xs font-medium transition-colors",
+                        (currentSection === 'kids-bank-accounts' || currentSection === 'kids-bank-operating') ? "text-primary" : "text-slate-600 hover:text-slate-900"
+                      )}>
+                        <span>Accounts</span>
+                        <ChevronDown className="w-2.5 h-2.5" />
+                      </div>
+                    </CollapsibleTrigger>
+                    <CollapsibleContent className="space-y-1">
+                      <SidebarItem label="Types" active={currentSection === 'kids-bank-accounts'} onClick={() => onSectionChange('kids-bank-accounts')} className="pl-16 text-[10px]" />
+                      <SidebarItem label="Operating" active={currentSection === 'kids-bank-operating'} onClick={() => onSectionChange('kids-bank-operating')} className="pl-16 text-[10px]" />
+                    </CollapsibleContent>
+                  </Collapsible>
                   <SidebarItem label="Loans" active={currentSection === 'kids-bank-loans'} onClick={() => onSectionChange('kids-bank-loans')} className="pl-14 text-xs" />
                   <SidebarItem label="Other Services" active={currentSection === 'kids-bank-services'} onClick={() => onSectionChange('kids-bank-services')} className="pl-14 text-xs" />
                 </CollapsibleContent>
