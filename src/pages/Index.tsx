@@ -6,6 +6,7 @@ import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Stats from '@/components/Stats';
 import Features from '@/components/Features';
+import Curriculum from '@/components/Curriculum';
 import Footer from '@/components/Footer';
 import { MadeWithDyad } from "@/components/made-with-dyad";
 
@@ -19,6 +20,7 @@ const Index = () => {
         <Hero />
         <Stats />
         <Features />
+        <Curriculum />
         
         {/* Simple CTA Section */}
         <section className="py-20">

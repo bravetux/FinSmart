@@ -8,6 +8,13 @@ import { ArrowRight, TrendingUp, ShieldCheck, GraduationCap } from 'lucide-react
 const Hero = () => {
   const navigate = useNavigate();
 
+  const scrollToCurriculum = () => {
+    const element = document.getElementById('curriculum');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="relative pt-32 pb-20 overflow-hidden">
       <div className="container mx-auto px-4">
@@ -29,7 +36,7 @@ const Hero = () => {
               <Button size="lg" className="px-8 text-md gap-2" onClick={() => navigate('/dashboard')}>
                 Start Learning Now <ArrowRight className="w-4 h-4" />
               </Button>
-              <Button size="lg" variant="outline" className="px-8 text-md">
+              <Button size="lg" variant="outline" className="px-8 text-md" onClick={scrollToCurriculum}>
                 View Curriculum
               </Button>
             </div>
