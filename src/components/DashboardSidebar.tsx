@@ -17,7 +17,9 @@ import {
   PiggyBank,
   HandCoins,
   Zap,
-  ArrowRightLeft
+  ArrowRightLeft,
+  PieChart,
+  ShieldAlert
 } from 'lucide-react';
 import { cn } from "@/lib/utils";
 import { 
@@ -127,6 +129,7 @@ const DashboardSidebar = ({
               <SidebarItem label="Adventure Map" active={currentSection === 'kids-overview'} onClick={() => onSectionChange('kids-overview')} isSubItem />
               <SidebarItem label="Magic Money" active={currentSection === 'kids-money'} onClick={() => onSectionChange('kids-money')} isSubItem />
               <SidebarItem label="Piggy Bank Power" active={currentSection === 'kids-piggy-bank'} onClick={() => onSectionChange('kids-piggy-bank')} isSubItem />
+              <SidebarItem label="Smart Spending" active={currentSection === 'kids-budgeting'} onClick={() => onSectionChange('kids-budgeting')} isSubItem />
               
               <Collapsible defaultOpen={currentSection.startsWith('kids-bank')} className="space-y-1">
                 <CollapsibleTrigger className="w-full">
@@ -160,6 +163,7 @@ const DashboardSidebar = ({
                   <SidebarItem label="Other Services" active={currentSection === 'kids-bank-services'} onClick={() => onSectionChange('kids-bank-services')} className="pl-14 text-xs" />
                 </CollapsibleContent>
               </Collapsible>
+              <SidebarItem label="Safety Shield" active={currentSection === 'kids-safety'} onClick={() => onSectionChange('kids-safety')} isSubItem />
             </CollapsibleContent>
           </Collapsible>
 
