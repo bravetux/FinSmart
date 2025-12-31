@@ -18,6 +18,13 @@ import TransferSection from '@/components/dashboard/kids/TransferSection';
 import BankLoans from '@/components/dashboard/kids/BankLoans';
 import BankServices from '@/components/dashboard/kids/BankServices';
 import SafetySection from '@/components/dashboard/kids/SafetySection';
+import EarningEngine from '@/components/dashboard/kids/EarningEngine';
+import MoneyTree from '@/components/dashboard/kids/MoneyTree';
+import ShrinkingCookie from '@/components/dashboard/kids/ShrinkingCookie';
+import CommunityPot from '@/components/dashboard/kids/CommunityPot';
+import AdvancedGiving from '@/components/dashboard/kids/AdvancedGiving';
+import CreditReputation from '@/components/dashboard/kids/CreditReputation';
+import GlobalMoney from '@/components/dashboard/kids/GlobalMoney';
 
 // Mutual Fund Components
 import TypesOfEquityFunds from '@/components/dashboard/mf/TypesOfEquityFunds';
@@ -66,6 +73,13 @@ const Dashboard = () => {
       case 'kids-bank-loans': return <BankLoans />;
       case 'kids-bank-services': return <BankServices />;
       case 'kids-safety': return <SafetySection />;
+      case 'kids-earning': return <EarningEngine />;
+      case 'kids-investing': return <MoneyTree />;
+      case 'kids-inflation': return <ShrinkingCookie />;
+      case 'kids-taxes': return <CommunityPot />;
+      case 'kids-giving': return <AdvancedGiving />;
+      case 'kids-credit': return <CreditReputation />;
+      case 'kids-global': return <GlobalMoney />;
 
       // Mutual Funds
       case 'mf-equity-types': return <TypesOfEquityFunds />;
@@ -128,6 +142,13 @@ const Dashboard = () => {
       'kids-bank-loans': 'The Loan Counter',
       'kids-bank-services': 'Digital Magic & More',
       'kids-safety': 'Safety Shield',
+      'kids-earning': 'The Earning Engine',
+      'kids-investing': 'The Money Tree (Investing)',
+      'kids-inflation': 'The Shrinking Cookie (Inflation)',
+      'kids-taxes': 'The Community Pot (Taxes)',
+      'kids-giving': 'Advanced Giving',
+      'kids-credit': 'Credit Reputation',
+      'kids-global': 'Global Money',
       'mf-equity-types': 'Equity Funds',
       'mf-debt-types': 'Debt Funds',
       'mf-hybrid-types': 'Hybrid Funds',
