@@ -10,7 +10,8 @@ import {
   Coins, 
   Building2,
   ShieldCheck,
-  Calculator
+  Calculator,
+  Info
 } from 'lucide-react';
 import { useCurrency } from "@/context/CurrencyContext";
 import {
@@ -41,28 +42,28 @@ const MintingMoney = () => {
       deposit: initialDeposit * (1 - reserveRatio), 
       reserve: initialDeposit * (1 - reserveRatio) * reserveRatio, 
       loan: initialDeposit * (1 - reserveRatio) * (1 - reserveRatio), 
-      description: "Round 2 (Bank B): Loan 1 is deposited" 
+      description: "Round 2 (Bank B): Loan 1 (9,000) is deposited by recipient" 
     },
     { 
       date: "10-Apr-2020", 
       deposit: initialDeposit * (1 - reserveRatio) * (1 - reserveRatio), 
       reserve: initialDeposit * (1 - reserveRatio) * (1 - reserveRatio) * reserveRatio, 
       loan: initialDeposit * (1 - reserveRatio) * (1 - reserveRatio) * (1 - reserveRatio), 
-      description: "Round 3 (Bank C): Loan 2 is deposited" 
+      description: "Round 3 (Bank C): Loan 2 (8,100) is deposited by recipient" 
     },
     { 
       date: "15-Apr-2020", 
       deposit: initialDeposit * Math.pow((1 - reserveRatio), 3), 
       reserve: initialDeposit * Math.pow((1 - reserveRatio), 3) * reserveRatio, 
       loan: initialDeposit * Math.pow((1 - reserveRatio), 4), 
-      description: "Round 4 (Bank D): Loan 3 is deposited" 
+      description: "Round 4 (Bank D): Loan 3 (7,290) is deposited by recipient" 
     },
     { 
       date: "20-Apr-2020", 
       deposit: initialDeposit * Math.pow((1 - reserveRatio), 4), 
       reserve: initialDeposit * Math.pow((1 - reserveRatio), 4) * reserveRatio, 
       loan: initialDeposit * Math.pow((1 - reserveRatio), 5), 
-      description: "Round 5 (Bank E): Loan 4 is deposited" 
+      description: "Round 5 (Bank E): Loan 4 (6,561) is deposited by recipient" 
     },
   ];
 
@@ -134,6 +135,20 @@ const MintingMoney = () => {
           </div>
         </Card>
       </section>
+      
+      {/* Clarification Section */}
+      <Card className="bg-emerald-50 border-emerald-100 p-6 flex items-start gap-4">
+        <Info className="w-6 h-6 text-emerald-600 shrink-0 mt-1" />
+        <div>
+          <h4 className="font-bold text-slate-900 mb-2">Money Creation vs. Bank Profit</h4>
+          <p className="text-sm text-slate-700 leading-relaxed">
+            This table shows <strong>Money Creation</strong> (how the total money supply grows). The principal amount of the loan (e.g., {formatCurrency(9000)}) is deposited by the borrower/recipient, creating a new deposit in the banking system.
+          </p>
+          <p className="text-sm text-slate-700 leading-relaxed mt-2">
+            The bank's <strong>Profit</strong>, however, comes only from the interest charged on the loan, minus the interest paid on the deposit (as shown in the calculation below).
+          </p>
+        </div>
+      </Card>
 
       {/* Circulation Table */}
       <section className="space-y-6">
