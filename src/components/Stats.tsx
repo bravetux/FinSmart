@@ -1,6 +1,6 @@
 "use client";
-
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AlertCircle, TrendingDown, Users, PiggyBank } from 'lucide-react';
 
 const stats = [
@@ -25,6 +25,8 @@ const stats = [
 ];
 
 const Stats = () => {
+  const navigate = useNavigate();
+  
   return (
     <section id="why" className="py-20 bg-slate-50">
       <div className="container mx-auto px-4">
@@ -34,10 +36,13 @@ const Stats = () => {
             Financial education isn't just about making money—it's about protecting your future and achieving freedom.
           </p>
         </div>
-
+        
         <div className="grid md:grid-cols-3 gap-8">
           {stats.map((stat, index) => (
-            <div key={index} className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+            <div 
+              key={index} 
+              className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow"
+            >
               <div className="mb-4">{stat.icon}</div>
               <div className="text-4xl font-bold text-slate-900 mb-2">{stat.value}</div>
               <div className="text-lg font-semibold text-slate-800 mb-3">{stat.label}</div>
@@ -45,7 +50,7 @@ const Stats = () => {
             </div>
           ))}
         </div>
-
+        
         <div className="mt-16 p-8 bg-blue-600 rounded-3xl text-white flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="flex items-center gap-6">
             <div className="p-4 bg-white/10 rounded-2xl">
@@ -56,7 +61,10 @@ const Stats = () => {
               <p className="text-blue-100">Our interactive lessons turn complex finance into simple daily habits.</p>
             </div>
           </div>
-          <button className="px-8 py-3 bg-white text-blue-600 font-bold rounded-xl hover:bg-blue-50 transition-colors whitespace-nowrap">
+          <button 
+            className="px-8 py-3 bg-white text-blue-600 font-bold rounded-xl hover:bg-blue-50 transition-colors whitespace-nowrap"
+            onClick={() => navigate('/dashboard')}
+          >
             Explore Courses
           </button>
         </div>
