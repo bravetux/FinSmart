@@ -1,46 +1,11 @@
 "use client";
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { 
-  BarChart3, 
-  LineChart, 
-  Building2, 
-  ScrollText, 
-  Bitcoin, 
-  Globe, 
-  ShieldCheck, 
-  Gem,
-  ChevronDown,
-  ChevronLeft,
-  ChevronRight,
-  Coins,
-  Baby,
-  Banknote,
-  PiggyBank,
-  HandCoins,
-  Zap,
-  ArrowRightLeft,
-  PieChart,
-  ShieldAlert,
-  Calculator,
-  Scale,
-  Rocket,
-  Search
-} from 'lucide-react';
+import { BarChart3, LineChart, Building2, ScrollText, Bitcoin, Globe, ShieldCheck, Gem, ChevronDown, ChevronLeft, ChevronRight, Coins, Baby, Banknote, PiggyBank, HandCoins, Zap, ArrowRightLeft, PieChart, ShieldAlert, Calculator, Scale, Rocket, Search } from 'lucide-react';
 import { cn } from "@/lib/utils";
-import { 
-  Collapsible, 
-  CollapsibleContent, 
-  CollapsibleTrigger 
-} from "@/components/ui/collapsible";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { useCurrency } from "@/context/CurrencyContext";
-import { 
-  DropdownMenu, 
-  DropdownMenuContent, 
-  DropdownMenuItem, 
-  DropdownMenuTrigger 
-} from "@/components/ui/dropdown-menu";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
@@ -56,13 +21,11 @@ interface SidebarItemProps {
 
 const SidebarItem = ({ icon, label, active, onClick, className, isSubItem, isCollapsed }: SidebarItemProps) => {
   const content = (
-    <button
+    <button 
       onClick={onClick}
       className={cn(
         "flex items-center gap-3 w-full px-4 py-2 rounded-lg text-sm font-medium transition-colors text-left",
-        active 
-          ? "bg-primary text-primary-foreground shadow-sm" 
-          : "text-slate-600 hover:bg-slate-100 hover:text-slate-900",
+        active ? "bg-primary text-primary-foreground shadow-sm" : "text-slate-600 hover:bg-slate-100 hover:text-slate-900",
         isSubItem && !isCollapsed && "pl-11 py-1.5",
         isCollapsed && "justify-center px-0 h-10 w-10 mx-auto",
         className
@@ -89,13 +52,7 @@ const SidebarItem = ({ icon, label, active, onClick, className, isSubItem, isCol
   return content;
 };
 
-const DashboardSidebar = ({ 
-  currentSection, 
-  onSectionChange 
-}: { 
-  currentSection: string, 
-  onSectionChange: (s: string) => void 
-}) => {
+const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection: string, onSectionChange: (s: string) => void }) => {
   const navigate = useNavigate();
   const [isCollapsed, setIsCollapsed] = useState(false);
   const { currency, setCurrencyByCode, currencies } = useCurrency();
@@ -110,7 +67,7 @@ const DashboardSidebar = ({
           <div className={cn("flex items-center mb-8", isCollapsed ? "justify-center" : "justify-between px-2")}>
             {!isCollapsed && (
               <div 
-                className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity" 
+                className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity"
                 onClick={() => navigate('/')}
               >
                 <div className="bg-primary p-1.5 rounded-lg text-primary-foreground shrink-0">
@@ -158,7 +115,8 @@ const DashboardSidebar = ({
                       onClick={() => setCurrencyByCode(c.code)}
                       className="justify-between"
                     >
-                      {c.label} <span>({c.symbol})</span>
+                      {c.label}
+                      <span>({c.symbol})</span>
                     </DropdownMenuItem>
                   ))}
                 </DropdownMenuContent>
@@ -179,7 +137,8 @@ const DashboardSidebar = ({
                       onClick={() => setCurrencyByCode(c.code)}
                       className="justify-between gap-4"
                     >
-                      {c.label} <span>({c.symbol})</span>
+                      {c.label}
+                      <span>({c.symbol})</span>
                     </DropdownMenuItem>
                   ))}
                 </DropdownMenuContent>
@@ -204,55 +163,134 @@ const DashboardSidebar = ({
                   </div>
                 </CollapsibleTrigger>
                 <CollapsibleContent className="space-y-1">
-                  <SidebarItem label="Adventure Map" active={currentSection === 'kids-overview'} onClick={() => onSectionChange('kids-overview')} isSubItem isCollapsed={isCollapsed} />
-                  
+                  <SidebarItem 
+                    label="Adventure Map" 
+                    active={currentSection === 'kids-overview'} 
+                    onClick={() => onSectionChange('kids-overview')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+
                   {/* Basics & Earning */}
                   <Collapsible defaultOpen={currentSection.includes('money') || currentSection.includes('earning') || currentSection.includes('budgeting')}>
                     <CollapsibleTrigger className="w-full">
-                       <div className="flex items-center justify-between pl-11 pr-4 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900">
-                         <span>Basics & Earning</span>
-                         <ChevronDown className="w-3 h-3" />
-                       </div>
+                      <div className="flex items-center justify-between pl-11 pr-4 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900">
+                        <span>Basics & Earning</span>
+                        <ChevronDown className="w-3 h-3" />
+                      </div>
                     </CollapsibleTrigger>
                     <CollapsibleContent className="space-y-1">
-                      <SidebarItem label="Magic Money" active={currentSection === 'kids-money'} onClick={() => onSectionChange('kids-money')} className="pl-14 text-xs" isCollapsed={isCollapsed} />
-                      <SidebarItem label="Earning Engine" active={currentSection === 'kids-earning'} onClick={() => onSectionChange('kids-earning')} className="pl-14 text-xs" isCollapsed={isCollapsed} />
-                      <SidebarItem label="Piggy Bank Power" active={currentSection === 'kids-piggy-bank'} onClick={() => onSectionChange('kids-piggy-bank')} className="pl-14 text-xs" isCollapsed={isCollapsed} />
-                      <SidebarItem label="Budgeting" active={currentSection === 'kids-budgeting'} onClick={() => onSectionChange('kids-budgeting')} className="pl-14 text-xs" isCollapsed={isCollapsed} />
+                      <SidebarItem 
+                        label="Magic Money" 
+                        active={currentSection === 'kids-money'} 
+                        onClick={() => onSectionChange('kids-money')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
+                      <SidebarItem 
+                        label="Earning Engine" 
+                        active={currentSection === 'kids-earning'} 
+                        onClick={() => onSectionChange('kids-earning')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
+                      <SidebarItem 
+                        label="Piggy Bank Power" 
+                        active={currentSection === 'kids-piggy-bank'} 
+                        onClick={() => onSectionChange('kids-piggy-bank')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
+                      <SidebarItem 
+                        label="Budgeting" 
+                        active={currentSection === 'kids-budgeting'} 
+                        onClick={() => onSectionChange('kids-budgeting')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
                     </CollapsibleContent>
                   </Collapsible>
 
                   {/* Growth & Concepts */}
                   <Collapsible defaultOpen={currentSection.includes('investing') || currentSection.includes('inflation') || currentSection.includes('taxes') || currentSection.includes('credit') || currentSection.includes('global') || currentSection.includes('giving')}>
                     <CollapsibleTrigger className="w-full">
-                       <div className="flex items-center justify-between pl-11 pr-4 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900">
-                         <span>Growth & Concepts</span>
-                         <ChevronDown className="w-3 h-3" />
-                       </div>
+                      <div className="flex items-center justify-between pl-11 pr-4 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900">
+                        <span>Growth & Concepts</span>
+                        <ChevronDown className="w-3 h-3" />
+                      </div>
                     </CollapsibleTrigger>
                     <CollapsibleContent className="space-y-1">
-                      <SidebarItem label="Money Tree (Investing)" active={currentSection === 'kids-investing'} onClick={() => onSectionChange('kids-investing')} className="pl-14 text-xs" isCollapsed={isCollapsed} />
-                      <SidebarItem label="Shrinking Cookie (Inflation)" active={currentSection === 'kids-inflation'} onClick={() => onSectionChange('kids-inflation')} className="pl-14 text-xs" isCollapsed={isCollapsed} />
-                      <SidebarItem label="Community Pot (Taxes)" active={currentSection === 'kids-taxes'} onClick={() => onSectionChange('kids-taxes')} className="pl-14 text-xs" isCollapsed={isCollapsed} />
-                      <SidebarItem label="Credit Reputation" active={currentSection === 'kids-credit'} onClick={() => onSectionChange('kids-credit')} className="pl-14 text-xs" isCollapsed={isCollapsed} />
-                      <SidebarItem label="Global Money" active={currentSection === 'kids-global'} onClick={() => onSectionChange('kids-global')} className="pl-14 text-xs" isCollapsed={isCollapsed} />
-                      <SidebarItem label="Advanced Giving" active={currentSection === 'kids-giving'} onClick={() => onSectionChange('kids-giving')} className="pl-14 text-xs" isCollapsed={isCollapsed} />
+                      <SidebarItem 
+                        label="Money Tree (Investing)" 
+                        active={currentSection === 'kids-investing'} 
+                        onClick={() => onSectionChange('kids-investing')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
+                      <SidebarItem 
+                        label="Shrinking Cookie (Inflation)" 
+                        active={currentSection === 'kids-inflation'} 
+                        onClick={() => onSectionChange('kids-inflation')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
+                      <SidebarItem 
+                        label="Community Pot (Taxes)" 
+                        active={currentSection === 'kids-taxes'} 
+                        onClick={() => onSectionChange('kids-taxes')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
+                      <SidebarItem 
+                        label="Credit Reputation" 
+                        active={currentSection === 'kids-credit'} 
+                        onClick={() => onSectionChange('kids-credit')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
+                      <SidebarItem 
+                        label="Global Money" 
+                        active={currentSection === 'kids-global'} 
+                        onClick={() => onSectionChange('kids-global')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
+                      <SidebarItem 
+                        label="Advanced Giving" 
+                        active={currentSection === 'kids-giving'} 
+                        onClick={() => onSectionChange('kids-giving')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
                     </CollapsibleContent>
                   </Collapsible>
-                  
+
                   <Collapsible defaultOpen={currentSection.startsWith('kids-bank')} className="space-y-1">
                     <CollapsibleTrigger className="w-full">
-                       <div className={cn(
-                         "flex items-center justify-between pl-11 pr-4 py-1.5 text-sm font-medium transition-colors",
-                         currentSection.startsWith('kids-bank') ? "text-primary" : "text-slate-600 hover:text-slate-900"
-                       )}>
-                         <span>The Bank Store</span>
-                         <ChevronDown className="w-3 h-3" />
-                       </div>
+                      <div className={cn(
+                        "flex items-center justify-between pl-11 pr-4 py-1.5 text-sm font-medium transition-colors",
+                        currentSection.startsWith('kids-bank') ? "text-primary" : "text-slate-600 hover:text-slate-900"
+                      )}>
+                        <span>The Bank Store</span>
+                        <ChevronDown className="w-3 h-3" />
+                      </div>
                     </CollapsibleTrigger>
                     <CollapsibleContent className="space-y-1">
-                      <SidebarItem label="How it Works" active={currentSection === 'kids-bank'} onClick={() => onSectionChange('kids-bank')} className="pl-14 text-xs" isCollapsed={isCollapsed} />
-                      <SidebarItem label="Minting Money" active={currentSection === 'kids-minting-money'} onClick={() => onSectionChange('kids-minting-money')} className="pl-14 text-xs" isCollapsed={isCollapsed} />
+                      <SidebarItem 
+                        label="How it Works" 
+                        active={currentSection === 'kids-bank'} 
+                        onClick={() => onSectionChange('kids-bank')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
+                      <SidebarItem 
+                        label="Minting Money" 
+                        active={currentSection === 'kids-minting-money'} 
+                        onClick={() => onSectionChange('kids-minting-money')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
+
                       <Collapsible defaultOpen={currentSection.includes('kids-bank-accounts') || currentSection === 'kids-bank-operating' || currentSection === 'kids-bank-transfers'}>
                         <CollapsibleTrigger className="w-full">
                           <div className={cn(
@@ -264,20 +302,64 @@ const DashboardSidebar = ({
                           </div>
                         </CollapsibleTrigger>
                         <CollapsibleContent className="space-y-1">
-                          <SidebarItem label="Types" active={currentSection === 'kids-bank-accounts'} onClick={() => onSectionChange('kids-bank-accounts')} className="pl-16 text-[10px]" isCollapsed={isCollapsed} />
-                          <SidebarItem label="Operating" active={currentSection === 'kids-bank-operating'} onClick={() => onSectionChange('kids-bank-operating')} className="pl-16 text-[10px]" isCollapsed={isCollapsed} />
-                          <SidebarItem label="Transfers" active={currentSection === 'kids-bank-transfers'} onClick={() => onSectionChange('kids-bank-transfers')} className="pl-16 text-[10px]" isCollapsed={isCollapsed} />
+                          <SidebarItem 
+                            label="Types" 
+                            active={currentSection === 'kids-bank-accounts'} 
+                            onClick={() => onSectionChange('kids-bank-accounts')} 
+                            className="pl-16 text-[10px]" 
+                            isCollapsed={isCollapsed} 
+                          />
+                          <SidebarItem 
+                            label="Operating" 
+                            active={currentSection === 'kids-bank-operating'} 
+                            onClick={() => onSectionChange('kids-bank-operating')} 
+                            className="pl-16 text-[10px]" 
+                            isCollapsed={isCollapsed} 
+                          />
+                          <SidebarItem 
+                            label="Transfers" 
+                            active={currentSection === 'kids-bank-transfers'} 
+                            onClick={() => onSectionChange('kids-bank-transfers')} 
+                            className="pl-16 text-[10px]" 
+                            isCollapsed={isCollapsed} 
+                          />
                         </CollapsibleContent>
                       </Collapsible>
-                      <SidebarItem label="Loans" active={currentSection === 'kids-bank-loans'} onClick={() => onSectionChange('kids-bank-loans')} className="pl-14 text-xs" isCollapsed={isCollapsed} />
-                      <SidebarItem label="Other Services" active={currentSection === 'kids-bank-services'} onClick={() => onSectionChange('kids-bank-services')} className="pl-14 text-xs" isCollapsed={isCollapsed} />
+
+                      <SidebarItem 
+                        label="Loans" 
+                        active={currentSection === 'kids-bank-loans'} 
+                        onClick={() => onSectionChange('kids-bank-loans')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
+                      <SidebarItem 
+                        label="Other Services" 
+                        active={currentSection === 'kids-bank-services'} 
+                        onClick={() => onSectionChange('kids-bank-services')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
                     </CollapsibleContent>
                   </Collapsible>
-                  <SidebarItem label="Safety Shield" active={currentSection === 'kids-safety'} onClick={() => onSectionChange('kids-safety')} isSubItem isCollapsed={isCollapsed} />
+
+                  <SidebarItem 
+                    label="Safety Shield" 
+                    active={currentSection === 'kids-safety'} 
+                    onClick={() => onSectionChange('kids-safety')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
                 </CollapsibleContent>
               </Collapsible>
             ) : (
-              <SidebarItem icon={<Baby className="w-4 h-4" />} label="Kids" active={currentSection.startsWith('kids-')} onClick={() => onSectionChange('kids-overview')} isCollapsed={isCollapsed} />
+              <SidebarItem 
+                icon={<Baby className="w-4 h-4" />} 
+                label="Kids" 
+                active={currentSection.startsWith('kids-')} 
+                onClick={() => onSectionChange('kids-overview')} 
+                isCollapsed={isCollapsed} 
+              />
             )}
 
             {/* Mutual Funds */}
@@ -298,52 +380,144 @@ const DashboardSidebar = ({
                 <CollapsibleContent className="space-y-1">
                   <Collapsible defaultOpen={currentSection.includes('-types')} className="space-y-1">
                     <CollapsibleTrigger className="w-full">
-                       <div className="flex items-center justify-between pl-11 pr-4 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900">
-                         <span>Types</span>
-                         <ChevronDown className="w-3 h-3" />
-                       </div>
+                      <div className="flex items-center justify-between pl-11 pr-4 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900">
+                        <span>Types</span>
+                        <ChevronDown className="w-3 h-3" />
+                      </div>
                     </CollapsibleTrigger>
                     <CollapsibleContent className="space-y-1">
-                      <SidebarItem label="Equity Funds" active={currentSection === 'mf-equity-types'} onClick={() => onSectionChange('mf-equity-types')} className="pl-14 text-xs" isCollapsed={isCollapsed} />
-                      <SidebarItem label="Debt Funds" active={currentSection === 'mf-debt-types'} onClick={() => onSectionChange('mf-debt-types')} className="pl-14 text-xs" isCollapsed={isCollapsed} />
-                      <SidebarItem label="Hybrid Funds" active={currentSection === 'mf-hybrid-types'} onClick={() => onSectionChange('mf-hybrid-types')} className="pl-14 text-xs" isCollapsed={isCollapsed} />
-                      <SidebarItem label="Goal Based" active={currentSection === 'mf-goal-types'} onClick={() => onSectionChange('mf-goal-types')} className="pl-14 text-xs" isCollapsed={isCollapsed} />
-                      <SidebarItem label="Risk Based" active={currentSection === 'mf-risk-types'} onClick={() => onSectionChange('mf-risk-types')} className="pl-14 text-xs" isCollapsed={isCollapsed} />
-                      <SidebarItem label="Structure Based" active={currentSection === 'mf-structure-types'} onClick={() => onSectionChange('mf-structure-types')} className="pl-14 text-xs" isCollapsed={isCollapsed} />
+                      <SidebarItem 
+                        label="Equity Funds" 
+                        active={currentSection === 'mf-equity-types'} 
+                        onClick={() => onSectionChange('mf-equity-types')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
+                      <SidebarItem 
+                        label="Debt Funds" 
+                        active={currentSection === 'mf-debt-types'} 
+                        onClick={() => onSectionChange('mf-debt-types')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
+                      <SidebarItem 
+                        label="Hybrid Funds" 
+                        active={currentSection === 'mf-hybrid-types'} 
+                        onClick={() => onSectionChange('mf-hybrid-types')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
+                      <SidebarItem 
+                        label="Goal Based" 
+                        active={currentSection === 'mf-goal-types'} 
+                        onClick={() => onSectionChange('mf-goal-types')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
+                      <SidebarItem 
+                        label="Risk Based" 
+                        active={currentSection === 'mf-risk-types'} 
+                        onClick={() => onSectionChange('mf-risk-types')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
+                      <SidebarItem 
+                        label="Structure Based" 
+                        active={currentSection === 'mf-structure-types'} 
+                        onClick={() => onSectionChange('mf-structure-types')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
                     </CollapsibleContent>
                   </Collapsible>
+
                   <Collapsible defaultOpen={!currentSection.includes('-types') && currentSection.startsWith('mf-') && currentSection !== 'mf-taxation' && currentSection !== 'mf-metrics' && currentSection !== 'mf-passive'} className="space-y-1">
                     <CollapsibleTrigger className="w-full">
-                       <div className="flex items-center justify-between pl-11 pr-4 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900">
-                         <span>Options</span>
-                         <ChevronDown className="w-3 h-3" />
-                       </div>
+                      <div className="flex items-center justify-between pl-11 pr-4 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900">
+                        <span>Options</span>
+                        <ChevronDown className="w-3 h-3" />
+                      </div>
                     </CollapsibleTrigger>
                     <CollapsibleContent className="space-y-1">
-                      <SidebarItem label="SIP" active={currentSection === 'mf-sip'} onClick={() => onSectionChange('mf-sip')} className="pl-14 text-xs" isCollapsed={isCollapsed} />
-                      <SidebarItem label="Lumpsum" active={currentSection === 'mf-lumpsum'} onClick={() => onSectionChange('mf-lumpsum')} className="pl-14 text-xs" isCollapsed={isCollapsed} />
-                      <SidebarItem label="SIP & Lumpsum" active={currentSection === 'mf-combined'} onClick={() => onSectionChange('mf-combined')} className="pl-14 text-xs" isCollapsed={isCollapsed} />
-                      <SidebarItem label="SWP" active={currentSection === 'mf-swp'} onClick={() => onSectionChange('mf-swp')} className="pl-14 text-xs" isCollapsed={isCollapsed} />
-                      <SidebarItem label="STP" active={currentSection === 'mf-stp'} onClick={() => onSectionChange('mf-stp')} className="pl-14 text-xs" isCollapsed={isCollapsed} />
+                      <SidebarItem 
+                        label="SIP" 
+                        active={currentSection === 'mf-sip'} 
+                        onClick={() => onSectionChange('mf-sip')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
+                      <SidebarItem 
+                        label="Lumpsum" 
+                        active={currentSection === 'mf-lumpsum'} 
+                        onClick={() => onSectionChange('mf-lumpsum')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
+                      <SidebarItem 
+                        label="SIP & Lumpsum" 
+                        active={currentSection === 'mf-combined'} 
+                        onClick={() => onSectionChange('mf-combined')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
+                      <SidebarItem 
+                        label="SWP" 
+                        active={currentSection === 'mf-swp'} 
+                        onClick={() => onSectionChange('mf-swp')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
+                      <SidebarItem 
+                        label="STP" 
+                        active={currentSection === 'mf-stp'} 
+                        onClick={() => onSectionChange('mf-stp')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
                     </CollapsibleContent>
                   </Collapsible>
+
                   <Collapsible defaultOpen={currentSection === 'mf-taxation' || currentSection === 'mf-metrics' || currentSection === 'mf-passive'} className="space-y-1">
                     <CollapsibleTrigger className="w-full">
-                       <div className="flex items-center justify-between pl-11 pr-4 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900">
-                         <span>Analysis & Passive</span>
-                         <ChevronDown className="w-3 h-3" />
-                       </div>
+                      <div className="flex items-center justify-between pl-11 pr-4 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900">
+                        <span>Analysis & Passive</span>
+                        <ChevronDown className="w-3 h-3" />
+                      </div>
                     </CollapsibleTrigger>
                     <CollapsibleContent className="space-y-1">
-                      <SidebarItem label="Fund Metrics" active={currentSection === 'mf-metrics'} onClick={() => onSectionChange('mf-metrics')} className="pl-14 text-xs" isCollapsed={isCollapsed} />
-                      <SidebarItem label="Passive Investing" active={currentSection === 'mf-passive'} onClick={() => onSectionChange('mf-passive')} className="pl-14 text-xs" isCollapsed={isCollapsed} />
-                      <SidebarItem label="Taxation" active={currentSection === 'mf-taxation'} onClick={() => onSectionChange('mf-taxation')} className="pl-14 text-xs" isCollapsed={isCollapsed} />
+                      <SidebarItem 
+                        label="Fund Metrics" 
+                        active={currentSection === 'mf-metrics'} 
+                        onClick={() => onSectionChange('mf-metrics')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
+                      <SidebarItem 
+                        label="Passive Investing" 
+                        active={currentSection === 'mf-passive'} 
+                        onClick={() => onSectionChange('mf-passive')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
+                      <SidebarItem 
+                        label="Taxation" 
+                        active={currentSection === 'mf-taxation'} 
+                        onClick={() => onSectionChange('mf-taxation')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
                     </CollapsibleContent>
                   </Collapsible>
                 </CollapsibleContent>
               </Collapsible>
             ) : (
-              <SidebarItem icon={<BarChart3 className="w-4 h-4" />} label="Mutual Funds" active={currentSection.startsWith('mf-')} onClick={() => onSectionChange('mf-equity-types')} isCollapsed={isCollapsed} />
+              <SidebarItem 
+                icon={<BarChart3 className="w-4 h-4" />} 
+                label="Mutual Funds" 
+                active={currentSection.startsWith('mf-')} 
+                onClick={() => onSectionChange('mf-equity-types')} 
+                isCollapsed={isCollapsed} 
+              />
             )}
 
             {/* Equity */}
@@ -362,16 +536,46 @@ const DashboardSidebar = ({
                   </div>
                 </CollapsibleTrigger>
                 <CollapsibleContent className="space-y-1">
-                  <SidebarItem label="Overview" active={currentSection === 'equity-overview'} onClick={() => onSectionChange('equity-overview')} isSubItem isCollapsed={isCollapsed} />
-                  <SidebarItem label="Fundamental Analysis" active={currentSection === 'equity-fundamental'} onClick={() => onSectionChange('equity-fundamental')} isSubItem isCollapsed={isCollapsed} />
-                  <SidebarItem label="Technical Basics" active={currentSection === 'equity-technical'} onClick={() => onSectionChange('equity-technical')} isSubItem isCollapsed={isCollapsed} />
-                  <SidebarItem label="IPOs" active={currentSection === 'equity-ipo'} onClick={() => onSectionChange('equity-ipo')} isSubItem isCollapsed={isCollapsed} />
+                  <SidebarItem 
+                    label="Overview" 
+                    active={currentSection === 'equity-overview'} 
+                    onClick={() => onSectionChange('equity-overview')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Fundamental Analysis" 
+                    active={currentSection === 'equity-fundamental'} 
+                    onClick={() => onSectionChange('equity-fundamental')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Technical Basics" 
+                    active={currentSection === 'equity-technical'} 
+                    onClick={() => onSectionChange('equity-technical')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="IPOs" 
+                    active={currentSection === 'equity-ipo'} 
+                    onClick={() => onSectionChange('equity-ipo')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
                 </CollapsibleContent>
               </Collapsible>
             ) : (
-              <SidebarItem icon={<LineChart className="w-4 h-4" />} label="Equity" active={currentSection.startsWith('equity-')} onClick={() => onSectionChange('equity-overview')} isCollapsed={isCollapsed} />
+              <SidebarItem 
+                icon={<LineChart className="w-4 h-4" />} 
+                label="Equity" 
+                active={currentSection.startsWith('equity-')} 
+                onClick={() => onSectionChange('equity-overview')} 
+                isCollapsed={isCollapsed} 
+              />
             )}
-            
+
             {/* Gold */}
             {!isCollapsed ? (
               <Collapsible defaultOpen={currentSection.startsWith('gold-')} className="space-y-1">
@@ -388,16 +592,58 @@ const DashboardSidebar = ({
                   </div>
                 </CollapsibleTrigger>
                 <CollapsibleContent className="space-y-1">
-                  <SidebarItem label="Overview" active={currentSection === 'gold-overview'} onClick={() => onSectionChange('gold-overview')} isSubItem isCollapsed={isCollapsed} />
-                  <SidebarItem label="Physical Gold" active={currentSection === 'gold-physical'} onClick={() => onSectionChange('gold-physical')} isSubItem isCollapsed={isCollapsed} />
-                  <SidebarItem label="Gold ETFs" active={currentSection === 'gold-etf'} onClick={() => onSectionChange('gold-etf')} isSubItem isCollapsed={isCollapsed} />
-                  <SidebarItem label="Digital (SGB)" active={currentSection === 'gold-digital'} onClick={() => onSectionChange('gold-digital')} isSubItem isCollapsed={isCollapsed} />
-                  <SidebarItem label="Taxation" active={currentSection === 'gold-taxation'} onClick={() => onSectionChange('gold-taxation')} isSubItem isCollapsed={isCollapsed} />
-                  <SidebarItem label="Digital Platforms" active={currentSection === 'gold-platforms'} onClick={() => onSectionChange('gold-platforms')} isSubItem isCollapsed={isCollapsed} />
+                  <SidebarItem 
+                    label="Overview" 
+                    active={currentSection === 'gold-overview'} 
+                    onClick={() => onSectionChange('gold-overview')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Physical Gold" 
+                    active={currentSection === 'gold-physical'} 
+                    onClick={() => onSectionChange('gold-physical')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Gold ETFs" 
+                    active={currentSection === 'gold-etf'} 
+                    onClick={() => onSectionChange('gold-etf')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Digital (SGB)" 
+                    active={currentSection === 'gold-digital'} 
+                    onClick={() => onSectionChange('gold-digital')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Taxation" 
+                    active={currentSection === 'gold-taxation'} 
+                    onClick={() => onSectionChange('gold-taxation')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Digital Platforms" 
+                    active={currentSection === 'gold-platforms'} 
+                    onClick={() => onSectionChange('gold-platforms')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
                 </CollapsibleContent>
               </Collapsible>
             ) : (
-              <SidebarItem icon={<Gem className="w-4 h-4" />} label="Gold" active={currentSection.startsWith('gold-')} onClick={() => onSectionChange('gold-overview')} isCollapsed={isCollapsed} />
+              <SidebarItem 
+                icon={<Gem className="w-4 h-4" />} 
+                label="Gold" 
+                active={currentSection.startsWith('gold-')} 
+                onClick={() => onSectionChange('gold-overview')} 
+                isCollapsed={isCollapsed} 
+              />
             )}
 
             {/* Real Estate */}
@@ -416,17 +662,53 @@ const DashboardSidebar = ({
                   </div>
                 </CollapsibleTrigger>
                 <CollapsibleContent className="space-y-1">
-                  <SidebarItem label="Overview" active={currentSection === 're-overview'} onClick={() => onSectionChange('re-overview')} isSubItem isCollapsed={isCollapsed} />
-                  <SidebarItem label="Document Check" active={currentSection === 're-documents'} onClick={() => onSectionChange('re-documents')} isSubItem isCollapsed={isCollapsed} />
-                  <SidebarItem label="REITs & Fractional" active={currentSection === 're-reits-fractional'} onClick={() => onSectionChange('re-reits-fractional')} isSubItem isCollapsed={isCollapsed} />
-                  <SidebarItem label="Rental Yield Calc" active={currentSection === 're-rental-yield'} onClick={() => onSectionChange('re-rental-yield')} isSubItem isCollapsed={isCollapsed} />
-                  <SidebarItem label="Taxation" active={currentSection === 're-taxation'} onClick={() => onSectionChange('re-taxation')} isSubItem isCollapsed={isCollapsed} />
+                  <SidebarItem 
+                    label="Overview" 
+                    active={currentSection === 're-overview'} 
+                    onClick={() => onSectionChange('re-overview')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Document Check" 
+                    active={currentSection === 're-documents'} 
+                    onClick={() => onSectionChange('re-documents')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="REITs & Fractional" 
+                    active={currentSection === 're-reits-fractional'} 
+                    onClick={() => onSectionChange('re-reits-fractional')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Rental Yield Calc" 
+                    active={currentSection === 're-rental-yield'} 
+                    onClick={() => onSectionChange('re-rental-yield')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Taxation" 
+                    active={currentSection === 're-taxation'} 
+                    onClick={() => onSectionChange('re-taxation')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
                 </CollapsibleContent>
               </Collapsible>
             ) : (
-              <SidebarItem icon={<Building2 className="w-4 h-4" />} label="Real Estate" active={currentSection.startsWith('re-')} onClick={() => onSectionChange('re-overview')} isCollapsed={isCollapsed} />
+              <SidebarItem 
+                icon={<Building2 className="w-4 h-4" />} 
+                label="Real Estate" 
+                active={currentSection.startsWith('re-')} 
+                onClick={() => onSectionChange('re-overview')} 
+                isCollapsed={isCollapsed} 
+              />
             )}
-            
+
             {/* Bonds */}
             {!isCollapsed ? (
               <Collapsible defaultOpen={currentSection.startsWith('bonds-')} className="space-y-1">
@@ -443,8 +725,21 @@ const DashboardSidebar = ({
                   </div>
                 </CollapsibleTrigger>
                 <CollapsibleContent className="space-y-1">
-                  <SidebarItem label="Overview" active={currentSection === 'bonds-overview'} onClick={() => onSectionChange('bonds-overview')} isSubItem isCollapsed={isCollapsed} />
-                  <SidebarItem label="Things to Consider" active={currentSection === 'bonds-consider'} onClick={() => onSectionChange('bonds-consider')} isSubItem isCollapsed={isCollapsed} />
+                  <SidebarItem 
+                    label="Overview" 
+                    active={currentSection === 'bonds-overview'} 
+                    onClick={() => onSectionChange('bonds-overview')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Things to Consider" 
+                    active={currentSection === 'bonds-consider'} 
+                    onClick={() => onSectionChange('bonds-consider')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+
                   <Collapsible defaultOpen={currentSection.startsWith('bonds-') && currentSection !== 'bonds-overview' && currentSection !== 'bonds-consider'}>
                     <CollapsibleTrigger className="w-full">
                       <div className="flex items-center justify-between pl-11 pr-4 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900">
@@ -453,14 +748,32 @@ const DashboardSidebar = ({
                       </div>
                     </CollapsibleTrigger>
                     <CollapsibleContent className="space-y-1">
-                      <SidebarItem label="Importance" active={currentSection === 'bonds-importance'} onClick={() => onSectionChange('bonds-importance'} className="pl-14 text-xs" isCollapsed={isCollapsed} />
-                      <SidebarItem label="Rating Scale" active={currentSection === 'bonds-ratings'} onClick={() => onSectionChange('bonds-ratings'} className="pl-14 text-xs" isCollapsed={isCollapsed} />
+                      <SidebarItem 
+                        label="Importance" 
+                        active={currentSection === 'bonds-importance'} 
+                        onClick={() => onSectionChange('bonds-importance')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
+                      <SidebarItem 
+                        label="Rating Scale" 
+                        active={currentSection === 'bonds-ratings'} 
+                        onClick={() => onSectionChange('bonds-ratings')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
                     </CollapsibleContent>
                   </Collapsible>
                 </CollapsibleContent>
               </Collapsible>
             ) : (
-              <SidebarItem icon={<ScrollText className="w-4 h-4" />} label="Bonds" active={currentSection.startsWith('bonds-')} onClick={() => onSectionChange('bonds-overview')} isCollapsed={isCollapsed} />
+              <SidebarItem 
+                icon={<ScrollText className="w-4 h-4" />} 
+                label="Bonds" 
+                active={currentSection.startsWith('bonds-')} 
+                onClick={() => onSectionChange('bonds-overview')} 
+                isCollapsed={isCollapsed} 
+              />
             )}
 
             {/* Diversification */}
@@ -473,15 +786,51 @@ const DashboardSidebar = ({
                   </div>
                 </CollapsibleTrigger>
                 <CollapsibleContent className="space-y-1">
-                  <SidebarItem label="PMS" active={currentSection === 'pms'} onClick={() => onSectionChange('pms')} isSubItem isCollapsed={isCollapsed} />
-                  <SidebarItem label="AIF" active={currentSection === 'aif'} onClick={() => onSectionChange('aif')} isSubItem isCollapsed={isCollapsed} />
-                  <SidebarItem label="SIF" active={currentSection === 'sif'} isSubItem isCollapsed={isCollapsed} />
-                  <SidebarItem icon={<Bitcoin className="w-4 h-4" />} label="Bitcoin" active={currentSection === 'bitcoin'} onClick={() => onSectionChange('bitcoin')} isSubItem isCollapsed={isCollapsed} />
-                  <SidebarItem icon={<Globe className="w-4 h-4" />} label="Overseas" active={currentSection === 'overseas'} isSubItem isCollapsed={isCollapsed} />
+                  <SidebarItem 
+                    label="PMS" 
+                    active={currentSection === 'pms'} 
+                    onClick={() => onSectionChange('pms')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="AIF" 
+                    active={currentSection === 'aif'} 
+                    onClick={() => onSectionChange('aif')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="SIF" 
+                    active={currentSection === 'sif'} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    icon={<Bitcoin className="w-4 h-4" />} 
+                    label="Bitcoin" 
+                    active={currentSection === 'bitcoin'} 
+                    onClick={() => onSectionChange('bitcoin')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    icon={<Globe className="w-4 h-4" />} 
+                    label="Overseas" 
+                    active={currentSection === 'overseas'} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
                 </CollapsibleContent>
               </Collapsible>
             ) : (
-              <SidebarItem icon={<PieChart className="w-4 h-4" />} label="Diversification" active={currentSection === 'pms'} onClick={() => onSectionChange('pms')} isCollapsed={isCollapsed} />
+              <SidebarItem 
+                icon={<PieChart className="w-4 h-4" />} 
+                label="Diversification" 
+                active={currentSection === 'pms'} 
+                onClick={() => onSectionChange('pms')} 
+                isCollapsed={isCollapsed} 
+              />
             )}
           </nav>
         </div>
