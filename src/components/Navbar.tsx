@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Wallet } from 'lucide-react';
+import { Wallet, Info } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
@@ -17,14 +17,21 @@ const Navbar = () => {
           </div>
           <span className="font-bold text-xl tracking-tight">FinSmart</span>
         </div>
-        
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
           <a href="#why" className="hover:text-primary transition-colors">Why FinSmart</a>
           <a href="#features" className="hover:text-primary transition-colors">Features</a>
           <a href="#about" className="hover:text-primary transition-colors">About</a>
         </div>
-
         <div className="flex items-center gap-4">
+          <Button 
+            variant="ghost" 
+            size="sm" 
+            className="gap-2 hidden md:flex"
+            onClick={() => navigate('/about')}
+          >
+            <Info className="w-4 h-4" />
+            About
+          </Button>
           <Button size="sm" onClick={() => navigate('/dashboard')}>Get Started</Button>
         </div>
       </div>
