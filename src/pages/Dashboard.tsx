@@ -48,10 +48,15 @@ import GoldOverview from '@/components/dashboard/gold/GoldOverview';
 import PhysicalGold from '@/components/dashboard/gold/PhysicalGold';
 import GoldETF from '@/components/dashboard/gold/GoldETF';
 import DigitalGold from '@/components/dashboard/gold/DigitalGold';
+import GoldTaxation from '@/components/dashboard/gold/GoldTaxation';
+import DigitalGoldPlatforms from '@/components/dashboard/gold/DigitalGoldPlatforms';
 
 // Real Estate Components
 import RealEstateOverview from '@/components/dashboard/real-estate/RealEstateOverview';
 import DocumentCheck from '@/components/dashboard/real-estate/DocumentCheck';
+import REITsFractional from '@/components/dashboard/real-estate/REITsFractional';
+import RentalYield from '@/components/dashboard/real-estate/RentalYield';
+import RealEstateTaxation from '@/components/dashboard/real-estate/RealEstateTaxation';
 
 // Bonds Components
 import BondsOverview from '@/components/dashboard/bonds/BondsOverview';
@@ -106,10 +111,15 @@ const Dashboard = () => {
       case 'gold-physical': return <PhysicalGold />;
       case 'gold-etf': return <GoldETF />;
       case 'gold-digital': return <DigitalGold />;
+      case 'gold-taxation': return <GoldTaxation />;
+      case 'gold-platforms': return <DigitalGoldPlatforms />;
 
       // Real Estate
       case 're-overview': return <RealEstateOverview />;
       case 're-documents': return <DocumentCheck />;
+      case 're-reits-fractional': return <REITsFractional />;
+      case 're-rental-yield': return <RentalYield />;
+      case 're-taxation': return <RealEstateTaxation />;
 
       // Bonds
       case 'bonds-overview': return <BondsOverview />;
@@ -174,8 +184,13 @@ const Dashboard = () => {
       'gold-physical': 'Physical Gold',
       'gold-etf': 'Gold ETFs & Funds',
       'gold-digital': 'Digital Gold (SGB)',
+      'gold-taxation': 'Gold Taxation',
+      'gold-platforms': 'Digital Gold Platforms',
       're-overview': 'Real Estate Overview',
       're-documents': 'Document Verification Checklist',
+      're-reits-fractional': 'REITs & Fractional Ownership',
+      're-rental-yield': 'Rental Yield Calculation',
+      're-taxation': 'Real Estate Taxation',
       'bonds-overview': 'Corporate Bond Markets',
       'bonds-ratings': 'CRISIL Rating Scale',
       'bonds-importance': 'Credit Ratings',

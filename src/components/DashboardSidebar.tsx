@@ -367,6 +367,8 @@ const DashboardSidebar = ({
                   <SidebarItem label="Physical Gold" active={currentSection === 'gold-physical'} onClick={() => onSectionChange('gold-physical')} isSubItem isCollapsed={isCollapsed} />
                   <SidebarItem label="Gold ETFs" active={currentSection === 'gold-etf'} onClick={() => onSectionChange('gold-etf')} isSubItem isCollapsed={isCollapsed} />
                   <SidebarItem label="Digital (SGB)" active={currentSection === 'gold-digital'} onClick={() => onSectionChange('gold-digital')} isSubItem isCollapsed={isCollapsed} />
+                  <SidebarItem label="Taxation" active={currentSection === 'gold-taxation'} onClick={() => onSectionChange('gold-taxation')} isSubItem isCollapsed={isCollapsed} />
+                  <SidebarItem label="Digital Platforms" active={currentSection === 'gold-platforms'} onClick={() => onSectionChange('gold-platforms')} isSubItem isCollapsed={isCollapsed} />
                 </CollapsibleContent>
               </Collapsible>
             ) : (
@@ -391,6 +393,9 @@ const DashboardSidebar = ({
                 <CollapsibleContent className="space-y-1">
                   <SidebarItem label="Overview" active={currentSection === 're-overview'} onClick={() => onSectionChange('re-overview')} isSubItem isCollapsed={isCollapsed} />
                   <SidebarItem label="Document Check" active={currentSection === 're-documents'} onClick={() => onSectionChange('re-documents')} isSubItem isCollapsed={isCollapsed} />
+                  <SidebarItem label="REITs & Fractional" active={currentSection === 're-reits-fractional'} onClick={() => onSectionChange('re-reits-fractional')} isSubItem isCollapsed={isCollapsed} />
+                  <SidebarItem label="Rental Yield Calc" active={currentSection === 're-rental-yield'} onClick={() => onSectionChange('re-rental-yield')} isSubItem isCollapsed={isCollapsed} />
+                  <SidebarItem label="Taxation" active={currentSection === 're-taxation'} onClick={() => onSectionChange('re-taxation')} isSubItem isCollapsed={isCollapsed} />
                 </CollapsibleContent>
               </Collapsible>
             ) : (
