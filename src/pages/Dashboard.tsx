@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState } from 'react';
 import DashboardSidebar from '@/components/DashboardSidebar';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -76,69 +75,121 @@ const Dashboard = () => {
   const renderContent = () => {
     switch (activeSection) {
       // Kids
-      case 'kids-overview': return <KidsOverview />;
-      case 'kids-money': return <MoneySection />;
-      case 'kids-piggy-bank': return <PiggyBankSection />;
-      case 'kids-budgeting': return <BudgetingSection />;
-      case 'kids-bank': return <BankSection />;
-      case 'kids-bank-accounts': return <BankAccounts />;
-      case 'kids-bank-operating': return <OperatingAccount />;
-      case 'kids-bank-transfers': return <TransferSection />;
-      case 'kids-bank-loans': return <BankLoans />;
-      case 'kids-bank-services': return <BankServices />;
-      case 'kids-safety': return <SafetySection />;
-      case 'kids-earning': return <EarningEngine />;
-      case 'kids-investing': return <MoneyTree />;
-      case 'kids-inflation': return <ShrinkingCookie />;
-      case 'kids-taxes': return <CommunityPot />;
-      case 'kids-giving': return <AdvancedGiving />;
-      case 'kids-credit': return <CreditReputation />;
-      case 'kids-global': return <GlobalMoney />;
-      case 'kids-minting-money': return <MintingMoney />;
-
+      case 'kids-overview':
+        return <KidsOverview />;
+      case 'kids-money':
+        return <MoneySection />;
+      case 'kids-piggy-bank':
+        return <PiggyBankSection />;
+      case 'kids-budgeting':
+        return <BudgetingSection />;
+      case 'kids-bank':
+        return <BankSection />;
+      case 'kids-bank-accounts':
+        return <BankAccounts />;
+      case 'kids-bank-operating':
+        return <OperatingAccount />;
+      case 'kids-bank-transfers':
+        return <TransferSection />;
+      case 'kids-bank-loans':
+        return <BankLoans />;
+      case 'kids-bank-services':
+        return <BankServices />;
+      case 'kids-safety':
+        return <SafetySection />;
+      case 'kids-earning':
+        return <EarningEngine />;
+      case 'kids-investing':
+        return <MoneyTree />;
+      case 'kids-inflation':
+        return <ShrinkingCookie />;
+      case 'kids-taxes':
+        return <CommunityPot />;
+      case 'kids-giving':
+        return <AdvancedGiving />;
+      case 'kids-credit':
+        return <CreditReputation />;
+      case 'kids-global':
+        return <GlobalMoney />;
+      case 'kids-minting-money':
+        return <MintingMoney />;
+        
       // Mutual Funds
-      case 'mf-equity-types': return <TypesOfEquityFunds />;
-      case 'mf-debt-types': return <DebtFunds />;
-      case 'mf-hybrid-types': return <HybridFunds />;
-      case 'mf-goal-types': return <GoalBasedFunds />;
-      case 'mf-risk-types': return <RiskBasedFunds />;
-      case 'mf-structure-types': return <StructureBasedFunds />;
-      case 'mf-sip': return <SIP />;
-      case 'mf-lumpsum': return <Lumpsum />;
-      case 'mf-combined': return <SIPandLumpsum />;
-      case 'mf-swp': return <SWP />;
-      case 'mf-stp': return <STP />;
-      case 'mf-taxation': return <Taxation />;
-      case 'mf-metrics': return <FundMetrics />;
-      case 'mf-passive': return <PassiveInvesting />;
-
+      case 'mf-equity-types':
+        return <TypesOfEquityFunds />;
+      case 'mf-debt-types':
+        return <DebtFunds />;
+      case 'mf-hybrid-types':
+        return <HybridFunds />;
+      case 'mf-goal-types':
+        return <GoalBasedFunds />;
+      case 'mf-risk-types':
+        return <RiskBasedFunds />;
+      case 'mf-structure-types':
+        return <StructureBasedFunds />;
+      case 'mf-sip':
+        return <SIP />;
+      case 'mf-lumpsum':
+        return <Lumpsum />;
+      case 'mf-combined':
+        return <SIPandLumpsum />;
+      case 'mf-swp':
+        return <SWP />;
+      case 'mf-stp':
+        return <STP />;
+      case 'mf-taxation':
+        return <Taxation />;
+      case 'mf-metrics':
+        return <FundMetrics />;
+      case 'mf-passive':
+        return <PassiveInvesting />;
+        
       // Equity
-      case 'equity-overview': return <EquityOverview />;
-      case 'equity-fundamental': return <FundamentalAnalysis />;
-      case 'equity-technical': return <TechnicalAnalysis />;
-      case 'equity-ipo': return <IPOs />;
-      
+      case 'equity-overview':
+        return <EquityOverview />;
+      case 'equity-fundamental':
+        return <FundamentalAnalysis />;
+      case 'equity-technical':
+        return <TechnicalAnalysis />;
+      case 'equity-ipo':
+        return <IPOs />;
+        
       // Gold
-      case 'gold-overview': return <GoldOverview />;
-      case 'gold-physical': return <PhysicalGold />;
-      case 'gold-etf': return <GoldETF />;
-      case 'gold-digital': return <DigitalGold />;
-      case 'gold-taxation': return <GoldTaxation />;
-      case 'gold-platforms': return <DigitalGoldPlatforms />;
-
+      case 'gold-overview':
+        return <GoldOverview />;
+      case 'gold-physical':
+        return <PhysicalGold />;
+      case 'gold-etf':
+        return <GoldETF />;
+      case 'gold-digital':
+        return <DigitalGold />;
+      case 'gold-taxation':
+        return <GoldTaxation />;
+      case 'gold-platforms':
+        return <DigitalGoldPlatforms />;
+        
       // Real Estate
-      case 're-overview': return <RealEstateOverview />;
-      case 're-documents': return <DocumentCheck />;
-      case 're-reits-fractional': return <REITsFractional />;
-      case 're-rental-yield': return <RentalYield />;
-      case 're-taxation': return <RealEstateTaxation />;
-
+      case 're-overview':
+        return <RealEstateOverview />;
+      case 're-documents':
+        return <DocumentCheck />;
+      case 're-reits-fractional':
+        return <REITsFractional />;
+      case 're-rental-yield':
+        return <RentalYield />;
+      case 're-taxation':
+        return <RealEstateTaxation />;
+        
       // Bonds
-      case 'bonds-overview': return <BondsOverview />;
-      case 'bonds-ratings': return <BondRatings />;
-      case 'bonds-importance': return <BondImportance />;
-      case 'bonds-consider': return <ThingsToConsider />;
-      
+      case 'bonds-overview':
+        return <BondsOverview />;
+      case 'bonds-ratings':
+        return <BondRatings />;
+      case 'bonds-importance':
+        return <BondImportance />;
+      case 'bonds-consider':
+        return <ThingsToConsider />;
+        
       default:
         return (
           <div className="grid grid-cols-1 gap-6">
@@ -150,7 +201,9 @@ const Dashboard = () => {
               <p className="text-slate-500 max-w-sm mb-6">
                 We are currently building the educational content for this section. Stay tuned!
               </p>
-              <Button variant="outline" onClick={() => setActiveSection('mf-equity-types')}>Back to Basics</Button>
+              <Button variant="outline" onClick={() => setActiveSection('mf-equity-types')}>
+                Back to Basics
+              </Button>
             </Card>
           </div>
         );
@@ -228,7 +281,6 @@ const Dashboard = () => {
   return (
     <div className="flex min-h-screen bg-slate-50/50">
       <DashboardSidebar currentSection={activeSection} onSectionChange={setActiveSection} />
-      
       <main className="flex-1 p-8 overflow-y-auto">
         <header className="flex items-center justify-between mb-8">
           <div className="space-y-1">
@@ -237,11 +289,7 @@ const Dashboard = () => {
             </div>
             <h1 className="text-3xl font-bold text-slate-900">{getSectionTitle(activeSection)}</h1>
           </div>
-          <Button className="gap-2 shadow-lg shadow-blue-200">
-            Take Quiz <ArrowUpRight className="w-4 h-4" />
-          </Button>
         </header>
-
         {renderContent()}
       </main>
     </div>
