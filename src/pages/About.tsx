@@ -1,5 +1,4 @@
 "use client";
-
 import React from 'react';
 import { Mail, Github, Linkedin, Twitter } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -40,6 +39,14 @@ const About = () => {
     "Investment portfolio guidance",
     "Risk assessment and management"
   ];
+
+  const dailyDriverTools = [
+    'Java', 'Selenium', 'Python', 'Shell', 'Git', 'Systemd', 'cron', 'LLMs',
+    { name: 'C', highlighted: true }, 
+    { name: 'Linux System Programming', highlighted: true }
+  ];
+
+  const spaTools = ['React', 'TypeScript', 'Vite', 'React Router', 'Tailwind CSS', 'shadcn/ui'];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 py-12 px-4 sm:px-6">
@@ -83,13 +90,13 @@ const About = () => {
           <Card className="border-none shadow-lg">
             <CardHeader>
               <CardTitle className="text-2xl flex items-center gap-2">
-                <span className="text-2xl">🔧</span> Technical Expertise
+                <span className="text-2xl">🔧</span>
+                Technical Expertise
               </CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-slate-600 mb-6">
-                As an embedded engineer, I specialize in designing circuits with microprocessors and microcontrollers. 
-                My expertise spans automation across multiple platforms and system-level programming.
+                As an embedded engineer, I specialize in designing circuits with microprocessors and microcontrollers. My expertise spans automation across multiple platforms and system-level programming.
               </p>
               <div className="flex flex-wrap gap-2">
                 {skills.map((skill, index) => (
@@ -107,13 +114,13 @@ const About = () => {
           <Card className="border-none shadow-lg">
             <CardHeader>
               <CardTitle className="text-2xl flex items-center gap-2">
-                <span className="text-2xl">💰</span> Financial Passion
+                <span className="text-2xl">💰</span>
+                Financial Passion
               </CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-slate-600 mb-6">
-                Beyond technology, I'm deeply passionate about finance and have helped thousands of people 
-                with their financial planning and diversification strategies.
+                Beyond technology, I'm deeply passionate about finance and have helped thousands of people with their financial planning and diversification strategies.
               </p>
               <ul className="space-y-3">
                 {financeWork.map((item, index) => (
@@ -132,31 +139,46 @@ const About = () => {
         <Card className="border-none shadow-lg mb-12">
           <CardHeader>
             <CardTitle className="text-2xl flex items-center gap-2">
-              <span className="text-2xl">🚀</span> Current Focus
+              <span className="text-2xl">🚀</span>
+              Current Focus
             </CardTitle>
           </CardHeader>
           <CardContent>
             <p className="text-slate-600 mb-4">
-              I'm currently exploring the world of Generative AI and Agentic AI, bridging automation with intelligence. 
-              My daily driver tools include:
+              I'm currently exploring the world of Generative AI and Agentic AI, bridging automation with intelligence. My daily driver tools include:
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
-              {['Java', 'Selenium', 'Python', 'Shell', 'Git', 'Systemd', 'cron', 'LLMs'].map((tool, index) => (
-                <div key={index} className="bg-slate-100 p-4 rounded-lg text-center">
-                  <span className="font-medium text-slate-800">{tool}</span>
+              {dailyDriverTools.map((tool, index) => (
+                <div 
+                  key={index} 
+                  className={`p-4 rounded-lg text-center ${
+                    typeof tool === 'object' && tool.highlighted 
+                      ? 'bg-yellow-100 border-2 border-yellow-300' 
+                      : 'bg-slate-100'
+                  }`}
+                >
+                  <span className={`font-medium ${
+                    typeof tool === 'object' && tool.highlighted 
+                      ? 'text-yellow-800' 
+                      : 'text-slate-800'
+                  }`}>
+                    {typeof tool === 'object' ? tool.name : tool}
+                  </span>
                 </div>
               ))}
             </div>
+
             <p className="text-slate-600 mt-6 mb-4">
               For SPA development, I work with:
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
-              {['React', 'TypeScript', 'Vite', 'React Router', 'Tailwind CSS', 'shadcn/ui'].map((tool, index) => (
+              {spaTools.map((tool, index) => (
                 <div key={index} className="bg-slate-100 p-4 rounded-lg text-center">
                   <span className="font-medium text-slate-800">{tool}</span>
                 </div>
               ))}
             </div>
+
             <p className="text-slate-600 mt-6">
               Using Supabase for: PostgreSQL • Auth • Edge Functions
             </p>
@@ -167,8 +189,7 @@ const About = () => {
           <CardContent className="p-8 text-center">
             <h3 className="text-2xl font-bold text-slate-900 mb-4">Let's Collaborate!</h3>
             <p className="text-slate-600 mb-6 max-w-2xl mx-auto">
-              Open-source, automation, AI, or anything that runs on a terminal. 
-              I'm always excited to work on innovative projects and share knowledge.
+              Open-source, automation, AI, or anything that runs on a terminal. I'm always excited to work on innovative projects and share knowledge.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button className="gap-2 bg-slate-900 hover:bg-slate-800">
