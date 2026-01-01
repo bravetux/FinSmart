@@ -24,7 +24,9 @@ import {
   PieChart,
   ShieldAlert,
   Calculator,
-  Scale
+  Scale,
+  Rocket,
+  Search
 } from 'lucide-react';
 import { cn } from "@/lib/utils";
 import { 
@@ -204,7 +206,7 @@ const DashboardSidebar = ({
                 <CollapsibleContent className="space-y-1">
                   <SidebarItem label="Adventure Map" active={currentSection === 'kids-overview'} onClick={() => onSectionChange('kids-overview')} isSubItem isCollapsed={isCollapsed} />
                   
-                  {/* New Conceptual Group */}
+                  {/* Basics & Earning */}
                   <Collapsible defaultOpen={currentSection.includes('money') || currentSection.includes('earning') || currentSection.includes('budgeting')}>
                     <CollapsibleTrigger className="w-full">
                        <div className="flex items-center justify-between pl-11 pr-4 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900">
@@ -220,7 +222,7 @@ const DashboardSidebar = ({
                     </CollapsibleContent>
                   </Collapsible>
 
-                  {/* New Growth Group */}
+                  {/* Growth & Concepts */}
                   <Collapsible defaultOpen={currentSection.includes('investing') || currentSection.includes('inflation') || currentSection.includes('taxes') || currentSection.includes('credit') || currentSection.includes('global') || currentSection.includes('giving')}>
                     <CollapsibleTrigger className="w-full">
                        <div className="flex items-center justify-between pl-11 pr-4 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900">
@@ -345,7 +347,30 @@ const DashboardSidebar = ({
             )}
 
             {/* Equity */}
-            <SidebarItem icon={<LineChart className="w-4 h-4" />} label="Equity" active={currentSection === 'equity'} onClick={() => onSectionChange('equity')} isCollapsed={isCollapsed} />
+            {!isCollapsed ? (
+              <Collapsible defaultOpen={currentSection.startsWith('equity-')} className="space-y-1">
+                <CollapsibleTrigger className="w-full">
+                  <div className={cn(
+                    "flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-colors",
+                    currentSection.startsWith('equity-') ? "text-primary" : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                  )}>
+                    <div className="flex items-center gap-3">
+                      <LineChart className="w-4 h-4" />
+                      <span>Equity</span>
+                    </div>
+                    <ChevronDown className={cn("w-4 h-4 transition-transform", !currentSection.startsWith('equity-') && "-rotate-90")} />
+                  </div>
+                </CollapsibleTrigger>
+                <CollapsibleContent className="space-y-1">
+                  <SidebarItem label="Overview" active={currentSection === 'equity-overview'} onClick={() => onSectionChange('equity-overview')} isSubItem isCollapsed={isCollapsed} />
+                  <SidebarItem label="Fundamental Analysis" active={currentSection === 'equity-fundamental'} onClick={() => onSectionChange('equity-fundamental')} isSubItem isCollapsed={isCollapsed} />
+                  <SidebarItem label="Technical Basics" active={currentSection === 'equity-technical'} onClick={() => onSectionChange('equity-technical')} isSubItem isCollapsed={isCollapsed} />
+                  <SidebarItem label="IPOs" active={currentSection === 'equity-ipo'} onClick={() => onSectionChange('equity-ipo')} isSubItem isCollapsed={isCollapsed} />
+                </CollapsibleContent>
+              </Collapsible>
+            ) : (
+              <SidebarItem icon={<LineChart className="w-4 h-4" />} label="Equity" active={currentSection.startsWith('equity-')} onClick={() => onSectionChange('equity-overview')} isCollapsed={isCollapsed} />
+            )}
             
             {/* Gold */}
             {!isCollapsed ? (
@@ -428,8 +453,8 @@ const DashboardSidebar = ({
                       </div>
                     </CollapsibleTrigger>
                     <CollapsibleContent className="space-y-1">
-                      <SidebarItem label="Importance" active={currentSection === 'bonds-importance'} onClick={() => onSectionChange('bonds-importance')} className="pl-14 text-xs" isCollapsed={isCollapsed} />
-                      <SidebarItem label="Rating Scale" active={currentSection === 'bonds-ratings'} onClick={() => onSectionChange('bonds-ratings')} className="pl-14 text-xs" isCollapsed={isCollapsed} />
+                      <SidebarItem label="Importance" active={currentSection === 'bonds-importance'} onClick={() => onSectionChange('bonds-importance'} className="pl-14 text-xs" isCollapsed={isCollapsed} />
+                      <SidebarItem label="Rating Scale" active={currentSection === 'bonds-ratings'} onClick={() => onSectionChange('bonds-ratings'} className="pl-14 text-xs" isCollapsed={isCollapsed} />
                     </CollapsibleContent>
                   </Collapsible>
                 </CollapsibleContent>

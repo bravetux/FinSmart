@@ -43,6 +43,12 @@ import Taxation from '@/components/dashboard/mf/Taxation';
 import FundMetrics from '@/components/dashboard/mf/FundMetrics';
 import PassiveInvesting from '@/components/dashboard/mf/PassiveInvesting';
 
+// Equity Components
+import EquityOverview from '@/components/dashboard/equity/EquityOverview';
+import FundamentalAnalysis from '@/components/dashboard/equity/FundamentalAnalysis';
+import TechnicalAnalysis from '@/components/dashboard/equity/TechnicalAnalysis';
+import IPOs from '@/components/dashboard/equity/IPOs';
+
 // Gold Components
 import GoldOverview from '@/components/dashboard/gold/GoldOverview';
 import PhysicalGold from '@/components/dashboard/gold/PhysicalGold';
@@ -105,6 +111,12 @@ const Dashboard = () => {
       case 'mf-taxation': return <Taxation />;
       case 'mf-metrics': return <FundMetrics />;
       case 'mf-passive': return <PassiveInvesting />;
+
+      // Equity
+      case 'equity-overview': return <EquityOverview />;
+      case 'equity-fundamental': return <FundamentalAnalysis />;
+      case 'equity-technical': return <TechnicalAnalysis />;
+      case 'equity-ipo': return <IPOs />;
       
       // Gold
       case 'gold-overview': return <GoldOverview />;
@@ -180,6 +192,10 @@ const Dashboard = () => {
       'mf-taxation': 'Taxation of Mutual Funds',
       'mf-metrics': 'Fund Metrics & Selection',
       'mf-passive': 'Passive Investing (Index/ETF)',
+      'equity-overview': 'Equity Market Basics',
+      'equity-fundamental': 'Fundamental Analysis',
+      'equity-technical': 'Technical Analysis Basics',
+      'equity-ipo': 'IPOs (Going Public)',
       'gold-overview': 'Gold Investment Overview',
       'gold-physical': 'Physical Gold',
       'gold-etf': 'Gold ETFs & Funds',
@@ -202,6 +218,7 @@ const Dashboard = () => {
   const getModuleLabel = (id: string) => {
     if (id.startsWith('kids-')) return "Early Foundations";
     if (id.startsWith('mf-')) return "Mutual Funds Masterclass";
+    if (id.startsWith('equity-')) return "Equity Markets";
     if (id.startsWith('gold-')) return "Precious Metals Module";
     if (id.startsWith('re-')) return "Real Estate Module";
     if (id.startsWith('bonds-')) return "Fixed Income Module";
