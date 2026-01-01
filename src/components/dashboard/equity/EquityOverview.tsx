@@ -86,10 +86,10 @@ const EquityOverview = () => {
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-sm text-red-900 leading-relaxed">
-                Profits from selling equity shares held for less than 12 months are taxed at <strong>15%</strong> flat rate.
+                Profits from selling equity shares held for less than 12 months are taxed at <strong>20%</strong> as per your income tax slab.
               </p>
               <div className="p-3 bg-white/60 rounded-xl border border-red-100 text-xs text-red-700 italic">
-                Example: If you buy shares for ₹1,00,000 and sell them for ₹1,20,000 after 8 months, your gain of ₹20,000 will be taxed at 15% = ₹3,000.
+                Example: If you buy shares for ₹1,00,000 and sell them for ₹1,20,000 after 8 months, your gain of ₹20,000 will be taxed at 20% = ₹4,000.
               </div>
             </CardContent>
           </Card>
@@ -103,10 +103,10 @@ const EquityOverview = () => {
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-sm text-emerald-900 leading-relaxed">
-                Profits from selling equity shares held for 12 months or more are tax-free up to ₹1,00,000. Beyond that, the rate is <strong>10%</strong> without indexation.
+                Profits from selling equity shares held for 12 months or more are tax-free up to ₹1,25,000. Beyond that, the rate is <strong>12.5%</strong> without indexation.
               </p>
               <div className="p-3 bg-white/60 rounded-xl border border-emerald-100 text-xs text-emerald-700 italic">
-                Example: If you sell shares after 2 years with a gain of ₹1,50,000, you pay 10% tax on ₹50,000 (₹1,50,000 - ₹1,00,000) = ₹5,000.
+                Example: If you sell shares after 2 years with a gain of ₹1,75,000, you pay 12.5% tax on ₹50,000 (₹1,75,000 - ₹1,25,000) = ₹6,250.
               </div>
             </CardContent>
           </Card>
