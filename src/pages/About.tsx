@@ -34,15 +34,22 @@ const About = () => {
 
   const financeWork = [
     "Financial planning for salaried professionals",
-    "Wealth diversification strategies for daily wage workers",
+    "Wealth diversification strategies for business, students and salaried people",
     "Personal finance education and counseling",
     "Investment portfolio guidance",
     "Risk assessment and management"
   ];
 
   const dailyDriverTools = [
-    'Java', 'Selenium', 'Python', 'Shell', 'Git', 'Systemd', 'cron', 'LLMs',
-    { name: 'C', highlighted: true }, 
+    'Java',
+    'Selenium',
+    'Python',
+    'Shell',
+    'Git',
+    'Systemd',
+    'cron',
+    'LLMs',
+    { name: 'C', highlighted: true },
     { name: 'Linux System Programming', highlighted: true }
   ];
 
@@ -73,12 +80,10 @@ const About = () => {
                 </p>
                 <div className="flex flex-wrap justify-center md:justify-start gap-3">
                   <Button variant="secondary" className="gap-2">
-                    <Mail className="w-4 h-4" />
-                    Contact
+                    <Mail className="w-4 h-4" /> Contact
                   </Button>
                   <Button variant="secondary" className="gap-2">
-                    <Github className="w-4 h-4" />
-                    GitHub
+                    <Github className="w-4 h-4" /> GitHub
                   </Button>
                 </div>
               </div>
@@ -90,8 +95,7 @@ const About = () => {
           <Card className="border-none shadow-lg">
             <CardHeader>
               <CardTitle className="text-2xl flex items-center gap-2">
-                <span className="text-2xl">🔧</span>
-                Technical Expertise
+                <span className="text-2xl">🔧</span> Technical Expertise
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -100,10 +104,7 @@ const About = () => {
               </p>
               <div className="flex flex-wrap gap-2">
                 {skills.map((skill, index) => (
-                  <span 
-                    key={index} 
-                    className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium"
-                  >
+                  <span key={index} className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
                     {skill}
                   </span>
                 ))}
@@ -114,8 +115,7 @@ const About = () => {
           <Card className="border-none shadow-lg">
             <CardHeader>
               <CardTitle className="text-2xl flex items-center gap-2">
-                <span className="text-2xl">💰</span>
-                Financial Passion
+                <span className="text-2xl">💰</span> Financial Passion
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -139,8 +139,7 @@ const About = () => {
         <Card className="border-none shadow-lg mb-12">
           <CardHeader>
             <CardTitle className="text-2xl flex items-center gap-2">
-              <span className="text-2xl">🚀</span>
-              Current Focus
+              <span className="text-2xl">🚀</span> Current Focus
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -193,8 +192,7 @@ const About = () => {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button className="gap-2 bg-slate-900 hover:bg-slate-800">
-                <Mail className="w-4 h-4" />
-                ic19939@gmail.com
+                <Mail className="w-4 h-4" /> ic19939@gmail.com
               </Button>
               <div className="flex gap-3">
                 <Button variant="outline" size="icon">
