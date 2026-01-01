@@ -1,7 +1,7 @@
 "use client";
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { LineChart, Building2, Landmark, ArrowRightLeft, Zap, ShieldCheck, CreditCard } from 'lucide-react';
+import { LineChart, Building2, Landmark, ArrowRightLeft, Zap, ShieldCheck, CreditCard, Receipt } from 'lucide-react';
 import { Badge } from "@/components/ui/badge";
 
 const EquityOverview = () => {
@@ -69,6 +69,48 @@ const EquityOverview = () => {
             </div>
           </CardContent>
         </Card>
+      </section>
+
+      {/* Taxation Section */}
+      <section className="space-y-6">
+        <h3 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
+          <Receipt className="w-6 h-6 text-emerald-600" /> Equity Taxation
+        </h3>
+        <div className="grid md:grid-cols-2 gap-8">
+          <Card className="border-red-100 bg-red-50/30">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-red-800">
+                <Zap className="w-5 h-5" /> Short-Term Capital Gains (STCG)
+              </CardTitle>
+              <CardDescription className="text-red-700">Holding period &lt; 12 months</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <p className="text-sm text-red-900 leading-relaxed">
+                Profits from selling equity shares held for less than 12 months are taxed at <strong>15%</strong> flat rate.
+              </p>
+              <div className="p-3 bg-white/60 rounded-xl border border-red-100 text-xs text-red-700 italic">
+                Example: If you buy shares for ₹1,00,000 and sell them for ₹1,20,000 after 8 months, your gain of ₹20,000 will be taxed at 15% = ₹3,000.
+              </div>
+            </CardContent>
+          </Card>
+          
+          <Card className="border-emerald-100 bg-emerald-50/30">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-emerald-800">
+                <ShieldCheck className="w-5 h-5" /> Long-Term Capital Gains (LTCG)
+              </CardTitle>
+              <CardDescription className="text-emerald-700">Holding period ≥ 12 months</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <p className="text-sm text-emerald-900 leading-relaxed">
+                Profits from selling equity shares held for 12 months or more are tax-free up to ₹1,00,000. Beyond that, the rate is <strong>10%</strong> without indexation.
+              </p>
+              <div className="p-3 bg-white/60 rounded-xl border border-emerald-100 text-xs text-emerald-700 italic">
+                Example: If you sell shares after 2 years with a gain of ₹1,50,000, you pay 10% tax on ₹50,000 (₹1,50,000 - ₹1,00,000) = ₹5,000.
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       </section>
 
       {/* Primary vs Secondary Market */}
