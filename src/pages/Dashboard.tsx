@@ -299,7 +299,7 @@ const Dashboard = () => {
       // Diversification
       'pms': 'Portfolio Management Services (PMS)',
       'aif': 'Alternative Investment Funds (AIF)',
-      'sif': 'Structured / Single-Investor Funds (SIF)',
+      'sif': 'Specialized Investment Fund (SIF)',
       'bitcoin': 'Bitcoin & Crypto'
     };
     return titles[id] || 'Financial Dashboard';
