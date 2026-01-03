@@ -9,6 +9,7 @@ import {
   Clock, 
   AlertTriangle, 
   CheckCircle2, 
+  XCircle, 
   Heart, 
   Briefcase, 
   ReceiptText, 
@@ -18,7 +19,8 @@ import {
   Calculator,
   FileText,
   ArrowRight,
-  Zap
+  Zap,
+  ShieldCheck // Added ShieldCheck here
 } from 'lucide-react';
 import { Badge } from "@/components/ui/badge";
 import {
