@@ -7,9 +7,8 @@ const AIF = () => {
   return (
     <div className="space-y-8 pb-12">
       <header className="space-y-2">
-        <h2 className="text-3xl font-bold">Alternative Investment Funds (AIF)</h2>
         <p className="text-sm text-slate-600 max-w-2xl">
-          Pooled investment vehicles (private funds) that pursue strategies outside traditional mutual funds — private equity, venture capital, credit, real assets, and hedge strategies.
+          Alternative Investment Funds (AIF) are pooled investment vehicles (private funds) that pursue strategies outside traditional mutual funds — private equity, venture capital, credit, real assets, and hedge strategies.
         </p>
       </header>
 
@@ -45,7 +44,7 @@ const AIF = () => {
           <CardContent>
             <ul className="list-disc ml-5 text-sm text-slate-700 space-y-2">
               <li>Management fee: typically 1.5%–2.5% p.a. (varies by strategy).</li>
-              <li>Performance / carry: often ~15%–25% of profits above a hurdle rate.</li>
+              <li>Performance / carry: often 10%–25% of profits above a hurdle rate.</li>
               <li>Setup, legal, admin and monitoring fees may also apply.</li>
             </ul>
           </CardContent>
@@ -68,7 +67,7 @@ const AIF = () => {
           </CardHeader>
           <CardContent>
             <p className="text-sm text-slate-700">
-              AIFs are typically aimed at institutional/HNI investors. Minimums can range from ~₹25 lakh for some funds to ₹1 crore or more for private equity and specialized strategies — exact minimums vary by fund and regulator.
+              AIFs are typically aimed at institutional/HNI investors. Minimums can range from ~₹25 lakh for some funds to ₹1 crore or more for private equity and specialized strategies — exact minimums vary by firm.
             </p>
           </CardContent>
         </Card>
