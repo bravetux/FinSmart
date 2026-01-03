@@ -294,7 +294,7 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                       <Collapsible defaultOpen={currentSection.includes('kids-bank-accounts') || currentSection === 'kids-bank-operating' || currentSection === 'kids-bank-transfers'}>
                         <CollapsibleTrigger className="w-full">
                           <div className={cn(
-                            "flex items-center justify-between pl-14 pr-4 py-1.5 text-xs font-medium transition-colors",
+                            "flex items-center justify-between pl-14 pr-4 py-1.5 text-sm font-medium transition-colors",
                             (currentSection.includes('kids-bank-accounts') || currentSection === 'kids-bank-operating' || currentSection === 'kids-bank-transfers') ? "text-primary" : "text-slate-600 hover:text-slate-900"
                           )}>
                             <span>Accounts</span>
@@ -847,6 +847,7 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                   <SidebarItem 
                     label="SIF" 
                     active={currentSection === 'sif'} 
+                    onClick={() => onSectionChange('sif')} 
                     isSubItem 
                     isCollapsed={isCollapsed} 
                   />
@@ -880,21 +881,7 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
         </div>
 
         <div className="mt-auto p-4 border-t">
-          {!isCollapsed ? (
-            <div className="bg-slate-50 p-4 rounded-xl">
-              <p className="text-xs font-medium text-slate-500 mb-2">Learning Progress</p>
-              <div className="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden">
-                <div className="bg-primary h-full w-[45%]" />
-              </div>
-              <p className="text-[10px] text-slate-400 mt-2">Module: Financial Literacy</p>
-            </div>
-          ) : (
-            <div className="flex flex-col items-center gap-1">
-              <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-              <div className="w-1.5 h-1.5 rounded-full bg-slate-200" />
-              <div className="w-1.5 h-1.5 rounded-full bg-slate-200" />
-            </div>
-          )}
+          {/* Footer left intentionally blank (progress UI removed) */}
         </div>
       </aside>
     </TooltipProvider>

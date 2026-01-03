@@ -7,6 +7,7 @@ const AIF = () => {
   return (
     <div className="space-y-8 pb-12">
       <header className="space-y-2">
+        <h2 className="text-3xl font-bold">Alternative Investment Funds (AIF)</h2>
         <p className="text-sm text-slate-600 max-w-2xl">
           Pooled investment vehicles (private funds) that pursue strategies outside traditional mutual funds — private equity, venture capital, credit, real assets, and hedge strategies.
         </p>
