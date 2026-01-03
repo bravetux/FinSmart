@@ -863,6 +863,7 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                     icon={<Globe className="w-4 h-4" />} 
                     label="Overseas" 
                     active={currentSection === 'overseas'} 
+                    onClick={() => onSectionChange('overseas')} 
                     isSubItem 
                     isCollapsed={isCollapsed} 
                   />
