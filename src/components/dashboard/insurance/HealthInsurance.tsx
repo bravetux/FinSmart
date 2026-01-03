@@ -242,9 +242,9 @@ const HealthInsurance = () => {
       </section>
 
       {/* Actionable Tip */}
-      <div className="p-8 bg-slate-900 rounded-[2.5rem] text-white space-y-4">
+      <div className="p-8 bg-indigo-700 rounded-[2.5rem] text-white space-y-4">
         <h4 className="text-xl font-bold">The Golden Rule of Health Insurance</h4>
-        <p className="text-slate-400 text-sm max-w-2xl leading-relaxed">
+        <p className="text-indigo-200 text-sm max-w-2xl leading-relaxed">
           Buy health insurance early, even when you are young and healthy. Premiums are lowest when you are young, and you avoid long waiting periods for pre-existing conditions later in life.
         </p>
       </div>
