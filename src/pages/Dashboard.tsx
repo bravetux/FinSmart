@@ -73,6 +73,12 @@ import ThingsToConsider from '@/components/dashboard/bonds/ThingsToConsider';
 import HealthInsurance from '@/components/dashboard/insurance/HealthInsurance';
 import TermInsurance from '@/components/dashboard/insurance/TermInsurance';
 
+// New Diversification Components
+import PMS from '@/components/dashboard/diversification/PMS';
+import AIF from '@/components/dashboard/diversification/AIF';
+import SIF from '@/components/dashboard/diversification/SIF';
+import Bitcoin from '@/components/dashboard/diversification/Bitcoin';
+
 
 const Dashboard = () => {
   const [activeSection, setActiveSection] = useState('kids-overview');
@@ -200,6 +206,16 @@ const Dashboard = () => {
         return <BondImportance />;
       case 'bonds-consider':
         return <ThingsToConsider />;
+
+      // Diversification / Alternative allocations
+      case 'pms':
+        return <PMS />;
+      case 'aif':
+        return <AIF />;
+      case 'sif':
+        return <SIF />;
+      case 'bitcoin':
+        return <Bitcoin />;
         
       default:
         return (
@@ -279,6 +295,10 @@ const Dashboard = () => {
       'bonds-ratings': 'CRISIL Rating Scale',
       'bonds-importance': 'Credit Ratings',
       'bonds-consider': 'Things to Consider',
+      'pms': 'Portfolio Management Services (PMS)',
+      'aif': 'Alternative Investment Funds (AIF)',
+      'sif': 'Structured / Specialized Investment Funds (SIF)',
+      'bitcoin': 'Bitcoin & Crypto'
     };
     return titles[id] || 'Financial Dashboard';
   };
@@ -291,6 +311,7 @@ const Dashboard = () => {
     if (id.startsWith('gold-')) return "Precious Metals Module";
     if (id.startsWith('re-')) return "Real Estate Module";
     if (id.startsWith('bonds-')) return "Fixed Income Module";
+    if (id === 'pms' || id === 'aif' || id === 'sif' || id === 'bitcoin') return "Diversification";
     return "Wealth Management";
   }
 
