@@ -36,6 +36,14 @@ const HealthInsurance = () => {
         <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 -mr-16 -mt-16 rounded-full blur-3xl" />
       </div>
 
+      {/* Actionable Tip (Golden Rule - MOVED HERE) */}
+      <div className="p-8 bg-indigo-700 rounded-[2.5rem] text-white space-y-4">
+        <h4 className="text-xl font-bold">The Golden Rule of Health Insurance</h4>
+        <p className="text-indigo-200 text-sm max-w-2xl leading-relaxed">
+          Buy health insurance early, even when you are young and healthy. Premiums are lowest when you are young, and you avoid long waiting periods for pre-existing conditions later in life.
+        </p>
+      </div>
+
       {/* Key Benefits */}
       <section className="space-y-6">
         <h3 className="text-2xl font-bold text-slate-900">Why Health Insurance is Essential</h3>
@@ -240,14 +248,6 @@ const HealthInsurance = () => {
           </Card>
         </div>
       </section>
-
-      {/* Actionable Tip */}
-      <div className="p-8 bg-indigo-700 rounded-[2.5rem] text-white space-y-4">
-        <h4 className="text-xl font-bold">The Golden Rule of Health Insurance</h4>
-        <p className="text-indigo-200 text-sm max-w-2xl leading-relaxed">
-          Buy health insurance early, even when you are young and healthy. Premiums are lowest when you are young, and you avoid long waiting periods for pre-existing conditions later in life.
-        </p>
-      </div>
     </div>
   );
 };
