@@ -1,124 +1,182 @@
 "use client";
 
-import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Shield, Users, DollarSign, Clock, AlertTriangle, CheckCircle2, Heart } from 'lucide-react';
-import { Badge } from "@/components/ui/badge";
+import React from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Shield, Users, DollarSign, Clock, AlertTriangle, CheckCircle2, Heart } from "lucide-react";
 
 const TermInsurance = () => {
   return (
     <div className="space-y-12 animate-in fade-in duration-500 pb-12">
-      {/* Hero Section */}
+      {/* Hero */}
       <div className="bg-blue-600 text-white p-8 md:p-12 rounded-[2.5rem] shadow-xl relative overflow-hidden">
         <div className="relative z-10 space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-white text-sm font-medium backdrop-blur-sm">
             <Shield className="w-4 h-4" />
-            <span>Pure Protection</span>
+            <span>Pure Protection for Your Family & Business</span>
           </div>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight">
             Term Insurance: Securing Your Family's Future
           </h2>
-          <p className="text-blue-50 text-lg max-w-xl">
-            The simplest and purest form of life insurance. It provides a large payout (Sum Assured) to your family if you pass away during the policy term.
+          <p className="text-blue-100 text-lg max-w-xl">
+            A straightforward, high-coverage protection plan designed to replace lost income and preserve the financial future of those who depend on you.
           </p>
         </div>
-        <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 -mr-16 -mt-16 rounded-full blur-3xl" />
       </div>
 
-      {/* Core Concept */}
-      <section className="grid lg:grid-cols-3 gap-6">
-        <Card className="lg:col-span-2 border-slate-200 shadow-sm">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-slate-900">
-              <Users className="w-5 h-5 text-blue-600" /> The Core Principle
-            </CardTitle>
-            <CardDescription>It's a risk cover, not an investment product.</CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <p className="text-sm text-slate-600 leading-relaxed">
-              Term insurance is designed to replace your income if you are no longer there to provide for your dependents (spouse, children, parents). Since it offers no maturity benefit, the premiums are extremely low for high coverage.
-            </p>
-            <div className="p-4 bg-blue-50 rounded-xl border border-blue-100">
-              <p className="text-xs font-bold text-blue-800 uppercase mb-1">Key Metric</p>
-              <p className="text-xs text-blue-700">Your Sum Assured should be at least 10-15 times your current annual income.</p>
-            </div>
-          </CardContent>
-        </Card>
-        
-        <Card className="border-emerald-100 bg-emerald-50/50 shadow-sm">
-          <CardHeader>
-            <CardTitle className="text-xl text-emerald-800">Tax Benefit</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-sm text-emerald-900 leading-relaxed">
-              Premiums are deductible under <strong>Section 80C</strong> (up to ₹1.5 Lakhs). The final payout to the nominee is completely <strong>tax-free</strong> under Section 10(10D).
-            </p>
-          </CardContent>
-        </Card>
+      {/* Self-employed emphasis */}
+      <Card className="p-6">
+        <CardContent>
+          <h3 className="text-xl font-bold mb-3">Why this matters for the self-employed</h3>
+          <p className="text-slate-700 leading-relaxed">
+            For self-employed individuals, there is no corporate safety net — no EPF, no group insurance, and no paid leave. Your income depends entirely on your health and ability to work. Term insurance isn't just a "good-to-have"; it is the ultimate hedge against the loss of your business and your family's financial security.
+          </p>
+        </CardContent>
+      </Card>
+
+      {/* How Term Insurance Works */}
+      <section className="space-y-4">
+        <h3 className="text-2xl font-bold">🏗️ How Term Insurance Works</h3>
+        <div className="grid md:grid-cols-3 gap-4">
+          <div className="p-4 bg-white rounded-lg border shadow-sm">
+            <h4 className="font-semibold">Death Benefit</h4>
+            <p className="text-sm text-slate-600">If you pass away during the policy term, your nominee receives the full Sum Assured.</p>
+          </div>
+          <div className="p-4 bg-white rounded-lg border shadow-sm">
+            <h4 className="font-semibold">No Survival Benefit</h4>
+            <p className="text-sm text-slate-600">There is usually no payout if you survive the term (unless you choose the expensive "Return of Premium" variant).</p>
+          </div>
+          <div className="p-4 bg-white rounded-lg border shadow-sm">
+            <h4 className="font-semibold">Fixed Premiums</h4>
+            <p className="text-sm text-slate-600">Your premium amount is locked in from day one for the entire duration.</p>
+          </div>
+        </div>
       </section>
 
-      {/* Key Terms */}
-      <section className="space-y-6">
-        <h3 className="text-2xl font-bold text-slate-900">Key Terms & Riders</h3>
+      {/* Premium table */}
+      <section className="space-y-4">
+        <h3 className="text-2xl font-bold">📊 Leading Plans & Estimated Premiums (₹1 Crore Cover)</h3>
+        <p className="text-sm text-slate-600">Premiums are for non-smoking males, covered up to age 70.</p>
+
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm border-collapse">
+            <thead>
+              <tr className="text-left bg-slate-100">
+                <th className="p-3 font-medium">Age</th>
+                <th className="p-3 font-medium">Max Life (Smart Total)</th>
+                <th className="p-3 font-medium">HDFC Life (Click2Protect)</th>
+                <th className="p-3 font-medium">ICICI Pru (iProtect)</th>
+                <th className="p-3 font-medium">Bajaj Allianz (eTouch)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="border-t">
+                <td className="p-3 font-medium">25</td>
+                <td className="p-3">~₹9,700</td>
+                <td className="p-3">~₹10,500</td>
+                <td className="p-3">~₹10,200</td>
+                <td className="p-3">~₹10,000</td>
+              </tr>
+              <tr className="border-t bg-white">
+                <td className="p-3 font-medium">35</td>
+                <td className="p-3">~₹15,400</td>
+                <td className="p-3">~₹17,000</td>
+                <td className="p-3">~₹16,500</td>
+                <td className="p-3">~₹16,000</td>
+              </tr>
+              <tr className="border-t">
+                <td className="p-3 font-medium">45</td>
+                <td className="p-3">~₹31,000</td>
+                <td className="p-3">~₹34,000</td>
+                <td className="p-3">~₹33,500</td>
+                <td className="p-3">~₹32,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* Essential checklist */}
+      <section className="space-y-4">
+        <h3 className="text-2xl font-bold">📋 Essential Checklist for Self-Employed Buyers</h3>
+
         <div className="grid md:grid-cols-2 gap-6">
-          <Card className="border-slate-200 shadow-sm">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-lg flex items-center gap-2">
-                <DollarSign className="w-5 h-5 text-red-600" /> Premium
-              </CardTitle>
-            </CardHeader>
+          <Card className="p-4">
             <CardContent>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                The amount you pay regularly (monthly or annually) to keep the policy active. Premiums are fixed for the entire term.
-              </p>
+              <h4 className="font-semibold">1. How Much Cover Do You Need?</h4>
+              <ul className="list-disc ml-5 mt-2 text-sm text-slate-600 space-y-2">
+                <li>Aim for a Sum Assured that covers: 10–25x your annual income.</li>
+                <li>Include outstanding business loans (with personal guarantees).</li>
+                <li>Plan for future milestones (children’s education, marriage) adjusted for inflation.</li>
+              </ul>
             </CardContent>
           </Card>
-          <Card className="border-slate-200 shadow-sm">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-lg flex items-center gap-2">
-                <Clock className="w-5 h-5 text-blue-600" /> Policy Term
-              </CardTitle>
-            </CardHeader>
+
+          <Card className="p-4">
             <CardContent>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                The duration for which the policy provides coverage (e.g., 20 years, or until age 65).
-              </p>
+              <h4 className="font-semibold">2. Documentation (The Financial Paperwork)</h4>
+              <ul className="list-disc ml-5 mt-2 text-sm text-slate-600 space-y-2">
+                <li><strong>Income Proof:</strong> 2–3 years of ITRs and CA-certified computation. Only "Business/Profession" income counts (not capital gains or interest).</li>
+                <li><strong>KYC:</strong> PAN Card, Aadhaar, and a recent photograph.</li>
+                <li><strong>Bank Records:</strong> 6 months of bank statements and a cancelled cheque.</li>
+              </ul>
             </CardContent>
           </Card>
-          <Card className="border-slate-200 shadow-sm">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-lg flex items-center gap-2">
-                <Heart className="w-5 h-5 text-pink-600" /> Critical Illness Rider
-              </CardTitle>
-            </CardHeader>
+
+          <Card className="p-4">
             <CardContent>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                An optional add-on that pays a lump sum if you are diagnosed with a serious illness (like cancer or heart attack), even if you survive.
-              </p>
+              <h4 className="font-semibold">3. Choosing the Right Payment Term</h4>
+              <ul className="list-disc ml-5 mt-2 text-sm text-slate-600 space-y-2">
+                <li><strong>Limited Pay:</strong> Pay for 5, 10, or 15 years but stay covered until 70 — recommended for self-employed to finish commitments during peak earning years.</li>
+                <li><strong>Regular Pay:</strong> Pay every year for the entire policy duration — best if you prefer lower annual outgoings.</li>
+              </ul>
             </CardContent>
           </Card>
-          <Card className="border-slate-200 shadow-sm">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-lg flex items-center gap-2">
-                <AlertTriangle className="w-5 h-5 text-orange-600" /> Accidental Death Benefit
-              </CardTitle>
-            </CardHeader>
+
+          <Card className="p-4">
             <CardContent>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                Pays an additional amount (over the Sum Assured) if death occurs due to an accident.
-              </p>
+              <h4 className="font-semibold">🛡️ Critical Riders (Add-ons)</h4>
+              <ul className="list-disc ml-5 mt-2 text-sm text-slate-600 space-y-2">
+                <li><strong>Waiver of Premium:</strong> Future premiums are waived if you become critically ill or disabled, keeping the policy active.</li>
+                <li><strong>Critical Illness Rider:</strong> Pays a lump sum upon diagnosis of major illnesses (cancer, heart attack) to help with cash flow.</li>
+                <li><strong>Accidental Disability Cover:</strong> Provides a payout if you permanently lose the ability to work due to an accident.</li>
+              </ul>
             </CardContent>
           </Card>
         </div>
       </section>
 
-      {/* Actionable Tip */}
-      <div className="p-8 bg-slate-900 rounded-[2.5rem] text-white space-y-4">
-        <h4 className="text-xl font-bold">The Golden Rule of Term Insurance</h4>
-        <p className="text-slate-400 text-sm max-w-2xl leading-relaxed">
-          Buy term insurance as soon as you have dependents or take on debt (like a home loan). Lock in a low premium while you are young and healthy, and ensure the term covers your entire earning period.
-        </p>
-      </div>
+      {/* Pro-tips */}
+      <section className="space-y-4">
+        <h3 className="text-2xl font-bold">💡 Pro-Tips for Successful Approval</h3>
+        <div className="grid md:grid-cols-3 gap-4">
+          <Card className="p-4">
+            <CardContent>
+              <h4 className="font-semibold">File Accurate ITRs</h4>
+              <p className="text-sm text-slate-600 mt-2">Insurers look at Net Profit, not Gross Turnover. Low declared income = Low insurance eligibility.</p>
+            </CardContent>
+          </Card>
+
+          <Card className="p-4">
+            <CardContent>
+              <h4 className="font-semibold">No ITR? Consider Proxy Plans</h4>
+              <p className="text-sm text-slate-600 mt-2">Look for "proxy-based underwriting" plans (e.g., Bajaj iSecure II) that assess lifestyle via credit scores, bank balances, or asset proxies.</p>
+            </CardContent>
+          </Card>
+
+          <Card className="p-4">
+            <CardContent>
+              <h4 className="font-semibold">Choose Duration Wisely</h4>
+              <p className="text-sm text-slate-600 mt-2">Don't buy cover only until 85 — a practical target is cover until age 65–70, the period by which most liabilities are cleared and dependents become self-sufficient.</p>
+            </CardContent>
+          </Card>
+        </div>
+
+        <div className="mt-4 p-4 bg-slate-50 rounded-lg border">
+          <p className="text-sm text-slate-700">
+            Don't leave your business's future to chance. If you're unsure which income documents to submit or which rider fits your business model, I can help evaluate your situation and recommend the most appropriate plan and riders.
+          </p>
+        </div>
+      </section>
     </div>
   );
 };
