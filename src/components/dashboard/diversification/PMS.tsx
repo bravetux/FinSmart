@@ -7,7 +7,6 @@ const PMS = () => {
   return (
     <div className="space-y-8 pb-12">
       <header className="space-y-2">
-        <h2 className="text-3xl font-bold">Portfolio Management Services (PMS)</h2>
         <p className="text-sm text-slate-600 max-w-2xl">
           Customized, professionally managed portfolios for high-net-worth investors who want concentrated and tailored equity exposure.
         </p>
