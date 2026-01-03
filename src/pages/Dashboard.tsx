@@ -69,6 +69,11 @@ import BondRatings from '@/components/dashboard/bonds/BondRatings';
 import BondImportance from '@/components/dashboard/bonds/BondImportance';
 import ThingsToConsider from '@/components/dashboard/bonds/ThingsToConsider';
 
+// Insurance Components
+import HealthInsurance from '@/components/dashboard/insurance/HealthInsurance';
+import TermInsurance from '@/components/dashboard/insurance/TermInsurance';
+
+
 const Dashboard = () => {
   const [activeSection, setActiveSection] = useState('kids-overview');
 
@@ -114,6 +119,12 @@ const Dashboard = () => {
       case 'kids-minting-money':
         return <MintingMoney />;
         
+      // Insurance
+      case 'insurance-health':
+        return <HealthInsurance />;
+      case 'insurance-term':
+        return <TermInsurance />;
+
       // Mutual Funds
       case 'mf-equity-types':
         return <TypesOfEquityFunds />;
@@ -231,6 +242,10 @@ const Dashboard = () => {
       'kids-credit': 'Credit Reputation',
       'kids-global': 'Global Money',
       'kids-minting-money': 'Minting Money (Money Multiplier)',
+      
+      'insurance-health': 'Health Insurance',
+      'insurance-term': 'Term Insurance',
+
       'mf-equity-types': 'Equity Funds',
       'mf-debt-types': 'Debt Funds',
       'mf-hybrid-types': 'Hybrid Funds',
@@ -270,6 +285,7 @@ const Dashboard = () => {
 
   const getModuleLabel = (id: string) => {
     if (id.startsWith('kids-')) return "Early Foundations";
+    if (id.startsWith('insurance-')) return "Insurance & Protection";
     if (id.startsWith('mf-')) return "Mutual Funds Masterclass";
     if (id.startsWith('equity-')) return "Equity Markets";
     if (id.startsWith('gold-')) return "Precious Metals Module";
