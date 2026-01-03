@@ -17,7 +17,8 @@ import {
   Wrench,
   Calculator,
   FileText,
-  ArrowRight
+  ArrowRight,
+  Zap
 } from 'lucide-react';
 import { Badge } from "@/components/ui/badge";
 import {
@@ -58,8 +59,9 @@ const TermInsurance = () => {
       {/* How Term Insurance Works */}
       <section className="space-y-6">
         <h3 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
-          <Wrench className="w-6 h-6 text-blue-600" /> How Term Insurance Works
+          <Wrench className="w-6 h-6 text-blue-600" /> 🏗️ How Term Insurance Works
         </h3>
+        <p className="text-slate-600">It is a pure protection plan:</p>
         <div className="grid md:grid-cols-3 gap-6">
           <Card className="border-blue-100 bg-blue-50/50 shadow-sm">
             <CardHeader className="pb-2">
@@ -103,9 +105,9 @@ const TermInsurance = () => {
       {/* Premium Comparison Table */}
       <section className="space-y-6">
         <h3 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
-          <Calculator className="w-6 h-6 text-purple-600" /> Leading Plans & Estimated Premiums (₹1 Crore Cover)
+          <Calculator className="w-6 h-6 text-purple-600" /> 📊 Leading Plans & Estimated Premiums (₹1 Crore Cover)
         </h3>
-        <p className="text-sm text-slate-600">Premiums are for non-smoking males, covered up to age 70 (Annual Premium).</p>
+        <p className="text-sm text-slate-600">Premiums are for non-smoking males, covered up to age 70.</p>
         <Card>
           <Table>
             <TableHeader>
@@ -135,7 +137,7 @@ const TermInsurance = () => {
       {/* Essential Checklist for Self-Employed Buyers */}
       <section className="space-y-8">
         <h3 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
-          <FileText className="w-6 h-6 text-emerald-600" /> Essential Checklist for Self-Employed Buyers
+          <FileText className="w-6 h-6 text-emerald-600" /> 📋 Essential Checklist for Self-Employed Buyers
         </h3>
         
         {/* 1. How Much Cover */}
@@ -146,10 +148,11 @@ const TermInsurance = () => {
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-3 text-sm text-slate-600">
+            <p>Aim for a Sum Assured that covers:</p>
             <ul className="space-y-2">
               <li className="flex items-start gap-2">
                 <ArrowRight className="w-4 h-4 text-blue-500 mt-1 shrink-0" />
-                Aim for a Sum Assured that covers 10–25x your annual income.
+                10–25x your annual income.
               </li>
               <li className="flex items-start gap-2">
                 <ArrowRight className="w-4 h-4 text-blue-500 mt-1 shrink-0" />
@@ -169,21 +172,21 @@ const TermInsurance = () => {
             <CardTitle className="text-lg flex items-center gap-2">
               2. Documentation (The Financial Paperwork)
             </CardTitle>
-            <CardDescription>Insurers are stricter with self-employed applicants.</CardDescription>
+            <CardDescription>Insurers are stricter with self-employed applicants. You will need:</CardDescription>
           </CardHeader>
           <CardContent className="space-y-3 text-sm text-slate-600">
             <ul className="space-y-2">
               <li className="flex items-start gap-2">
                 <ReceiptText className="w-4 h-4 text-orange-500 mt-1 shrink-0" />
-                Income Proof: 2–3 years of ITRs and CA-certified computation. Only "Business/Profession" income counts.
+                <strong>Income Proof:</strong> 2–3 years of ITRs and CA-certified computation. Only "Business/Profession" income counts (not capital gains or interest).
               </li>
               <li className="flex items-start gap-2">
                 <Scale className="w-4 h-4 text-orange-500 mt-1 shrink-0" />
-                KYC: PAN Card, Aadhaar, and a recent photograph.
+                <strong>KYC:</strong> PAN Card, Aadhaar, and a recent photograph.
               </li>
               <li className="flex items-start gap-2">
                 <HandCoins className="w-4 h-4 text-orange-500 mt-1 shrink-0" />
-                Bank Records: 6 months of bank statements and a cancelled cheque.
+                <strong>Bank Records:</strong> 6 months of bank statements and a cancelled cheque.
               </li>
             </ul>
           </CardContent>
@@ -212,7 +215,7 @@ const TermInsurance = () => {
       {/* Critical Riders (Add-ons) */}
       <section className="space-y-6">
         <h3 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
-          <Shield className="w-6 h-6 text-red-600" /> Critical Riders (Add-ons)
+          <Shield className="w-6 h-6 text-red-600" /> 🛡️ Critical Riders (Add-ons)
         </h3>
         <p className="text-sm text-slate-600">Since your business stops when you do, consider these riders:</p>
         <div className="grid md:grid-cols-3 gap-6">
@@ -241,7 +244,7 @@ const TermInsurance = () => {
       {/* Pro-Tips for Successful Approval */}
       <section className="space-y-6">
         <h3 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
-          <Zap className="w-6 h-6 text-amber-600" /> Pro-Tips for Successful Approval
+          <Zap className="w-6 h-6 text-amber-600" /> 💡 Pro-Tips for Successful Approval
         </h3>
         <div className="grid md:grid-cols-2 gap-6">
           <Card className="border-amber-100 bg-amber-50/50 shadow-sm">
@@ -276,6 +279,14 @@ const TermInsurance = () => {
           </Card>
         </div>
       </section>
+
+      {/* Final Call to Action */}
+      <div className="p-10 bg-slate-900 text-white rounded-[2.5rem] text-center space-y-6 border border-white/10">
+        <h4 className="text-2xl font-bold">Don't leave your business's future to chance</h4>
+        <p className="text-slate-400 text-sm max-w-2xl mx-auto leading-relaxed">
+          If you're unsure about which income documents to submit or which rider fits your business model, I can help. Contact a certified financial planner today.
+        </p>
+      </div>
     </div>
   );
 };
