@@ -111,6 +111,50 @@ const quoteCategories = [
     ]
   },
   {
+    title: "Golden Rules",
+    icon: <ShieldCheck className="w-5 h-5 text-emerald-500" />,
+    quotes: [
+        "💡 The Golden Rules of Investing: InvestSmart principles for long-term success.",
+        "I. Introduction",
+        "Whether you’re taking your first steps or are already an experienced investor, following these golden rules could really help you to InvestSmart.",
+        "Investing can help you meet your financial goals and the better the investment decisions you make, the more chance you have of succeeding.",
+        "While nobody can make the best investment decision every single time, following these golden rules could help you to get more from your investments over the long term.",
+        "II. Rule 1: If you can’t afford to invest yet, don’t",
+        "It’s true that starting to invest early can give your investments more time to grow over the long term. However, it’s important not to begin investing until you can truly afford to.",
+        "Here are some steps to take to get your day-to-day money matters sorted before you begin investing.",
+        "• Keep some money in an emergency fund with instant access. Having some money that you can get your hands on quickly could help you cope with life’s ups and downs, without needing to dip into your investments.",
+        "• Clear any debts you have, and never invest using a credit card. Interest and charges can mount up fast if the balance isn’t paid off, and are likely to exceed any investment returns that you make.",
+        "• The earlier you get day-to-day money in order, the sooner you can think about investing. This will allow you to work out what you can afford to invest. Getting your everyday money matters sorted also gives you more opportunity to invest regularly, increasing your chances of meeting your goals.",
+        "III. Rule 2: Set your investment expectations",
+        "Before you begin to invest, think about what returns you’re realistically expecting and be clear on what your investment goals are.",
+        "• The greater the potential returns, the higher the level of risk. Make sure you understand the risks and are willing and able to accept them.",
+        "• Different investments have different levels of risk. It’s important to think about how comfortable you are with the value of your investment going up and down while you’re holding it. You should also think about whether you’d be able to cope financially if your investment made a loss.",
+        "• Target a realistic rate of return in the context of other available investments. Be wary of products that raise expectations of unrealistic returns – these could come with risks you’re not willing or able to take. And remember, if it sounds too good to be true then it could be a scam.",
+        "• Don’t forget your charges. Compare costs and make sure you’re not paying for any services that you don’t want or need.",
+        "IV. Rule 3: Understand your investment",
+        "Make sure you understand what you’re actually investing in before you hand over your hard-earned money. Your future finances are linked to how your investments perform so it’s important you know the key information before you invest.",
+        "• Make sure you know things like the level of risk you’re taking, the factors that might affect how your investment performs and how easy it is to get your money out when you need to.",
+        "• Before you invest, take time to do some research of your own – and never invest in a rush or in anything you don’t fully understand.",
+        "• Some investments are professionally managed and can help you to align your long-term investment goals.",
+        "• It’s important to check whether the firm you are dealing with is authorised by us to provide the service or product you are buying. You may not be protected if you use the services of a firm that is not authorised.",
+        "V. Rule 4: Diversify",
+        "In an uncertain world, putting all your investment eggs in the same basket can be risky.",
+        "Spreading your money across a range of different companies, asset types and geographical areas will reduce your reliance on any one to perform. So if some of your investments perform poorly and make a loss, your other investments might not.",
+        "Therefore, many people choose to invest in a fund – where an investment manager will choose which assets to invest in on your behalf.",
+        "VI. Rule 5: Take a long-term view",
+        "Investing should not be viewed as a short-term solution to a problem. Investing over a timeframe of at least five years can give your investment more opportunity to ride out any short-term performance dips.",
+        "• Look beyond the short-term. Trying to time the market increases your risk of buying or selling at the wrong time. By investing over a longer timeframe, you’re more likely to benefit from trends that can support positive performance over a matter of years.",
+        "• Investing monthly over five or more years can smooth out returns. A regular monthly investment buys more during months when prices have dipped, and buys less when prices are higher.",
+        "• Think about how to access your money if the unexpected happens. Check for any notice periods or fees that you’d need to pay just in case.",
+        "VII. Rule 6: Keep on top of your investments",
+        "It's a good idea to periodically review the performance of your investments. Choices that were right for you two years ago may not necessarily be the best for you now.",
+        "• Take stock of your investment performance. Reviewing what you hold can help you keep on top of the overall level of risk you’re exposing your money to.",
+        "• Your immediate personal circumstances may have changed. Regularly reviewing how and where you’re investing can help to ensure your investments still suit your personal circumstances.",
+        "• Your investment objectives evolve over time. What you’re looking to achieve with your investments can change over the years.",
+        "Keep going"
+    ]
+  },
+  {
     title: "Psychology",
     icon: <Brain className="w-5 h-5 text-purple-500" />,
     quotes: [
@@ -212,7 +256,7 @@ const Wisdom = () => {
       </p>
       
       <Tabs defaultValue={quoteCategories[0].title} className="w-full">
-        <TabsList className="grid w-full grid-cols-3 md:grid-cols-6 h-auto p-1 bg-slate-200/50 rounded-xl">
+        <TabsList className="grid w-full grid-cols-4 md:grid-cols-4 h-auto p-1 bg-slate-200/50 rounded-xl">
           {quoteCategories.map((category) => (
             <TabsTrigger key={category.title} value={category.title} className="text-[10px] md:text-xs lg:text-sm py-2">
               <div className="flex items-center gap-1 md:gap-2">
@@ -248,6 +292,8 @@ const Wisdom = () => {
                       quote.startsWith('X.') ||
                       quote.startsWith('💡')
                     );
+                    
+                    const isBullet = quote.startsWith('•');
 
                     if (isHeader) {
                       return (
@@ -255,6 +301,16 @@ const Wisdom = () => {
                           <p className="font-bold text-slate-900 text-lg not-italic">{quote}</p>
                         </div>
                       );
+                    }
+                    
+                    if (isBullet) {
+                        // Render bullet points as simple list items, spanning full width
+                        return (
+                            <div key={j} className="md:col-span-2 flex items-start gap-3 p-3 bg-white rounded-lg border border-slate-100">
+                                <span className="text-sm text-primary/80 font-bold mt-0.5 shrink-0">●</span>
+                                <p className="text-sm text-slate-700 leading-relaxed">{quote.substring(1).trim()}</p>
+                            </div>
+                        );
                     }
 
                     quoteCounter++; // Increment only for actual quotes
