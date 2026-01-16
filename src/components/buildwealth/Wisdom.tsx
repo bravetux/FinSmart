@@ -1,11 +1,37 @@
 "use client";
 
 import React from 'react';
-import { Brain, Timer, ShieldCheck, EyeOff, Heart, Target, Quote } from 'lucide-react';
+import { Brain, Timer, ShieldCheck, EyeOff, Heart, Target, Quote, DollarSign } from 'lucide-react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const quoteCategories = [
+  {
+    title: "Warren Buffett",
+    icon: <DollarSign className="w-5 h-5 text-red-500" />,
+    quotes: [
+      "It's far better to buy a wonderful company at a fair price than a fair company at a wonderful price.",
+      "Risk comes from not knowing what you're doing.",
+      "Only when the tide goes out do you discover who's been swimming naked.",
+      "Price is what you pay. Value is what you get.",
+      "The stock market is designed to transfer money from the active to the patient.",
+      "Someone's sitting in the shade today because someone planted a tree a long time ago.",
+      "It takes 20 years to build a reputation and five minutes to ruin it. If you think about that, you'll do things differently.",
+      "You only have to do a very few things right in your life so long as you don't do too many things wrong.",
+      "It's better to hang out with people better than you. Pick out associates whose behavior is better than yours and you'll drift in that direction.",
+      "I will tell you how to become rich. Close the doors. Be fearful when others are greedy. Be greedy when others are fearful.",
+      "The most important quality for an investor is temperament, not intellect.",
+      "The best thing that happens to us is when a great company gets into temporary trouble...We want to buy them when they're on the operating table.",
+      "If you aren't thinking about owning a stock for ten years, don't even think about owning it for ten minutes.",
+      "The key to investing is not assessing how much an industry is going to affect society, or how much it will grow, but rather determining the competitive advantage of any given company and, above all, the durability of that advantage.",
+      "The business schools reward difficult complex behavior more than simple behavior, but simple behavior is more effective.",
+      "The most important investment you can make is in yourself.",
+      "The difference between successful people and really successful people is that really successful people say no to almost everything.",
+      "The investor of today does not profit from yesterday's growth.",
+      "The most common cause of low prices is pessimism - sometimes pervasive, sometimes specific to a company or industry. We want to do business in such an environment, not because we like pessimism but because we like the prices it produces. It's optimism that is the enemy of the rational buyer.",
+      "The best chance to deploy capital is when things are going down."
+    ]
+  },
   {
     title: "Psychology",
     icon: <Brain className="w-5 h-5 text-purple-500" />,
