@@ -87,90 +87,66 @@ const Path2BuildWealth = () => {
 
   const quoteCategories = [
     {
+      title: "Reverse Human Psychology",
+      icon: <Brain className="w-5 h-5 text-purple-500" />,
+      quotes: [
+        "Personally, after spending several years in this field, I've realized one important truth: More than just stock analysis or picking the 'right' stocks, what truly determines success in investing is patience—and a deep understanding of reverse human psychology. Successful investing often requires us to: Practice delayed gratification, Avoid impulsive action, Stay still when the market moves, Resist the urge to buy without a bargain, Avoid booking profits too early, even when potential remains. All of this runs counter to our natural instincts.",
+        "In the stock market and investing, it's more about understanding ourselves than just focusing on stocks or prices. Understanding our own psychology and personality is very important. Investing is more about how we behave than just picking stocks. Psychology plays a big role, and most people only understand this after many years of investing.",
+        "Normalize staying calm and patient during market corrections or even when stocks are rising. Having a settled and steady mindset at all times will take us a long way in the stock market.",
+        "A lot of regret among us who missed the opportunity to book profits. But in the stock market, regrets like these are extremely common. What I've realized is that it's important to normalize regrets and view them as part of the learning journey. Over time, the weight of such mistakes and regrets reduces. Learning how to navigate regret is key to long-term success."
+      ]
+    },
+    {
       title: "The Power of Patience",
       icon: <Timer className="w-5 h-5 text-amber-500" />,
       quotes: [
         "Patience > Precision: Great returns aren't born from perfect timing but from steadfast discipline. Sit tight; compounding rewards the waiting.",
-        "The stock market rewards people who think in years, not weeks. Short-term thinking creates stress and overthinking, while long-term thinking creates calm. Time becomes your friend only when you stop rushing it.",
-        "Many people leave the market not because they were wrong, but because they got tired of waiting. Time tests belief more than intelligence. Those who stay long enough eventually realize patience was the strategy all along.",
-        "Over the years, investing teaches you an unusual kind of patience. You learn to wait without anxiety and act without urgency. You stop forcing outcomes and start respecting time. The market rewards those who trust the process even when progress feels invisible.",
-        "In the stock market, patience and high performance almost always go hand in hand. It's rare to find someone with a high-performing portfolio who is also impatient. While most focus on strategies, patience remains the most undervalued trait.",
-        "Sometimes people hold stocks that don't move for a long time. If we can control that frustration and stay patient, those same stocks—once they move—often move big because they've been building a strong base. The market tends to move after most people have exited out of frustration.",
-        "The larger the base and the longer the consolidation phase, the stronger the breakout will be. Most people don't think like this and don't have the patience, and that is how they miss most of the opportunities.",
-        "Yes, this is a choppy market and it often frustrates people. It is like exam time during our college days. Everyone has to go through it. This phase actually tests our patience and discipline."
+        "Most people quit the stock market too early. The real magic happens after it starts getting hard.",
+        "In the stock market, patience and high performance almost always go hand in hand. It's rare to find someone with a high-performing portfolio who is also impatient. Patience remains one of the most important yet undervalued traits in investing.",
+        "Sometimes people hold stocks that don't move for a very long time. This kind of stagnation often leads to frustration. But if we can control that frustration and stay patient, those same stocks—once they move—often move big because they've been building a strong base. The market tends to move after most people have exited out of frustration.",
+        "There are some really good quality stocks that have been in sideways consolidation for the past few months. They're forming strong bases, which is usually a good sign. Remember, the larger and stronger the base, the more powerful the breakout tends to be."
       ]
     },
     {
-      title: "Emotional Mastery",
-      icon: <Activity className="w-5 h-5 text-rose-500" />,
-      quotes: [
-        "More than just stock analysis, what truly determines success is patience—and a deep understanding of reverse human psychology. Successful investing requires us to practice delayed gratification, avoid impulsive action, stay still when the market moves, and resist buying without a bargain.",
-        "Volatility Is Not the Enemy — It's Fuel. Few understand this.",
-        "When prices fall, confidence disappears. When prices rise, confidence is everywhere. Neither should guide your decisions.",
-        "If you can't control your emotions, the market will control your results. Your mindset decides your entries and your exits. Fix the mind first, profits come later.",
-        "At first, volatility feels like a threat. Later, you understand it's just the market breathing. Prices move, opinions change, emotions rise and fall. What matters is whether your thinking stays steady while everything else moves around you.",
-        "Every investor thinks risk is in the market. Over time, you learn risk mostly lives inside you. Fear makes you sell early, greed makes you overstay. Once you manage yourself better, the market starts feeling far less dangerous.",
-        "One of the most psychological aspects of the stock market is how we feel when booking the same amount of profit versus loss. Profit and loss are the same in numbers, but the way we feel towards loss is what makes it seem heavier.",
-        "Instead of getting distracted by macro events or global conflicts, investors should focus on how sectors are performing, how companies are growing, their promoter quality, and long term fundamentals."
-      ]
-    },
-    {
-      title: "Strategic Restraint",
+      title: "Strategic Restraint & Execution",
       icon: <ShieldCheck className="w-5 h-5 text-blue-500" />,
       quotes: [
-        "'Diversify to Survive. Concentrate to Get Rich.' Use diversification for defense, protecting against downside and emotional panic. Use concentration for offense, but only when based on deep research and conviction.",
-        "Don't spread your bets across average companies. Concentrate on the few that can deliver exceptional returns. Selective intensity > Diversified mediocrity.",
-        "Profit booking is completely normal. Not all stocks deserve to be held for the long term—only a few truly earn that tag. Many are better suited for short-to-medium-term positions.",
-        "Opportunities in the market are like buses — they keep coming and going. If you get a gut feeling to exit a profitable position that's been consolidating for too long, listen to it. It's okay to book profits and wait for the next bus.",
+        "'Diversify to Survive. Concentrate to Get Rich.' Use diversification for defense, protecting against downside and emotional panic. Use concentration for offense, but only when based on deep research, conviction, and long-term orientation.",
+        "Don't spread your bets across average companies. Concentrate on the few that can deliver exceptional, compounding returns. Selective intensity > Diversified mediocrity. Focus capital and attention on your very best ideas.",
         "Proper position sizing, number of holdings, when to sell, and turnover discipline define long-term success — not just stock selection.",
-        "Circle of Competence > Broad Ambition: True mastery in investing comes from depth in familiar territories, not superficial dives into unknowns. Stick to what you deeply understand, and let opportunities compound within those bounds.",
-        "One common mistake many traders and investors make is that they plan to buy the dip, but blindly buying every 10-15% dip doesn't make much sense. Successful investors usually buy only after deeper corrections of 20% or more.",
-        "Smart investors don't just focus on stock picking like herd. They also pay attention to portfolio restructuring, proper capital allocation, and patience in holding. When all these factors come together, that's when real profits are made.",
-        "If you see, our portfolio is like having a team of players. Not everybody can be a batsman in cricket, and not everybody can be a bowler. The best approach is to categorize into partitions: momentum, short term, and long-term."
+        "Profit booking is completely normal. Not all stocks deserve to be held for the long term—only a few truly earn that tag. Many stocks are better suited for short-to-medium-term positions, and it's perfectly healthy to book profits when the time is right.",
+        "Sometimes, if you ever get that gut feeling or subtle sign that it's time to exit a position—try to listen to it. Especially if the position is already in profit and has been consolidating for a long time, the probability of it falling downward becomes higher than upward. Opportunities in the market are like buses—they keep coming and going.",
+        "Circle of Competence > Broad Ambition: True mastery in investing comes from depth in familiar territories, not superficial dives into unknowns. Stick to what you deeply understand, and let opportunities compound within those bounds."
       ]
     },
     {
       title: "Clarity over Chaos",
-      icon: <EyeOff className="w-5 h-5 text-purple-500" />,
+      icon: <EyeOff className="w-5 h-5 text-indigo-500" />,
       quotes: [
+        "If you look closely, most multibagger stocks 2x, 5x, 10x returns were captured by people who didn't get distracted by macro events, wars, global conflicts, and other issues. These kinds of events keep happening, but the people who truly benefit are the ones who ignore the noise and stay focused on business fundamentals.",
+        "It takes discipline to block out all the fear and just look at whether the business behind the stock is actually growing. That's what ultimately drives the stock price upward.",
+        "More than how we react, it's about how we don't react to news and short-term events. After a week or two, most of the noise fades away, and everyone goes back to looking at the company's fundamentals. In the end, it always comes down to earnings and sales growth.",
+        "Volatility Is Not the Enemy — It's Fuel. Few understand this.",
         "Don't depend on predictions—build for adaptability.",
-        "The antifragile gains from variability and volatility—not from comfort and steady rises.",
-        "If you look closely, most multibagger stocks (2x, 5x, 10x) were captured by people who didn't get distracted by macro events, wars, and global conflicts. It takes discipline to block out all the fear and just look at whether the business is growing.",
-        "Real confidence in investing is very silent. It doesn't come from predictions or bold opinions. It comes from knowing exactly why you own something. When that clarity is strong, short-term noise loses its power over you.",
-        "Most mistakes in investing happen not because of lack of knowledge, but because of lack of clarity. When you know why you bought something, you stop reacting to every small move. Clarity gives you the confidence to wait.",
-        "Your biggest challenge in the market is not finding information, it is filtering noise. When you reduce inputs, your thinking becomes clearer. Fewer opinions lead to stronger conviction."
-      ]
-    },
-    {
-      title: "Milestone Mindset",
-      icon: <Target className="w-5 h-5 text-indigo-500" />,
-      quotes: [
-        "If your goal is wealth creation, the first thing you should aim for is creating 1 crore. The first 1 crore is always the toughest. Achieving it ideally before 30 makes creating the next 2, 5, or 10 crores much easier.",
-        "Reaching the first crore is not just about money. It tells our hard work, discipline, execution skills, and ability to get things done. It's all about the process.",
-        "Having a goal oriented and step-by-step approach is vital. The more structured your journey, the easier it becomes to implement the right strategies.",
-        "Going from zero to ₹1 crore is like climbing the first 100 steps—it takes maximum effort. Once you cross that first crore, the next targets are like taking five or ten more steps. It gets easier because you have a system."
-      ]
-    },
-    {
-      title: "The India Story",
-      icon: <Landmark className="w-5 h-5 text-emerald-500" />,
-      quotes: [
-        "India will see big reforms in tax, GST, and policies. These may turn out to be very favorable for startups, businesses, and overall growth. In the long term, India's growth is inevitable.",
-        "Invest in India. The long-term story is very bright. Do not get carried away by short-term pain or macro events. What really matters is the underlying growth and potential.",
-        "Compared to the global stage, India is still in the early growth phase, almost at the beginning of the beginning. This means there is huge scope across every sector and industry.",
-        "The GDP will grow massively in the coming decades. Look for those underlying stories and do not get distracted by short-term market noise. Focus on the bigger picture."
+        "The antifragile gains from variability/volatility—not from comfort/rise.",
+        "We always say that during a bull market, if stocks are overvalued and you're in profit, it's wise to book some profits and keep cash aside. Not sure why people are cheering for Trump, but as long as he's in power, he keeps introducing tough policies that slow down the growth of many countries. This is very negative for the market."
       ]
     },
     {
       title: "Character & Humility",
       icon: <Heart className="w-5 h-5 text-emerald-500" />,
       quotes: [
-        "Investing is more about understanding our own psychology and personality than just focusing on stocks or prices. It's more about how we behave than just picking stocks. Psychology plays a big role.",
-        "Even mistakes are important. Without making mistakes, we really don't grow. The key is to ensure that the mistakes are small and manageable—and that we actually learn from them.",
-        "I know many who didn't make money even in a good market because they held too long or exited too early. Mistakes are inevitable; you must face the setbacks to eventually reach that consistent profitability phase.",
-        "Most people quit trading after a few losses. Winners study those losses, adjust, and come back sharper. Your best teacher in the market is the mistake you hate the most.",
-        "Losses teach lessons gains never can. They show you your weak spots, your biases, your blind faith. If you listen carefully instead of getting bitter, every loss makes you calmer, not smaller. That calm becomes your strength.",
-        "In the long run, investing becomes a reflection of your values. Discipline over impulse. Patience over urgency. Thinking over reacting. Those who grow internally almost always grow financially too."
+        "Even mistakes are important. Without making mistakes, we really don't grow. The key is to ensure that the mistakes are small and manageable—and that we actually learn from them. In fact, the earlier we make those mistakes, the better.",
+        "I know many who, despite the market performing well over the last 1-2 years, didn't make money because they missed opportunities, held too long, or exited too early. Mistakes are inevitable. You need to test your investment thesis over a large sample size to understand whether it has an edge. You must face all the setbacks to eventually reach that consistent profitability phase."
+      ]
+    },
+    {
+      title: "Milestone Mindset",
+      icon: <Target className="w-5 h-5 text-rose-500" />,
+      quotes: [
+        "If your goal is wealth creation, the first thing you should aim for is creating 1 crore. The first 1 crore is always the toughest. Achieving it ideally before 30 makes creating the next 2, 5, or 10 crores much easier.",
+        "Reaching the first crore is not just about money. It tells our hard work, discipline, execution skills, and ability to get things done. It's all about the process.",
+        "Going from zero to ₹1 crore is like climbing the first 100 steps—it takes maximum effort. Once you cross that first crore, the next targets are like taking five or ten more steps. It gets easier because you have a system."
       ]
     }
   ];
