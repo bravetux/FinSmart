@@ -197,6 +197,8 @@ const quoteCategories = [
 ];
 
 const Wisdom = () => {
+  let quoteCounter = 0; // Initialize a counter for sequential numbering
+
   return (
     <div className="space-y-8 animate-in fade-in duration-500 pb-12">
       <div className="flex items-center gap-3">
@@ -221,30 +223,60 @@ const Wisdom = () => {
           ))}
         </TabsList>
 
-        {quoteCategories.map((category) => (
-          <TabsContent key={category.title} value={category.title} className="mt-8">
-            <div className="space-y-6">
-              <div className="flex items-center gap-2 px-1">
-                {category.icon}
-                <h3 className="font-bold text-slate-700 uppercase tracking-widest text-xs">{category.title}</h3>
+        {quoteCategories.map((category) => {
+          quoteCounter = 0; // Reset counter for each category
+
+          return (
+            <TabsContent key={category.title} value={category.title} className="mt-8">
+              <div className="space-y-6">
+                <div className="flex items-center gap-2 px-1">
+                  {category.icon}
+                  <h3 className="font-bold text-slate-700 uppercase tracking-widest text-xs">{category.title}</h3>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {category.quotes.map((quote, j) => {
+                    const isHeader = quote.includes('.') && (
+                      quote.startsWith('I.') || 
+                      quote.startsWith('II.') || 
+                      quote.startsWith('III.') || 
+                      quote.startsWith('IV.') || 
+                      quote.startsWith('V.') || 
+                      quote.startsWith('VI.') || 
+                      quote.startsWith('VII.') || 
+                      quote.startsWith('VIII.') || 
+                      quote.startsWith('IX.') || 
+                      quote.startsWith('X.') ||
+                      quote.startsWith('💡')
+                    );
+
+                    if (isHeader) {
+                      return (
+                        <div key={j} className="md:col-span-2 p-4 bg-slate-100 rounded-xl border border-slate-200">
+                          <p className="font-bold text-slate-900 text-lg not-italic">{quote}</p>
+                        </div>
+                      );
+                    }
+
+                    quoteCounter++; // Increment only for actual quotes
+
+                    return (
+                      <Card key={j} className="border-none shadow-md bg-white/70 backdrop-blur-sm italic relative overflow-hidden group hover:shadow-xl transition-all duration-300">
+                        <div className="absolute top-0 left-0 w-1 h-full bg-primary/10 group-hover:bg-primary/30 transition-colors" />
+                        <CardContent className="p-8 md:p-10">
+                          <p className="text-lg md:text-xl text-slate-700 leading-tight relative font-serif">
+                            <span className="text-5xl text-primary/5 absolute -top-6 -left-3 select-none pointer-events-none">"</span>
+                            <span className="font-bold text-primary/80 mr-2 not-italic">{quoteCounter}.</span>
+                            {quote}
+                          </p>
+                        </CardContent>
+                      </Card>
+                    );
+                  })}
+                </div>
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {category.quotes.map((quote, j) => (
-                  <Card key={j} className="border-none shadow-md bg-white/70 backdrop-blur-sm italic relative overflow-hidden group hover:shadow-xl transition-all duration-300">
-                    <div className="absolute top-0 left-0 w-1 h-full bg-primary/10 group-hover:bg-primary/30 transition-colors" />
-                    <CardContent className="p-8 md:p-10">
-                      <p className="text-lg md:text-xl text-slate-700 leading-tight relative font-serif">
-                        <span className="text-5xl text-primary/5 absolute -top-6 -left-3 select-none pointer-events-none">"</span>
-                        <span className="font-bold text-primary/80 mr-2 not-italic">{j + 1}.</span>
-                        {quote}
-                      </p>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </div>
-          </TabsContent>
-        ))}
+            </TabsContent>
+          );
+        })}
       </Tabs>
     </div>
   );
