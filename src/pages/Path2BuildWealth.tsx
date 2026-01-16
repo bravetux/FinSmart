@@ -295,20 +295,6 @@ const Path2BuildWealth = () => {
             ))}
           </div>
         </section>
-
-        <section className="bg-slate-900 text-white p-8 md:p-16 rounded-[2.5rem] text-center space-y-8 relative overflow-hidden max-w-4xl mx-auto">
-          <div className="relative z-10 space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold">Ready to take the first step?</h2>
-            <p className="text-slate-400 text-lg max-w-xl mx-auto">Jump into your learning dashboard to start mastering these concepts and build your future.</p>
-            <div className="pt-4">
-              <Button size="lg" className="px-10 py-6 text-lg font-bold rounded-2xl transition-transform hover:scale-105" onClick={() => navigate('/dashboard')}>
-                Go to Dashboard
-              </Button>
-            </div>
-          </div>
-          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-500/10 -mr-24 -mt-24 rounded-full blur-[100px]" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-emerald-500/10 -ml-24 -mb-24 rounded-full blur-[100px]" />
-        </section>
       </div>
     </div>
   );
