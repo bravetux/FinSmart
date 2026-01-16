@@ -17,14 +17,8 @@ import {
   Coins,
   Quote,
   EyeOff,
-  Activity,
-  Wind,
-  Sparkles,
   Heart,
-  TrendingDown,
-  Scale,
-  Target,
-  Landmark
+  Target
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -115,7 +109,7 @@ const Path2BuildWealth = () => {
         "Don't spread your bets across average companies. Concentrate on the few that can deliver exceptional, compounding returns. Selective intensity > Diversified mediocrity. Focus capital and attention on your very best ideas.",
         "Proper position sizing, number of holdings, when to sell, and turnover discipline define long-term success — not just stock selection.",
         "Profit booking is completely normal. Not all stocks deserve to be held for the long term—only a few truly earn that tag. Many stocks are better suited for short-to-medium-term positions, and it's perfectly healthy to book profits when the time is right.",
-        "Sometimes, if you ever get that gut feeling or subtle sign that it's time to exit a position—try to listen to it. Especially if the position is already in profit and has been consolidating for a long time, the probability of it falling downward becomes higher than upward. Opportunities in the market are like buses—they keep coming and going.",
+        "Sometimes, if you ever get that gut feeling or subtle sign that it's time to exit a position - try to listen to it. Because often, it's your internal signal pointing toward a wise move. Especially if the position is already in profit and has been consolidating for a long time, the probability of it falling downward becomes higher than upward. So, it's perfectly okay to book profits. Opportunities in the market are like buses - they keep coming and going. Recognizing this and acting accordingly is a key principle in long-term successful investing.",
         "Circle of Competence > Broad Ambition: True mastery in investing comes from depth in familiar territories, not superficial dives into unknowns. Stick to what you deeply understand, and let opportunities compound within those bounds."
       ]
     },
@@ -126,7 +120,7 @@ const Path2BuildWealth = () => {
         "If you look closely, most multibagger stocks 2x, 5x, 10x returns were captured by people who didn't get distracted by macro events, wars, global conflicts, and other issues. These kinds of events keep happening, but the people who truly benefit are the ones who ignore the noise and stay focused on business fundamentals.",
         "It takes discipline to block out all the fear and just look at whether the business behind the stock is actually growing. That's what ultimately drives the stock price upward.",
         "More than how we react, it's about how we don't react to news and short-term events. After a week or two, most of the noise fades away, and everyone goes back to looking at the company's fundamentals. In the end, it always comes down to earnings and sales growth.",
-        "Volatility Is Not the Enemy — It's Fuel. Few understand this.",
+        "Volatility Is Not the Enemy - It's Fuel. Few understand this.",
         "Don't depend on predictions—build for adaptability.",
         "The antifragile gains from variability/volatility—not from comfort/rise.",
         "We always say that during a bull market, if stocks are overvalued and you're in profit, it's wise to book some profits and keep cash aside. Not sure why people are cheering for Trump, but as long as he's in power, he keeps introducing tough policies that slow down the growth of many countries. This is very negative for the market."
