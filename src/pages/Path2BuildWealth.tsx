@@ -14,7 +14,11 @@ import {
   Timer,
   Lightbulb,
   Compass,
-  Coins
+  Coins,
+  Quote,
+  EyeOff,
+  Activity,
+  Wind
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -72,6 +76,49 @@ const Path2BuildWealth = () => {
       desc: "Expand into Gold, Real Estate (REITs), and Global markets to balance your portfolio.",
       icon: <GlobeIcon className="w-6 h-6 text-orange-600" />,
       color: "bg-orange-50"
+    }
+  ];
+
+  const quoteCategories = [
+    {
+      title: "Emotional Mastery",
+      icon: <Activity className="w-5 h-5 text-rose-500" />,
+      quotes: [
+        "When prices fall, confidence disappears. When prices rise, confidence is everywhere. Neither should guide your decisions.",
+        "Markets move in cycles, but human behavior stays the same. Fear and greed repeat themselves again and again. Investors who understand this stop reacting emotionally and start acting thoughtfully."
+      ]
+    },
+    {
+      title: "The Power of Patience",
+      icon: <Timer className="w-5 h-5 text-amber-500" />,
+      quotes: [
+        "People talk about returns. Few talk about the patience required to earn them. That patience is the real cost.",
+        "Over the years, investing teaches you an unusual kind of patience. You learn to wait without anxiety and act without urgency. You stop forcing outcomes and start respecting time. The market rewards those who trust the process even when progress feels invisible.",
+        "Many investors confuse activity with progress. Buying and selling feels productive, but holding a strong position through uncertainty is where real growth happens. Patience looks passive, but it is an active skill."
+      ]
+    },
+    {
+      title: "Strategic Restraint",
+      icon: <ShieldCheck className="w-5 h-5 text-blue-500" />,
+      quotes: [
+        "You don't need to act on every opportunity. Missing a trade is cheaper than making a bad one. Restraint is underrated.",
+        "Markets move every day. Your strategy should not. Consistency beats constant change."
+      ]
+    },
+    {
+      title: "Boring is Beautiful",
+      icon: <Wind className="w-5 h-5 text-slate-500" />,
+      quotes: [
+        "A good investment looks boring most of the time. If it feels exciting every day, it's probably risky. Calm usually wins.",
+        "Good investing feels boring most of the time, and that is exactly why it works. Excitement usually comes from risk you do not fully understand. Calm decisions compound quietly while loud decisions often disappear."
+      ]
+    },
+    {
+      title: "Filtering the Noise",
+      icon: <EyeOff className="w-5 h-5 text-purple-500" />,
+      quotes: [
+        "Your biggest challenge in the market is not finding information, it is filtering noise. When you reduce inputs, your thinking becomes clearer. Fewer opinions lead to stronger conviction."
+      ]
     }
   ];
 
@@ -143,6 +190,38 @@ const Path2BuildWealth = () => {
                   <p className="text-slate-600">{path.desc}</p>
                 </CardContent>
               </Card>
+            ))}
+          </div>
+        </section>
+
+        {/* Quotes Section */}
+        <section className="space-y-8">
+          <div className="flex items-center gap-3">
+            <div className="p-2 bg-white rounded-xl shadow-sm border border-slate-100">
+              <Quote className="w-6 h-6 text-primary" />
+            </div>
+            <h2 className="text-2xl font-bold text-slate-900">Wisdom for the Journey</h2>
+          </div>
+          <div className="space-y-10">
+            {quoteCategories.map((category, i) => (
+              <div key={i} className="space-y-4">
+                <div className="flex items-center gap-2 px-1">
+                  {category.icon}
+                  <h3 className="font-bold text-slate-700 uppercase tracking-wider text-xs">{category.title}</h3>
+                </div>
+                <div className="grid gap-4">
+                  {category.quotes.map((quote, j) => (
+                    <Card key={j} className="border-none shadow-sm bg-white/50 backdrop-blur-sm italic">
+                      <CardContent className="p-6">
+                        <p className="text-slate-600 leading-relaxed relative">
+                          <span className="text-4xl text-slate-200 absolute -top-4 -left-2 font-serif">"</span>
+                          {quote}
+                        </p>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </section>
