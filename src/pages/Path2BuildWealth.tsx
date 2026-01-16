@@ -90,48 +90,55 @@ const Path2BuildWealth = () => {
       title: "The Power of Patience",
       icon: <Timer className="w-5 h-5 text-amber-500" />,
       quotes: [
+        "Patience > Precision: Great returns aren't born from perfect timing but from steadfast discipline. Sit tight; compounding rewards the waiting.",
         "The stock market rewards people who think in years, not weeks. Short-term thinking creates stress and overthinking, while long-term thinking creates calm. Time becomes your friend only when you stop rushing it.",
         "Many people leave the market not because they were wrong, but because they got tired of waiting. Time tests belief more than intelligence. Those who stay long enough eventually realize patience was the strategy all along.",
-        "Nothing, the market is just testing our patience right now. Most of the stocks have corrected a lot and are not moving at all. But this is what the market does, it tests our patience. Many people who are impatient will give up during this phase.",
         "Over the years, investing teaches you an unusual kind of patience. You learn to wait without anxiety and act without urgency. You stop forcing outcomes and start respecting time. The market rewards those who trust the process even when progress feels invisible.",
-        "Most people quit the stock market too early. The real magic happens after it starts getting hard.",
         "In the stock market, patience and high performance almost always go hand in hand. It's rare to find someone with a high-performing portfolio who is also impatient. While most focus on strategies, patience remains the most undervalued trait.",
         "Sometimes people hold stocks that don't move for a long time. If we can control that frustration and stay patient, those same stocks—once they move—often move big because they've been building a strong base. The market tends to move after most people have exited out of frustration.",
         "The larger the base and the longer the consolidation phase, the stronger the breakout will be. Most people don't think like this and don't have the patience, and that is how they miss most of the opportunities.",
-        "Yes, this is a choppy market and it often frustrates people. It is like exam time during our college days. Everyone has to go through it. This phase actually tests our patience and discipline.",
-        "I see that people are not very excited in this market because it looks confusing and choppy. But six to nine months from now, people may regret not taking positions and will hope for a market like this again.",
-        "The market is not going up or down. It looks like it's waiting for a strong reason to move. This kind of market is frustrating because people are not getting any good chances and not making profits."
+        "Yes, this is a choppy market and it often frustrates people. It is like exam time during our college days. Everyone has to go through it. This phase actually tests our patience and discipline."
       ]
     },
     {
       title: "Emotional Mastery",
       icon: <Activity className="w-5 h-5 text-rose-500" />,
       quotes: [
+        "More than just stock analysis, what truly determines success is patience—and a deep understanding of reverse human psychology. Successful investing requires us to practice delayed gratification, avoid impulsive action, stay still when the market moves, and resist buying without a bargain.",
+        "Volatility Is Not the Enemy — It's Fuel. Few understand this.",
         "When prices fall, confidence disappears. When prices rise, confidence is everywhere. Neither should guide your decisions.",
         "If you can't control your emotions, the market will control your results. Your mindset decides your entries and your exits. Fix the mind first, profits come later.",
         "At first, volatility feels like a threat. Later, you understand it's just the market breathing. Prices move, opinions change, emotions rise and fall. What matters is whether your thinking stays steady while everything else moves around you.",
         "Every investor thinks risk is in the market. Over time, you learn risk mostly lives inside you. Fear makes you sell early, greed makes you overstay. Once you manage yourself better, the market starts feeling far less dangerous.",
-        "Normalize staying calm and patient during market corrections or even when stocks are rising. Having a settled and steady mindset at all times will take us a long way in the stock market.",
-        "Successful investing often requires us to practice reverse human psychology: stay still when the market moves, resist the urge to buy without a bargain, and avoid booking profits too early when potential remains. This runs counter to our natural instincts.",
         "One of the most psychological aspects of the stock market is how we feel when booking the same amount of profit versus loss. Profit and loss are the same in numbers, but the way we feel towards loss is what makes it seem heavier.",
-        "Regret is a very real and frequent emotion in stock market investing—learning how to navigate it is key. Normalize regrets and view them as part of the learning journey; over time, the weight of such mistakes reduces.",
-        "Instead of getting distracted by macro events or global conflicts, investors should focus on how sectors are performing, how companies are growing, their promoter quality, and long term fundamentals.",
-        "As Graham said, 'Mr. Market' comes daily with random moods—sometimes panicking, sometimes euphoric. Right now, that figure can feel irrational. Rather than panicking, we should try to make the most of these opportunities."
+        "Instead of getting distracted by macro events or global conflicts, investors should focus on how sectors are performing, how companies are growing, their promoter quality, and long term fundamentals."
       ]
     },
     {
       title: "Strategic Restraint",
       icon: <ShieldCheck className="w-5 h-5 text-blue-500" />,
       quotes: [
+        "'Diversify to Survive. Concentrate to Get Rich.' Use diversification for defense, protecting against downside and emotional panic. Use concentration for offense, but only when based on deep research and conviction.",
+        "Don't spread your bets across average companies. Concentrate on the few that can deliver exceptional returns. Selective intensity > Diversified mediocrity.",
+        "Profit booking is completely normal. Not all stocks deserve to be held for the long term—only a few truly earn that tag. Many are better suited for short-to-medium-term positions.",
+        "Opportunities in the market are like buses — they keep coming and going. If you get a gut feeling to exit a profitable position that's been consolidating for too long, listen to it. It's okay to book profits and wait for the next bus.",
+        "Proper position sizing, number of holdings, when to sell, and turnover discipline define long-term success — not just stock selection.",
         "Circle of Competence > Broad Ambition: True mastery in investing comes from depth in familiar territories, not superficial dives into unknowns. Stick to what you deeply understand, and let opportunities compound within those bounds.",
-        "You don't need to act on every opportunity. Missing a trade is cheaper than making a bad one. Restraint is underrated.",
-        "People chase new opportunities because they are uncomfortable sitting with old decisions. But wealth grows when you give time to the right choices instead of constantly searching for better ones.",
         "One common mistake many traders and investors make is that they plan to buy the dip, but blindly buying every 10-15% dip doesn't make much sense. Successful investors usually buy only after deeper corrections of 20% or more.",
         "Smart investors don't just focus on stock picking like herd. They also pay attention to portfolio restructuring, proper capital allocation, and patience in holding. When all these factors come together, that's when real profits are made.",
-        "If you see, our portfolio is like having a team of players. Not everybody can be a batsman in cricket, and not everybody can be a bowler. The best approach is to categorize into partitions: momentum, short term, and long-term.",
-        "Sometimes it happens that a stock is up 30, 40, even 60 percent in profit. If you feel the stock is overvalued, it's better to book profits. Holding some cash is always a safer option. Why miss a good opportunity when it comes?",
-        "Market is slowly bleeding without any big movements. It's a gradual correction. These are the times that offer good buying opportunities in small tranches.",
-        "We always say that during a bull market, if stocks are overvalued and you're in profit, it's wise to book some profits and keep cash aside. These are the times when you get opportunities to buy quality stocks later."
+        "If you see, our portfolio is like having a team of players. Not everybody can be a batsman in cricket, and not everybody can be a bowler. The best approach is to categorize into partitions: momentum, short term, and long-term."
+      ]
+    },
+    {
+      title: "Clarity over Chaos",
+      icon: <EyeOff className="w-5 h-5 text-purple-500" />,
+      quotes: [
+        "Don't depend on predictions—build for adaptability.",
+        "The antifragile gains from variability and volatility—not from comfort and steady rises.",
+        "If you look closely, most multibagger stocks (2x, 5x, 10x) were captured by people who didn't get distracted by macro events, wars, and global conflicts. It takes discipline to block out all the fear and just look at whether the business is growing.",
+        "Real confidence in investing is very silent. It doesn't come from predictions or bold opinions. It comes from knowing exactly why you own something. When that clarity is strong, short-term noise loses its power over you.",
+        "Most mistakes in investing happen not because of lack of knowledge, but because of lack of clarity. When you know why you bought something, you stop reacting to every small move. Clarity gives you the confidence to wait.",
+        "Your biggest challenge in the market is not finding information, it is filtering noise. When you reduce inputs, your thinking becomes clearer. Fewer opinions lead to stronger conviction."
       ]
     },
     {
@@ -155,27 +162,6 @@ const Path2BuildWealth = () => {
       ]
     },
     {
-      title: "Clarity over Chaos",
-      icon: <EyeOff className="w-5 h-5 text-purple-500" />,
-      quotes: [
-        "If you look closely, most multibagger stocks (2x, 5x, 10x) were captured by people who didn't get distracted by macro events, wars, and global conflicts. It takes discipline to block out all the fear and just look at whether the business is growing.",
-        "Real confidence in investing is very silent. It doesn't come from predictions or bold opinions. It comes from knowing exactly why you own something. When that clarity is strong, short-term noise loses its power over you.",
-        "Most mistakes in investing happen not because of lack of knowledge, but because of lack of clarity. When you know why you bought something, you stop reacting to every small move. Clarity gives you the confidence to wait.",
-        "There is a point where you stop checking prices every day. Not because you stopped caring, but because you finally understand what you own. Clarity reduces anxiety more than any market rally ever could.",
-        "Your biggest challenge in the market is not finding information, it is filtering noise. When you reduce inputs, your thinking becomes clearer. Fewer opinions lead to stronger conviction.",
-        "If you look at the current market, it has been completely choppy and almost dead. These are the signs that the market may have bottomed out. Six months to one year down the line, many may regret not investing here."
-      ]
-    },
-    {
-      title: "Boring is Beautiful",
-      icon: <Wind className="w-5 h-5 text-slate-500" />,
-      quotes: [
-        "A good investment looks boring most of the time. If it feels exciting every day, it's probably risky. Calm usually wins.",
-        "Good investing feels boring most of the time, and that is exactly why it works. Excitement usually comes from risk you do not fully understand. Calm decisions compound quietly while loud decisions often disappear.",
-        "Most people want excitement from the market. Experienced investors want stability of thought. Once you value peace over thrill, your decisions improve quietly, and returns follow without drama."
-      ]
-    },
-    {
       title: "Character & Humility",
       icon: <Heart className="w-5 h-5 text-emerald-500" />,
       quotes: [
@@ -184,9 +170,7 @@ const Path2BuildWealth = () => {
         "I know many who didn't make money even in a good market because they held too long or exited too early. Mistakes are inevitable; you must face the setbacks to eventually reach that consistent profitability phase.",
         "Most people quit trading after a few losses. Winners study those losses, adjust, and come back sharper. Your best teacher in the market is the mistake you hate the most.",
         "Losses teach lessons gains never can. They show you your weak spots, your biases, your blind faith. If you listen carefully instead of getting bitter, every loss makes you calmer, not smaller. That calm becomes your strength.",
-        "In the long run, investing becomes a reflection of your values. Discipline over impulse. Patience over urgency. Thinking over reacting. Those who grow internally almost always grow financially too.",
-        "Investing slowly changes how you see life. You become less reactive, more thoughtful. You stop chasing quick outcomes and start trusting long processes.",
-        "The market rewards people who respect uncertainty. The moment you feel too sure, risk quietly increases. Humility keeps you alert, flexible, and alive in the game long after confidence alone would have failed."
+        "In the long run, investing becomes a reflection of your values. Discipline over impulse. Patience over urgency. Thinking over reacting. Those who grow internally almost always grow financially too."
       ]
     }
   ];
