@@ -145,12 +145,20 @@ const Path2BuildWealth = () => {
       ]
     },
     {
-      title: "Milestone Mindset",
+      title: "The Wealth Ladder: Milestone Mindset",
       icon: <Target className="w-5 h-5 text-rose-500" />,
       quotes: [
-        "If your goal is wealth creation, the first thing you should aim for is creating 1 crore. The first 1 crore is always the toughest. Creating 10 to 25 lakhs nowadays is relatively easy through a side hustle, job, or business, but reaching 1 crore requires discipline. You should not get distracted by buying phones, cars, bikes, and other luxuries. Focus on achieving that first 1 crore, ideally before 30, because once you do, creating the next 2, 5, or 10 crores becomes much easier. It's all about the process. Reaching the first crore is not just about money. It tells our hard work, discipline, execution skills, and ability to get things done.",
-        "Having a goal oriented and step-by-step approach for wealth creation is very important. Why? Because the more structured and planned your journey is, the easier it becomes to implement the right strategies. For example, if your goal is to reach ₹10 crores or ₹25 crores, you must have a proper plan in place. Without a clear plan, it's very difficult to track your expenses, savings, and investments effectively. The first major milestone should be reaching your first ₹1 crore. Why? Because going from zero to ₹1 crore is like climbing the first 100 steps it takes maximum effort, time, hard work, and often sleepless nights. Once you cross that first crore, the next targets ₹1 crore to ₹5 crores are like five more steps. And ₹1 crore to ₹10 crores is like ten more steps. It gets easier as you move ahead because you now have experience, knowledge, and a system in place. Your first crore is always the toughest. But once you achieve that with discipline, structure, and planning, the rest becomes more about momentum.",
-        "Reaching the first crore is not just about money. It tells our hard work, discipline, execution skills, and ability to get things done. It's all about the process.",
+        "The first ₹1 Lakh is purely a test of discipline. It's built not by high returns, but by consistent saving and ruthless expense control. This is where the habit is forged.",
+        "Reaching ₹10 Lakh shifts the focus from saving to earning. Your income stream must accelerate, and your savings rate must be non-negotiable. This milestone is powered by hustle.",
+        "The jump to ₹25 Lakh demands diversification. Move beyond bank deposits; introduce systematic investments (SIPs) into equity and debt funds. Your money must now work harder than you do.",
+        "At ₹50 Lakh, risk management becomes paramount. This corpus is large enough to protect. Ensure you have adequate insurance and a clear asset allocation strategy to weather market storms.",
+        "The first ₹1 Crore is the hardest. After this, compounding takes over. The journey from ₹1 Crore to ₹5 Crores is often faster than the journey from zero to one. This is the reward for patience.",
+        "Consistency is the currency of compounding. A small, steady SIP executed for twenty years beats a large, sporadic investment every time.",
+        "Don't measure your wealth by the size of your portfolio, but by the length of time you can survive without working. That is true financial freedom.",
+        "To achieve ₹1 Crore, you need a plan, not a prediction. Define your savings rate, your target asset allocation, and automate the execution. Remove emotion from the process.",
+        "Your savings rate is more important than your investment return until you hit the ₹50 Lakh mark. Focus on increasing your income and widening the gap between earning and spending.",
+        "Once you hit ₹1 Crore, the game changes from accumulation to preservation and strategic growth. Start exploring advanced tools like PMS or AIFs for specialized diversification.",
+        "If your goal is wealth creation, the first thing you should aim for is creating 1 crore. The first 1 crore is always the toughest. Achieving it ideally before 30 makes creating the next 2, 5, or 10 crores much easier.",
         "Going from zero to ₹1 crore is like climbing the first 100 steps—it takes maximum effort. Once you cross that first crore, the next targets are like taking five or ten more steps. It gets easier because you have a system."
       ]
     }
