@@ -1,7 +1,7 @@
 "use client";
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Wallet, Info } from 'lucide-react';
+import { Wallet, Info, TrendingUp } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
@@ -35,6 +35,15 @@ const Navbar = () => {
           >
             <Info className="w-4 h-4" />
             About
+          </Button>
+          <Button 
+            variant="outline" 
+            size="sm" 
+            className="gap-2 hidden sm:flex border-emerald-200 text-emerald-700 hover:bg-emerald-50 hover:text-emerald-800"
+            onClick={() => navigate('/dashboard')}
+          >
+            <TrendingUp className="w-4 h-4" />
+            Build Wealth
           </Button>
           <Button size="sm" onClick={() => navigate('/dashboard')}>
             Get Started

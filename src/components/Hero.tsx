@@ -36,7 +36,15 @@ const Hero = () => {
               <Button size="lg" className="px-8 text-md gap-2" onClick={() => navigate('/dashboard')}>
                 Start Learning Now <ArrowRight className="w-4 h-4" />
               </Button>
-              <Button size="lg" variant="outline" className="px-8 text-md" onClick={scrollToCurriculum}>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="px-8 text-md gap-2 border-emerald-200 text-emerald-700 hover:bg-emerald-50 hover:text-emerald-800" 
+                onClick={() => navigate('/dashboard')}
+              >
+                <TrendingUp className="w-4 h-4" /> Build Wealth
+              </Button>
+              <Button size="lg" variant="ghost" className="px-8 text-md" onClick={scrollToCurriculum}>
                 View Curriculum
               </Button>
             </div>
