@@ -20,7 +20,9 @@ import {
   Activity,
   Wind,
   Sparkles,
-  Heart
+  Heart,
+  TrendingDown,
+  Scale
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -86,10 +88,14 @@ const Path2BuildWealth = () => {
       title: "The Power of Patience",
       icon: <Timer className="w-5 h-5 text-amber-500" />,
       quotes: [
-        "People talk about returns. Few talk about the patience required to earn them. That patience is the real cost.",
         "The stock market rewards people who think in years, not weeks. Short-term thinking creates stress and overthinking, while long-term thinking creates calm. Time becomes your friend only when you stop rushing it.",
+        "Many people leave the market not because they were wrong, but because they got tired of waiting. Time tests belief more than intelligence. Those who stay long enough eventually realize patience was the strategy all along.",
+        "Nothing, the market is just testing our patience right now. Most of the stocks have corrected a lot and are not moving at all. But this is what the market does, it tests our patience. Many people who are impatient will give up during this phase.",
         "Over the years, investing teaches you an unusual kind of patience. You learn to wait without anxiety and act without urgency. You stop forcing outcomes and start respecting time. The market rewards those who trust the process even when progress feels invisible.",
-        "Many investors confuse activity with progress. Buying and selling feels productive, but holding a strong position through uncertainty is where real growth happens. Patience looks passive, but it is an active skill."
+        "Bulls are hiding in this sideways and confusing market because it is waiting for approval from many global events to calm down. Once these issues are cleared, positive news will lift the market and the next big rally will come.",
+        "Slow bleeding is actually more dangerous than a sharp correction. Most portfolios are down by 30 to 40 percent, and people are scared. These are the times that build our patience and show how we handle tough phases.",
+        "Don't sell your stocks just because they are up by 10%, 20%, or 25%. Hold patiently. The market is yet to move in a bigger way, and strong rallies may come once everything normalizes.",
+        "Dealing with sideways markets, corrections, and frustration is actually one of the most important skills in investing. This is the phase where true long-term success is built, like farming, where patience brings results later."
       ]
     },
     {
@@ -97,8 +103,11 @@ const Path2BuildWealth = () => {
       icon: <Activity className="w-5 h-5 text-rose-500" />,
       quotes: [
         "When prices fall, confidence disappears. When prices rise, confidence is everywhere. Neither should guide your decisions.",
-        "Markets move in cycles, but human behavior stays the same. Fear and greed repeat themselves again and again. Investors who understand this stop reacting emotionally and start acting thoughtfully.",
-        "The market does not test your intelligence every day. It tests your ability to stay calm when your money is involved. When emotions stay quiet, decisions improve. When emotions take control, even good ideas fail."
+        "If you can't control your emotions, the market will control your results. Your mindset decides your entries and your exits. Fix the mind first, profits come later.",
+        "At first, volatility feels like a threat. Later, you understand it's just the market breathing. Prices move, opinions change, emotions rise and fall. What matters is whether your thinking stays steady while everything else moves around you.",
+        "Every investor thinks risk is in the market. Over time, you learn risk mostly lives inside you. Fear makes you sell early, greed makes you overstay. Once you manage yourself better, the market starts feeling far less dangerous.",
+        "The market does not test your intelligence every day. It tests your ability to stay calm when your money is involved. When emotions stay quiet, decisions improve. When emotions take control, even good ideas fail.",
+        "One of the most psychological aspects of the stock market is how we feel when booking the same amount of profit versus loss. Profit and loss are the same in numbers, but the way we feel towards loss is what makes it seem heavier."
       ]
     },
     {
@@ -106,18 +115,20 @@ const Path2BuildWealth = () => {
       icon: <ShieldCheck className="w-5 h-5 text-blue-500" />,
       quotes: [
         "You don't need to act on every opportunity. Missing a trade is cheaper than making a bad one. Restraint is underrated.",
-        "People chase new opportunities because they are uncomfortable sitting with old decisions. But wealth grows when you give time to the right choices instead of constantly searching for better ones. Doing less, but doing it well, changes everything.",
-        "Remember that great investing is rarely about timing the market, but about time in businesses that compound quietly. Value is not found in noise, narratives, or price movement but in cash flows, balance sheets, and management integrity.",
-        "The market rewards patience unevenly, but always pays in full to discipline. In the coming year, may your decisions be driven by margin of safety, not momentum, and conviction, not crowd behavior."
+        "People chase new opportunities because they are uncomfortable sitting with old decisions. But wealth grows when you give time to the right choices instead of constantly searching for better ones.",
+        "One common mistake many traders and investors make is that they plan to buy the dip, but blindly buying every 10-15% dip doesn't make much sense. Successful investors usually buy only after deeper corrections of 20% or more.",
+        "Smart investors don't just focus on stock picking like herd. They also pay attention to portfolio restructuring, proper capital allocation, and patience in holding. When all these factors come together, that's when real profits are made.",
+        "If you look at SME, small-cap, and micro-cap stocks, many are down 30-50%. We may not get such opportunities often, where good quality stocks are available at corrected levels. Meanwhile, Gold has already rallied a lot. Trust is cyclical; soon or later, cycles change."
       ]
     },
     {
       title: "Clarity over Chaos",
       icon: <EyeOff className="w-5 h-5 text-purple-500" />,
       quotes: [
-        "Your biggest challenge in the market is not finding information, it is filtering noise. When you reduce inputs, your thinking becomes clearer. Fewer opinions lead to stronger conviction.",
+        "Real confidence in investing is very silent. It doesn't come from predictions or bold opinions. It comes from knowing exactly why you own something. When that clarity is strong, short-term noise loses its power over you.",
         "Most mistakes in investing happen not because of lack of knowledge, but because of lack of clarity. When you know why you bought something, you stop reacting to every small move. Clarity gives you the confidence to wait.",
-        "There is a point where you stop checking prices every day. Not because you stopped caring, but because you finally understand what you own. Clarity reduces anxiety more than any market rally ever could."
+        "Your biggest challenge in the market is not finding information, it is filtering noise. When you reduce inputs, your thinking becomes clearer. Fewer opinions lead to stronger conviction.",
+        "If you look at the current market, it has been completely choppy and almost dead. These are the signs that the market may have bottomed out. Six months to one year down the line, many may regret not investing here."
       ]
     },
     {
@@ -125,18 +136,17 @@ const Path2BuildWealth = () => {
       icon: <Wind className="w-5 h-5 text-slate-500" />,
       quotes: [
         "A good investment looks boring most of the time. If it feels exciting every day, it's probably risky. Calm usually wins.",
-        "Most people want excitement from the market. Experienced investors want stability of thought. Once you value peace over thrill, your decisions improve quietly, and returns follow without drama.",
-        "Good investing feels boring most of the time, and that is exactly why it works. Excitement usually comes from risk you do not fully understand. Calm decisions compound quietly while loud decisions often disappear."
+        "Good investing feels boring most of the time, and that is exactly why it works. Excitement usually comes from risk you do not fully understand. Calm decisions compound quietly while loud decisions often disappear.",
+        "Most people want excitement from the market. Experienced investors want stability of thought. Once you value peace over thrill, your decisions improve quietly, and returns follow without drama."
       ]
     },
     {
       title: "Character & Humility",
       icon: <Heart className="w-5 h-5 text-emerald-500" />,
       quotes: [
-        "Many people think investing success comes from being right often, but it actually comes from being wrong and not breaking down. Losses teach patience, discipline, and humility if you stay in the game long enough. Over time, those lessons matter more than any single profit you make.",
+        "Most people quit trading after a few losses. Winners study those losses, adjust, and come back sharper. Your best teacher in the market is the mistake you hate the most.",
         "Losses teach lessons gains never can. They show you your weak spots, your biases, your blind faith. If you listen carefully instead of getting bitter, every loss makes you calmer, not smaller. That calm becomes your strength.",
         "In the long run, investing becomes a reflection of your values. Discipline over impulse. Patience over urgency. Thinking over reacting. Those who grow internally almost always grow financially too.",
-        "Investing slowly changes how you see life. You become less reactive, more thoughtful. You stop chasing quick outcomes and start trusting long processes. That mindset compounds far beyond money.",
         "The market rewards people who respect uncertainty. The moment you feel too sure, risk quietly increases. Humility keeps you alert, flexible, and alive in the game long after confidence alone would have failed."
       ]
     }
@@ -234,8 +244,8 @@ const Path2BuildWealth = () => {
                     <Card key={j} className="border-none shadow-md bg-white/70 backdrop-blur-sm italic relative overflow-hidden group hover:shadow-xl transition-all duration-300">
                       <div className="absolute top-0 left-0 w-1 h-full bg-primary/10 group-hover:bg-primary/30 transition-colors" />
                       <CardContent className="p-8 md:p-10">
-                        <p className="text-xl md:text-2xl text-slate-700 leading-tight relative font-serif">
-                          <span className="text-6xl text-primary/5 absolute -top-8 -left-4 select-none pointer-events-none">"</span>
+                        <p className="text-lg md:text-xl text-slate-700 leading-tight relative font-serif">
+                          <span className="text-5xl text-primary/5 absolute -top-6 -left-3 select-none pointer-events-none">"</span>
                           {quote}
                         </p>
                       </CardContent>
