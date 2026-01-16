@@ -124,7 +124,7 @@ const Path2BuildWealth = () => {
 
   return (
     <div className="min-h-screen bg-slate-50 py-12 px-4 sm:px-6">
-      <div className="max-w-4xl mx-auto space-y-16">
+      <div className="max-w-6xl mx-auto space-y-16">
         <div className="space-y-8">
           <Button 
             variant="ghost" 
@@ -147,7 +147,7 @@ const Path2BuildWealth = () => {
         </div>
 
         {/* Mindset Section */}
-        <section className="space-y-8">
+        <section className="space-y-8 max-w-4xl mx-auto">
           <div className="flex items-center gap-3">
             <div className="p-2 bg-white rounded-xl shadow-sm border border-slate-100">
               <Brain className="w-6 h-6 text-primary" />
@@ -172,7 +172,7 @@ const Path2BuildWealth = () => {
         </section>
 
         {/* Path Section */}
-        <section className="space-y-8">
+        <section className="space-y-8 max-w-4xl mx-auto">
           <div className="flex items-center gap-3">
             <div className="p-2 bg-white rounded-xl shadow-sm border border-slate-100">
               <Coins className="w-6 h-6 text-primary" />
@@ -196,25 +196,26 @@ const Path2BuildWealth = () => {
 
         {/* Quotes Section */}
         <section className="space-y-8">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 max-w-4xl mx-auto">
             <div className="p-2 bg-white rounded-xl shadow-sm border border-slate-100">
               <Quote className="w-6 h-6 text-primary" />
             </div>
             <h2 className="text-2xl font-bold text-slate-900">Wisdom for the Journey</h2>
           </div>
-          <div className="space-y-10">
+          <div className="space-y-12">
             {quoteCategories.map((category, i) => (
-              <div key={i} className="space-y-4">
-                <div className="flex items-center gap-2 px-1">
+              <div key={i} className="space-y-6">
+                <div className="flex items-center gap-2 px-1 max-w-4xl mx-auto">
                   {category.icon}
-                  <h3 className="font-bold text-slate-700 uppercase tracking-wider text-xs">{category.title}</h3>
+                  <h3 className="font-bold text-slate-700 uppercase tracking-widest text-xs">{category.title}</h3>
                 </div>
-                <div className="grid gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   {category.quotes.map((quote, j) => (
-                    <Card key={j} className="border-none shadow-sm bg-white/50 backdrop-blur-sm italic">
-                      <CardContent className="p-6">
-                        <p className="text-slate-600 leading-relaxed relative">
-                          <span className="text-4xl text-slate-200 absolute -top-4 -left-2 font-serif">"</span>
+                    <Card key={j} className="border-none shadow-md bg-white/70 backdrop-blur-sm italic relative overflow-hidden group hover:shadow-xl transition-all duration-300">
+                      <div className="absolute top-0 left-0 w-1 h-full bg-primary/10 group-hover:bg-primary/30 transition-colors" />
+                      <CardContent className="p-8 md:p-10">
+                        <p className="text-xl md:text-2xl text-slate-700 leading-tight relative font-serif">
+                          <span className="text-6xl text-primary/5 absolute -top-8 -left-4 select-none pointer-events-none">"</span>
                           {quote}
                         </p>
                       </CardContent>
@@ -226,7 +227,7 @@ const Path2BuildWealth = () => {
           </div>
         </section>
 
-        <section className="bg-slate-900 text-white p-8 md:p-16 rounded-[2.5rem] text-center space-y-8 relative overflow-hidden">
+        <section className="bg-slate-900 text-white p-8 md:p-16 rounded-[2.5rem] text-center space-y-8 relative overflow-hidden max-w-4xl mx-auto">
           <div className="relative z-10 space-y-6">
             <h2 className="text-3xl md:text-4xl font-bold">Ready to take the first step?</h2>
             <p className="text-slate-400 text-lg max-w-xl mx-auto">Jump into your learning dashboard to start mastering these concepts and build your future.</p>
