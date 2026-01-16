@@ -40,7 +40,7 @@ const Navbar = () => {
             variant="outline" 
             size="sm" 
             className="gap-2 hidden sm:flex border-emerald-200 text-emerald-700 hover:bg-emerald-50 hover:text-emerald-800"
-            onClick={() => navigate('/dashboard')}
+            onClick={() => navigate('/build-wealth')}
           >
             <TrendingUp className="w-4 h-4" />
             Build Wealth
