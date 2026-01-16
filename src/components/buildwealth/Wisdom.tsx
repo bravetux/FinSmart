@@ -157,6 +157,7 @@ const Wisdom = () => {
                     <CardContent className="p-8 md:p-10">
                       <p className="text-lg md:text-xl text-slate-700 leading-tight relative font-serif">
                         <span className="text-5xl text-primary/5 absolute -top-6 -left-3 select-none pointer-events-none">"</span>
+                        <span className="font-bold text-primary/80 mr-2 not-italic">{j + 1}.</span>
                         {quote}
                       </p>
                     </CardContent>
