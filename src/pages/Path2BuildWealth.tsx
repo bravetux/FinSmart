@@ -21,6 +21,7 @@ import {
   Target
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const Path2BuildWealth = () => {
   const navigate = useNavigate();
@@ -81,7 +82,7 @@ const Path2BuildWealth = () => {
 
   const quoteCategories = [
     {
-      title: "Reverse Human Psychology",
+      title: "Psychology",
       icon: <Brain className="w-5 h-5 text-purple-500" />,
       quotes: [
         "Personally, after spending several years in this field, I've realized one important truth: More than just stock analysis or picking the 'right' stocks, what truly determines success in investing is patience—and a deep understanding of reverse human psychology. Successful investing often requires us to: Practice delayed gratification, Avoid impulsive action, Stay still when the market moves, Resist the urge to buy without a bargain, Avoid booking profits too early, even when potential remains. All of this runs counter to our natural instincts.",
@@ -91,7 +92,7 @@ const Path2BuildWealth = () => {
       ]
     },
     {
-      title: "The Power of Patience",
+      title: "Patience",
       icon: <Timer className="w-5 h-5 text-amber-500" />,
       quotes: [
         "Patience > Precision: Great returns aren't born from perfect timing but from steadfast discipline. Sit tight; compounding rewards the waiting.",
@@ -106,7 +107,7 @@ const Path2BuildWealth = () => {
       ]
     },
     {
-      title: "Strategic Restraint & Execution",
+      title: "Strategy",
       icon: <ShieldCheck className="w-5 h-5 text-blue-500" />,
       quotes: [
         "'Diversify to Survive. Concentrate to Get Rich.' Use diversification for defense, protecting against downside and emotional panic. Use concentration for offense, but only when based on deep research, conviction, and long-term orientation.",
@@ -121,7 +122,7 @@ const Path2BuildWealth = () => {
       ]
     },
     {
-      title: "Clarity over Chaos",
+      title: "Clarity",
       icon: <EyeOff className="w-5 h-5 text-indigo-500" />,
       quotes: [
         "So, what I am thinking is that India will see big reforms in tax, GST, and policies. These may turn out to be very favorable for startups, businesses, and overall growth. In the long term, India's growth is inevitable. Many companies are already expanding rapidly, and it won't be surprising if some of our products go global and become well known. That is why I say invest in India . The long-term story is very bright. Do not get carried away by short-term pain like tariff threats, macro events, or small corrections. These are just noises. What really matters is the underlying growth and potential. Compared to the global stage, India is still in the early growth phase, almost at the beginning of the beginning. This means there is huge scope across every sector and industry. So, focus on the bigger picture. The GDP will grow massively in the coming decades. Right now also, many small businesses and industries have deep potential. Look for those stories and do not get distracted by short-term market noise.",
@@ -137,7 +138,7 @@ const Path2BuildWealth = () => {
       ]
     },
     {
-      title: "Character & Humility",
+      title: "Character",
       icon: <Heart className="w-5 h-5 text-emerald-500" />,
       quotes: [
         "Even mistakes are important. Without making mistakes, we really don't grow. The key is to ensure that the mistakes are small and manageable—and that we actually learn from them. In fact, the earlier we make those mistakes, the better.",
@@ -145,7 +146,7 @@ const Path2BuildWealth = () => {
       ]
     },
     {
-      title: "The Wealth Ladder: Milestone Mindset",
+      title: "Milestones",
       icon: <Target className="w-5 h-5 text-rose-500" />,
       quotes: [
         "The first ₹1 Lakh is purely a test of discipline. It's built not by high returns, but by consistent saving and ruthless expense control. This is where the habit is forged.",
@@ -158,7 +159,9 @@ const Path2BuildWealth = () => {
         "To achieve ₹1 Crore, you need a plan, not a prediction. Define your savings rate, your target asset allocation, and automate the execution. Remove emotion from the process.",
         "Your savings rate is more important than your investment return until you hit the ₹50 Lakh mark. Focus on increasing your income and widening the gap between earning and spending.",
         "Once you hit ₹1 Crore, the game changes from accumulation to preservation and strategic growth. Start exploring advanced tools like PMS or AIFs for specialized diversification.",
-        "If your goal is wealth creation, the first thing you should aim for is creating 1 crore. The first 1 crore is always the toughest. Achieving it ideally before 30 makes creating the next 2, 5, or 10 crores much easier.",
+        "If your goal is wealth creation, the first thing you should aim for is creating 1 crore. The first 1 crore is always the toughest. Creating 10 to 25 lakhs nowadays is relatively easy through a side hustle, job, or business, but reaching 1 crore requires discipline. You should not get distracted by buying phones, cars, bikes, and other luxuries. Focus on achieving that first 1 crore, ideally before 30, because once you do, creating the next 2, 5, or 10 crores becomes much easier. It's all about the process. Reaching the first crore is not just about money. It tells our hard work, discipline, execution skills, and ability to get things done.",
+        "Having a goal oriented and step-by-step approach for wealth creation is very important. Why? Because the more structured and planned your journey is, the easier it becomes to implement the right strategies. For example, if your goal is to reach ₹10 crores or ₹25 crores, you must have a proper plan in place. Without a clear plan, it's very difficult to track your expenses, savings, and investments effectively. The first major milestone should be reaching your first ₹1 crore. Why? Because going from zero to ₹1 crore is like climbing the first 100 steps it takes maximum effort, time, hard work, and often sleepless nights. Once you cross that first crore, the next targets ₹1 crore to ₹5 crores are like five more steps. And ₹1 crore to ₹10 crores is like ten more steps. It gets easier as you move ahead because you now have experience, knowledge, and a system in place. Your first crore is always the toughest. But once you achieve that with discipline, structure, and planning, the rest becomes more about momentum.",
+        "Reaching the first crore is not just about money. It tells our hard work, discipline, execution skills, and ability to get things done. It's all about the process.",
         "Going from zero to ₹1 crore is like climbing the first 100 steps—it takes maximum effort. Once you cross that first crore, the next targets are like taking five or ten more steps. It gets easier because you have a system."
       ]
     }
@@ -236,7 +239,7 @@ const Path2BuildWealth = () => {
           </div>
         </section>
 
-        {/* Quotes Section */}
+        {/* Quotes Section - Now using Tabs */}
         <section className="space-y-8">
           <div className="flex items-center gap-3 max-w-4xl mx-auto">
             <div className="p-2 bg-white rounded-xl shadow-sm border border-slate-100">
@@ -244,29 +247,43 @@ const Path2BuildWealth = () => {
             </div>
             <h2 className="text-2xl font-bold text-slate-900">Wisdom for the Journey</h2>
           </div>
-          <div className="space-y-12">
-            {quoteCategories.map((category, i) => (
-              <div key={i} className="space-y-6">
-                <div className="flex items-center gap-2 px-1 max-w-4xl mx-auto">
-                  {category.icon}
-                  <h3 className="font-bold text-slate-700 uppercase tracking-widest text-xs">{category.title}</h3>
+          
+          <Tabs defaultValue={quoteCategories[0].title} className="w-full">
+            <TabsList className="grid w-full grid-cols-3 md:grid-cols-6 h-auto p-1 bg-slate-200/50 rounded-xl">
+              {quoteCategories.map((category) => (
+                <TabsTrigger key={category.title} value={category.title} className="text-[10px] md:text-xs lg:text-sm py-2">
+                  <div className="flex items-center gap-1 md:gap-2">
+                    {category.icon}
+                    {category.title}
+                  </div>
+                </TabsTrigger>
+              ))}
+            </TabsList>
+
+            {quoteCategories.map((category) => (
+              <TabsContent key={category.title} value={category.title} className="mt-8">
+                <div className="space-y-6">
+                  <div className="flex items-center gap-2 px-1 max-w-4xl mx-auto">
+                    {category.icon}
+                    <h3 className="font-bold text-slate-700 uppercase tracking-widest text-xs">{category.title}</h3>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {category.quotes.map((quote, j) => (
+                      <Card key={j} className="border-none shadow-md bg-white/70 backdrop-blur-sm italic relative overflow-hidden group hover:shadow-xl transition-all duration-300">
+                        <div className="absolute top-0 left-0 w-1 h-full bg-primary/10 group-hover:bg-primary/30 transition-colors" />
+                        <CardContent className="p-8 md:p-10">
+                          <p className="text-lg md:text-xl text-slate-700 leading-tight relative font-serif">
+                            <span className="text-5xl text-primary/5 absolute -top-6 -left-3 select-none pointer-events-none">"</span>
+                            {quote}
+                          </p>
+                        </CardContent>
+                      </Card>
+                    ))}
+                  </div>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  {category.quotes.map((quote, j) => (
-                    <Card key={j} className="border-none shadow-md bg-white/70 backdrop-blur-sm italic relative overflow-hidden group hover:shadow-xl transition-all duration-300">
-                      <div className="absolute top-0 left-0 w-1 h-full bg-primary/10 group-hover:bg-primary/30 transition-colors" />
-                      <CardContent className="p-8 md:p-10">
-                        <p className="text-lg md:text-xl text-slate-700 leading-tight relative font-serif">
-                          <span className="text-5xl text-primary/5 absolute -top-6 -left-3 select-none pointer-events-none">"</span>
-                          {quote}
-                        </p>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-              </div>
+              </TabsContent>
             ))}
-          </div>
+          </Tabs>
         </section>
       </div>
     </div>
