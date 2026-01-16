@@ -22,7 +22,9 @@ import {
   Sparkles,
   Heart,
   TrendingDown,
-  Scale
+  Scale,
+  Target,
+  Landmark
 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -95,7 +97,12 @@ const Path2BuildWealth = () => {
         "Bulls are hiding in this sideways and confusing market because it is waiting for approval from many global events to calm down. Once these issues are cleared, positive news will lift the market and the next big rally will come.",
         "Slow bleeding is actually more dangerous than a sharp correction. Most portfolios are down by 30 to 40 percent, and people are scared. These are the times that build our patience and show how we handle tough phases.",
         "Don't sell your stocks just because they are up by 10%, 20%, or 25%. Hold patiently. The market is yet to move in a bigger way, and strong rallies may come once everything normalizes.",
-        "Dealing with sideways markets, corrections, and frustration is actually one of the most important skills in investing. This is the phase where true long-term success is built, like farming, where patience brings results later."
+        "Dealing with sideways markets, corrections, and frustration is actually one of the most important skills in investing. This is the phase where true long-term success is built, like farming, where patience brings results later.",
+        "Most people don't have the patience. When they see a big gap between their stock and the market, they end up selling. But the reality is different. Stocks can stay in a consolidation phase for a long time without any business reason. Even if the business is growing, the stock may not move.",
+        "The larger the base and the longer the consolidation phase, the stronger the breakout will be. Most people don't think like this and don't have the patience, and that is how they miss most of the opportunities.",
+        "Yes, this is a choppy market and it often frustrates people. It is like exam time during our college days. Everyone has to go through it. This phase actually tests our patience and discipline.",
+        "I see that people are not very excited in this market because it looks confusing and choppy. But six to nine months from now, people may regret not taking positions and will hope for a market like this again.",
+        "The market is not going up or down. It looks like it's waiting for a strong reason to move. This kind of market is frustrating because people are not getting any good chances and not making profits."
       ]
     },
     {
@@ -107,7 +114,9 @@ const Path2BuildWealth = () => {
         "At first, volatility feels like a threat. Later, you understand it's just the market breathing. Prices move, opinions change, emotions rise and fall. What matters is whether your thinking stays steady while everything else moves around you.",
         "Every investor thinks risk is in the market. Over time, you learn risk mostly lives inside you. Fear makes you sell early, greed makes you overstay. Once you manage yourself better, the market starts feeling far less dangerous.",
         "The market does not test your intelligence every day. It tests your ability to stay calm when your money is involved. When emotions stay quiet, decisions improve. When emotions take control, even good ideas fail.",
-        "One of the most psychological aspects of the stock market is how we feel when booking the same amount of profit versus loss. Profit and loss are the same in numbers, but the way we feel towards loss is what makes it seem heavier."
+        "One of the most psychological aspects of the stock market is how we feel when booking the same amount of profit versus loss. Profit and loss are the same in numbers, but the way we feel towards loss is what makes it seem heavier.",
+        "Instead of getting distracted by macro events or global conflicts, investors should focus on how sectors are performing, how companies are growing, their promoter quality, and long term fundamentals.",
+        "As Graham said, 'Mr. Market' comes daily with random moods—sometimes panicking, sometimes euphoric. Right now, that figure can feel irrational. Rather than panicking, we should try to make the most of these opportunities."
       ]
     },
     {
@@ -118,7 +127,31 @@ const Path2BuildWealth = () => {
         "People chase new opportunities because they are uncomfortable sitting with old decisions. But wealth grows when you give time to the right choices instead of constantly searching for better ones.",
         "One common mistake many traders and investors make is that they plan to buy the dip, but blindly buying every 10-15% dip doesn't make much sense. Successful investors usually buy only after deeper corrections of 20% or more.",
         "Smart investors don't just focus on stock picking like herd. They also pay attention to portfolio restructuring, proper capital allocation, and patience in holding. When all these factors come together, that's when real profits are made.",
-        "If you look at SME, small-cap, and micro-cap stocks, many are down 30-50%. We may not get such opportunities often, where good quality stocks are available at corrected levels. Meanwhile, Gold has already rallied a lot. Trust is cyclical; soon or later, cycles change."
+        "If you look at SME, small-cap, and micro-cap stocks, many are down 30-50%. We may not get such opportunities often, where good quality stocks are available at corrected levels.",
+        "If you see, our portfolio is like having a team of players. Not everybody can be a batsman in cricket, and not everybody can be a bowler. The best approach is to categorize into partitions: momentum, short term, and long-term.",
+        "Sometimes it happens that a stock is up 30, 40, even 60 percent in profit. If you feel the stock is overvalued, it's better to book profits. Holding some cash is always a safer option. Why miss a good opportunity when it comes?",
+        "Market is slowly bleeding without any big movements. It's a gradual correction. These are the times that offer good buying opportunities in small tranches.",
+        "Last week, booked some profit and am holding some cash now. As the market might remain choppy, it's better to keep some cash aside. Being prepared helps."
+      ]
+    },
+    {
+      title: "Milestone Mindset",
+      icon: <Target className="w-5 h-5 text-indigo-500" />,
+      quotes: [
+        "If your goal is wealth creation, the first thing you should aim for is creating 1 crore. The first 1 crore is always the toughest. Achieving it ideally before 30 makes creating the next 2, 5, or 10 crores much easier.",
+        "Reaching the first crore is not just about money. It tells our hard work, discipline, execution skills, and ability to get things done. It's all about the process.",
+        "Having a goal oriented and step-by-step approach is vital. The more structured your journey, the easier it becomes to implement the right strategies.",
+        "Going from zero to ₹1 crore is like climbing the first 100 steps—it takes maximum effort. Once you cross that first crore, the next targets are like taking five or ten more steps. It gets easier because you have a system."
+      ]
+    },
+    {
+      title: "The India Story",
+      icon: <Landmark className="w-5 h-5 text-emerald-500" />,
+      quotes: [
+        "India will see big reforms in tax, GST, and policies. These may turn out to be very favorable for startups, businesses, and overall growth. In the long term, India's growth is inevitable.",
+        "Invest in India. The long-term story is very bright. Do not get carried away by short-term pain or macro events. What really matters is the underlying growth and potential.",
+        "Compared to the global stage, India is still in the early growth phase, almost at the beginning of the beginning. This means there is huge scope across every sector and industry.",
+        "The GDP will grow massively in the coming decades. Look for those underlying stories and do not get distracted by short-term market noise. Focus on the bigger picture."
       ]
     },
     {
