@@ -74,6 +74,7 @@ const MoatAnalysis = () => {
           
           <TabsContent value="visuals" className="mt-4">
             <Card className="p-4">
+              {/* Ensure the path starts with / for public directory access */}
               <img 
                 src="/parameters-to-identify-moat-companies.jpeg" 
                 alt="Parameters to Identify Moat Companies" 
