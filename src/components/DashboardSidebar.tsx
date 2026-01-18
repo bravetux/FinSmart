@@ -629,6 +629,55 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                     isSubItem 
                     isCollapsed={isCollapsed} 
                   />
+                  <SidebarItem 
+                    label="Face Value & Splits" 
+                    active={currentSection === 'equity-face-value'} 
+                    onClick={() => onSectionChange('equity-face-value')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="IPOs" 
+                    active={currentSection === 'equity-ipo'} 
+                    onClick={() => onSectionChange('equity-ipo')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Technical Basics" 
+                    active={currentSection === 'equity-technical'} 
+                    onClick={() => onSectionChange('equity-technical')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Fundamental Analysis" 
+                    active={currentSection === 'equity-fundamental'} 
+                    onClick={() => onSectionChange('equity-fundamental')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Beyond Price Valuation" 
+                    active={currentSection === 'equity-beyond-valuation'} 
+                    onClick={() => onSectionChange('equity-beyond-valuation')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Moat Analysis" 
+                    active={currentSection === 'equity-moat'} 
+                    onClick={() => onSectionChange('equity-moat')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Pricing Power" 
+                    active={currentSection === 'equity-pricing-power'} 
+                    onClick={() => onSectionChange('equity-pricing-power')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
                   
                   {/* Companies Section */}
                   <Collapsible defaultOpen={currentSection.startsWith('equity-') && (currentSection === 'equity-competition' || currentSection === 'equity-debt' || currentSection === 'equity-valuation' || currentSection === 'equity-value-investing')}>
@@ -673,56 +722,6 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                       />
                     </CollapsibleContent>
                   </Collapsible>
-
-                  <SidebarItem 
-                    label="Fundamental Analysis" 
-                    active={currentSection === 'equity-fundamental'} 
-                    onClick={() => onSectionChange('equity-fundamental')} 
-                    isSubItem 
-                    isCollapsed={isCollapsed} 
-                  />
-                  <SidebarItem 
-                    label="Beyond Valuation" 
-                    active={currentSection === 'equity-beyond-valuation'} 
-                    onClick={() => onSectionChange('equity-beyond-valuation')} 
-                    isSubItem 
-                    isCollapsed={isCollapsed} 
-                  />
-                  <SidebarItem 
-                    label="Moat Analysis" 
-                    active={currentSection === 'equity-moat'} 
-                    onClick={() => onSectionChange('equity-moat')} 
-                    isSubItem 
-                    isCollapsed={isCollapsed} 
-                  />
-                  <SidebarItem 
-                    label="Pricing Power" 
-                    active={currentSection === 'equity-pricing-power'} 
-                    onClick={() => onSectionChange('equity-pricing-power')} 
-                    isSubItem 
-                    isCollapsed={isCollapsed} 
-                  />
-                  <SidebarItem 
-                    label="Face Value & Splits" 
-                    active={currentSection === 'equity-face-value'} 
-                    onClick={() => onSectionChange('equity-face-value')} 
-                    isSubItem 
-                    isCollapsed={isCollapsed} 
-                  />
-                  <SidebarItem 
-                    label="Technical Basics" 
-                    active={currentSection === 'equity-technical'} 
-                    onClick={() => onSectionChange('equity-technical')} 
-                    isSubItem 
-                    isCollapsed={isCollapsed} 
-                  />
-                  <SidebarItem 
-                    label="IPOs" 
-                    active={currentSection === 'equity-ipo'} 
-                    onClick={() => onSectionChange('equity-ipo')} 
-                    isSubItem 
-                    isCollapsed={isCollapsed} 
-                  />
                 </CollapsibleContent>
               </Collapsible>
             ) : (
