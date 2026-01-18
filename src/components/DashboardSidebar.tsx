@@ -671,16 +671,9 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                     isSubItem 
                     isCollapsed={isCollapsed} 
                   />
-                  <SidebarItem 
-                    label="Pricing Power" 
-                    active={currentSection === 'equity-pricing-power'} 
-                    onClick={() => onSectionChange('equity-pricing-power')} 
-                    isSubItem 
-                    isCollapsed={isCollapsed} 
-                  />
                   
                   {/* Companies Section */}
-                  <Collapsible defaultOpen={currentSection.startsWith('equity-') && (currentSection === 'equity-competition' || currentSection === 'equity-debt' || currentSection === 'equity-valuation' || currentSection === 'equity-value-investing')}>
+                  <Collapsible defaultOpen={currentSection.startsWith('equity-') && (currentSection === 'equity-competition' || currentSection === 'equity-debt' || currentSection === 'equity-valuation' || currentSection === 'equity-value-investing' || currentSection === 'equity-pricing-power')}>
                     <CollapsibleTrigger className="w-full">
                       <div className="flex items-center justify-between pl-11 pr-4 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900">
                         <span>Companies</span>
@@ -717,6 +710,14 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                         label="Value Investing" 
                         active={currentSection === 'equity-value-investing'} 
                         onClick={() => onSectionChange('equity-value-investing')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
+                      <SidebarItem 
+                        icon={<Briefcase className="w-3.5 h-3.5" />}
+                        label="Pricing Power" 
+                        active={currentSection === 'equity-pricing-power'} 
+                        onClick={() => onSectionChange('equity-pricing-power')} 
                         className="pl-14 text-xs" 
                         isCollapsed={isCollapsed} 
                       />
