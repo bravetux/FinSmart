@@ -1,19 +1,16 @@
 "use client";
 
 import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { 
   Trophy, 
-  Users, 
   TrendingUp, 
   ShieldCheck, 
   Gem, 
   CheckCircle2, 
   BarChart3, 
   Handshake,
-  ArrowRight,
   ExternalLink,
-  Image as ImageIcon,
   Briefcase
 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -49,7 +46,6 @@ const QualityAnalysis = () => {
   const goodBusinessId = "108QghHNHs4JcEYD94oSsoS5-2-rWAqm6";
   const managementQualityId = "17hY8pZYKPyoaPk3WKlGSjLVH7g9MiTcC";
 
-  const getDriveImageUrl = (id: string) => `https://drive.google.com/uc?id=${id}&export=download`;
   const getDriveViewUrl = (id: string) => `https://drive.google.com/file/d/${id}/view?usp=drive_link`;
 
   return (
@@ -82,39 +78,12 @@ const QualityAnalysis = () => {
           </div>
           <Button 
             variant="outline" 
-            size="sm" 
             className="gap-2 shrink-0"
             onClick={() => window.open(getDriveViewUrl(goodBusinessId), '_blank')}
           >
-            <ExternalLink className="w-4 h-4" /> View Original Guide
+            <ExternalLink className="w-4 h-4" /> View Visual Guide
           </Button>
         </div>
-
-        <Card className="border-slate-200 shadow-lg overflow-hidden bg-white">
-          <CardContent className="p-0">
-            <div className="aspect-[16/10] md:aspect-[21/9] bg-slate-50 flex items-center justify-center relative group">
-              <img 
-                src={getDriveImageUrl(goodBusinessId)} 
-                alt="What is a Good Business Visual Guide" 
-                className="max-w-full max-h-full object-contain p-4 md:p-8"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.style.display = 'none';
-                  const parent = target.parentElement;
-                  if (parent && !parent.querySelector('.error-msg')) {
-                    const msg = document.createElement('div');
-                    msg.className = 'error-msg text-center p-12 space-y-4';
-                    msg.innerHTML = `
-                      <p class="text-slate-500 text-sm italic">Image preview restricted by Google Drive</p>
-                      <button class="px-6 py-2 bg-emerald-600 text-white rounded-lg font-bold text-sm">Click 'View Original Guide' above to see visual</button>
-                    `;
-                    parent.appendChild(msg);
-                  }
-                }}
-              />
-            </div>
-          </CardContent>
-        </Card>
       </section>
 
       {/* Section 2: Why Management Quality Matters */}
@@ -128,39 +97,12 @@ const QualityAnalysis = () => {
           </div>
           <Button 
             variant="outline" 
-            size="sm" 
             className="gap-2 shrink-0"
             onClick={() => window.open(getDriveViewUrl(managementQualityId), '_blank')}
           >
-            <ExternalLink className="w-4 h-4" /> View Original Guide
+            <ExternalLink className="w-4 h-4" /> View Visual Guide
           </Button>
         </div>
-
-        <Card className="border-slate-200 shadow-lg overflow-hidden bg-white">
-          <CardContent className="p-0">
-            <div className="aspect-[16/10] md:aspect-[21/9] bg-slate-50 flex items-center justify-center relative">
-              <img 
-                src={getDriveImageUrl(managementQualityId)} 
-                alt="Management Quality Visual Guide" 
-                className="max-w-full max-h-full object-contain p-4 md:p-8"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.style.display = 'none';
-                  const parent = target.parentElement;
-                  if (parent && !parent.querySelector('.error-msg')) {
-                    const msg = document.createElement('div');
-                    msg.className = 'error-msg text-center p-12 space-y-4';
-                    msg.innerHTML = `
-                      <p class="text-slate-500 text-sm italic">Image preview restricted by Google Drive</p>
-                      <button class="px-6 py-2 bg-blue-600 text-white rounded-lg font-bold text-sm">Click 'View Original Guide' above to see visual</button>
-                    `;
-                    parent.appendChild(msg);
-                  }
-                }}
-              />
-            </div>
-          </CardContent>
-        </Card>
       </section>
 
       {/* Hallmarks Grid */}
