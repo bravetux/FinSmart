@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Users, Zap, ArrowRightLeft, Scale, ShieldAlert, Swords, ArrowDown, ArrowUp, ArrowLeft, ArrowRight, UserPlus, ShoppingCart, Truck, Repeat } from 'lucide-react';
+import { Users, Zap, Swords, ArrowDown, UserPlus, ShoppingCart, Truck, Repeat } from 'lucide-react';
 import { cn } from "@/lib/utils";
 
 const SectorCompetition = () => {
@@ -11,38 +11,38 @@ const SectorCompetition = () => {
       id: "entrants",
       title: "Threat of New Entry",
       icon: <UserPlus className="w-5 h-5" />,
-      desc: "How easy is it for new competitors to enter the market?",
-      details: ["Setup costs", "Brand loyalty", "Patents", "Government policy"],
+      desc: "How easy is it for new competitors to enter?",
+      details: ["Setup costs", "Brand loyalty", "Patents"],
       color: "border-orange-200 bg-orange-50 text-orange-900",
       iconColor: "text-orange-600",
       position: "top"
     },
     {
       id: "suppliers",
-      title: "Bargaining Power of Suppliers",
+      title: "Supplier Power",
       icon: <Truck className="w-5 h-5" />,
-      desc: "How much power do suppliers have to raise prices?",
-      details: ["Number of suppliers", "Size of suppliers", "Switching costs", "Uniqueness of service"],
+      desc: "Can suppliers drive up your costs?",
+      details: ["Uniqueness", "Switching costs"],
       color: "border-blue-200 bg-blue-50 text-blue-900",
       iconColor: "text-blue-600",
       position: "left"
     },
     {
       id: "buyers",
-      title: "Bargaining Power of Buyers",
+      title: "Buyer Power",
       icon: <ShoppingCart className="w-5 h-5" />,
-      desc: "How much power do customers have to drive prices down?",
-      details: ["Number of customers", "Order size", "Price sensitivity", "Availability of info"],
+      desc: "Can customers drive prices down?",
+      details: ["Order size", "Price sensitivity"],
       color: "border-emerald-200 bg-emerald-50 text-emerald-900",
       iconColor: "text-emerald-600",
       position: "right"
     },
     {
       id: "substitutes",
-      title: "Threat of Substitution",
+      title: "Threat of Substitutes",
       icon: <Repeat className="w-5 h-5" />,
-      desc: "How likely are customers to switch to alternatives?",
-      details: ["Relative price performance", "Switching costs", "Customer inclination"],
+      desc: "How likely is switching to alternatives?",
+      details: ["Price performance", "Inclination"],
       color: "border-purple-200 bg-purple-50 text-purple-900",
       iconColor: "text-purple-600",
       position: "bottom"
@@ -55,7 +55,7 @@ const SectorCompetition = () => {
         <div className="relative z-10 space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 text-white text-sm font-medium backdrop-blur-sm">
             <Swords className="w-4 h-4" />
-            <span>Competitive Analysis</span>
+            <span>Market Dynamics</span>
           </div>
           <h2 className="text-3xl md:text-5xl font-bold leading-tight">
             The Five Forces of Competition
@@ -75,61 +75,62 @@ const SectorCompetition = () => {
           </p>
         </div>
 
-        {/* Infographic Layout */}
-        <div className="relative max-w-4xl mx-auto p-4 md:p-12 min-h-[600px] flex items-center justify-center">
+        {/* Tight Infographic Layout */}
+        <div className="flex items-center justify-center min-h-[700px] md:min-h-[850px] py-20 overflow-visible">
           
-          {/* Central Hub - Rivalry */}
-          <div className="z-20 w-48 h-48 md:w-64 md:h-64 rounded-full bg-slate-900 border-8 border-white shadow-2xl flex flex-col items-center justify-center text-center p-6 text-white group hover:scale-105 transition-transform cursor-default">
-            <Swords className="w-8 h-8 md:w-12 md:h-12 text-blue-400 mb-3" />
-            <h4 className="text-sm md:text-lg font-black leading-tight">RIVALRY AMONG EXISTING COMPETITORS</h4>
-            <div className="mt-2 h-0.5 w-12 bg-blue-500 group-hover:w-24 transition-all" />
-          </div>
+          {/* Central Orbit Container */}
+          <div className="relative w-48 h-48 md:w-64 md:h-64">
+            
+            {/* Central Hub - Rivalry */}
+            <div className="z-20 w-full h-full rounded-full bg-slate-900 border-8 border-white shadow-2xl flex flex-col items-center justify-center text-center p-6 text-white group hover:scale-105 transition-transform cursor-default relative">
+              <Swords className="w-8 h-8 md:w-12 md:h-12 text-blue-400 mb-3" />
+              <h4 className="text-[10px] md:text-sm font-black leading-tight">RIVALRY AMONG EXISTING COMPETITORS</h4>
+              <div className="mt-2 h-0.5 w-8 group-hover:w-16 bg-blue-500 transition-all" />
+            </div>
 
-          {/* Desktop Force Cards (Hidden on mobile) */}
-          <div className="hidden md:block">
-            {forces.map((force) => (
-              <div 
-                key={force.id}
-                className={cn(
-                  "absolute z-10 w-72 p-5 rounded-2xl border-2 shadow-lg transition-all hover:-translate-y-1 hover:shadow-xl",
-                  force.color,
-                  force.position === 'top' && "bottom-full mb-12 left-1/2 -translate-x-1/2",
-                  force.position === 'bottom' && "top-full mt-12 left-1/2 -translate-x-1/2",
-                  force.position === 'left' && "right-full mr-12 top-1/2 -translate-y-1/2",
-                  force.position === 'right' && "left-full ml-12 top-1/2 -translate-y-1/2"
-                )}
-              >
-                <div className="flex items-center gap-3 mb-2">
-                  <div className={cn("p-1.5 rounded-lg bg-white/50", force.iconColor)}>
-                    {force.icon}
+            {/* Desktop Force Cards */}
+            <div className="hidden md:block">
+              {forces.map((force) => (
+                <div 
+                  key={force.id}
+                  className={cn(
+                    "absolute z-10 w-64 p-4 rounded-2xl border-2 shadow-lg transition-all hover:scale-105 hover:shadow-xl",
+                    force.color,
+                    force.position === 'top' && "bottom-full mb-14 left-1/2 -translate-x-1/2",
+                    force.position === 'bottom' && "top-full mt-14 left-1/2 -translate-x-1/2",
+                    force.position === 'left' && "right-full mr-14 top-1/2 -translate-y-1/2",
+                    force.position === 'right' && "left-full ml-14 top-1/2 -translate-y-1/2"
+                  )}
+                >
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className={cn("p-1.5 rounded-lg bg-white/50", force.iconColor)}>
+                      {force.icon}
+                    </div>
+                    <h5 className="font-bold text-xs">{force.title}</h5>
                   </div>
-                  <h5 className="font-bold text-sm">{force.title}</h5>
-                </div>
-                <p className="text-[11px] opacity-80 leading-relaxed mb-3">{force.desc}</p>
-                <div className="flex flex-wrap gap-1.5">
-                  {force.details.map((d, i) => (
-                    <span key={i} className="text-[9px] px-2 py-0.5 rounded-full bg-black/5 font-medium">
-                      {d}
-                    </span>
-                  ))}
-                </div>
+                  <p className="text-[10px] opacity-80 leading-relaxed mb-3">{force.desc}</p>
+                  <div className="flex flex-wrap gap-1">
+                    {force.details.map((d, i) => (
+                      <span key={i} className="text-[8px] px-1.5 py-0.5 rounded-full bg-black/5 font-bold uppercase">
+                        {d}
+                      </span>
+                    ))}
+                  </div>
 
-                {/* Arrows pointing to center */}
-                <div className={cn(
-                  "absolute flex items-center justify-center text-slate-300",
-                  force.position === 'top' && "top-full left-1/2 -translate-x-1/2 h-12",
-                  force.position === 'bottom' && "bottom-full left-1/2 -translate-x-1/2 h-12 rotate-180",
-                  force.position === 'left' && "left-full top-1/2 -translate-y-1/2 w-12 -rotate-90",
-                  force.position === 'right' && "right-full top-1/2 -translate-y-1/2 w-12 rotate-90"
-                )}>
-                  <ArrowDown className="w-8 h-8 animate-pulse" />
+                  {/* Visual Connector Arrows */}
+                  <div className={cn(
+                    "absolute flex items-center justify-center text-slate-300 pointer-events-none",
+                    force.position === 'top' && "top-full left-1/2 -translate-x-1/2 h-14",
+                    force.position === 'bottom' && "bottom-full left-1/2 -translate-x-1/2 h-14 rotate-180",
+                    force.position === 'left' && "left-full top-1/2 -translate-y-1/2 w-14 -rotate-90",
+                    force.position === 'right' && "right-full top-1/2 -translate-y-1/2 w-14 rotate-90"
+                  )}>
+                    <ArrowDown className="w-6 h-6 animate-bounce" />
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-
-          {/* Mobile Force Cards (Hidden on desktop) */}
-          <div className="md:hidden absolute inset-0 -z-10 bg-slate-50/50 rounded-3xl" />
         </div>
 
         {/* Mobile-only list view */}
@@ -165,7 +166,7 @@ const SectorCompetition = () => {
         <div className="space-y-2">
           <h4 className="text-xl font-bold text-blue-900">Why should an investor care?</h4>
           <p className="text-sm text-blue-800 leading-relaxed">
-            A high threat in any of these areas (like powerful suppliers or low entry barriers) indicates that a company's profits are vulnerable. 
+            A high threat in any of these areas indicates that a company's profits are vulnerable. 
             <strong> Moat Analysis</strong> (next section) helps you identify companies that have built shields against these five forces.
           </p>
         </div>
