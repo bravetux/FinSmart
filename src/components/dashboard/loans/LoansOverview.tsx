@@ -32,7 +32,7 @@ const LoansOverview = () => {
       <section className="flex flex-col md:flex-row items-center justify-between gap-6 p-8 bg-white border border-slate-200 rounded-[2rem] shadow-sm">
         <div className="space-y-2">
           <h3 className="text-2xl font-bold text-slate-900">A Plan to Reduce Debt</h3>
-          <p className="text-slate-500">Explore the comprehensive visual breakdown of how loans are structured and processed.</p>
+          <p className="text-slate-500">Explore the comprehensive visual breakdown of how loans are reduced and closed.</p>
         </div>
         <Button 
           variant="default" 
