@@ -2,7 +2,26 @@
 
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Pill, Pin, TrendingUp, Globe, ShieldCheck, Zap, AlertTriangle, CheckCircle2, FlaskConical, Handshake, BarChart3, Wallet } from 'lucide-react';
+import { 
+  Pill, 
+  Pin, 
+  TrendingUp, 
+  Globe, 
+  ShieldCheck, 
+  Zap, 
+  AlertTriangle, 
+  CheckCircle2, 
+  FlaskConical, 
+  Handshake, 
+  BarChart3, 
+  Wallet,
+  Landmark,
+  Truck,
+  ArrowDownCircle,
+  Building2,
+  Construction,
+  Target
+} from 'lucide-react';
 import { Badge } from "@/components/ui/badge";
 
 const Scrips = () => {
@@ -19,13 +38,13 @@ const Scrips = () => {
             Details of Company that I track
           </h2>
           <p className="text-slate-400 text-lg max-w-xl">
-            Deep-dive analysis into core portfolio holdings and high-conviction opportunities.
+            Real-time insights and long-term conviction analysis for my core holdings.
           </p>
         </div>
         <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 -mr-16 -mt-16 rounded-full blur-3xl" />
       </div>
 
-      {/* 3-Column Grid */}
+      {/* Grid: First Row */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         
         {/* Column 1: Dr. Reddy’s Laboratories */}
@@ -51,25 +70,12 @@ const Scrips = () => {
                 <li className="flex gap-2"><span>•</span> Moving closer to US biologics launches.</li>
               </ul>
             </div>
-
             <div className="space-y-3">
               <h4 className="font-bold text-slate-900 flex items-center gap-2 text-sm uppercase tracking-wider">
                 <Globe className="w-4 h-4 text-blue-500" /> European Expansion
               </h4>
-              <ul className="space-y-2 text-xs text-slate-600">
-                <li className="flex gap-2"><span>•</span> EC approved AVT03 (biosimilar for bone health).</li>
-                <li className="flex gap-2"><span>•</span> Enables sales across Europe and EEA markets.</li>
-                <li className="flex gap-2"><span>•</span> Strengthens presence in high-value biosimilars.</li>
-              </ul>
+              <p className="text-xs text-slate-600">Approved for AVT03 (bone health) across Europe and EEA markets, strengthening presence in high-value biosimilars.</p>
             </div>
-
-            <div className="space-y-3">
-              <h4 className="font-bold text-slate-900 flex items-center gap-2 text-sm uppercase tracking-wider">
-                <Handshake className="w-4 h-4 text-blue-500" /> Partnerships
-              </h4>
-              <p className="text-xs text-slate-600">AVT03 developed with Alvotech. Focus on biologics creates better pricing power and long-term revenue visibility.</p>
-            </div>
-
             <div className="pt-4 border-t mt-auto">
               <div className="p-3 bg-blue-50 rounded-xl border border-blue-100">
                 <h5 className="font-bold text-blue-900 text-[10px] uppercase mb-1">Key Message</h5>
@@ -96,31 +102,14 @@ const Scrips = () => {
               <h4 className="font-bold text-slate-900 flex items-center gap-2 text-sm uppercase tracking-wider">
                 <Handshake className="w-4 h-4 text-emerald-500" /> Global Partnerships
               </h4>
-              <ul className="space-y-2 text-xs text-slate-600">
-                <li className="flex gap-2"><span>•</span> Deal with Formycon for Keytruda biosimilar (US & Canada).</li>
-                <li className="flex gap-2"><span>•</span> Oncology support with RK Pharma (US).</li>
-                <li className="flex gap-2"><span>•</span> US rights for NUFYMCO (Lucentis biosimilar).</li>
-                <li className="flex gap-2"><span>•</span> Tie-up with Myriad Genetics for cancer testing.</li>
-              </ul>
+              <p className="text-xs text-slate-600">Exclusive deals with Formycon (Keytruda biosimilar) and RK Pharma (US oncology), plus cancer testing with Myriad Genetics.</p>
             </div>
-
             <div className="space-y-3">
               <h4 className="font-bold text-slate-900 flex items-center gap-2 text-sm uppercase tracking-wider">
-                <FlaskConical className="w-4 h-4 text-emerald-500" /> Pipeline Strength
+                <FlaskConical className="w-4 h-4 text-emerald-500" /> Pipeline
               </h4>
-              <ul className="space-y-2 text-xs text-slate-600">
-                <li className="flex gap-2"><span>•</span> USFDA approvals for diabetes & hormone therapies.</li>
-                <li className="flex gap-2"><span>•</span> Positive Phase-3 for Saroglitazar (liver disease).</li>
-              </ul>
+              <p className="text-xs text-slate-600">USFDA approvals for diabetes; Phase-3 success for Saroglitazar. 25+ product launches planned.</p>
             </div>
-
-            <div className="space-y-3">
-              <h4 className="font-bold text-slate-900 flex items-center gap-2 text-sm uppercase tracking-wider">
-                <BarChart3 className="w-4 h-4 text-emerald-500" /> Financials
-              </h4>
-              <p className="text-xs text-slate-600">Q2 FY26 revenue up 17% YoY. 25+ product launches planned.</p>
-            </div>
-
             <div className="pt-4 border-t mt-auto">
               <div className="p-3 bg-emerald-50 rounded-xl border border-emerald-100">
                 <h5 className="font-bold text-emerald-900 text-[10px] uppercase mb-1">Key Insight</h5>
@@ -143,37 +132,153 @@ const Scrips = () => {
             <CardDescription className="text-slate-600 font-medium">Reliable Compounder</CardDescription>
           </CardHeader>
           <CardContent className="pt-6 space-y-6 flex-1">
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-1">
-                <p className="text-[10px] font-bold text-slate-400 uppercase">Financials</p>
-                <p className="text-[11px] text-slate-700 font-medium flex items-center gap-1"><ShieldCheck className="w-3 h-3 text-emerald-500" /> Debt-Free</p>
-                <p className="text-[11px] text-slate-700 font-medium flex items-center gap-1"><ShieldCheck className="w-3 h-3 text-emerald-500" /> High ROE/ROCE</p>
-              </div>
-              <div className="space-y-1">
-                <p className="text-[10px] font-bold text-slate-400 uppercase">Returns</p>
-                <p className="text-[11px] text-slate-700 font-medium flex items-center gap-1"><Wallet className="w-3 h-3 text-blue-500" /> Top Dividends</p>
-                <p className="text-[11px] text-slate-700 font-medium flex items-center gap-1"><TrendingUp className="w-3 h-3 text-blue-500" /> Stable Margins</p>
-              </div>
-            </div>
-
             <div className="space-y-3">
               <h4 className="font-bold text-slate-900 flex items-center gap-2 text-sm uppercase tracking-wider">
-                <Zap className="w-4 h-4 text-amber-500" /> Advantages
+                <ShieldCheck className="w-4 h-4 text-slate-600" /> Financial Strength
               </h4>
-              <p className="text-xs text-slate-600">Dominant brand equity. Deep distribution. Ability to pass on cost inflation.</p>
+              <p className="text-xs text-slate-600">Debt-free, cash-rich balance sheet with high ROE/ROCE and dominant brand equity in engine oils.</p>
             </div>
-
             <div className="space-y-3">
               <h4 className="font-bold text-slate-900 flex items-center gap-2 text-sm uppercase tracking-wider">
-                <AlertTriangle className="w-4 h-4 text-red-500" /> Risks
+                <Wallet className="w-4 h-4 text-slate-600" /> Dividends
               </h4>
-              <p className="text-xs text-slate-600">Auto-cycle dependency. Long-term EV adoption transition risk.</p>
+              <p className="text-xs text-slate-600">Top-tier dividend yield. Appeals to income-focused investors looking for core portfolio stability.</p>
             </div>
-
             <div className="pt-4 border-t mt-auto">
               <div className="p-3 bg-slate-100 rounded-xl border border-slate-200">
                 <h5 className="font-bold text-slate-900 text-[10px] uppercase mb-1">Thesis</h5>
-                <p className="text-[10px] text-slate-700 leading-relaxed italic">Ideal for core stability. Won't make headlines, but quietly compounds wealth and pays you to wait.</p>
+                <p className="text-[10px] text-slate-700 leading-relaxed italic">Quietly compounds wealth and pays you to wait. Ideal for capital preservation.</p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+      </div>
+
+      {/* Grid: Second Row (New Scrips) */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        {/* Column 4: ITC Update */}
+        <Card className="border-slate-200 shadow-lg hover:shadow-xl transition-shadow flex flex-col h-full border-t-4 border-t-red-500">
+          <CardHeader className="bg-red-50/50 border-b pb-4">
+            <div className="flex justify-between items-start mb-2">
+              <div className="p-2 bg-red-600 rounded-lg text-white">
+                <ArrowDownCircle className="w-6 h-6" />
+              </div>
+              <Badge variant="destructive" className="bg-red-600">Tax Shock Opportunity</Badge>
+            </div>
+            <CardTitle className="text-xl leading-tight">ITC: Buying the "Tax Shock"</CardTitle>
+            <CardDescription className="text-red-600 font-medium">Sharpest single day fall since 2020</CardDescription>
+          </CardHeader>
+          <CardContent className="pt-6 space-y-6 flex-1">
+            <div className="space-y-3">
+              <h4 className="font-bold text-slate-900 flex items-center gap-2 text-sm uppercase tracking-wider">
+                <AlertTriangle className="w-4 h-4 text-red-500" /> The News Impact
+              </h4>
+              <ul className="space-y-2 text-xs text-slate-600">
+                <li className="flex gap-2"><span>•</span> **Tax Surge:** New 40% GST + Excise Duty on cigarettes (Feb 2026).</li>
+                <li className="flex gap-2"><span>•</span> **Price Hike:** Retail prices likely to rise 20-30% to offset burden.</li>
+                <li className="flex gap-2"><span>•</span> **Reaction:** Heavy selling pressure as market prices in volume risk.</li>
+              </ul>
+            </div>
+            <div className="space-y-3">
+              <h4 className="font-bold text-slate-900 flex items-center gap-2 text-sm uppercase tracking-wider">
+                <CheckCircle2 className="w-4 h-4 text-emerald-500" /> The Opportunity
+              </h4>
+              <p className="text-xs text-slate-600">ITC has a proven history of navigating tax hikes by passing costs to consumers. Treat this 8% correction as a strategic entry.</p>
+            </div>
+            <div className="pt-4 border-t mt-auto">
+              <div className="p-3 bg-red-50 rounded-xl border border-red-100">
+                <h5 className="font-bold text-red-900 text-[10px] uppercase mb-1">The Goal</h5>
+                <p className="text-[10px] text-red-800 leading-relaxed italic">Accumulate for long-term capital growth and superior dividend yield.</p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Column 5: HDFC Bank */}
+        <Card className="border-slate-200 shadow-lg hover:shadow-xl transition-shadow flex flex-col h-full border-t-4 border-t-blue-600">
+          <CardHeader className="bg-blue-50/50 border-b pb-4">
+            <div className="flex justify-between items-start mb-2">
+              <div className="p-2 bg-blue-600 rounded-lg text-white">
+                <Landmark className="w-6 h-6" />
+              </div>
+              <Badge variant="outline" className="bg-white text-blue-600 border-blue-200">Market Leader</Badge>
+            </div>
+            <CardTitle className="text-xl leading-tight">HDFC Bank</CardTitle>
+            <CardDescription className="text-blue-600 font-medium">Buy on Any Dip</CardDescription>
+          </CardHeader>
+          <CardContent className="pt-6 space-y-6 flex-1">
+            <div className="space-y-3">
+              <h4 className="font-bold text-slate-900 flex items-center gap-2 text-sm uppercase tracking-wider">
+                <TrendingUp className="w-4 h-4 text-blue-500" /> FY26 Performance
+              </h4>
+              <ul className="space-y-2 text-xs text-slate-600">
+                <li className="flex gap-2"><span>•</span> **Net Profit:** Grew 11% YoY to ₹18,641 crore.</li>
+                <li className="flex gap-2"><span>•</span> **Deposits:** Increased 15.1% YoY to ₹27.10 lakh crore.</li>
+                <li className="flex gap-2"><span>•</span> **CASA:** Healthy growth reflects retail trust.</li>
+              </ul>
+            </div>
+            <div className="space-y-3">
+              <h4 className="font-bold text-slate-900 flex items-center gap-2 text-sm uppercase tracking-wider">
+                <ShieldCheck className="w-4 h-4 text-emerald-500" /> Management
+              </h4>
+              <p className="text-xs text-slate-600">Leadership strengthening with new group heads (Dec 2025). Morgan Stanley maintains Overweight with ₹1,225 target.</p>
+            </div>
+            <div className="pt-4 border-t mt-auto">
+              <div className="p-3 bg-blue-50 rounded-xl border border-blue-100">
+                <h5 className="font-bold text-blue-900 text-[10px] uppercase mb-1">Investment View</h5>
+                <p className="text-[10px] text-blue-800 leading-relaxed italic">High-quality franchise with consistent growth. Use corrections to add gradually.</p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Column 6: Tata Motors CV */}
+        <Card className="border-slate-200 shadow-lg hover:shadow-xl transition-shadow flex flex-col h-full border-t-4 border-t-orange-600">
+          <CardHeader className="bg-orange-50/50 border-b pb-4">
+            <div className="flex justify-between items-start mb-2">
+              <div className="p-2 bg-orange-600 rounded-lg text-white">
+                <Truck className="w-6 h-6" />
+              </div>
+              <Badge variant="outline" className="bg-white text-orange-600 border-orange-200">Industrial Alpha</Badge>
+            </div>
+            <CardTitle className="text-xl leading-tight">Tata Motors (CV Business)</CardTitle>
+            <CardDescription className="text-orange-600 font-medium">Pricing Power & Infra Tailwind</CardDescription>
+          </CardHeader>
+          <CardContent className="pt-6 space-y-6 flex-1">
+            <div className="grid grid-cols-2 gap-2 mb-4">
+               <div className="bg-slate-50 p-2 rounded-lg text-center">
+                 <p className="text-[8px] font-bold text-slate-400">HCV SHARE</p>
+                 <p className="text-xs font-bold text-orange-600">~49%</p>
+               </div>
+               <div className="bg-slate-50 p-2 rounded-lg text-center">
+                 <p className="text-[8px] font-bold text-slate-400">FCF GROWTH</p>
+                 <p className="text-xs font-bold text-emerald-600">+125%</p>
+               </div>
+            </div>
+            
+            <div className="space-y-3">
+              <h4 className="font-bold text-slate-900 flex items-center gap-2 text-xs uppercase tracking-wider">
+                <Construction className="w-4 h-4 text-orange-500" /> Moat & Tech
+              </h4>
+              <p className="text-[11px] text-slate-600">Iveco acquisition provides global optionality. 44 new products launched in FY25 including Hydrogen/EV CVs.</p>
+            </div>
+
+            <div className="space-y-3">
+              <h4 className="font-bold text-slate-900 flex items-center gap-2 text-xs uppercase tracking-wider">
+                <Target className="w-4 h-4 text-orange-500" /> 10-Year Target
+              </h4>
+              <div className="p-2 bg-orange-50 rounded-lg border border-orange-100 text-center">
+                 <p className="text-sm font-black text-orange-700">₹1,400 – ₹1,600</p>
+                 <p className="text-[9px] text-orange-600">Based on 12% CAGR Base Case</p>
+              </div>
+            </div>
+
+            <div className="pt-4 border-t mt-auto">
+              <div className="p-3 bg-slate-900 rounded-xl text-white">
+                <h5 className="font-bold text-orange-400 text-[10px] uppercase mb-1">Thinking Path</h5>
+                <p className="text-[10px] text-slate-300 leading-relaxed italic">Not a trader's stock. A sleep-well-at-night industrial compounder.</p>
               </div>
             </div>
           </CardContent>
