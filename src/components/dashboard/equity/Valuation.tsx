@@ -2,11 +2,16 @@
 
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Calculator, TrendingUp, BookOpen, Layers, Info, ArrowRight } from 'lucide-react';
+import { Calculator, TrendingUp, BookOpen, Layers, Info, ArrowRight, ExternalLink, Image as ImageIcon, Search } from 'lucide-react';
+import { Button } from "@/components/ui/button";
 import { useCurrency } from "@/context/CurrencyContext";
 
 const Valuation = () => {
   const { currency } = useCurrency();
+
+  const beyondValuationImageId = "1ed0_HrYf9WMhTfVa-CJEJK2MrmP_Gtgg";
+  const beyondValuationImageUrl = `https://drive.google.com/uc?id=${beyondValuationImageId}&export=download`;
+  const beyondValuationViewUrl = `https://drive.google.com/file/d/${beyondValuationImageId}/view?usp=sharing`;
 
   return (
     <div className="space-y-12 animate-in fade-in duration-500 pb-12">
@@ -132,18 +137,6 @@ const Valuation = () => {
              </div>
           </div>
         </div>
-
-        {/* Mobile Brackets Legend */}
-        <div className="md:hidden grid grid-cols-2 gap-4 px-4">
-           <div className="p-3 bg-red-50 rounded-xl border border-red-100">
-              <p className="text-[10px] font-bold text-red-600 uppercase">Market Value</p>
-              <p className="text-xs text-slate-600 font-medium">All components combined</p>
-           </div>
-           <div className="p-3 bg-blue-50 rounded-xl border border-blue-100">
-              <p className="text-[10px] font-bold text-blue-600 uppercase">Book Value</p>
-              <p className="text-xs text-slate-600 font-medium">Face Value + Reserves</p>
-           </div>
-        </div>
       </section>
 
       {/* Strategic Insight */}
@@ -151,13 +144,92 @@ const Valuation = () => {
         <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center shrink-0">
           <Layers className="w-8 h-8" />
         </div>
-        <div className="space-y-2">
+        <div className="space-y-2 flex-1">
           <h4 className="text-xl font-bold">The Investor's Lens</h4>
           <p className="text-blue-100 text-sm leading-relaxed">
             Successful value investors look for companies where the <strong>Market Value</strong> is close to or even lower than the <strong>Book Value</strong>, provided the company has strong earnings potential. This creates a "Margin of Safety."
           </p>
         </div>
       </div>
+
+      {/* NEW SECTION: Beyond Valuation */}
+      <section className="space-y-8 pt-8 border-t">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div className="space-y-2">
+            <h3 className="text-3xl font-bold text-slate-900">Beyond Valuation</h3>
+            <p className="text-lg text-slate-600 max-w-2xl">
+              True investing isn't just about spreadsheets and P/E ratios. It's about looking at the qualitative factors that define a company's future durability.
+            </p>
+          </div>
+          <Button 
+            variant="outline" 
+            className="gap-2 shrink-0"
+            onClick={() => window.open(beyondValuationViewUrl, '_blank')}
+          >
+            <ExternalLink className="w-4 h-4" /> View Original Guide
+          </Button>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-8 items-start">
+          <Card className="border-slate-200 shadow-md overflow-hidden">
+            <CardHeader className="bg-slate-50/50 border-b">
+              <CardTitle className="flex items-center gap-2 text-indigo-600">
+                <ImageIcon className="w-5 h-5" />
+                Qualitative Edge Visual
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="pt-6">
+              <div className="bg-slate-100 rounded-xl p-4 flex justify-center border border-slate-200">
+                <img 
+                  src={beyondValuationImageUrl} 
+                  alt="Beyond Valuation Factors" 
+                  className="max-w-full h-auto rounded-lg shadow-sm bg-white"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                    const parent = target.parentElement;
+                    if (parent) {
+                      const msg = document.createElement('div');
+                      msg.className = 'text-center py-8 text-slate-400 text-sm italic';
+                      msg.innerText = 'Click "View Original Guide" to see the visual factor breakdown.';
+                      parent.appendChild(msg);
+                    }
+                  }}
+                />
+              </div>
+            </CardContent>
+          </Card>
+
+          <div className="space-y-6">
+            <div className="grid grid-cols-1 gap-4">
+              {[
+                { title: "Economic Moat", icon: <ShieldCheck className="text-emerald-500" />, desc: "Is there a barrier protecting the business from competitors? (Brand, network, or cost advantage)." },
+                { title: "Management Quality", icon: <Search className="text-blue-500" />, desc: "Are the leaders honest and efficient? Check their historical capital allocation decisions." },
+                { title: "Industry Tailwinds", icon: <TrendingUp className="text-purple-500" />, desc: "Is the sector growing? A great company in a dying industry is still a risky bet." }
+              ].map((item, i) => (
+                <div key={i} className="p-5 bg-white border border-slate-100 rounded-2xl shadow-sm flex items-start gap-4">
+                  <div className="p-2 bg-slate-50 rounded-xl shrink-0">
+                    {item.icon}
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-slate-900">{item.title}</h4>
+                    <p className="text-sm text-slate-500 mt-1 leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            <div className="p-6 bg-indigo-50 rounded-2xl border border-indigo-100">
+              <h4 className="font-bold text-indigo-900 mb-2 flex items-center gap-2">
+                <Info className="w-4 h-4" /> The Qualitative Filter
+              </h4>
+              <p className="text-xs text-indigo-800 leading-relaxed">
+                Quantitative analysis (Valuation) tells you if the price is right. Qualitative analysis (Beyond Valuation) tells you if the company is right. <strong>Never buy based on only one.</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
