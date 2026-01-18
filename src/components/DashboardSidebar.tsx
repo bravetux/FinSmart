@@ -588,6 +588,13 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                     isCollapsed={isCollapsed} 
                   />
                   <SidebarItem 
+                    label="Macro Analysis" 
+                    active={currentSection === 'equity-macro'} 
+                    onClick={() => onSectionChange('equity-macro')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
                     label="Fundamental Analysis" 
                     active={currentSection === 'equity-fundamental'} 
                     onClick={() => onSectionChange('equity-fundamental')} 
@@ -882,7 +889,7 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
         </div>
 
         <div className="mt-auto p-4 border-t">
-          {/* Footer left intentionally blank (progress UI removed) */}
+          {/* Footer left intentionally blank */}
         </div>
       </aside>
     </TooltipProvider>

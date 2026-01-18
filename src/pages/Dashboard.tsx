@@ -47,6 +47,7 @@ import EquityOverview from '@/components/dashboard/equity/EquityOverview';
 import FundamentalAnalysis from '@/components/dashboard/equity/FundamentalAnalysis';
 import TechnicalAnalysis from '@/components/dashboard/equity/TechnicalAnalysis';
 import IPOs from '@/components/dashboard/equity/IPOs';
+import MacroAnalysis from '@/components/dashboard/equity/MacroAnalysis';
 
 // Gold Components
 import GoldOverview from '@/components/dashboard/gold/GoldOverview';
@@ -171,6 +172,8 @@ const Dashboard = () => {
         return <TechnicalAnalysis />;
       case 'equity-ipo':
         return <IPOs />;
+      case 'equity-macro':
+        return <MacroAnalysis />;
         
       // Gold
       case 'gold-overview':
@@ -283,6 +286,7 @@ const Dashboard = () => {
       'equity-fundamental': 'Fundamental Analysis',
       'equity-technical': 'Technical Analysis Basics',
       'equity-ipo': 'IPOs (Going Public)',
+      'equity-macro': 'Economic & Macro Analysis',
       'gold-overview': 'Gold Investment Overview',
       'gold-physical': 'Physical Gold',
       'gold-etf': 'Gold ETFs & Funds',
