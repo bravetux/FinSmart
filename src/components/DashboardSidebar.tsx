@@ -623,6 +623,13 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                     isCollapsed={isCollapsed} 
                   />
                   <SidebarItem 
+                    label="Laws" 
+                    active={currentSection === 'equity-laws'} 
+                    onClick={() => onSectionChange('equity-laws')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
                     label="Macro Analysis" 
                     active={currentSection === 'equity-macro'} 
                     onClick={() => onSectionChange('equity-macro')} 

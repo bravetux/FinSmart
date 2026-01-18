@@ -47,6 +47,7 @@ import PassiveInvesting from '@/components/dashboard/mf/PassiveInvesting';
 
 // Equity Components
 import EquityOverview from '@/components/dashboard/equity/EquityOverview';
+import EquityLaws from '@/components/dashboard/equity/EquityLaws';
 import FundamentalAnalysis from '@/components/dashboard/equity/FundamentalAnalysis';
 import TechnicalAnalysis from '@/components/dashboard/equity/TechnicalAnalysis';
 import IPOs from '@/components/dashboard/equity/IPOs';
@@ -83,8 +84,8 @@ import BondRatings from '@/components/dashboard/bonds/BondRatings';
 import BondImportance from '@/components/dashboard/bonds/BondImportance';
 import ThingsToConsider from '@/components/dashboard/bonds/ThingsToConsider';
 
-// Loans Components - Using relative path to resolve compiler error
-import LoansOverview from '../components/dashboard/loans/LoansOverview';
+// Loans Components
+import LoansOverview from '@/components/dashboard/loans/LoansOverview';
 
 // Insurance Components
 import HealthInsurance from '@/components/dashboard/insurance/HealthInsurance';
@@ -186,6 +187,8 @@ const Dashboard = () => {
       // Equity
       case 'equity-overview':
         return <EquityOverview />;
+      case 'equity-laws':
+        return <EquityLaws />;
       case 'equity-macro':
         return <MacroAnalysis />;
       case 'equity-competition':
@@ -330,6 +333,7 @@ const Dashboard = () => {
       'mf-passive': 'Passive Investing (Index/ETF)',
       
       'equity-overview': 'Equity Market Basics',
+      'equity-laws': 'Equity Laws',
       'equity-macro': 'Economic & Macro Analysis',
       'equity-competition': 'Sector Competition (5 Forces)',
       'equity-debt': 'Corporate Debt Analysis',
