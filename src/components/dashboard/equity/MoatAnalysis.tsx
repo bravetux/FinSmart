@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ShieldCheck, TrendingUp, Calculator, Layers, Zap, ArrowRight } from 'lucide-react';
+import MoatDiagram from './MoatDiagram';
 
 const MoatAnalysis = () => {
   return (
@@ -73,14 +74,7 @@ const MoatAnalysis = () => {
           </TabsContent>
           
           <TabsContent value="visuals" className="mt-4">
-            <Card className="p-4">
-              {/* Ensure the path starts with / for public directory access */}
-              <img 
-                src="/parameters-to-identify-moat-companies.jpeg" 
-                alt="Parameters to Identify Moat Companies" 
-                className="w-full h-auto rounded-xl shadow-lg border border-slate-200"
-              />
-            </Card>
+            <MoatDiagram />
           </TabsContent>
         </Tabs>
       </section>
