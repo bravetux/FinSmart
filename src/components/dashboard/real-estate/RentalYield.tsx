@@ -1,9 +1,9 @@
 "use client";
+
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Button } from "@/components/ui/button";
 import { Calculator, Percent, TrendingUp, AlertTriangle } from 'lucide-react';
 import { useCurrency } from "@/context/CurrencyContext";
 
@@ -16,7 +16,13 @@ const RentalYield = () => {
   const grossYield = (annualRent / propertyValue) * 100;
   const netYield = ((annualRent - annualExpenses) / propertyValue) * 100;
   
-  const formatCurrency = (amount: number) => `${currency.symbol}${amount.toLocaleString('en-IN', { maximumFractionDigits: 0 })}`;
+  const formatCurrency = (amount: number) => {
+    return new Intl.NumberFormat('en-IN', {
+      style: 'currency',
+      currency: currency.code,
+      maximumFractionDigits: 0,
+    }).format(amount);
+  };
 
   return (
     <div className="space-y-12 animate-in fade-in duration-500 pb-12">
@@ -26,8 +32,10 @@ const RentalYield = () => {
             <Percent className="w-4 h-4" />
             <span>Profitability Metric</span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold leading-tight"> Rental Yield Calculation </h2>
-          <p className="text-emerald-50 text-lg max-w-xl"> Rental yield is the return you earn from rental income relative to the property's cost. Always calculate the Net Yield! </p>
+          <h2 className="text-3xl md:text-5xl font-bold leading-tight">Rental Yield Calculation</h2>
+          <p className="text-emerald-50 text-lg max-w-xl">
+            Rental yield is the return you earn from rental income relative to the property's cost. Always calculate the Net Yield!
+          </p>
         </div>
         <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 -mr-16 -mt-16 rounded-full blur-3xl" />
       </div>
@@ -40,71 +48,108 @@ const RentalYield = () => {
               <Calculator className="w-5 h-5 text-emerald-600" />
               Yield Calculator
             </CardTitle>
-            <CardDescription>Adjust the values to see the impact on your yield.</CardDescription>
+            <CardDescription>Adjust the values to see the impact on your yield. Values change by {currency.symbol}10,000.</CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
-            <div className="grid md:grid-cols-3 gap-4">
+            <div className="grid md:grid-cols-1 gap-6">
+              {/* Property Value */}
               <div className="space-y-2">
-                <Label htmlFor="value">Property Value ({currency.symbol})</Label>
+                <div className="flex justify-between items-center">
+                  <Label htmlFor="value" className="text-slate-700 font-semibold">Property Value</Label>
+                  <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">
+                    {formatCurrency(propertyValue)}
+                  </span>
+                </div>
                 <Input 
                   id="value" 
                   type="number" 
+                  step="10000"
                   value={propertyValue} 
                   onChange={(e) => setPropertyValue(Number(e.target.value))} 
+                  className="font-mono"
                 />
               </div>
+
+              {/* Annual Rent */}
               <div className="space-y-2">
-                <Label htmlFor="rent">Annual Rent ({currency.symbol})</Label>
+                <div className="flex justify-between items-center">
+                  <Label htmlFor="rent" className="text-slate-700 font-semibold">Annual Rent</Label>
+                  <span className="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded">
+                    {formatCurrency(annualRent)}
+                  </span>
+                </div>
                 <Input 
                   id="rent" 
                   type="number" 
+                  step="10000"
                   value={annualRent} 
                   onChange={(e) => setAnnualRent(Number(e.target.value))} 
+                  className="font-mono"
                 />
               </div>
+
+              {/* Annual Expenses */}
               <div className="space-y-2">
-                <Label htmlFor="expenses">Annual Expenses ({currency.symbol})</Label>
+                <div className="flex justify-between items-center">
+                  <Label htmlFor="expenses" className="text-slate-700 font-semibold">Annual Expenses</Label>
+                  <span className="text-xs font-bold text-red-600 bg-red-50 px-2 py-0.5 rounded">
+                    {formatCurrency(annualExpenses)}
+                  </span>
+                </div>
                 <Input 
                   id="expenses" 
                   type="number" 
+                  step="10000"
                   value={annualExpenses} 
                   onChange={(e) => setAnnualExpenses(Number(e.target.value))} 
+                  className="font-mono"
                 />
               </div>
             </div>
             
-            <div className="grid md:grid-cols-2 gap-4 pt-4 border-t">
-              <div className="p-4 bg-blue-50 rounded-xl border border-blue-100 space-y-1">
-                <p className="text-xs text-slate-500 uppercase font-semibold">Gross Rental Yield</p>
-                <p className="text-3xl font-bold text-blue-800">{grossYield.toFixed(2)}%</p>
-                <p className="text-xs text-slate-500">({formatCurrency(annualRent)} / {formatCurrency(propertyValue)})</p>
+            <div className="grid md:grid-cols-2 gap-4 pt-6 border-t">
+              <div className="p-5 bg-blue-50 rounded-2xl border border-blue-100 space-y-1">
+                <p className="text-[10px] text-blue-600 uppercase font-bold tracking-wider">Gross Rental Yield</p>
+                <p className="text-3xl font-black text-blue-800">{grossYield.toFixed(2)}%</p>
+                <p className="text-[10px] text-blue-400">Total Rent / Property Value</p>
               </div>
-              <div className="p-4 bg-emerald-50 rounded-xl border border-emerald-100 space-y-1">
-                <p className="text-xs text-slate-500 uppercase font-semibold">Net Rental Yield</p>
-                <p className="text-3xl font-bold text-emerald-800">{netYield.toFixed(2)}%</p>
-                <p className="text-xs text-slate-500">({formatCurrency(annualRent - annualExpenses)} / {formatCurrency(propertyValue)})</p>
+              <div className="p-5 bg-emerald-50 rounded-2xl border border-emerald-100 space-y-1 shadow-sm">
+                <p className="text-[10px] text-emerald-600 uppercase font-bold tracking-wider">Net Rental Yield</p>
+                <p className="text-3xl font-black text-emerald-800">{netYield.toFixed(2)}%</p>
+                <p className="text-[10px] text-emerald-400">(Rent - Expenses) / Property Value</p>
               </div>
             </div>
           </CardContent>
         </Card>
         
         {/* Yield Interpretation */}
-        <Card className="border-slate-200 shadow-sm">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <TrendingUp className="w-5 h-5 text-slate-600" />
-              What is a Good Yield?
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4 text-sm text-slate-600">
-            <p>A typical residential property in major Indian cities yields 2% to 4%.</p>
-            <p>Commercial properties (offices, warehouses) often yield higher, typically 6% to 10%.</p>
-            <div className="p-3 bg-amber-50 rounded-xl border border-amber-100 flex items-start gap-3">
-              <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
-              <p className="text-xs text-amber-800">If the yield is too high (e.g., &gt;12%), investigate the property's location and tenant quality, as high yield often signals high risk.</p>
-            </div>
-          </CardContent>
-        </Card>
+        <div className="space-y-6">
+          <Card className="border-slate-200 shadow-sm">
+            <CardHeader>
+              <CardTitle className="text-lg flex items-center gap-2">
+                <TrendingUp className="w-5 h-5 text-slate-600" />
+                What is a Good Yield?
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4 text-sm text-slate-600 leading-relaxed">
+              <p>A typical residential property in major Indian cities yields <span className="font-bold text-slate-900">2% to 4%</span>.</p>
+              <p>Commercial properties (offices, warehouses) often yield higher, typically <span className="font-bold text-slate-900">6% to 10%</span>.</p>
+              <div className="p-4 bg-amber-50 rounded-xl border border-amber-100 flex items-start gap-3">
+                <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
+                <p className="text-xs text-amber-800">
+                  If the yield is too high (e.g., &gt;12%), investigate the property's location and tenant quality, as high yield often signals high risk.
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+          
+          <div className="p-6 bg-slate-900 rounded-[2rem] text-white">
+            <h4 className="font-bold text-sm mb-2">Pro Tip</h4>
+            <p className="text-xs text-slate-400 leading-relaxed">
+              When calculating yield, always factor in <span className="text-white">vacancy periods</span>. If a house is empty for 1 month, your yield drops significantly.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );
