@@ -11,8 +11,12 @@ import {
   CheckCircle2, 
   BarChart3, 
   Handshake,
-  ArrowRight
+  ArrowRight,
+  ExternalLink,
+  Image as ImageIcon,
+  Briefcase
 } from 'lucide-react';
+import { Button } from "@/components/ui/button";
 
 const qualityHallmarks = [
   {
@@ -20,12 +24,6 @@ const qualityHallmarks = [
     icon: <BarChart3 className="w-5 h-5 text-emerald-600" />,
     desc: "The ability to generate high returns on every dollar invested back into the business (ROE/ROCE).",
     metrics: ["ROE > 20%", "ROCE > 25%"]
-  },
-  {
-    title: "Management Integrity",
-    icon: <Users className="w-5 h-5 text-blue-600" />,
-    desc: "Leaders who think like owners, communicate transparently, and have a proven track record of capital allocation.",
-    metrics: ["Low promoter pledge", "Clean audit reports"]
   },
   {
     title: "Earnings Consistency",
@@ -38,12 +36,24 @@ const qualityHallmarks = [
     icon: <ShieldCheck className="w-5 h-5 text-orange-600" />,
     desc: "Businesses that don't require massive factories or machinery to grow (e.g., Software, FMCG).",
     metrics: ["Low Capex", "High Operating Cash"]
+  },
+  {
+    title: "Low Debt",
+    icon: <Briefcase className="w-5 h-5 text-blue-600" />,
+    desc: "Quality businesses typically generate enough cash to fund their own growth without heavy borrowing.",
+    metrics: ["D/E < 0.5", "High Interest Coverage"]
   }
 ];
 
 const QualityAnalysis = () => {
+  const goodBusinessId = "108QghHNHs4JcEYD94oSsoS5-2-rWAqm6";
+  const managementQualityId = "17hY8pZYKPyoaPk3WKlGSjLVH7g9MiTcC";
+
+  const getDriveImageUrl = (id: string) => `https://drive.google.com/uc?id=${id}&export=download`;
+  const getDriveViewUrl = (id: string) => `https://drive.google.com/file/d/${id}/view?usp=drive_link`;
+
   return (
-    <div className="space-y-12 animate-in fade-in duration-500 pb-12">
+    <div className="space-y-16 animate-in fade-in duration-500 pb-12">
       {/* Hero Header */}
       <div className="bg-gradient-to-r from-emerald-600 to-teal-700 text-white p-8 md:p-12 rounded-[2.5rem] shadow-xl relative overflow-hidden">
         <div className="relative z-10 space-y-4">
@@ -61,9 +71,104 @@ const QualityAnalysis = () => {
         <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 -mr-16 -mt-16 rounded-full blur-3xl" />
       </div>
 
+      {/* Section 1: What is a Good Business */}
+      <section className="space-y-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div className="space-y-2">
+            <h3 className="text-3xl font-bold text-slate-900">1. What is a Good Business?</h3>
+            <p className="text-lg text-slate-600 max-w-2xl">
+              Not all businesses are created equal. Some have inherent characteristics that make them vastly superior wealth creators.
+            </p>
+          </div>
+          <Button 
+            variant="outline" 
+            size="sm" 
+            className="gap-2 shrink-0"
+            onClick={() => window.open(getDriveViewUrl(goodBusinessId), '_blank')}
+          >
+            <ExternalLink className="w-4 h-4" /> View Original Guide
+          </Button>
+        </div>
+
+        <Card className="border-slate-200 shadow-lg overflow-hidden bg-white">
+          <CardContent className="p-0">
+            <div className="aspect-[16/10] md:aspect-[21/9] bg-slate-50 flex items-center justify-center relative group">
+              <img 
+                src={getDriveImageUrl(goodBusinessId)} 
+                alt="What is a Good Business Visual Guide" 
+                className="max-w-full max-h-full object-contain p-4 md:p-8"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                  const parent = target.parentElement;
+                  if (parent && !parent.querySelector('.error-msg')) {
+                    const msg = document.createElement('div');
+                    msg.className = 'error-msg text-center p-12 space-y-4';
+                    msg.innerHTML = `
+                      <p class="text-slate-500 text-sm italic">Image preview restricted by Google Drive</p>
+                      <button class="px-6 py-2 bg-emerald-600 text-white rounded-lg font-bold text-sm">Click 'View Original Guide' above to see visual</button>
+                    `;
+                    parent.appendChild(msg);
+                  }
+                }}
+              />
+            </div>
+          </CardContent>
+        </Card>
+      </section>
+
+      {/* Section 2: Why Management Quality Matters */}
+      <section className="space-y-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div className="space-y-2">
+            <h3 className="text-3xl font-bold text-slate-900">2. Why Management Quality Matters</h3>
+            <p className="text-lg text-slate-600 max-w-2xl">
+              The capital allocators at the top define the company's fate. Good management can turn a fair business into a great one.
+            </p>
+          </div>
+          <Button 
+            variant="outline" 
+            size="sm" 
+            className="gap-2 shrink-0"
+            onClick={() => window.open(getDriveViewUrl(managementQualityId), '_blank')}
+          >
+            <ExternalLink className="w-4 h-4" /> View Original Guide
+          </Button>
+        </div>
+
+        <Card className="border-slate-200 shadow-lg overflow-hidden bg-white">
+          <CardContent className="p-0">
+            <div className="aspect-[16/10] md:aspect-[21/9] bg-slate-50 flex items-center justify-center relative">
+              <img 
+                src={getDriveImageUrl(managementQualityId)} 
+                alt="Management Quality Visual Guide" 
+                className="max-w-full max-h-full object-contain p-4 md:p-8"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                  const parent = target.parentElement;
+                  if (parent && !parent.querySelector('.error-msg')) {
+                    const msg = document.createElement('div');
+                    msg.className = 'error-msg text-center p-12 space-y-4';
+                    msg.innerHTML = `
+                      <p class="text-slate-500 text-sm italic">Image preview restricted by Google Drive</p>
+                      <button class="px-6 py-2 bg-blue-600 text-white rounded-lg font-bold text-sm">Click 'View Original Guide' above to see visual</button>
+                    `;
+                    parent.appendChild(msg);
+                  }
+                }}
+              />
+            </div>
+          </CardContent>
+        </Card>
+      </section>
+
       {/* Hallmarks Grid */}
-      <section className="space-y-6">
-        <h3 className="text-2xl font-bold text-slate-900">Hallmarks of a Quality Company</h3>
+      <section className="space-y-8 border-t pt-16">
+        <div className="text-center max-w-2xl mx-auto space-y-2">
+          <h3 className="text-3xl font-bold text-slate-900">Quantitative Hallmarks</h3>
+          <p className="text-slate-500">The measurable signs of an elite business model.</p>
+        </div>
         <div className="grid md:grid-cols-2 gap-6">
           {qualityHallmarks.map((item, i) => (
             <Card key={i} className="border-slate-200 hover:shadow-md transition-shadow">
@@ -96,7 +201,7 @@ const QualityAnalysis = () => {
               <Handshake className="text-blue-600" />
               The Integrity Checklist
             </h3>
-            <p className="text-slate-600 text-sm">
+            <p className="text-slate-600 text-sm italic">
               "When a management with a reputation for brilliance tackles a business with a reputation for bad economics, it is the reputation of the business that remains intact." — Warren Buffett
             </p>
             <ul className="space-y-3">
@@ -104,7 +209,8 @@ const QualityAnalysis = () => {
                 "Are dividends paid regularly (sharing wealth)?",
                 "Is the promoter's skin in the game high?",
                 "Are there any related-party transactions (red flags)?",
-                "Does the annual letter discuss mistakes openly?"
+                "Does the annual letter discuss mistakes openly?",
+                "Is executive compensation reasonable and tied to performance?"
               ].map((text, i) => (
                 <li key={i} className="flex items-start gap-3 text-sm text-slate-700">
                   <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
@@ -119,7 +225,7 @@ const QualityAnalysis = () => {
                   <Gem className="w-24 h-24 text-emerald-600" />
                 </div>
                 <div className="absolute -top-4 -right-4 bg-white p-4 rounded-2xl shadow-xl border border-emerald-100">
-                   <p className="text-xs font-black text-emerald-700 text-center">BUY &<br/>HOLD</p>
+                   <p className="text-xs font-black text-emerald-700 text-center uppercase">Buy &<br/>Hold</p>
                 </div>
              </div>
           </div>
@@ -127,14 +233,14 @@ const QualityAnalysis = () => {
       </section>
 
       {/* Conclusion */}
-      <div className="p-8 bg-slate-900 rounded-[2.5rem] text-white flex flex-col md:flex-row items-center gap-8">
+      <div className="p-8 bg-slate-900 rounded-[2.5rem] text-white flex flex-col md:flex-row items-center gap-8 shadow-2xl">
         <div className="w-16 h-16 rounded-2xl bg-emerald-500/20 flex items-center justify-center shrink-0 border border-emerald-500/30">
           <ShieldCheck className="w-8 h-8 text-emerald-400" />
         </div>
         <div className="space-y-1">
           <h4 className="text-xl font-bold">The Quality Premium</h4>
           <p className="text-slate-400 text-sm leading-relaxed">
-            Quality stocks often trade at high valuations (expensive P/E). Investors pay this "premium" for peace of mind, knowing the business is resilient enough to survive cycles and grow for decades.
+            Quality stocks often trade at high valuations (expensive P/E). Investors pay this "premium" for peace of mind, knowing the business is resilient enough to survive economic cycles and grow for decades.
           </p>
         </div>
       </div>
