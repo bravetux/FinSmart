@@ -9,6 +9,7 @@ import BuildWealthSidebar from '@/components/BuildWealthSidebar';
 import Roadmap from '../components/buildwealth/Roadmap';
 import Mindset from '../components/buildwealth/Mindset';
 import Wisdom from '../components/buildwealth/Wisdom';
+import PPP from '../components/buildwealth/PPP';
 
 const Path2BuildWealth = () => {
   const navigate = useNavigate();
@@ -18,6 +19,8 @@ const Path2BuildWealth = () => {
     switch (activeSection) {
       case 'roadmap':
         return <Roadmap />;
+      case 'ppp':
+        return <PPP />;
       case 'mindset':
         return <Mindset />;
       case 'wisdom':
@@ -30,6 +33,7 @@ const Path2BuildWealth = () => {
   const getSectionTitle = (id: string) => {
     const titles: Record<string, string> = {
       'roadmap': '4-Step Wealth Path',
+      'ppp': 'Purchasing Power Parity',
       'mindset': 'Mindset & Psychology',
       'wisdom': 'Investor Wisdom & Quotes',
     };

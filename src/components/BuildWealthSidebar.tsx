@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { LineChart, Brain, Coins, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
+import { LineChart, Brain, Coins, Quote, ChevronLeft, ChevronRight, Globe } from 'lucide-react';
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
@@ -51,6 +51,7 @@ const BuildWealthSidebar = ({ currentSection, onSectionChange }: { currentSectio
 
   const sections = [
     { id: 'roadmap', label: '4-Step Wealth Path', icon: <Coins className="w-4 h-4" /> },
+    { id: 'ppp', label: 'Purchasing Power (PPP)', icon: <Globe className="w-4 h-4" /> },
     { id: 'mindset', label: 'Mindset & Psychology', icon: <Brain className="w-4 h-4" /> },
     { id: 'wisdom', label: 'Investor Wisdom & Quotes', icon: <Quote className="w-4 h-4" /> },
   ];
