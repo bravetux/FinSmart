@@ -52,6 +52,7 @@ import MoatAnalysis from '@/components/dashboard/equity/MoatAnalysis';
 import PricingPower from '@/components/dashboard/equity/PricingPower';
 import FaceValueStockSplit from '@/components/dashboard/equity/FaceValueStockSplit';
 import BeyondValuation from '@/components/dashboard/equity/BeyondValuation';
+import SectorCompetition from '@/components/dashboard/equity/SectorCompetition'; // <-- New Import
 
 // Gold Components
 import GoldOverview from '@/components/dashboard/gold/GoldOverview';
@@ -67,7 +68,7 @@ import DocumentCheck from '@/components/dashboard/real-estate/DocumentCheck';
 import REITsFractional from '@/components/dashboard/real-estate/REITsFractional';
 import RentalYield from '@/components/dashboard/real-estate/RentalYield';
 import RealEstateTaxation from '@/components/dashboard/real-estate/RealEstateTaxation';
-import RentalHouseReturns from '@/components/dashboard/real-estate/RentalHouseReturns'; // <-- New Import
+import RentalHouseReturns from '@/components/dashboard/real-estate/RentalHouseReturns';
 
 // Bonds Components
 import BondsOverview from '@/components/dashboard/bonds/BondsOverview';
@@ -173,6 +174,8 @@ const Dashboard = () => {
         return <EquityOverview />;
       case 'equity-macro':
         return <MacroAnalysis />;
+      case 'equity-competition': // <-- New Route
+        return <SectorCompetition />;
       case 'equity-fundamental':
         return <FundamentalAnalysis />;
       case 'equity-moat':
@@ -213,7 +216,7 @@ const Dashboard = () => {
         return <RentalYield />;
       case 're-taxation':
         return <RealEstateTaxation />;
-      case 're-rental-returns': // <-- New Route
+      case 're-rental-returns':
         return <RentalHouseReturns />;
         
       // Bonds
@@ -300,6 +303,7 @@ const Dashboard = () => {
       
       'equity-overview': 'Equity Market Basics',
       'equity-macro': 'Economic & Macro Analysis',
+      'equity-competition': 'Sector Competition (5 Forces)', // <-- New Title
       'equity-fundamental': 'Fundamental Analysis',
       'equity-moat': 'Moat Analysis',
       'equity-pricing-power': 'Pricing Power',
@@ -319,7 +323,7 @@ const Dashboard = () => {
       're-reits-fractional': 'REITs & Fractional Ownership',
       're-rental-yield': 'Rental Yield Calculation',
       're-taxation': 'Real Estate Taxation',
-      're-rental-returns': 'Rent vs. Buy Analysis', // <-- New Title
+      're-rental-returns': 'Rent vs. Buy Analysis',
       
       'bonds-overview': 'Corporate Bond Markets',
       'bonds-ratings': 'CRISIL Rating Scale',
