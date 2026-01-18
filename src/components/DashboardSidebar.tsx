@@ -950,6 +950,41 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
               />
             )}
 
+            {/* Loans Section */}
+            {!isCollapsed ? (
+              <Collapsible defaultOpen={currentSection.startsWith('loans-')} className="space-y-1">
+                <CollapsibleTrigger className="w-full">
+                  <div className={cn(
+                    "flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-colors",
+                    currentSection.startsWith('loans-') ? "text-primary" : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                  )}>
+                    <div className="flex items-center gap-3">
+                      <HandCoins className="w-4 h-4" />
+                      <span>Loans</span>
+                    </div>
+                    <ChevronDown className={cn("w-4 h-4 transition-transform", !currentSection.startsWith('loans-') && "-rotate-90")} />
+                  </div>
+                </CollapsibleTrigger>
+                <CollapsibleContent className="space-y-1">
+                  <SidebarItem 
+                    label="Overview" 
+                    active={currentSection === 'loans-overview'} 
+                    onClick={() => onSectionChange('loans-overview')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                </CollapsibleContent>
+              </Collapsible>
+            ) : (
+              <SidebarItem 
+                icon={<HandCoins className="w-4 h-4" />} 
+                label="Loans" 
+                active={currentSection.startsWith('loans-')} 
+                onClick={() => onSectionChange('loans-overview')} 
+                isCollapsed={isCollapsed} 
+              />
+            )}
+
             {/* Diversification */}
             {!isCollapsed ? (
               <Collapsible className="pt-2">

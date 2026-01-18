@@ -83,6 +83,9 @@ import BondRatings from '@/components/dashboard/bonds/BondRatings';
 import BondImportance from '@/components/dashboard/bonds/BondImportance';
 import ThingsToConsider from '@/components/dashboard/bonds/ThingsToConsider';
 
+// Loans Components - Using relative path to resolve compiler error
+import LoansOverview from '../components/dashboard/loans/LoansOverview';
+
 // Insurance Components
 import HealthInsurance from '@/components/dashboard/insurance/HealthInsurance';
 import TermInsurance from '@/components/dashboard/insurance/TermInsurance';
@@ -248,6 +251,10 @@ const Dashboard = () => {
       case 'bonds-consider':
         return <ThingsToConsider />;
 
+      // Loans
+      case 'loans-overview':
+        return <LoansOverview />;
+
       // Diversification
       case 'pms':
         return <PMS />;
@@ -355,6 +362,8 @@ const Dashboard = () => {
       'bonds-importance': 'Credit Ratings',
       'bonds-consider': 'Things to Consider',
 
+      'loans-overview': 'Loan Overview',
+
       // Diversification
       'pms': 'Portfolio Management Services (PMS)',
       'aif': 'Alternative Investment Funds (AIF)',
@@ -374,6 +383,7 @@ const Dashboard = () => {
     if (id.startsWith('gold-')) return "Precious Metals Module";
     if (id.startsWith('re-')) return "Real Estate Module";
     if (id.startsWith('bonds-')) return "Fixed Income Module";
+    if (id.startsWith('loans-')) return "Debt Management";
     if (['pms','aif','sif','bitcoin','overseas'].includes(id)) return "Diversification";
     return "Wealth Management";
   }
