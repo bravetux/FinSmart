@@ -1,8 +1,7 @@
-Companies section.">
 "use client";
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { BarChart3, LineChart, Building2, ScrollText, Bitcoin, Globe, ShieldCheck, Gem, ChevronDown, ChevronLeft, ChevronRight, Coins, Baby, Banknote, PiggyBank, HandCoins, Zap, ArrowRightLeft, PieChart, ShieldAlert, Calculator, Scale, Rocket, Search, Shield, Heart, Home, Swords, Briefcase, Wallet, FileText } from 'lucide-react';
+import { BarChart3, LineChart, Building2, ScrollText, Bitcoin, Globe, ShieldCheck, Gem, ChevronDown, ChevronLeft, ChevronRight, Coins, Baby, Banknote, PiggyBank, HandCoins, Zap, ArrowRightLeft, PieChart, ShieldAlert, Calculator, Scale, Rocket, Search, Shield, Heart, Home, Swords, Briefcase, Wallet } from 'lucide-react';
 import { cn } from "@/lib/utils";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { useCurrency } from "@/context/CurrencyContext";
@@ -674,7 +673,7 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                   />
                   
                   {/* Companies Section */}
-                  <Collapsible defaultOpen={currentSection.startsWith('equity-') && (currentSection === 'equity-competition' || currentSection === 'equity-debt' || currentSection === 'equity-valuation' || currentSection === 'equity-value-investing' || currentSection === 'equity-pricing-power' || currentSection === 'equity-identify-business')}>
+                  <Collapsible defaultOpen={currentSection.startsWith('equity-') && (currentSection === 'equity-competition' || currentSection === 'equity-debt' || currentSection === 'equity-valuation' || currentSection === 'equity-value-investing' || currentSection === 'equity-pricing-power')}>
                     <CollapsibleTrigger className="w-full">
                       <div className="flex items-center justify-between pl-11 pr-4 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900">
                         <span>Companies</span>
@@ -703,14 +702,6 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                         label="Valuation" 
                         active={currentSection === 'equity-valuation'} 
                         onClick={() => onSectionChange('equity-valuation')} 
-                        className="pl-14 text-xs" 
-                        isCollapsed={isCollapsed} 
-                      />
-                      <SidebarItem 
-                        icon={<FileText className="w-3.5 h-3.5" />}
-                        label="Identify Business" 
-                        active={currentSection === 'equity-identify-business'} 
-                        onClick={() => onSectionChange('equity-identify-business')} 
                         className="pl-14 text-xs" 
                         isCollapsed={isCollapsed} 
                       />
@@ -1007,7 +998,6 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                 active={currentSection === 'pms'} 
                 onClick={() => onSectionChange('pms')} 
                 isCollapsed={isCollapsed} 
-              
               />
             )}
           </nav>
