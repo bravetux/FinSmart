@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { BarChart3, LineChart, Building2, ScrollText, Bitcoin, Globe, ShieldCheck, Gem, ChevronDown, ChevronLeft, ChevronRight, Coins, Baby, Banknote, PiggyBank, HandCoins, Zap, ArrowRightLeft, PieChart, ShieldAlert, Calculator, Scale, Rocket, Search, Shield, Heart, Home, Swords, Briefcase } from 'lucide-react';
+import { BarChart3, LineChart, Building2, ScrollText, Bitcoin, Globe, ShieldCheck, Gem, ChevronDown, ChevronLeft, ChevronRight, Coins, Baby, Banknote, PiggyBank, HandCoins, Zap, ArrowRightLeft, PieChart, ShieldAlert, Calculator, Scale, Rocket, Search, Shield, Heart, Home, Swords, Briefcase, Wallet } from 'lucide-react';
 import { cn } from "@/lib/utils";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { useCurrency } from "@/context/CurrencyContext";
@@ -358,6 +358,41 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                 label="Kids" 
                 active={currentSection.startsWith('kids-')} 
                 onClick={() => onSectionChange('kids-overview')} 
+                isCollapsed={isCollapsed} 
+              />
+            )}
+
+            {/* Income Section */}
+            {!isCollapsed ? (
+              <Collapsible defaultOpen={currentSection.startsWith('income-')} className="space-y-1">
+                <CollapsibleTrigger className="w-full">
+                  <div className={cn(
+                    "flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-colors",
+                    currentSection.startsWith('income-') ? "text-primary" : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                  )}>
+                    <div className="flex items-center gap-3">
+                      <Wallet className="w-4 h-4" />
+                      <span>Income</span>
+                    </div>
+                    <ChevronDown className={cn("w-4 h-4 transition-transform", !currentSection.startsWith('income-') && "-rotate-90")} />
+                  </div>
+                </CollapsibleTrigger>
+                <CollapsibleContent className="space-y-1">
+                  <SidebarItem 
+                    label="Roadmap" 
+                    active={currentSection === 'income-overview'} 
+                    onClick={() => onSectionChange('income-overview')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                </CollapsibleContent>
+              </Collapsible>
+            ) : (
+              <SidebarItem 
+                icon={<Wallet className="w-4 h-4" />} 
+                label="Income" 
+                active={currentSection.startsWith('income-')} 
+                onClick={() => onSectionChange('income-overview')} 
                 isCollapsed={isCollapsed} 
               />
             )}
@@ -945,7 +980,6 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
         </div>
 
         <div className="mt-auto p-4 border-t">
-          {/* Footer left intentionally blank */}
         </div>
       </aside>
     </TooltipProvider>

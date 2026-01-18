@@ -26,6 +26,9 @@ import CreditReputation from '@/components/dashboard/kids/CreditReputation';
 import GlobalMoney from '@/components/dashboard/kids/GlobalMoney';
 import MintingMoney from '@/components/dashboard/kids/MintingMoney';
 
+// Income Component
+import IncomeOverview from '@/components/dashboard/income/IncomeOverview';
+
 // Mutual Fund Components
 import TypesOfEquityFunds from '@/components/dashboard/mf/TypesOfEquityFunds';
 import SIP from '@/components/dashboard/mf/SIP';
@@ -52,7 +55,7 @@ import MoatAnalysis from '@/components/dashboard/equity/MoatAnalysis';
 import PricingPower from '@/components/dashboard/equity/PricingPower';
 import FaceValueStockSplit from '@/components/dashboard/equity/FaceValueStockSplit';
 import BeyondValuation from '@/components/dashboard/equity/BeyondValuation';
-import SectorCompetition from '@/components/dashboard/equity/SectorCompetition'; // <-- New Import
+import SectorCompetition from '@/components/dashboard/equity/SectorCompetition';
 
 // Gold Components
 import GoldOverview from '@/components/dashboard/gold/GoldOverview';
@@ -132,6 +135,10 @@ const Dashboard = () => {
         return <GlobalMoney />;
       case 'kids-minting-money':
         return <MintingMoney />;
+      
+      // Income
+      case 'income-overview':
+        return <IncomeOverview />;
         
       // Insurance
       case 'insurance-health':
@@ -174,7 +181,7 @@ const Dashboard = () => {
         return <EquityOverview />;
       case 'equity-macro':
         return <MacroAnalysis />;
-      case 'equity-competition': // <-- New Route
+      case 'equity-competition':
         return <SectorCompetition />;
       case 'equity-fundamental':
         return <FundamentalAnalysis />;
@@ -283,6 +290,8 @@ const Dashboard = () => {
       'kids-global': 'Global Money',
       'kids-minting-money': 'Minting Money (Money Multiplier)',
       
+      'income-overview': 'Income Roadmap',
+      
       'insurance-health': 'Health Insurance',
       'insurance-term': 'Term Insurance',
 
@@ -303,7 +312,7 @@ const Dashboard = () => {
       
       'equity-overview': 'Equity Market Basics',
       'equity-macro': 'Economic & Macro Analysis',
-      'equity-competition': 'Sector Competition (5 Forces)', // <-- New Title
+      'equity-competition': 'Sector Competition (5 Forces)',
       'equity-fundamental': 'Fundamental Analysis',
       'equity-moat': 'Moat Analysis',
       'equity-pricing-power': 'Pricing Power',
@@ -342,6 +351,7 @@ const Dashboard = () => {
 
   const getModuleLabel = (id: string) => {
     if (id.startsWith('kids-')) return "Early Foundations";
+    if (id.startsWith('income-')) return "Income Generation";
     if (id.startsWith('insurance-')) return "Insurance & Protection";
     if (id.startsWith('mf-')) return "Mutual Funds Masterclass";
     if (id.startsWith('equity-')) return "Equity Markets";
