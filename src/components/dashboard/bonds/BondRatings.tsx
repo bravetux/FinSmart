@@ -7,10 +7,8 @@ import {
   ShieldAlert, 
   AlertTriangle, 
   Zap, 
-  Building2, 
-  Landmark, 
-  Search,
-  BookOpen
+  BookOpen,
+  Info
 } from 'lucide-react';
 import { Badge } from "@/components/ui/badge";
 
@@ -18,42 +16,66 @@ const ratingTypes = [
   {
     grade: "AAA",
     label: "Highest Safety",
-    description: "This is the highest rating and indicates the strongest degree of safety regarding timely servicing of financial obligations. Bonds with 'AAA' ratings are considered to have the lowest risk of default.",
-    example: "A government bond with a stable economic backdrop might receive a 'AAA' rating.",
+    description: "Bonds with this rating scale are considered to have the highest degree of safety and carry the lowest credit risk regarding timely servicing of financial obligations.",
+    example: "Government bonds or top-tier blue-chip corporate entities.",
     color: "bg-emerald-100 text-emerald-700",
     icon: <ShieldCheck className="w-6 h-6 text-emerald-600" />
   },
   {
     grade: "AA",
     label: "High Safety",
-    description: "These instruments are considered to have a high degree of safety and very low credit risk, but their risk is slightly higher than 'AAA' rated instruments.",
-    example: "Corporate bonds from a company with strong financials and a positive outlook might be rated 'AA'.",
+    description: "Bonds with this rating scale are considered to have a high degree of safety and carry very low credit risk.",
+    example: "Strong established companies with very stable financials.",
     color: "bg-blue-100 text-blue-700",
     icon: <ShieldCheck className="w-6 h-6 text-blue-600" />
   },
   {
     grade: "A",
     label: "Adequate Safety",
-    description: "Instruments with this rating have an adequate degree of safety and low credit risk. They are somewhat more susceptible to changes in circumstances and economic conditions.",
-    example: "A municipal bond with good fiscal management but facing economic headwinds might be rated 'A'.",
+    description: "Bonds with this rating are considered to have an adequate degree of safety and carry low credit risk. They are more susceptible to changing economic conditions.",
+    example: "Reputable companies with good growth but some exposure to market cycles.",
     color: "bg-sky-100 text-sky-700",
     icon: <ShieldCheck className="w-6 h-6 text-sky-600" />
   },
   {
     grade: "BBB",
     label: "Moderate Safety",
-    description: "These instruments offer a moderate degree of safety and moderate credit risk. They are considered medium-grade and may possess certain speculative characteristics.",
-    example: "A corporate bond from an industry facing disruption might receive a 'BBB' rating.",
+    description: "Bonds with this rating are considered to have moderate degree of safety and carry moderate credit risk.",
+    example: "Medium-grade companies that are generally stable but carry speculative elements.",
     color: "bg-amber-100 text-amber-700",
     icon: <ShieldAlert className="w-6 h-6 text-amber-600" />
   },
   {
-    grade: "BB, B, C, D",
-    label: "Moderate to High Risk",
-    description: "Ratings from 'BB' to 'D' range from instruments that have a moderate risk to those that are in default or expected to be in default soon.",
-    example: "A company experiencing significant financial distress or undergoing restructuring might find its bonds rated in this range.",
+    grade: "BB",
+    label: "Moderate Risk of Default",
+    description: "Bonds with this rating are considered to have moderate risk of default regarding timely servicing of financial obligations.",
+    example: "Companies in volatile industries or with rising debt levels.",
+    color: "bg-orange-100 text-orange-700",
+    icon: <AlertTriangle className="w-6 h-6 text-orange-600" />
+  },
+  {
+    grade: "B",
+    label: "High Risk of Default",
+    description: "Bonds with this rating are considered to have a high risk of default. Interest and principal payments are currently being met but are sensitive to adverse conditions.",
+    example: "Companies with weak financial health or highly leveraged balance sheets.",
+    color: "bg-red-50 text-red-600",
+    icon: <AlertTriangle className="w-6 h-6 text-red-500" />
+  },
+  {
+    grade: "C",
+    label: "Very High Risk of Default",
+    description: "Bonds with this rating are considered to have a very high risk of default. The issuer is highly vulnerable to non-payment.",
+    example: "Entities in significant financial distress or restructuring.",
     color: "bg-red-100 text-red-700",
-    icon: <AlertTriangle className="w-6 h-6 text-red-600" />
+    icon: <AlertTriangle className="w-6 h-6 text-red-700" />
+  },
+  {
+    grade: "D",
+    label: "Default / Imminent Default",
+    description: "Bonds with this rating are in default or are expected to default very soon.",
+    example: "The issuer has already failed to pay interest or principal on time.",
+    color: "bg-slate-900 text-white",
+    icon: <AlertTriangle className="w-6 h-6 text-red-500" />
   }
 ];
 
@@ -61,10 +83,10 @@ const BondRatings = () => {
   return (
     <section className="space-y-12 py-12 border-t">
       <div className="max-w-3xl mx-auto text-center space-y-4">
-        <h3 className="text-3xl font-bold text-slate-900">CRISIL Rating Scale</h3>
+        <h3 className="text-3xl font-bold text-slate-900">CRISIL Credit Rating Scale</h3>
         <p className="text-lg text-slate-600 leading-relaxed">
-          Understanding the nuances of CRISIL's rating scale is essential for both issuers and investors. 
-          Here's an in-depth look at the rating hierarchy:
+          Credit rating is a financial indicator representing the creditworthiness and quality of a bond. 
+          Understanding these scales is critical for assessing default risk.
         </p>
       </div>
 
@@ -83,13 +105,15 @@ const BondRatings = () => {
                   <h4 className="text-xl font-bold text-slate-900 mb-1">{rating.label}</h4>
                   <p className="text-slate-600 leading-relaxed">{rating.description}</p>
                 </div>
-                <div className="flex gap-3 p-4 bg-slate-50 rounded-xl border border-slate-100">
-                  <Zap className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
-                  <p className="text-sm italic text-slate-500">
-                    <span className="font-bold text-slate-700 not-italic">Example: </span>
-                    {rating.example}
-                  </p>
-                </div>
+                {rating.example && (
+                  <div className="flex gap-3 p-4 bg-slate-50 rounded-xl border border-slate-100">
+                    <Info className="w-4 h-4 text-slate-400 shrink-0 mt-0.5" />
+                    <p className="text-xs italic text-slate-500">
+                      <span className="font-bold text-slate-700 not-italic">Typically: </span>
+                      {rating.example}
+                    </p>
+                  </div>
+                )}
               </CardContent>
             </div>
           </Card>
@@ -102,12 +126,12 @@ const BondRatings = () => {
              <div className="p-2 bg-blue-500 rounded-lg">
                <BookOpen className="w-6 h-6 text-white" />
              </div>
-             <h4 className="text-2xl font-bold">Why the Rating Scale Matters</h4>
+             <h4 className="text-2xl font-bold">The Standard Language of Risk</h4>
           </div>
           <p className="text-slate-400 text-lg leading-relaxed max-w-4xl">
-            The scale acts as a common language that bridges the gap between complex financial data and actionable investment decisions. 
-            It enables a more transparent and efficient bond market, allowing issuers to gauge market perception while 
-            empowering investors to make informed decisions based on perceived risk and return profiles.
+            Ratings like <span className="text-white font-bold">AAA</span> and <span className="text-white font-bold">AA</span> indicate the highest degrees of safety. 
+            As you move down the scale toward <span className="text-white font-bold">C</span> and <span className="text-white font-bold">D</span>, the probability of default increases significantly. 
+            Conservative investors should ideally stick to 'A' and above.
           </p>
         </div>
         <div className="absolute -bottom-12 -right-12 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl" />
@@ -116,7 +140,7 @@ const BondRatings = () => {
   );
 };
 
-// Helper for class merging if not available globally in this specific file
+// Helper for class merging
 function cn(...classes: any[]) {
   return classes.filter(Boolean).join(' ');
 }
