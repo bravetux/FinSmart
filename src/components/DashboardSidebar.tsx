@@ -602,6 +602,34 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                     isCollapsed={isCollapsed} 
                   />
                   <SidebarItem 
+                    label="Moat Analysis" 
+                    active={currentSection === 'equity-moat'} 
+                    onClick={() => onSectionChange('equity-moat')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Pricing Power" 
+                    active={currentSection === 'equity-pricing-power'} 
+                    onClick={() => onSectionChange('equity-pricing-power')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Face Value & Splits" 
+                    active={currentSection === 'equity-face-value'} 
+                    onClick={() => onSectionChange('equity-face-value')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Beyond Valuation" 
+                    active={currentSection === 'equity-beyond-valuation'} 
+                    onClick={() => onSectionChange('equity-beyond-valuation')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
                     label="Technical Basics" 
                     active={currentSection === 'equity-technical'} 
                     onClick={() => onSectionChange('equity-technical')} 

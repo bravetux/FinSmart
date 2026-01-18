@@ -48,6 +48,10 @@ import FundamentalAnalysis from '@/components/dashboard/equity/FundamentalAnalys
 import TechnicalAnalysis from '@/components/dashboard/equity/TechnicalAnalysis';
 import IPOs from '@/components/dashboard/equity/IPOs';
 import MacroAnalysis from '@/components/dashboard/equity/MacroAnalysis';
+import MoatAnalysis from '@/components/dashboard/equity/MoatAnalysis';
+import PricingPower from '@/components/dashboard/equity/PricingPower';
+import FaceValueStockSplit from '@/components/dashboard/equity/FaceValueStockSplit';
+import BeyondValuation from '@/components/dashboard/equity/BeyondValuation';
 
 // Gold Components
 import GoldOverview from '@/components/dashboard/gold/GoldOverview';
@@ -166,14 +170,22 @@ const Dashboard = () => {
       // Equity
       case 'equity-overview':
         return <EquityOverview />;
+      case 'equity-macro':
+        return <MacroAnalysis />;
       case 'equity-fundamental':
         return <FundamentalAnalysis />;
+      case 'equity-moat':
+        return <MoatAnalysis />;
+      case 'equity-pricing-power':
+        return <PricingPower />;
+      case 'equity-face-value':
+        return <FaceValueStockSplit />;
+      case 'equity-beyond-valuation':
+        return <BeyondValuation />;
       case 'equity-technical':
         return <TechnicalAnalysis />;
       case 'equity-ipo':
         return <IPOs />;
-      case 'equity-macro':
-        return <MacroAnalysis />;
         
       // Gold
       case 'gold-overview':
@@ -282,11 +294,17 @@ const Dashboard = () => {
       'mf-taxation': 'Taxation of Mutual Funds',
       'mf-metrics': 'Fund Metrics & Selection',
       'mf-passive': 'Passive Investing (Index/ETF)',
+      
       'equity-overview': 'Equity Market Basics',
+      'equity-macro': 'Economic & Macro Analysis',
       'equity-fundamental': 'Fundamental Analysis',
+      'equity-moat': 'Moat Analysis',
+      'equity-pricing-power': 'Pricing Power',
+      'equity-face-value': 'Face Value & Stock Splits',
+      'equity-beyond-valuation': 'Beyond Price Valuation',
       'equity-technical': 'Technical Analysis Basics',
       'equity-ipo': 'IPOs (Going Public)',
-      'equity-macro': 'Economic & Macro Analysis',
+      
       'gold-overview': 'Gold Investment Overview',
       'gold-physical': 'Physical Gold',
       'gold-etf': 'Gold ETFs & Funds',
