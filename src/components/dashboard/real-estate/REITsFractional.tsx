@@ -101,7 +101,7 @@ const REITsFractional = () => {
           <h3 className="text-2xl font-bold text-slate-900">Does House Owner Get 8% Rent Increase YoY?</h3>
           <Card className="p-4 border-slate-200 shadow-lg">
             <img 
-              src="/Does House Owner Get 8% Rent Increase YoY.jpeg" 
+              src="/rent-vs-buy-analysis.jpeg" 
               alt="Rent vs Buy Analysis Flowchart" 
               className="w-full h-auto rounded-xl"
             />
