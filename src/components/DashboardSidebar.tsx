@@ -631,7 +631,7 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                   />
                   
                   {/* Companies Section */}
-                  <Collapsible defaultOpen={currentSection.startsWith('equity-') && (currentSection === 'equity-competition' || currentSection === 'equity-debt' || currentSection === 'equity-valuation')}>
+                  <Collapsible defaultOpen={currentSection === 'equity-competition' || currentSection === 'equity-debt' || currentSection === 'equity-valuation'}>
                     <CollapsibleTrigger className="w-full">
                       <div className="flex items-center justify-between pl-11 pr-4 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900">
                         <span>Companies</span>
