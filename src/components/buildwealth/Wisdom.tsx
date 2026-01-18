@@ -150,8 +150,7 @@ const quoteCategories = [
         "It's a good idea to periodically review the performance of your investments. Choices that were right for you two years ago may not necessarily be the best for you now.",
         "• Take stock of your investment performance. Reviewing what you hold can help you keep on top of the overall level of risk you’re exposing your money to.",
         "• Your immediate personal circumstances may have changed. Regularly reviewing how and where you’re investing can help to ensure your investments still suit your personal circumstances.",
-        "• Your investment objectives evolve over time. What you’re looking to achieve with your investments can change over the years.",
-        "Keep going"
+        "• Your investment objectives evolve over time. What you’re looking to achieve with your investments can change over the years."
     ]
   },
   {
@@ -159,6 +158,15 @@ const quoteCategories = [
     icon: <Brain className="w-5 h-5 text-purple-500" />,
     quotes: [
       "Personally, after spending several years in this field, I've realized one important truth: More than just stock analysis or picking the 'right' stocks, what truly determines success in investing is patience—and a deep understanding of reverse human psychology. Successful investing often requires us to: Practice delayed gratification, Avoid impulsive action, Stay still when the market moves, Resist the urge to buy without a bargain, Avoid booking profits too early, even when potential remains. All of this runs counter to our natural instincts.",
+      "Stress and worry tend to be higher before you act. Without action, all you can do is worry. Once you begin, fear shrinks as you start to influence the outcome.",
+      "Do not fear what you can address. What should worry you is resisting addressing it.",
+      "Replaying a bad situation only makes it worse. The damage is done. Make the best next choice. Next-play mentality.",
+      "The feeling of progress—however small—is one of the best feelings there is.",
+      "Motivation increases after you begin. Make starting easy.",
+      "What are you still carrying that isn’t yours?",
+      "Pause. Close your eyes. Breathe for 60 seconds.",
+      "Reflection requires stillness. Don’t confuse activity with effectiveness.",
+      "Peace requires letting go—there will always be more to want.",
       "In the stock market and investing, it's more about understanding ourselves than just focusing on stocks or prices. Understanding our own psychology and personality is very important. Investing is more about how we behave than just picking stocks. Psychology plays a big role, and most people only understand this after many years of investing.",
       "Normalize staying calm and patient during market corrections or even when stocks are rising. Having a settled and steady mindset at all times will take us a long way in the stock market.",
       "A lot of regret among us who missed the opportunity to book profits. But in the stock market, regrets like these are extremely common. What I've realized is that it's important to normalize regrets and view them as part of the learning journey. Over time, the weight of such mistakes and regrets reduces. Learning how to navigate regret is key to long-term success."
@@ -171,6 +179,7 @@ const quoteCategories = [
       "Patience > Precision: Great returns aren't born from perfect timing but from steadfast discipline. Sit tight; compounding rewards the waiting.",
       "Our favourite holding period is forever.",
       "Whatever age you are today, your future self would love to be it. Today is a good moment. In a few years, you’ll wish you had used it better—or thank yourself for doing so.",
+      "You can’t speed time or success—only control the next action.",
       "Most people quit the stock market too early. The real magic happens after it starts getting hard.",
       "In the stock market, patience and high performance almost always go hand in hand. It's rare to find someone with a high-performing portfolio who is also impatient. Patience remains one of the most important yet undervalued traits in investing.",
       "Most people don't have the patience. When they see a big gap between their stock and the market, they end up selling. But the reality is different. Stocks can stay in a consolidation phase for a long time without any business reason. Even if the business is growing, the stock may not move, because some stocks need strong triggers to break out. The larger the base and the longer the consolidation phase, the stronger the breakout will be. Most people don't think like this and don't have the patience, and that is how they miss most of the opportunities.",
@@ -185,8 +194,12 @@ const quoteCategories = [
     title: "Strategy",
     icon: <ShieldCheck className="w-5 h-5 text-blue-500" />,
     quotes: [
-      "'Diversify to Survive. Concentrate to Get Rich.' Use diversification for defense, protecting against downside and emotional panic. Use concentration for offense, but only when based on deep research, conviction, and long-term orientation.",
-      "Don't spread your bets across average companies. Concentrate on the few that can deliver exceptional, compounding returns. Selective intensity > Diversified mediocrity. Focus capital and attention on your very best ideas.",
+      "Before you worry about how to win the game, figure out whether the game is worth winning.",
+      "Deal with the difficult while it is yet easy. Deal with the great while it is yet small.",
+      "Greatness often requires eliminating what you do well to focus on what you can do exceptionally.",
+      "Arrange whatever pieces come your way.",
+      "Improvement depends on starting fast, learning fast, and staying in the game.",
+      "Investing is like a seat belt: without conviction, every bump feels dangerous.",
       "Proper position sizing, number of holdings, when to sell, and turnover discipline define long-term success — not just stock selection.",
       "If you see, our portfolio is like having a team of players. Not everybody can be a batsman in cricket, and not everybody can be a bowler. The best approach is to categorize into three partitions: momentum players, short term players, and long-term players. There will be stocks where we expect 50%, 70%, or even 100% returns in a year or two, but sometimes the market moves 70-80% in just three to six months. In such cases, it is better to close those positions, book the profit, and either hold cash or move that money into stocks meant for long term holding. Without such prioritization and strategic planning, if we are just holding all stocks for the very long term, it doesn't create much portfolio restructuring, and also impact on returns .",
       "Sometimes it happens that a stock is up 30, 40, even 60 percent in profit. But if you feel the stock is overvalued or something doesn't seem right, it's better to book profits. Most of the time, these instincts come from your experience. It's wise to book gains and keep some cash on hand because the market always gives new opportunities. Some people say they're always fully invested, but holding some cash is always a safer option. Why miss a good opportunity when it comes?",
@@ -200,10 +213,26 @@ const quoteCategories = [
     title: "Principles",
     icon: <Lightbulb className="w-5 h-5 text-amber-600" />,
     quotes: [
+      "Chase your desired lifestyle, not your desired title. People are blinded by status and labels. Once you release the need for a specific title, there is almost always an easier path to living your preferred lifestyle.",
+      "Earning more money increases freedom. Spending less than you earn reduces stress.",
+      "Every great advance comes from dreams and attempts. Devise more dreams. Make more attempts.",
+      "Work hard on what comes easily.",
+      "You can control the slope of your success, not your starting point.",
+      "You want two things: Simplicity (no wasted effort) and Compounding (long runways that feed each other).",
+      "Opportunity favors active hands, not limp ones. Engage.",
+      "Momentum magnifies strengths and hides weaknesses. Lack of it does the opposite.",
+      "Optimize for lifestyle, not title.",
+      "Ideas multiply when shared; apples don’t.",
+      "The master knows what not to do.",
+      "Well begun is half done.",
+      "Even bad luck contains opportunity—if you live like it does.",
+      "Simplify, then add lightness.",
+      "Growth comes by adding or shedding. Choose wisely.",
+      "Find what feels effortless. Then apply maximum effort.",
+      "Always play the hand you have, not the one you wish you had.",
       "“An investment in knowledge pays the best interest.” — Benjamin Franklin",
       "The more things you have, the more things you must manage. Simplicity isn’t just cheaper—it’s easier.",
       "If you don’t actively choose a better way, life will choose a worse one for you. The default is distraction, not improvement.",
-      "The amateur does not know what to do. The master knows what not to do.",
       "Maintain a margin of safety. If your life only handles expected challenges, it will collapse under unexpected ones. Be stronger than you need to be.",
       "Boredom is a filter. Common ideas come before it. Uncommon ideas come after it.",
       "Your success depends on the risks you take. Your survival depends on the risks you avoid.",
@@ -218,6 +247,10 @@ const quoteCategories = [
     title: "Clarity",
     icon: <EyeOff className="w-5 h-5 text-indigo-500" />,
     quotes: [
+      "A dull truth will be ignored. An exciting lie won’t. Make truth compelling.",
+      "Like a hike, clarity comes after you start walking.",
+      "In the short run, markets vote. In the long run, they weigh.",
+      "Sentiment moves prices faster than fundamentals.",
       "So, what I am thinking is that India will see big reforms in tax, GST, and policies. These may turn out to be very favorable for startups, businesses, and overall growth. In the long term, India's growth is inevitable. Many companies are already expanding rapidly, and it won't be surprising if some of our products go global and become well known. That is why I say invest in India . The long-term story is very bright. Do not get carried away by short-term pain like tariff threats, macro events, or small corrections. These are just noises. What really matters is the underlying growth and potential. Compared to the global stage, India is still in the early growth phase, almost at the beginning of the beginning. This means there is huge scope across every sector and industry. So, focus on the bigger picture. The GDP will grow massively in the coming decades. Right now also, many small businesses and industries have deep potential. Look for those stories and do not get distracted by short-term market noise.",
       "I see that people are not very excited in this market because it looks confusing and choppy. But six to nine months from now, people may regret not taking positions and will hope for a market like this again. Many stocks are slowly falling, and some SME, micro-cap, and small-cap stocks still have 1-2x potential. The issue is that many macro events, like the tariff issue, are still not settled and are under discussion. So, it's better to focus on buying some of your favorite stocks for the long term, because I don't think we will get these price opportunities again. As always, once the stocks start moving up, we regret not buying. So just focus on value.",
       "Instead of getting distracted by macro events or global conflicts, investors should focus on how sectors are performing, how companies are growing, their promoter quality, and long term fundamentals. As Graham said, 'Mr. Market' comes daily with random moods sometimes panicking, sometimes euphoric. Right now, that irrational figure looks like Donald Trump aka Mad man . this 'orange man' keeps showing up and creating short term volatility, which can offer great opportunities. So rather than panicking and selling out of fear, we should try to make the most of these opportunities.",
@@ -234,6 +267,18 @@ const quoteCategories = [
     title: "Character",
     icon: <Heart className="w-5 h-5 text-emerald-500" />,
     quotes: [
+      "If you love them more than the fight, end the fight. An apology loses its warmth if it waits too long. Do it now, before the years turn cold.",
+      "What looks like a talent gap is often a focus gap. Talent is staying focused.",
+      "Take care of the minutes; the hours will take care of themselves.",
+      "Decide the type of person you want to be. Prove it to yourself with small wins.",
+      "Distance and time separate relationships. When it matters, meet face-to-face. Solve it early.",
+      "Inspiration does not visit the lazy.",
+      "You learn to work smart only after working hard—and making mistakes.",
+      "Good habits stockpile ease. Bad habits postpone pain.",
+      "When you stop competing and comparing, respect follows.",
+      "The best things in life have no finish line. Practice them daily.",
+      "New lifestyles create new results. Habits beat goals.",
+      "Excellence looks easy only after you try it yourself.",
       "Your biological age is the number of days you've lived. Your psychological age is the number of thoughts you've entertained. Your sociological age is the number of contributions you've made.",
       "Consistency enlarges ability.",
       "Even mistakes are important. Without making mistakes, we really don't grow. The key is to ensure that the mistakes are small and manageable—and that we actually learn from them. In fact, the earlier we make those mistakes, the better.",
@@ -263,7 +308,7 @@ const quoteCategories = [
 ];
 
 const Wisdom = () => {
-  let quoteCounter = 0; // Initialize a counter for sequential numbering
+  let quoteCounter = 0;
 
   return (
     <div className="space-y-8 animate-in fade-in duration-500 pb-12">
@@ -274,23 +319,25 @@ const Wisdom = () => {
         <h2 className="text-2xl font-bold text-slate-900">Wisdom for the Journey</h2>
       </div>
       <p className="text-lg text-slate-600">
-        Insights on psychology, patience, and strategy from seasoned investors.
+        Insights on psychology, patience, and strategy from seasoned investors and life thinkers.
       </p>
       
       <Tabs defaultValue={quoteCategories[0].title} className="w-full">
-        <TabsList className="grid w-full grid-cols-3 md:grid-cols-5 h-auto p-1 bg-slate-200/50 rounded-xl">
-          {quoteCategories.map((category) => (
-            <TabsTrigger key={category.title} value={category.title} className="text-[10px] md:text-xs py-2">
-              <div className="flex items-center gap-1 md:gap-2">
-                {category.icon}
-                {category.title}
-              </div>
-            </TabsTrigger>
-          ))}
-        </TabsList>
+        <div className="overflow-x-auto pb-2">
+          <TabsList className="flex w-max min-w-full md:grid md:grid-cols-5 h-auto p-1 bg-slate-200/50 rounded-xl gap-1">
+            {quoteCategories.map((category) => (
+              <TabsTrigger key={category.title} value={category.title} className="text-[10px] md:text-xs py-2 whitespace-nowrap">
+                <div className="flex items-center gap-1 md:gap-2">
+                  {category.icon}
+                  {category.title}
+                </div>
+              </TabsTrigger>
+            ))}
+          </TabsList>
+        </div>
 
         {quoteCategories.map((category) => {
-          quoteCounter = 0; // Reset counter for each category
+          quoteCounter = 0;
 
           return (
             <TabsContent key={category.title} value={category.title} className="mt-8">
@@ -334,7 +381,7 @@ const Wisdom = () => {
                         );
                     }
 
-                    quoteCounter++; // Increment only for actual quotes
+                    quoteCounter++;
 
                     return (
                       <Card key={j} className="border-none shadow-md bg-white/70 backdrop-blur-sm italic relative overflow-hidden group hover:shadow-xl transition-all duration-300">
