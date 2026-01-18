@@ -2,11 +2,14 @@
 
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Home, Scale } from 'lucide-react';
+import { Home, Scale, ExternalLink } from 'lucide-react';
+import { Button } from "@/components/ui/button";
 
 const RentalHouseReturns = () => {
-  // Converted Google Drive link for direct image display
-  const imageUrl = "https://drive.google.com/uc?export=view&id=1aGct9D6fIF7eqlpXmMDogMHXs690cHdS";
+  // Using the most reliable direct link format for public Google Drive files
+  const imageId = "1aGct9D6fIF7eqlpXmMDogMHXs690cHdS";
+  const imageUrl = `https://drive.google.com/uc?id=${imageId}&export=download`;
+  const viewUrl = `https://drive.google.com/file/d/${imageId}/view?usp=sharing`;
 
   return (
     <div className="space-y-12 animate-in fade-in duration-500 pb-12">
@@ -24,24 +27,45 @@ const RentalHouseReturns = () => {
       </div>
 
       <Card className="border-slate-200 shadow-lg">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Home className="w-5 h-5 text-indigo-600" />
-            The Financial Flowchart
-          </CardTitle>
-          <CardDescription>
-            This diagram illustrates the long-term wealth creation potential for two scenarios: James (Renter & Investor) vs. Jacob (Buyer).
-          </CardDescription>
+        <CardHeader className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <CardTitle className="flex items-center gap-2">
+              <Home className="w-5 h-5 text-indigo-600" />
+              The Financial Flowchart
+            </CardTitle>
+            <CardDescription>
+              James (Renter & Investor) vs. Jacob (Buyer) long-term wealth creation.
+            </CardDescription>
+          </div>
+          <Button 
+            variant="outline" 
+            size="sm" 
+            className="gap-2"
+            onClick={() => window.open(viewUrl, '_blank')}
+          >
+            <ExternalLink className="w-4 h-4" /> View Original
+          </Button>
         </CardHeader>
         <CardContent className="pt-6">
-          <div className="overflow-x-auto bg-slate-50 rounded-xl p-4 md:p-8 flex justify-center">
+          <div className="overflow-x-auto bg-slate-50 rounded-xl p-4 md:p-8 flex flex-col items-center">
             <img 
               src={imageUrl} 
               alt="Rent vs. Buy Financial Flowchart" 
               className="max-w-full h-auto min-w-[300px] md:min-w-[800px] rounded-lg shadow-sm border border-slate-200 bg-white"
               onError={(e) => {
                 const target = e.target as HTMLImageElement;
-                target.src = "https://placehold.co/1200x800/f8fafc/64748b?text=Please+ensure+the+Google+Drive+file+is+set+to+'Anyone+with+the+link'";
+                // If direct link fails, show a helpful message inside the UI
+                target.style.display = 'none';
+                const parent = target.parentElement;
+                if (parent && !parent.querySelector('.error-msg')) {
+                  const msg = document.createElement('div');
+                  msg.className = 'error-msg text-center p-8 space-y-4';
+                  msg.innerHTML = `
+                    <p class="text-slate-500 text-sm">Google Drive is preventing direct preview of this image.</p>
+                    <button class="px-4 py-2 bg-indigo-600 text-white rounded-lg font-bold text-sm">Click 'View Original' above to see it</button>
+                  `;
+                  parent.appendChild(msg);
+                }
               }}
             />
           </div>
