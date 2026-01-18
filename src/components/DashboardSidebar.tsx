@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { BarChart3, LineChart, Building2, ScrollText, Bitcoin, Globe, ShieldCheck, Gem, ChevronDown, ChevronLeft, ChevronRight, Coins, Baby, Banknote, PiggyBank, HandCoins, Zap, ArrowRightLeft, PieChart, ShieldAlert, Calculator, Scale, Rocket, Search, Shield, Heart, Home, Swords, Briefcase, Wallet, Trophy } from 'lucide-react';
+import { BarChart3, LineChart, Building2, ScrollText, Bitcoin, Globe, ShieldCheck, Gem, ChevronDown, ChevronLeft, ChevronRight, Coins, Baby, Banknote, PiggyBank, HandCoins, Zap, ArrowRightLeft, PieChart, ShieldAlert, Calculator, Scale, Rocket, Search, Shield, Heart, Home, Swords, Briefcase, Wallet, Trophy, BookOpen, Compass } from 'lucide-react';
 import { cn } from "@/lib/utils";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { useCurrency } from "@/context/CurrencyContext";
@@ -626,6 +626,13 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                     label="Laws" 
                     active={currentSection === 'equity-laws'} 
                     onClick={() => onSectionChange('equity-laws')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Scrips" 
+                    active={currentSection === 'equity-scrips'} 
+                    onClick={() => onSectionChange('equity-scrips')} 
                     isSubItem 
                     isCollapsed={isCollapsed} 
                   />

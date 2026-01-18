@@ -61,6 +61,7 @@ import CompanyDebt from '@/components/dashboard/equity/CompanyDebt';
 import Valuation from '@/components/dashboard/equity/Valuation';
 import ValueInvesting from '@/components/dashboard/equity/ValueInvesting';
 import QualityAnalysis from '@/components/dashboard/equity/QualityAnalysis';
+import Scrips from '@/components/dashboard/equity/Scrips';
 
 // Gold Components
 import GoldOverview from '@/components/dashboard/gold/GoldOverview';
@@ -189,6 +190,8 @@ const Dashboard = () => {
         return <EquityOverview />;
       case 'equity-laws':
         return <EquityLaws />;
+      case 'equity-scrips':
+        return <Scrips />;
       case 'equity-macro':
         return <MacroAnalysis />;
       case 'equity-competition':
@@ -334,6 +337,7 @@ const Dashboard = () => {
       
       'equity-overview': 'Equity Market Basics',
       'equity-laws': 'Equity Laws',
+      'equity-scrips': 'Tracked Scrips',
       'equity-macro': 'Economic & Macro Analysis',
       'equity-competition': 'Sector Competition (5 Forces)',
       'equity-debt': 'Corporate Debt Analysis',
