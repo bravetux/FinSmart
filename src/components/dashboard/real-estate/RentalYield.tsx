@@ -16,6 +16,33 @@ const RentalYield = () => {
   const grossYield = (annualRent / propertyValue) * 100;
   const netYield = ((annualRent - annualExpenses) / propertyValue) * 100;
   
+  // Helper to format with Indian commas for display inside input
+  const formatWithCommas = (val: number) => {
+    return new Intl.NumberFormat('en-IN').format(val);
+  };
+
+  // Helper to parse string back to number
+  const handleInputChange = (val: string, setter: (n: number) => void) => {
+    // Remove commas and parse
+    const numericValue = parseInt(val.replace(/,/g, ''), 10);
+    if (!isNaN(numericValue)) {
+      setter(numericValue);
+    } else if (val === '') {
+      setter(0);
+    }
+  };
+
+  // Handle Up/Down arrow keys for 10,000 steps
+  const handleKeyDown = (e: React.KeyboardEvent, currentVal: number, setter: (n: number) => void) => {
+    if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      setter(currentVal + 10000);
+    } else if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      setter(Math.max(0, currentVal - 10000));
+    }
+  };
+
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('en-IN', {
       style: 'currency',
@@ -48,7 +75,7 @@ const RentalYield = () => {
               <Calculator className="w-5 h-5 text-emerald-600" />
               Yield Calculator
             </CardTitle>
-            <CardDescription>Adjust the values to see the impact on your yield. Values change by {currency.symbol}10,000.</CardDescription>
+            <CardDescription>Adjust values using arrow keys (±10,000) or type directly.</CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
             <div className="grid md:grid-cols-1 gap-6">
@@ -56,17 +83,18 @@ const RentalYield = () => {
               <div className="space-y-2">
                 <div className="flex justify-between items-center">
                   <Label htmlFor="value" className="text-slate-700 font-semibold">Property Value</Label>
-                  <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">
+                  <span className="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">
                     {formatCurrency(propertyValue)}
                   </span>
                 </div>
                 <Input 
                   id="value" 
-                  type="number" 
-                  step="10000"
-                  value={propertyValue} 
-                  onChange={(e) => setPropertyValue(Number(e.target.value))} 
-                  className="font-mono"
+                  type="text" 
+                  value={formatWithCommas(propertyValue)} 
+                  onChange={(e) => handleInputChange(e.target.value, setPropertyValue)}
+                  onKeyDown={(e) => handleKeyDown(e, propertyValue, setPropertyValue)}
+                  className="font-mono text-lg"
+                  placeholder="Enter property value"
                 />
               </div>
 
@@ -74,17 +102,18 @@ const RentalYield = () => {
               <div className="space-y-2">
                 <div className="flex justify-between items-center">
                   <Label htmlFor="rent" className="text-slate-700 font-semibold">Annual Rent</Label>
-                  <span className="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded">
+                  <span className="text-[10px] font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded">
                     {formatCurrency(annualRent)}
                   </span>
                 </div>
                 <Input 
                   id="rent" 
-                  type="number" 
-                  step="10000"
-                  value={annualRent} 
-                  onChange={(e) => setAnnualRent(Number(e.target.value))} 
-                  className="font-mono"
+                  type="text" 
+                  value={formatWithCommas(annualRent)} 
+                  onChange={(e) => handleInputChange(e.target.value, setAnnualRent)}
+                  onKeyDown={(e) => handleKeyDown(e, annualRent, setAnnualRent)}
+                  className="font-mono text-lg"
+                  placeholder="Enter annual rent"
                 />
               </div>
 
@@ -92,17 +121,18 @@ const RentalYield = () => {
               <div className="space-y-2">
                 <div className="flex justify-between items-center">
                   <Label htmlFor="expenses" className="text-slate-700 font-semibold">Annual Expenses</Label>
-                  <span className="text-xs font-bold text-red-600 bg-red-50 px-2 py-0.5 rounded">
+                  <span className="text-[10px] font-bold text-red-600 bg-red-50 px-2 py-0.5 rounded">
                     {formatCurrency(annualExpenses)}
                   </span>
                 </div>
                 <Input 
                   id="expenses" 
-                  type="number" 
-                  step="10000"
-                  value={annualExpenses} 
-                  onChange={(e) => setAnnualExpenses(Number(e.target.value))} 
-                  className="font-mono"
+                  type="text" 
+                  value={formatWithCommas(annualExpenses)} 
+                  onChange={(e) => handleInputChange(e.target.value, setAnnualExpenses)}
+                  onKeyDown={(e) => handleKeyDown(e, annualExpenses, setAnnualExpenses)}
+                  className="font-mono text-lg"
+                  placeholder="Enter annual expenses"
                 />
               </div>
             </div>
