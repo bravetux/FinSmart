@@ -285,6 +285,95 @@ const Scrips = () => {
         </Card>
 
       </div>
+
+      {/* Grid: Third Row (Wipro & Petronet) */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        {/* Column 7: Wipro Ltd */}
+        <Card className="border-slate-200 shadow-lg hover:shadow-xl transition-shadow flex flex-col h-full border-t-4 border-t-purple-600">
+          <CardHeader className="bg-purple-50/50 border-b pb-4">
+            <div className="flex justify-between items-start mb-2">
+              <div className="p-2 bg-purple-600 rounded-lg text-white">
+                <Zap className="w-6 h-6" />
+              </div>
+              <Badge variant="outline" className="bg-white text-purple-600 border-purple-200">IT Turnaround</Badge>
+            </div>
+            <CardTitle className="text-xl leading-tight">Wipro Ltd</CardTitle>
+            <CardDescription className="text-purple-600 font-medium">Value-Driven IT Opportunity</CardDescription>
+          </CardHeader>
+          <CardContent className="pt-6 space-y-6 flex-1">
+            <div className="space-y-3">
+              <h4 className="font-bold text-slate-900 flex items-center gap-2 text-sm uppercase tracking-wider">
+                <ShieldCheck className="w-4 h-4 text-purple-500" /> Fundamentals
+              </h4>
+              <ul className="space-y-2 text-xs text-slate-600">
+                <li className="flex gap-2"><span>•</span> Global IT services leader across digital & cloud.</li>
+                <li className="flex gap-2"><span>•</span> Debt light with strong cash flows.</li>
+                <li className="flex gap-2"><span>•</span> Consistent dividends & stable shareholder returns.</li>
+              </ul>
+            </div>
+            <div className="space-y-3">
+              <h4 className="font-bold text-slate-900 flex items-center gap-2 text-sm uppercase tracking-wider">
+                <TrendingUp className="w-4 h-4 text-emerald-500" /> Why Consider Now
+              </h4>
+              <p className="text-xs text-slate-600">Rising large deal momentum, focus on AI & automation, and attractive valuation entry ahead of expected IT sector recovery in FY25–26.</p>
+            </div>
+            <div className="pt-4 border-t mt-auto">
+              <div className="p-3 bg-purple-50 rounded-xl border border-purple-100">
+                <h5 className="font-bold text-purple-900 text-[10px] uppercase mb-1">Peer View</h5>
+                <p className="text-[10px] text-purple-800 leading-relaxed italic">Trading at more attractive valuations than TCS, Infosys & HCLTech, supporting future re-rating.</p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Column 8: Petronet LNG */}
+        <Card className="border-slate-200 shadow-lg hover:shadow-xl transition-shadow flex flex-col h-full border-t-4 border-t-indigo-600">
+          <CardHeader className="bg-indigo-50/50 border-b pb-4">
+            <div className="flex justify-between items-start mb-2">
+              <div className="p-2 bg-indigo-600 rounded-lg text-white">
+                <Building2 className="w-6 h-6" />
+              </div>
+              <Badge variant="outline" className="bg-white text-indigo-600 border-indigo-200">Petrochemical Expansion</Badge>
+            </div>
+            <CardTitle className="text-xl leading-tight">Petronet LNG</CardTitle>
+            <CardDescription className="text-indigo-600 font-medium">Major Growth Phase Initiated</CardDescription>
+          </CardHeader>
+          <CardContent className="pt-6 space-y-6 flex-1">
+            <div className="space-y-3">
+              <h4 className="font-bold text-slate-900 flex items-center gap-2 text-sm uppercase tracking-wider">
+                <Landmark className="w-4 h-4 text-indigo-500" /> Project Funding
+              </h4>
+              <p className="text-xs text-slate-600">Secured a ₹12,000 crore loan from SBI & Bank of Baroda to fund the upcoming Petrochemicals Project at Dahej, Gujarat.</p>
+            </div>
+            <div className="space-y-3">
+              <h4 className="font-bold text-slate-900 flex items-center gap-2 text-sm uppercase tracking-wider">
+                <Construction className="w-4 h-4 text-indigo-500" /> Project Highlights
+              </h4>
+              <ul className="space-y-2 text-xs text-slate-600">
+                <li className="flex gap-2"><span>•</span> 750 KTPA Propane Dehydrogenation (PDH) plant.</li>
+                <li className="flex gap-2"><span>•</span> 500 KTPA Polypropylene (PP) plant.</li>
+                <li className="flex gap-2"><span>•</span> Enhanced propane & ethane handling facilities.</li>
+              </ul>
+            </div>
+            <div className="pt-4 border-t mt-auto">
+              <div className="p-3 bg-indigo-50 rounded-xl border border-indigo-100">
+                <h5 className="font-bold text-indigo-900 text-[10px] uppercase mb-1">Investment View</h5>
+                <p className="text-[10px] text-indigo-800 leading-relaxed italic">Entry into higher margin petrochemicals, diversified revenue mix, and long-term visibility backed by strong promoters (GAIL, IOCL, BPCL & ONGC).</p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+        
+        {/* Column 9: Empty slot for future expansion */}
+        <Card className="border-dashed border-2 border-slate-300 bg-slate-50 shadow-none flex items-center justify-center h-full min-h-[300px]">
+          <div className="text-center text-slate-400 space-y-2">
+            <BarChart3 className="w-8 h-8 mx-auto" />
+            <p className="text-sm font-medium">Next Scrip Analysis Coming Soon</p>
+          </div>
+        </Card>
+
+      </div>
     </div>
   );
 };
