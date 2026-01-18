@@ -58,6 +58,7 @@ import BeyondValuation from '@/components/dashboard/equity/BeyondValuation';
 import SectorCompetition from '@/components/dashboard/equity/SectorCompetition';
 import CompanyDebt from '@/components/dashboard/equity/CompanyDebt';
 import Valuation from '@/components/dashboard/equity/Valuation';
+import ValueInvesting from '@/components/dashboard/equity/ValueInvesting';
 
 // Gold Components
 import GoldOverview from '@/components/dashboard/gold/GoldOverview';
@@ -189,6 +190,8 @@ const Dashboard = () => {
         return <CompanyDebt />;
       case 'equity-valuation':
         return <Valuation />;
+      case 'equity-value-investing':
+        return <ValueInvesting />;
       case 'equity-fundamental':
         return <FundamentalAnalysis />;
       case 'equity-moat':
@@ -321,6 +324,7 @@ const Dashboard = () => {
       'equity-competition': 'Sector Competition (5 Forces)',
       'equity-debt': 'Corporate Debt Analysis',
       'equity-valuation': 'Valuation Fundamentals',
+      'equity-value-investing': 'Value Investing',
       'equity-fundamental': 'Fundamental Analysis',
       'equity-moat': 'Moat Analysis',
       'equity-pricing-power': 'Pricing Power',
