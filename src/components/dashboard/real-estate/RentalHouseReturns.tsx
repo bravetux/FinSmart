@@ -3,7 +3,7 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Home, DollarSign, TrendingUp, Scale } from 'lucide-react';
-import rentalReturnsImage from '@/assets/does-house-owner-get-8-percent-rent-increase-yoy.jpeg';
+import rentalReturnsImage from '../../../assets/does-house-owner-get-8-percent-rent-increase-yoy.jpeg';
 
 const RentalHouseReturns = () => {
   return (
