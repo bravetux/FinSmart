@@ -67,6 +67,7 @@ import DocumentCheck from '@/components/dashboard/real-estate/DocumentCheck';
 import REITsFractional from '@/components/dashboard/real-estate/REITsFractional';
 import RentalYield from '@/components/dashboard/real-estate/RentalYield';
 import RealEstateTaxation from '@/components/dashboard/real-estate/RealEstateTaxation';
+import RentalHouseReturns from '@/components/dashboard/real-estate/RentalHouseReturns'; // <-- New Import
 
 // Bonds Components
 import BondsOverview from '@/components/dashboard/bonds/BondsOverview';
@@ -212,6 +213,8 @@ const Dashboard = () => {
         return <RentalYield />;
       case 're-taxation':
         return <RealEstateTaxation />;
+      case 're-rental-returns': // <-- New Route
+        return <RentalHouseReturns />;
         
       // Bonds
       case 'bonds-overview':
@@ -316,6 +319,8 @@ const Dashboard = () => {
       're-reits-fractional': 'REITs & Fractional Ownership',
       're-rental-yield': 'Rental Yield Calculation',
       're-taxation': 'Real Estate Taxation',
+      're-rental-returns': 'Rent vs. Buy Analysis', // <-- New Title
+      
       'bonds-overview': 'Corporate Bond Markets',
       'bonds-ratings': 'CRISIL Rating Scale',
       'bonds-importance': 'Credit Ratings',
