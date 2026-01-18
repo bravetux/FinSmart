@@ -3,13 +3,15 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { TrendingUp, ShieldCheck, Zap, ExternalLink, Image as ImageIcon, Search, Coins, Target } from 'lucide-react';
+import { TrendingUp, ShieldCheck, Zap, ExternalLink, Image as ImageIcon, Search, Coins, Target, Users } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
 const ValueInvesting = () => {
   const imageId = "1zWVdRi5BQGMENn78LohVDTjCHSq87JzR";
+  const contrarianId = "1yBX_fqxrCzS-CxhDTu8WFwvAWdXpIP_2";
   const imageUrl = `https://drive.google.com/uc?id=${imageId}&export=download`;
   const viewUrl = `https://drive.google.com/file/d/${imageId}/view?usp=sharing`;
+  const contrarianViewUrl = `https://drive.google.com/file/d/${contrarianId}/view?usp=drive_link`;
 
   return (
     <div className="space-y-12 animate-in fade-in duration-500 pb-12">
@@ -42,6 +44,30 @@ const ValueInvesting = () => {
         </TabsList>
 
         <TabsContent value="principles" className="space-y-12">
+          {/* Section: Value Investors & Contrarian Mindset */}
+          <section className="space-y-6">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+              <div className="space-y-2">
+                <h3 className="text-3xl font-bold text-slate-900 flex items-center gap-3">
+                  <Users className="w-8 h-8 text-blue-600" /> Value Investors
+                </h3>
+                <p className="text-lg text-slate-600 max-w-2xl leading-relaxed">
+                  Value investors generally have a <strong>contrarian mindset</strong>. What does it mean? They’re not afraid to go against the crowd. 
+                  They often invest in out-of-favor stocks that others do not want to invest in at the moment. 
+                  They invest in these companies believing that the demand for this stock will come back when the situation changes.
+                </p>
+              </div>
+              <Button 
+                variant="outline" 
+                size="sm" 
+                className="gap-2 shrink-0 border-blue-200 text-blue-700 hover:bg-blue-50"
+                onClick={() => window.open(contrarianViewUrl, '_blank')}
+              >
+                <ExternalLink className="w-4 h-4" /> View Visual Diagram
+              </Button>
+            </div>
+          </section>
+
           {/* Section 1: Core Concepts */}
           <section className="space-y-6">
             <h3 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
@@ -141,6 +167,10 @@ const ValueInvesting = () => {
                   src={imageUrl} 
                   alt="Value Investing Framework" 
                   className="max-w-full h-auto min-w-[300px] md:min-w-[800px] rounded-lg shadow-sm border border-slate-200 bg-white"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                  }}
                 />
               </div>
             </CardContent>
