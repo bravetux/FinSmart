@@ -2,8 +2,7 @@
 
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Home, DollarSign, TrendingUp, Scale } from 'lucide-react';
-import rentalReturnsImage from '../../../assets/does-house-owner-get-8-percent-rent-increase-yoy.jpeg';
+import { Home, Scale } from 'lucide-react';
 
 const RentalHouseReturns = () => {
   return (
@@ -33,8 +32,9 @@ const RentalHouseReturns = () => {
         </CardHeader>
         <CardContent className="pt-6">
           <div className="overflow-x-auto">
+            {/* Referencing the image directly from the public folder */}
             <img 
-              src={rentalReturnsImage} 
+              src="/rental-returns.jpeg" 
               alt="Rent vs. Buy Financial Flowchart" 
               className="w-full h-auto min-w-[800px] rounded-xl shadow-lg border border-slate-200"
             />
