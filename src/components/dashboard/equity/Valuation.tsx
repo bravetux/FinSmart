@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Calculator, TrendingUp, BookOpen, Layers, Info, ArrowRight, ExternalLink, Image as ImageIcon, Search } from 'lucide-react';
+import { Calculator, TrendingUp, BookOpen, Layers, Info, ArrowRight, ExternalLink, Image as ImageIcon, Search, ShieldCheck } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { useCurrency } from "@/context/CurrencyContext";
 
