@@ -5,6 +5,9 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Home, Scale } from 'lucide-react';
 
 const RentalHouseReturns = () => {
+  // Converted Google Drive link for direct image display
+  const imageUrl = "https://drive.google.com/uc?export=view&id=1aGct9D6fIF7eqlpXmMDogMHXs690cHdS";
+
   return (
     <div className="space-y-12 animate-in fade-in duration-500 pb-12">
       <div className="bg-indigo-600 text-white p-8 md:p-12 rounded-[2.5rem] flex flex-col md:flex-row gap-8 items-center shadow-xl relative overflow-hidden">
@@ -31,17 +34,20 @@ const RentalHouseReturns = () => {
           </CardDescription>
         </CardHeader>
         <CardContent className="pt-6">
-          <div className="overflow-x-auto">
-            {/* Referencing the image directly from the public folder */}
+          <div className="overflow-x-auto bg-slate-50 rounded-xl p-4 md:p-8 flex justify-center">
             <img 
-              src="/rental-returns.jpeg" 
+              src={imageUrl} 
               alt="Rent vs. Buy Financial Flowchart" 
-              className="w-full h-auto min-w-[800px] rounded-xl shadow-lg border border-slate-200"
+              className="max-w-full h-auto min-w-[300px] md:min-w-[800px] rounded-lg shadow-sm border border-slate-200 bg-white"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.src = "https://placehold.co/1200x800/f8fafc/64748b?text=Please+ensure+the+Google+Drive+file+is+set+to+'Anyone+with+the+link'";
+              }}
             />
           </div>
-          <div className="mt-6 p-4 bg-slate-50 rounded-xl border border-slate-100">
-            <p className="text-sm text-slate-700 italic">
-              Note: This analysis highlights the importance of investing the differential amount (EMI - Rent) to maximize long-term wealth, assuming realistic market returns.
+          <div className="mt-6 p-4 bg-blue-50 rounded-xl border border-blue-100">
+            <p className="text-sm text-blue-700 italic">
+              Note: This analysis compares the long-term compounding effect of investing surplus capital into high-growth assets (Renter) versus building equity in a single physical asset (Buyer).
             </p>
           </div>
         </CardContent>
