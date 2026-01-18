@@ -57,6 +57,7 @@ import FaceValueStockSplit from '@/components/dashboard/equity/FaceValueStockSpl
 import BeyondValuation from '@/components/dashboard/equity/BeyondValuation';
 import SectorCompetition from '@/components/dashboard/equity/SectorCompetition';
 import CompanyDebt from '@/components/dashboard/equity/CompanyDebt';
+import Valuation from '@/components/dashboard/equity/Valuation';
 
 // Gold Components
 import GoldOverview from '@/components/dashboard/gold/GoldOverview';
@@ -186,6 +187,8 @@ const Dashboard = () => {
         return <SectorCompetition />;
       case 'equity-debt':
         return <CompanyDebt />;
+      case 'equity-valuation':
+        return <Valuation />;
       case 'equity-fundamental':
         return <FundamentalAnalysis />;
       case 'equity-moat':
@@ -317,6 +320,7 @@ const Dashboard = () => {
       'equity-macro': 'Economic & Macro Analysis',
       'equity-competition': 'Sector Competition (5 Forces)',
       'equity-debt': 'Corporate Debt Analysis',
+      'equity-valuation': 'Valuation Fundamentals',
       'equity-fundamental': 'Fundamental Analysis',
       'equity-moat': 'Moat Analysis',
       'equity-pricing-power': 'Pricing Power',

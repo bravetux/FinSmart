@@ -631,7 +631,7 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                   />
                   
                   {/* Companies Section */}
-                  <Collapsible defaultOpen={currentSection === 'equity-competition' || currentSection === 'equity-debt'}>
+                  <Collapsible defaultOpen={currentSection.startsWith('equity-') && (currentSection === 'equity-competition' || currentSection === 'equity-debt' || currentSection === 'equity-valuation')}>
                     <CollapsibleTrigger className="w-full">
                       <div className="flex items-center justify-between pl-11 pr-4 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900">
                         <span>Companies</span>
@@ -652,6 +652,14 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                         label="Debt" 
                         active={currentSection === 'equity-debt'} 
                         onClick={() => onSectionChange('equity-debt')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
+                      <SidebarItem 
+                        icon={<Calculator className="w-3.5 h-3.5" />}
+                        label="Valuation" 
+                        active={currentSection === 'equity-valuation'} 
+                        onClick={() => onSectionChange('equity-valuation')} 
                         className="pl-14 text-xs" 
                         isCollapsed={isCollapsed} 
                       />
