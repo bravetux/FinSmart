@@ -3,6 +3,7 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ShieldCheck, TrendingUp, Calculator, Layers, Zap, ArrowRight } from 'lucide-react';
 
 const MoatAnalysis = () => {
@@ -26,50 +27,61 @@ const MoatAnalysis = () => {
 
       <section className="space-y-6">
         <h3 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
-          <Calculator className="w-6 h-6 text-blue-600" /> Financial Parameters to Identify Moats
+          <Calculator className="w-6 h-6 text-blue-600" /> Moat Identification Tools
         </h3>
-        <Card>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead className="w-[150px]">Metric</TableHead>
-                <TableHead>What it Measures</TableHead>
-                <TableHead>Moat Indication</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              <TableRow>
-                <TableCell className="font-bold text-blue-700">RoIC</TableCell>
-                <TableCell>Return on Invested Capital</TableCell>
-                <TableCell>Consistently high RoIC (above cost of capital) indicates a strong moat.</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell className="font-bold text-emerald-700">PAT Margin</TableCell>
-                <TableCell>Profit After Tax Margin</TableCell>
-                <TableCell>High and stable margins suggest pricing power and cost efficiency.</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell className="font-bold text-purple-700">Asset Turnover</TableCell>
-                <TableCell>Revenue generated per unit of assets</TableCell>
-                <TableCell>High turnover indicates efficient use of assets, often seen in capital-light businesses.</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell className="font-bold text-orange-700">FCF Yield</TableCell>
-                <TableCell>Free Cash Flow Yield</TableCell>
-                <TableCell>High FCF relative to market cap means the company generates plenty of cash after expenses.</TableCell>
-              </TableRow>
-            </TableBody>
-          </Table>
-        </Card>
         
-        {/* Adding the image here */}
-        <div className="mt-8">
-          <img 
-            src="/parameters-to-identify-moat-companies.jpeg" 
-            alt="Parameters to Identify Moat Companies" 
-            className="w-full h-auto rounded-xl shadow-lg border border-slate-200"
-          />
-        </div>
+        <Tabs defaultValue="metrics" className="w-full">
+          <TabsList className="grid w-full grid-cols-2">
+            <TabsTrigger value="metrics">Financial Metrics</TabsTrigger>
+            <TabsTrigger value="visuals">Moat Visuals</TabsTrigger>
+          </TabsList>
+          
+          <TabsContent value="metrics" className="mt-4">
+            <Card>
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead className="w-[150px]">Metric</TableHead>
+                    <TableHead>What it Measures</TableHead>
+                    <TableHead>Moat Indication</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  <TableRow>
+                    <TableCell className="font-bold text-blue-700">RoIC</TableCell>
+                    <TableCell>Return on Invested Capital</TableCell>
+                    <TableCell>Consistently high RoIC (above cost of capital) indicates a strong moat.</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-bold text-emerald-700">PAT Margin</TableCell>
+                    <TableCell>Profit After Tax Margin</TableCell>
+                    <TableCell>High and stable margins suggest pricing power and cost efficiency.</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-bold text-purple-700">Asset Turnover</TableCell>
+                    <TableCell>Revenue generated per unit of assets</TableCell>
+                    <TableCell>High turnover indicates efficient use of assets, often seen in capital-light businesses.</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-bold text-orange-700">FCF Yield</TableCell>
+                    <TableCell>Free Cash Flow Yield</TableCell>
+                    <TableCell>High FCF relative to market cap means the company generates plenty of cash after expenses.</TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </Card>
+          </TabsContent>
+          
+          <TabsContent value="visuals" className="mt-4">
+            <Card className="p-4">
+              <img 
+                src="/parameters-to-identify-moat-companies.jpeg" 
+                alt="Parameters to Identify Moat Companies" 
+                className="w-full h-auto rounded-xl shadow-lg border border-slate-200"
+              />
+            </Card>
+          </TabsContent>
+        </Tabs>
       </section>
 
       <section className="space-y-6">
