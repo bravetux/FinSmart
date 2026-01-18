@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { Brain, Timer, ShieldCheck, EyeOff, Heart, Target, Quote, DollarSign } from 'lucide-react';
+import { Brain, Timer, ShieldCheck, EyeOff, Heart, Target, Quote, DollarSign, Lightbulb } from 'lucide-react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
@@ -169,6 +169,8 @@ const quoteCategories = [
     icon: <Timer className="w-5 h-5 text-amber-500" />,
     quotes: [
       "Patience > Precision: Great returns aren't born from perfect timing but from steadfast discipline. Sit tight; compounding rewards the waiting.",
+      "Our favourite holding period is forever.",
+      "Whatever age you are today, your future self would love to be it. Today is a good moment. In a few years, you’ll wish you had used it better—or thank yourself for doing so.",
       "Most people quit the stock market too early. The real magic happens after it starts getting hard.",
       "In the stock market, patience and high performance almost always go hand in hand. It's rare to find someone with a high-performing portfolio who is also impatient. Patience remains one of the most important yet undervalued traits in investing.",
       "Most people don't have the patience. When they see a big gap between their stock and the market, they end up selling. But the reality is different. Stocks can stay in a consolidation phase for a long time without any business reason. Even if the business is growing, the stock may not move, because some stocks need strong triggers to break out. The larger the base and the longer the consolidation phase, the stronger the breakout will be. Most people don't think like this and don't have the patience, and that is how they miss most of the opportunities.",
@@ -195,6 +197,24 @@ const quoteCategories = [
     ]
   },
   {
+    title: "Principles",
+    icon: <Lightbulb className="w-5 h-5 text-amber-600" />,
+    quotes: [
+      "“An investment in knowledge pays the best interest.” — Benjamin Franklin",
+      "The more things you have, the more things you must manage. Simplicity isn’t just cheaper—it’s easier.",
+      "If you don’t actively choose a better way, life will choose a worse one for you. The default is distraction, not improvement.",
+      "The amateur does not know what to do. The master knows what not to do.",
+      "Maintain a margin of safety. If your life only handles expected challenges, it will collapse under unexpected ones. Be stronger than you need to be.",
+      "Boredom is a filter. Common ideas come before it. Uncommon ideas come after it.",
+      "Your success depends on the risks you take. Your survival depends on the risks you avoid.",
+      "Don’t sacrifice peace of mind for a piece of luxury.",
+      "Each day, spend time on two things: Building something that pays off years from now; Appreciating something happening right now.",
+      "You don’t need to predict everything. Just master the next step and keep moving forward.",
+      "You are richer than 93% of people—not in money, but in time. Most who ever lived would trade everything they had for today.",
+      "If you do not bend, you will break. The adaptable prevail—determined, but flexible."
+    ]
+  },
+  {
     title: "Clarity",
     icon: <EyeOff className="w-5 h-5 text-indigo-500" />,
     quotes: [
@@ -214,6 +234,8 @@ const quoteCategories = [
     title: "Character",
     icon: <Heart className="w-5 h-5 text-emerald-500" />,
     quotes: [
+      "Your biological age is the number of days you've lived. Your psychological age is the number of thoughts you've entertained. Your sociological age is the number of contributions you've made.",
+      "Consistency enlarges ability.",
       "Even mistakes are important. Without making mistakes, we really don't grow. The key is to ensure that the mistakes are small and manageable—and that we actually learn from them. In fact, the earlier we make those mistakes, the better.",
       "I know many who, despite the market performing well over the last 1-2 years, didn't make money because they missed opportunities, held too long, or exited too early. Mistakes are inevitable. You need to test your investment thesis over a large sample size to understand whether it has an edge. You must face all the setbacks to eventually reach that consistent profitability phase."
     ]
@@ -256,9 +278,9 @@ const Wisdom = () => {
       </p>
       
       <Tabs defaultValue={quoteCategories[0].title} className="w-full">
-        <TabsList className="grid w-full grid-cols-4 md:grid-cols-4 h-auto p-1 bg-slate-200/50 rounded-xl">
+        <TabsList className="grid w-full grid-cols-3 md:grid-cols-5 h-auto p-1 bg-slate-200/50 rounded-xl">
           {quoteCategories.map((category) => (
-            <TabsTrigger key={category.title} value={category.title} className="text-[10px] md:text-xs lg:text-sm py-2">
+            <TabsTrigger key={category.title} value={category.title} className="text-[10px] md:text-xs py-2">
               <div className="flex items-center gap-1 md:gap-2">
                 {category.icon}
                 {category.title}
@@ -304,7 +326,6 @@ const Wisdom = () => {
                     }
                     
                     if (isBullet) {
-                        // Render bullet points as simple list items, spanning full width
                         return (
                             <div key={j} className="md:col-span-2 flex items-start gap-3 p-3 bg-white rounded-lg border border-slate-100">
                                 <span className="text-sm text-primary/80 font-bold mt-0.5 shrink-0">●</span>
