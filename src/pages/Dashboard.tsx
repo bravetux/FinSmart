@@ -59,6 +59,7 @@ import SectorCompetition from '@/components/dashboard/equity/SectorCompetition';
 import CompanyDebt from '@/components/dashboard/equity/CompanyDebt';
 import Valuation from '@/components/dashboard/equity/Valuation';
 import ValueInvesting from '@/components/dashboard/equity/ValueInvesting';
+import QualityAnalysis from '@/components/dashboard/equity/QualityAnalysis';
 
 // Gold Components
 import GoldOverview from '@/components/dashboard/gold/GoldOverview';
@@ -206,6 +207,8 @@ const Dashboard = () => {
         return <TechnicalAnalysis />;
       case 'equity-ipo':
         return <IPOs />;
+      case 'equity-quality':
+        return <QualityAnalysis />;
         
       // Gold
       case 'gold-overview':
@@ -332,6 +335,7 @@ const Dashboard = () => {
       'equity-beyond-valuation': 'Beyond Price Valuation',
       'equity-technical': 'Technical Analysis Basics',
       'equity-ipo': 'IPOs (Going Public)',
+      'equity-quality': 'Quality Analysis',
       
       'gold-overview': 'Gold Investment Overview',
       'gold-physical': 'Physical Gold',

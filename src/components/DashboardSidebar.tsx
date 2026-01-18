@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { BarChart3, LineChart, Building2, ScrollText, Bitcoin, Globe, ShieldCheck, Gem, ChevronDown, ChevronLeft, ChevronRight, Coins, Baby, Banknote, PiggyBank, HandCoins, Zap, ArrowRightLeft, PieChart, ShieldAlert, Calculator, Scale, Rocket, Search, Shield, Heart, Home, Swords, Briefcase, Wallet } from 'lucide-react';
+import { BarChart3, LineChart, Building2, ScrollText, Bitcoin, Globe, ShieldCheck, Gem, ChevronDown, ChevronLeft, ChevronRight, Coins, Baby, Banknote, PiggyBank, HandCoins, Zap, ArrowRightLeft, PieChart, ShieldAlert, Calculator, Scale, Rocket, Search, Shield, Heart, Home, Swords, Briefcase, Wallet, Trophy } from 'lucide-react';
 import { cn } from "@/lib/utils";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { useCurrency } from "@/context/CurrencyContext";
@@ -673,7 +673,7 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                   />
                   
                   {/* Companies Section */}
-                  <Collapsible defaultOpen={currentSection.startsWith('equity-') && (currentSection === 'equity-competition' || currentSection === 'equity-debt' || currentSection === 'equity-valuation' || currentSection === 'equity-value-investing' || currentSection === 'equity-pricing-power')}>
+                  <Collapsible defaultOpen={currentSection.startsWith('equity-') && (currentSection === 'equity-competition' || currentSection === 'equity-debt' || currentSection === 'equity-valuation' || currentSection === 'equity-value-investing' || currentSection === 'equity-pricing-power' || currentSection === 'equity-quality')}>
                     <CollapsibleTrigger className="w-full">
                       <div className="flex items-center justify-between pl-11 pr-4 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900">
                         <span>Companies</span>
@@ -718,6 +718,14 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                         label="Pricing Power" 
                         active={currentSection === 'equity-pricing-power'} 
                         onClick={() => onSectionChange('equity-pricing-power')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
+                      <SidebarItem 
+                        icon={<Trophy className="w-3.5 h-3.5" />}
+                        label="Quality" 
+                        active={currentSection === 'equity-quality'} 
+                        onClick={() => onSectionChange('equity-quality')} 
                         className="pl-14 text-xs" 
                         isCollapsed={isCollapsed} 
                       />
