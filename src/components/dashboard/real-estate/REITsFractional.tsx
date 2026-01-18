@@ -5,7 +5,6 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Building2, TrendingUp, Users, Scale, Zap, ArrowRight } from 'lucide-react';
 import { Badge } from "@/components/ui/badge";
 import { useCurrency } from "@/context/CurrencyContext";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const REITsFractional = () => {
   const { currency } = useCurrency();
@@ -28,92 +27,66 @@ const REITsFractional = () => {
         <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 -mr-16 -mt-16 rounded-full blur-3xl" />
       </div>
 
-      <Tabs defaultValue="modern" className="w-full">
-        <TabsList className="grid w-full grid-cols-2">
-          <TabsTrigger value="modern">REITs & Fractional</TabsTrigger>
-          <TabsTrigger value="rent-vs-buy">Rent vs. Buy Analysis</TabsTrigger>
-        </TabsList>
+      <div className="grid lg:grid-cols-2 gap-8">
+        {/* REITs Card */}
+        <Card className="border-slate-200 shadow-sm">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-slate-900">
+              <Building2 className="w-5 h-5 text-emerald-600" /> Real Estate Investment Trusts (REITs)
+            </CardTitle>
+            <CardDescription>Invest in a portfolio of income-generating properties (like commercial offices or malls).</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="p-4 bg-emerald-50 rounded-xl border border-emerald-100 space-y-2">
+              <h4 className="font-bold text-emerald-900 flex items-center gap-2 text-sm">
+                <Zap className="w-4 h-4" /> Key Features
+              </h4>
+              <ul className="space-y-1 text-xs text-emerald-800">
+                <li>• Traded on stock exchanges (High Liquidity).</li>
+                <li>• Mandatory distribution of 90% of income to unitholders.</li>
+                <li>• Minimum investment is low (around {currency.symbol}10,000 - {currency.symbol}50,000).</li>
+              </ul>
+            </div>
+            <div className="flex items-center gap-3 text-sm text-slate-600">
+              <TrendingUp className="w-4 h-4 text-slate-400 shrink-0" />
+              <p>REITs provide both capital appreciation and regular dividend income.</p>
+            </div>
+          </CardContent>
+        </Card>
 
-        <TabsContent value="modern" className="mt-8 space-y-8">
-          <div className="grid lg:grid-cols-2 gap-8">
-            {/* REITs Card */}
-            <Card className="border-slate-200 shadow-sm">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-slate-900">
-                  <Building2 className="w-5 h-5 text-emerald-600" /> Real Estate Investment Trusts (REITs)
-                </CardTitle>
-                <CardDescription>Invest in a portfolio of income-generating properties (like commercial offices or malls).</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="p-4 bg-emerald-50 rounded-xl border border-emerald-100 space-y-2">
-                  <h4 className="font-bold text-emerald-900 flex items-center gap-2 text-sm">
-                    <Zap className="w-4 h-4" /> Key Features
-                  </h4>
-                  <ul className="space-y-1 text-xs text-emerald-800">
-                    <li>• Traded on stock exchanges (High Liquidity).</li>
-                    <li>• Mandatory distribution of 90% of income to unitholders.</li>
-                    <li>• Minimum investment is low (around {currency.symbol}10,000 - {currency.symbol}50,000).</li>
-                  </ul>
-                </div>
-                <div className="flex items-center gap-3 text-sm text-slate-600">
-                  <TrendingUp className="w-4 h-4 text-slate-400 shrink-0" />
-                  <p>REITs provide both capital appreciation and regular dividend income.</p>
-                </div>
-              </CardContent>
-            </Card>
+        {/* Fractional Ownership Card */}
+        <Card className="border-slate-200 shadow-sm">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-slate-900">
+              <Users className="w-5 h-5 text-purple-600" /> Fractional Ownership
+            </CardTitle>
+            <CardDescription>Multiple investors collectively own a single high-value property.</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="p-4 bg-purple-50 rounded-xl border border-purple-100 space-y-2">
+              <h4 className="font-bold text-purple-900 flex items-center gap-2 text-sm">
+                <Zap className="w-4 h-4" /> Key Features
+              </h4>
+              <ul className="space-y-1 text-xs text-purple-800">
+                <li>• Direct ownership of a specific asset (e.g., a commercial floor).</li>
+                <li>• Higher entry barrier than REITs (typically {currency.symbol}1 Lakh+).</li>
+                <li>• Lower liquidity compared to REITs (exit usually via platform resale).</li>
+              </ul>
+            </div>
+            <div className="flex items-center gap-3 text-sm text-slate-600">
+              <ArrowRight className="w-4 h-4 text-slate-400 shrink-0" />
+              <p>Ideal for investors seeking higher rental yields and direct exposure to premium assets.</p>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
 
-            {/* Fractional Ownership Card */}
-            <Card className="border-slate-200 shadow-sm">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-slate-900">
-                  <Users className="w-5 h-5 text-purple-600" /> Fractional Ownership
-                </CardTitle>
-                <CardDescription>Multiple investors collectively own a single high-value property.</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="p-4 bg-purple-50 rounded-xl border border-purple-100 space-y-2">
-                  <h4 className="font-bold text-purple-900 flex items-center gap-2 text-sm">
-                    <Zap className="w-4 h-4" /> Key Features
-                  </h4>
-                  <ul className="space-y-1 text-xs text-purple-800">
-                    <li>• Direct ownership of a specific asset (e.g., a commercial floor).</li>
-                    <li>• Higher entry barrier than REITs (typically {currency.symbol}1 Lakh+).</li>
-                    <li>• Lower liquidity compared to REITs (exit usually via platform resale).</li>
-                  </ul>
-                </div>
-                <div className="flex items-center gap-3 text-sm text-slate-600">
-                  <ArrowRight className="w-4 h-4 text-slate-400 shrink-0" />
-                  <p>Ideal for investors seeking higher rental yields and direct exposure to premium assets.</p>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
-          <div className="p-8 bg-slate-900 rounded-[2.5rem] text-white space-y-4">
-            <h4 className="text-xl font-bold">The Liquidity Advantage</h4>
-            <p className="text-slate-400 text-sm max-w-2xl leading-relaxed">
-              Both REITs and Fractional Ownership solve the biggest problem of traditional real estate: **illiquidity**. You can buy and sell your stake much faster than selling an entire house.
-            </p>
-          </div>
-        </TabsContent>
-
-        <TabsContent value="rent-vs-buy" className="mt-8 space-y-6">
-          <h3 className="text-2xl font-bold text-slate-900">Does House Owner Get 8% Rent Increase YoY?</h3>
-          <Card className="p-4 border-slate-200 shadow-lg">
-            <img 
-              src="/rent-vs-buy-analysis.jpeg" 
-              alt="Rent vs Buy Analysis Flowchart" 
-              className="w-full h-auto rounded-xl"
-            />
-          </Card>
-          <div className="p-6 bg-blue-50 rounded-2xl border border-blue-100">
-            <h4 className="font-bold text-blue-900 mb-2">Key Takeaway from the Analysis</h4>
-            <p className="text-sm text-blue-800 leading-relaxed">
-              This chart compares two scenarios over 20 years: James (Renting and Investing the difference) vs. Jacob (Buying a house). It highlights that disciplined investing of the differential amount (EMI - Rent) and the down payment can potentially lead to a higher investment corpus than the property's appreciation, especially when considering high rental inflation (8% p.a.) and strong SIP returns (14% p.a.).
-            </p>
-          </div>
-        </TabsContent>
-      </Tabs>
+      <div className="p-8 bg-slate-900 rounded-[2.5rem] text-white space-y-4">
+        <h4 className="text-xl font-bold">The Liquidity Advantage</h4>
+        <p className="text-slate-400 text-sm max-w-2xl leading-relaxed">
+          Both REITs and Fractional Ownership solve the biggest problem of traditional real estate: **illiquidity**. You can buy and sell your stake much faster than selling an entire house.
+        </p>
+      </div>
     </div>
   );
 };
