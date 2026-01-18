@@ -1,15 +1,37 @@
 "use client";
 
 import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Scale, Timer, TrendingUp, ExternalLink, ShieldCheck, Brain, BookOpen, Zap, Users, Target, Shield, Coins, Search, Heart, Briefcase } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { 
+  Scale, 
+  Timer, 
+  TrendingUp, 
+  ExternalLink, 
+  ShieldCheck, 
+  Brain, 
+  BookOpen, 
+  Zap, 
+  Users, 
+  Target, 
+  Shield, 
+  Coins, 
+  Search, 
+  Briefcase,
+  Clock,
+  EyeOff,
+  Activity,
+  Key,
+  Calendar,
+  User,
+  Compass
+} from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
 const EquityLaws = () => {
   const guideId = "1OnluaRytw0RCRhCVJ4stHPMwTSMtQrbD";
   const viewUrl = `https://drive.google.com/file/d/${guideId}/view?usp=drive_link`;
 
-  const laws = [
+  const equityLaws = [
     {
       number: 1,
       title: "Ownership > Trading",
@@ -72,6 +94,69 @@ const EquityLaws = () => {
     }
   ];
 
+  const longTermLaws = [
+    {
+      number: 1,
+      title: "Time Is the Only Real Edge",
+      icon: <Clock className="w-5 h-5 text-blue-600" />,
+      content: "Capital, intelligence, access — all are replicable. Time isn’t. Compounding doesn’t respond to effort. It responds to duration. The biggest mistake isn’t being wrong. It’s not staying long enough to be right."
+    },
+    {
+      number: 2,
+      title: "Long Term Is a Behavior, Not a Horizon",
+      icon: <Brain className="w-5 h-5 text-purple-600" />,
+      content: "Long term isn’t “10 years”. Long term is not reacting when you’re tempted to. Not selling in panic, not chasing what’s hot, not changing plans mid-cycle. Most people know the math. Very few master the behavior."
+    },
+    {
+      number: 3,
+      title: "What You Don’t Do Matters More Than What You Do",
+      icon: <EyeOff className="w-5 h-5 text-slate-600" />,
+      content: "In long-term games: Fewer decisions > more decisions. Avoiding mistakes > making big moves. Not selling early. Not overleveraging. Not panicking. Restraint compounds."
+    },
+    {
+      number: 4,
+      title: "Compounding Is Asymmetric",
+      icon: <Scale className="w-5 h-5 text-emerald-600" />,
+      content: "Losses hurt more than gains help. –50% requires +100% to recover. Small, consistent growth beats big, volatile wins. Long-term thinkers play defense first, offense second."
+    },
+    {
+      number: 5,
+      title: "Optionality Is Power",
+      icon: <Key className="w-5 h-5 text-amber-600" />,
+      content: "Long-term winners preserve choices: Liquidity, Low debt, Flexible timelines. Once you’re forced to act, you’ve already lost leverage. Your current structure (pledge > forced sell) respects this law."
+    },
+    {
+      number: 6,
+      title: "Progress Is Non-Linear",
+      icon: <Activity className="w-5 h-5 text-indigo-600" />,
+      content: "Returns don’t arrive evenly. Years of nothing followed by sudden step-ups. Most wealth is created in bursts, not smooth curves. If you quit during flat periods, you miss the payoff."
+    },
+    {
+      number: 7,
+      title: "Long Term Thinking Requires Short Term Discipline",
+      icon: <Calendar className="w-5 h-5 text-orange-600" />,
+      content: "Irony of life: Long-term freedom comes from short-term control. Budgeting. Health. Routine. Rebalancing. Discipline today buys optionality tomorrow."
+    },
+    {
+      number: 8,
+      title: "Alignment Beats Optimization",
+      icon: <Target className="w-5 h-5 text-red-600" />,
+      content: "You don’t need the best strategy. You need the strategy you’ll stick with. A good plan executed consistently beats a perfect plan abandoned midway."
+    },
+    {
+      number: 9,
+      title: "Identity Drives Outcomes",
+      icon: <User className="w-5 h-5 text-emerald-600" />,
+      content: "People don’t act based on goals. They act based on who they believe they are. If you see yourself as a 'long-term investor' → you behave like one. Identity compounds faster than money."
+    },
+    {
+      number: 10,
+      title: "Long Term Thinking Is Lonely",
+      icon: <Compass className="w-5 h-5 text-sky-600" />,
+      content: "You’ll look wrong before you’re proven right. Others will make faster money, noise will tempt you, doubt will creep in. Silence is the cost of admission for high-performance compounding."
+    }
+  ];
+
   return (
     <div className="space-y-16 animate-in fade-in duration-500 pb-12">
       {/* Hero Header */}
@@ -122,23 +207,53 @@ const EquityLaws = () => {
         </div>
       </section>
 
-      {/* NEW: 📜 The Laws of Equity Investing */}
+      {/* 📜 The Laws of Equity Investing */}
       <section className="space-y-8">
         <div className="text-center space-y-4">
           <div className="flex items-center justify-center gap-3">
              <BookOpen className="w-8 h-8 text-blue-600" />
              <h3 className="text-3xl font-bold text-slate-900">The Laws of Equity Investing</h3>
           </div>
-          <p className="text-slate-500 max-w-2xl mx-auto">Timeless principles for every market cycle.</p>
+          <p className="text-slate-500 max-w-2xl mx-auto">Timeless principles for navigating the stock market universe.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {laws.map((law) => (
+          {equityLaws.map((law) => (
             <Card key={law.number} className="border-slate-100 shadow-sm hover:shadow-md transition-all group overflow-hidden">
               <div className="absolute top-0 left-0 w-1.5 h-full bg-slate-50 group-hover:bg-blue-500 transition-colors" />
               <CardHeader className="pb-2">
                 <div className="flex items-center gap-3">
                   <div className="p-2 bg-slate-50 rounded-lg group-hover:bg-blue-50 transition-colors">
+                    {law.icon}
+                  </div>
+                  <CardTitle className="text-lg">Law #{law.number}: {law.title}</CardTitle>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-slate-600 leading-relaxed">{law.content}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* 🧭 The Laws of Long-Term Thinking & Investing */}
+      <section className="space-y-8 border-t pt-16">
+        <div className="text-center space-y-4">
+          <div className="flex items-center justify-center gap-3">
+             <Compass className="w-8 h-8 text-emerald-600" />
+             <h3 className="text-3xl font-bold text-slate-900">The Laws of Long-Term Thinking & Investing</h3>
+          </div>
+          <p className="text-slate-500 max-w-2xl mx-auto">Fundamental behaviors that separate successful wealth creators from the crowd.</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {longTermLaws.map((law) => (
+            <Card key={law.number} className="border-slate-100 shadow-sm hover:shadow-md transition-all group overflow-hidden">
+              <div className="absolute top-0 left-0 w-1.5 h-full bg-slate-50 group-hover:bg-emerald-500 transition-colors" />
+              <CardHeader className="pb-2">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 bg-slate-50 rounded-lg group-hover:bg-emerald-50 transition-colors">
                     {law.icon}
                   </div>
                   <CardTitle className="text-lg">Law #{law.number}: {law.title}</CardTitle>
@@ -168,7 +283,7 @@ const EquityLaws = () => {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
                {['Patience', 'Conviction', 'Process'].map((item) => (
                  <div key={item} className="flex items-center gap-3 p-4 bg-white/10 rounded-2xl border border-white/10">
-                    <Shield className="w-5 h-5 text-indigo-300" />
+                    <ShieldCheck className="w-5 h-5 text-indigo-300" />
                     <span className="font-bold">{item}</span>
                  </div>
                ))}
