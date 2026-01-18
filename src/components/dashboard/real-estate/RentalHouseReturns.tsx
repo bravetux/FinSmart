@@ -33,7 +33,7 @@ const RentalHouseReturns = () => {
         <CardContent className="pt-6">
           <div className="overflow-x-auto">
             <img 
-              src="/Does House Owner Get 8% Rent Increase YoY.jpeg" 
+              src="/does-house-owner-get-8-percent-rent-increase-yoy.jpeg" 
               alt="Rent vs. Buy Financial Flowchart" 
               className="w-full h-auto min-w-[800px] rounded-xl shadow-lg border border-slate-200"
             />
