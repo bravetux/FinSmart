@@ -61,6 +61,15 @@ const MoatAnalysis = () => {
             </TableBody>
           </Table>
         </Card>
+        
+        {/* Adding the image here */}
+        <div className="mt-8">
+          <img 
+            src="/parameters-to-identify-moat-companies.jpeg" 
+            alt="Parameters to Identify Moat Companies" 
+            className="w-full h-auto rounded-xl shadow-lg border border-slate-200"
+          />
+        </div>
       </section>
 
       <section className="space-y-6">
