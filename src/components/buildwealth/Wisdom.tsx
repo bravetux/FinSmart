@@ -284,8 +284,7 @@ const quoteCategories = [
       "Excellence looks easy only after you try it yourself.",
       "Your biological age is the number of days you've lived. Your psychological age is the number of thoughts you've entertained. Your sociological age is the number of contributions you've made.",
       "Consistency enlarges ability.",
-      "Even mistakes are important. Without making mistakes, we really don't grow. The key is to ensure that the mistakes are small and manageable—and that we actually learn from them. In fact, the earlier we make those mistakes, the better.",
-      "I know many who, despite the market performing well over the last 1-2 years, didn't make money because they missed opportunities, held too long, or exited too early. Mistakes are inevitable. You need to test your investment thesis over a large sample size to understand whether it has an edge. You must face all the setbacks to eventually reach that consistent profitability phase."
+      "Even mistakes are important. Without making mistakes, we really don't grow. The key is to ensure that the mistakes are small and manageable—and that we actually learn from them. In fact, the earlier we make those mistakes, the better."
     ]
   },
   {
