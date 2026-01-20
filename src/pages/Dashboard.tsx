@@ -62,6 +62,8 @@ import Valuation from '@/components/dashboard/equity/Valuation';
 import ValueInvesting from '@/components/dashboard/equity/ValueInvesting';
 import QualityAnalysis from '@/components/dashboard/equity/QualityAnalysis';
 import Scrips from '@/components/dashboard/equity/Scrips';
+import PortfolioManagement from '@/components/dashboard/equity/PortfolioManagement';
+import Derivatives from '@/components/dashboard/equity/Derivatives';
 
 // Gold Components
 import GoldOverview from '@/components/dashboard/gold/GoldOverview';
@@ -218,6 +220,10 @@ const Dashboard = () => {
         return <IPOs />;
       case 'equity-quality':
         return <QualityAnalysis />;
+      case 'equity-portfolio-management':
+        return <PortfolioManagement />;
+      case 'equity-derivatives':
+        return <Derivatives />;
         
       // Gold
       case 'gold-overview':
@@ -351,7 +357,9 @@ const Dashboard = () => {
       'equity-technical': 'Technical Analysis Basics',
       'equity-ipo': 'IPOs (Going Public)',
       'equity-quality': 'Quality Analysis',
-      
+      'equity-portfolio-management': 'Portfolio Management & Risk',
+      'equity-derivatives': 'Futures & Options (F&O) Basics',
+        
       'gold-overview': 'Gold Investment Overview',
       'gold-physical': 'Physical Gold',
       'gold-etf': 'Gold ETFs & Funds',

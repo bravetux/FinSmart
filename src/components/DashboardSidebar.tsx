@@ -745,6 +745,34 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                       />
                     </CollapsibleContent>
                   </Collapsible>
+
+                  {/* New: Portfolio & Derivatives */}
+                  <Collapsible defaultOpen={currentSection === 'equity-portfolio-management' || currentSection === 'equity-derivatives'}>
+                    <CollapsibleTrigger className="w-full">
+                      <div className="flex items-center justify-between pl-11 pr-4 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900">
+                        <span>Advanced Tools</span>
+                        <ChevronDown className="w-3 h-3" />
+                      </div>
+                    </CollapsibleTrigger>
+                    <CollapsibleContent className="space-y-1">
+                      <SidebarItem 
+                        icon={<PieChart className="w-3.5 h-3.5" />}
+                        label="Portfolio & Risk" 
+                        active={currentSection === 'equity-portfolio-management'} 
+                        onClick={() => onSectionChange('equity-portfolio-management')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
+                      <SidebarItem 
+                        icon={<Zap className="w-3.5 h-3.5" />}
+                        label="Derivatives (F&O)" 
+                        active={currentSection === 'equity-derivatives'} 
+                        onClick={() => onSectionChange('equity-derivatives')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
+                    </CollapsibleContent>
+                  </Collapsible>
                 </CollapsibleContent>
               </Collapsible>
             ) : (
