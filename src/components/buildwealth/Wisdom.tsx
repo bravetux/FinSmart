@@ -271,7 +271,6 @@ const quoteCategories = [
     title: "Character",
     icon: <Heart className="w-5 h-5 text-emerald-500" />,
     quotes: [
-      "If you love them more than the fight, end the fight. An apology loses its warmth if it waits too long. Do it now, before the years turn cold.",
       "What looks like a talent gap is often a focus gap. Talent is staying focused.",
       "Take care of the minutes; the hours will take care of themselves.",
       "Decide the type of person you want to be. Prove it to yourself with small wins.",
