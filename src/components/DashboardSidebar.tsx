@@ -385,6 +385,84 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                     isSubItem 
                     isCollapsed={isCollapsed} 
                   />
+                  
+                  {/* Career & Growth */}
+                  <div className="px-4 pt-3 pb-1">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Career & Growth</p>
+                  </div>
+                  <SidebarItem 
+                    label="Career Growth" 
+                    active={currentSection === 'income-career'} 
+                    onClick={() => onSectionChange('income-career')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Income Optimization" 
+                    active={currentSection === 'income-optimization'} 
+                    onClick={() => onSectionChange('income-optimization')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Expense Management" 
+                    active={currentSection === 'income-expenses'} 
+                    onClick={() => onSectionChange('income-expenses')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  
+                  {/* Additional Income */}
+                  <div className="px-4 pt-3 pb-1">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Additional Income</p>
+                  </div>
+                  <SidebarItem 
+                    label="Side Hustles" 
+                    active={currentSection === 'income-side-hustles'} 
+                    onClick={() => onSectionChange('income-side-hustles')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Freelancing" 
+                    active={currentSection === 'income-freelancing'} 
+                    onClick={() => onSectionChange('income-freelancing')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Passive Income" 
+                    active={currentSection === 'income-passive'} 
+                    onClick={() => onSectionChange('income-passive')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Entrepreneurship" 
+                    active={currentSection === 'income-entrepreneurship'} 
+                    onClick={() => onSectionChange('income-entrepreneurship')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  
+                  {/* Protection & Mindset */}
+                  <div className="px-4 pt-3 pb-1">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Protection & Mindset</p>
+                  </div>
+                  <SidebarItem 
+                    label="Income Protection" 
+                    active={currentSection === 'income-protection'} 
+                    onClick={() => onSectionChange('income-protection')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Wealth Mindset" 
+                    active={currentSection === 'income-mindset'} 
+                    onClick={() => onSectionChange('income-mindset')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
                 </CollapsibleContent>
               </Collapsible>
             ) : (
@@ -457,10 +535,59 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                   </div>
                 </CollapsibleTrigger>
                 <CollapsibleContent className="space-y-1">
+                  {/* 📚 FOUNDATIONS */}
+                  {!isCollapsed && (
+                    <div className="px-4 py-2 mt-2">
+                      <div className="flex items-center gap-2 text-[10px] font-bold text-blue-600 uppercase tracking-widest">
+                        <BookOpen className="w-3 h-3" />
+                        <span>Foundations</span>
+                      </div>
+                      <p className="text-[9px] text-slate-500 mt-0.5">Start your MF journey here</p>
+                    </div>
+                  )}
+                  <SidebarItem 
+                    label="Overview" 
+                    active={currentSection === 'mf-overview'} 
+                    onClick={() => onSectionChange('mf-overview')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="How MF Works" 
+                    active={currentSection === 'mf-how-it-works'} 
+                    onClick={() => onSectionChange('mf-how-it-works')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="NAV Explained" 
+                    active={currentSection === 'mf-nav'} 
+                    onClick={() => onSectionChange('mf-nav')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Direct vs Regular" 
+                    active={currentSection === 'mf-direct-regular'} 
+                    onClick={() => onSectionChange('mf-direct-regular')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+
+                  {/* 🎯 TYPES OF MUTUAL FUNDS */}
+                  {!isCollapsed && (
+                    <div className="px-4 py-2 mt-4 border-t border-slate-100 pt-4">
+                      <div className="flex items-center gap-2 text-[10px] font-bold text-purple-600 uppercase tracking-widest">
+                        <PieChart className="w-3 h-3" />
+                        <span>Types of Funds</span>
+                      </div>
+                      <p className="text-[9px] text-slate-500 mt-0.5">Understanding fund categories</p>
+                    </div>
+                  )}
                   <Collapsible defaultOpen={currentSection.includes('-types')} className="space-y-1">
                     <CollapsibleTrigger className="w-full">
                       <div className="flex items-center justify-between pl-11 pr-4 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900">
-                        <span>Types</span>
+                        <span>By Asset Class</span>
                         <ChevronDown className="w-3 h-3" />
                       </div>
                     </CollapsibleTrigger>
@@ -486,6 +613,17 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                         className="pl-14 text-xs" 
                         isCollapsed={isCollapsed} 
                       />
+                    </CollapsibleContent>
+                  </Collapsible>
+
+                  <Collapsible defaultOpen={currentSection === 'mf-goal-types' || currentSection === 'mf-risk-types'}>
+                    <CollapsibleTrigger className="w-full">
+                      <div className="flex items-center justify-between pl-11 pr-4 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900">
+                        <span>By Goal & Risk</span>
+                        <ChevronDown className="w-3 h-3" />
+                      </div>
+                    </CollapsibleTrigger>
+                    <CollapsibleContent className="space-y-1">
                       <SidebarItem 
                         label="Goal Based" 
                         active={currentSection === 'mf-goal-types'} 
@@ -500,54 +638,76 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                         className="pl-14 text-xs" 
                         isCollapsed={isCollapsed} 
                       />
-                      <SidebarItem 
-                        label="Structure Based" 
-                        active={currentSection === 'mf-structure-types'} 
-                        onClick={() => onSectionChange('mf-structure-types')} 
-                        className="pl-14 text-xs" 
-                        isCollapsed={isCollapsed} 
-                      />
                     </CollapsibleContent>
                   </Collapsible>
 
-                  <Collapsible defaultOpen={!currentSection.includes('-types') && currentSection.startsWith('mf-') && currentSection !== 'mf-taxation' && currentSection !== 'mf-metrics' && currentSection !== 'mf-passive'} className="space-y-1">
+                  <SidebarItem 
+                    label="Structure Based" 
+                    active={currentSection === 'mf-structure-types'} 
+                    onClick={() => onSectionChange('mf-structure-types')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+
+                  {/* 💰 INVESTMENT OPTIONS */}
+                  {!isCollapsed && (
+                    <div className="px-4 py-2 mt-4 border-t border-slate-100 pt-4">
+                      <div className="flex items-center gap-2 text-[10px] font-bold text-green-600 uppercase tracking-widest">
+                        <Coins className="w-3 h-3" />
+                        <span>Investment Options</span>
+                      </div>
+                      <p className="text-[9px] text-slate-500 mt-0.5">How to invest & withdraw</p>
+                    </div>
+                  )}
+                  <Collapsible defaultOpen={currentSection === 'mf-sip' || currentSection === 'mf-lumpsum' || currentSection === 'mf-combined'}>
                     <CollapsibleTrigger className="w-full">
                       <div className="flex items-center justify-between pl-11 pr-4 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900">
-                        <span>Options</span>
+                        <span>Investment Methods</span>
                         <ChevronDown className="w-3 h-3" />
                       </div>
                     </CollapsibleTrigger>
                     <CollapsibleContent className="space-y-1">
                       <SidebarItem 
-                        label="SIP" 
+                        label="SIP (Systematic)" 
                         active={currentSection === 'mf-sip'} 
                         onClick={() => onSectionChange('mf-sip')} 
                         className="pl-14 text-xs" 
                         isCollapsed={isCollapsed} 
                       />
                       <SidebarItem 
-                        label="Lumpsum" 
+                        label="Lumpsum (One-time)" 
                         active={currentSection === 'mf-lumpsum'} 
                         onClick={() => onSectionChange('mf-lumpsum')} 
                         className="pl-14 text-xs" 
                         isCollapsed={isCollapsed} 
                       />
                       <SidebarItem 
-                        label="SIP & Lumpsum" 
+                        label="SIP + Lumpsum" 
                         active={currentSection === 'mf-combined'} 
                         onClick={() => onSectionChange('mf-combined')} 
                         className="pl-14 text-xs" 
                         isCollapsed={isCollapsed} 
                       />
+                    </CollapsibleContent>
+                  </Collapsible>
+
+                  <Collapsible defaultOpen={currentSection === 'mf-swp' || currentSection === 'mf-stp'}>
+                    <CollapsibleTrigger className="w-full">
+                      <div className="flex items-center justify-between pl-11 pr-4 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900">
+                        <span>Withdrawal & Transfer</span>
+                        <ChevronDown className="w-3 h-3" />
+                      </div>
+                    </CollapsibleTrigger>
+                    <CollapsibleContent className="space-y-1">
                       <SidebarItem 
-                        label="SWP" 
+                        label="SWP (Systematic Withdrawal)" 
                         active={currentSection === 'mf-swp'} 
                         onClick={() => onSectionChange('mf-swp')} 
                         className="pl-14 text-xs" 
                         isCollapsed={isCollapsed} 
                       />
                       <SidebarItem 
-                        label="STP" 
+                        label="STP (Systematic Transfer)" 
                         active={currentSection === 'mf-stp'} 
                         onClick={() => onSectionChange('mf-stp')} 
                         className="pl-14 text-xs" 
@@ -556,37 +716,210 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                     </CollapsibleContent>
                   </Collapsible>
 
-                  <Collapsible defaultOpen={currentSection === 'mf-taxation' || currentSection === 'mf-metrics' || currentSection === 'mf-passive'} className="space-y-1">
+                  {/* 🔍 FUND SELECTION & ANALYSIS */}
+                  {!isCollapsed && (
+                    <div className="px-4 py-2 mt-4 border-t border-slate-100 pt-4">
+                      <div className="flex items-center gap-2 text-[10px] font-bold text-orange-600 uppercase tracking-widest">
+                        <Search className="w-3 h-3" />
+                        <span>Selection & Analysis</span>
+                      </div>
+                      <p className="text-[9px] text-slate-500 mt-0.5">Choose the right funds</p>
+                    </div>
+                  )}
+                  <SidebarItem 
+                    label="How to Select Funds" 
+                    active={currentSection === 'mf-selection'} 
+                    onClick={() => onSectionChange('mf-selection')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Fund Metrics" 
+                    active={currentSection === 'mf-metrics'} 
+                    onClick={() => onSectionChange('mf-metrics')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Expense Ratio" 
+                    active={currentSection === 'mf-expense-ratio'} 
+                    onClick={() => onSectionChange('mf-expense-ratio')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Fund Manager Analysis" 
+                    active={currentSection === 'mf-fund-manager'} 
+                    onClick={() => onSectionChange('mf-fund-manager')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Fund House Comparison" 
+                    active={currentSection === 'mf-fund-house'} 
+                    onClick={() => onSectionChange('mf-fund-house')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+
+                  {/* 📊 PASSIVE INVESTING */}
+                  {!isCollapsed && (
+                    <div className="px-4 py-2 mt-4 border-t border-slate-100 pt-4">
+                      <div className="flex items-center gap-2 text-[10px] font-bold text-indigo-600 uppercase tracking-widest">
+                        <Rocket className="w-3 h-3" />
+                        <span>Passive Investing</span>
+                      </div>
+                      <p className="text-[9px] text-slate-500 mt-0.5">Index funds & ETFs</p>
+                    </div>
+                  )}
+                  <Collapsible defaultOpen={currentSection === 'mf-passive' || currentSection === 'mf-index-funds' || currentSection === 'mf-etf'}>
                     <CollapsibleTrigger className="w-full">
                       <div className="flex items-center justify-between pl-11 pr-4 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900">
-                        <span>Analysis & Passive</span>
+                        <span>Passive Options</span>
                         <ChevronDown className="w-3 h-3" />
                       </div>
                     </CollapsibleTrigger>
                     <CollapsibleContent className="space-y-1">
                       <SidebarItem 
-                        label="Fund Metrics" 
-                        active={currentSection === 'mf-metrics'} 
-                        onClick={() => onSectionChange('mf-metrics')} 
-                        className="pl-14 text-xs" 
-                        isCollapsed={isCollapsed} 
-                      />
-                      <SidebarItem 
-                        label="Passive Investing" 
+                        label="Passive Investing Basics" 
                         active={currentSection === 'mf-passive'} 
                         onClick={() => onSectionChange('mf-passive')} 
                         className="pl-14 text-xs" 
                         isCollapsed={isCollapsed} 
                       />
                       <SidebarItem 
-                        label="Taxation" 
-                        active={currentSection === 'mf-taxation'} 
-                        onClick={() => onSectionChange('mf-taxation')} 
+                        label="Index Funds" 
+                        active={currentSection === 'mf-index-funds'} 
+                        onClick={() => onSectionChange('mf-index-funds')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
+                      <SidebarItem 
+                        label="ETFs" 
+                        active={currentSection === 'mf-etf'} 
+                        onClick={() => onSectionChange('mf-etf')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
+                      <SidebarItem 
+                        label="Active vs Passive" 
+                        active={currentSection === 'mf-active-passive'} 
+                        onClick={() => onSectionChange('mf-active-passive')} 
                         className="pl-14 text-xs" 
                         isCollapsed={isCollapsed} 
                       />
                     </CollapsibleContent>
                   </Collapsible>
+
+                  {/* 🎯 PORTFOLIO MANAGEMENT */}
+                  {!isCollapsed && (
+                    <div className="px-4 py-2 mt-4 border-t border-slate-100 pt-4">
+                      <div className="flex items-center gap-2 text-[10px] font-bold text-pink-600 uppercase tracking-widest">
+                        <Briefcase className="w-3 h-3" />
+                        <span>Portfolio Management</span>
+                      </div>
+                      <p className="text-[9px] text-slate-500 mt-0.5">Build & maintain your portfolio</p>
+                    </div>
+                  )}
+                  <SidebarItem 
+                    label="Portfolio Construction" 
+                    active={currentSection === 'mf-portfolio'} 
+                    onClick={() => onSectionChange('mf-portfolio')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Diversification" 
+                    active={currentSection === 'mf-diversification'} 
+                    onClick={() => onSectionChange('mf-diversification')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Rebalancing" 
+                    active={currentSection === 'mf-rebalancing'} 
+                    onClick={() => onSectionChange('mf-rebalancing')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Portfolio Review" 
+                    active={currentSection === 'mf-review'} 
+                    onClick={() => onSectionChange('mf-review')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Exit Strategy" 
+                    active={currentSection === 'mf-exit-strategy'} 
+                    onClick={() => onSectionChange('mf-exit-strategy')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+
+                  {/* ⚠️ RISKS & MISTAKES */}
+                  {!isCollapsed && (
+                    <div className="px-4 py-2 mt-4 border-t border-slate-100 pt-4">
+                      <div className="flex items-center gap-2 text-[10px] font-bold text-red-600 uppercase tracking-widest">
+                        <ShieldAlert className="w-3 h-3" />
+                        <span>Risks & Mistakes</span>
+                      </div>
+                      <p className="text-[9px] text-slate-500 mt-0.5">What to avoid</p>
+                    </div>
+                  )}
+                  <SidebarItem 
+                    label="Common Mistakes" 
+                    active={currentSection === 'mf-mistakes'} 
+                    onClick={() => onSectionChange('mf-mistakes')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Risk Management" 
+                    active={currentSection === 'mf-risk-management'} 
+                    onClick={() => onSectionChange('mf-risk-management')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Red Flags" 
+                    active={currentSection === 'mf-red-flags'} 
+                    onClick={() => onSectionChange('mf-red-flags')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+
+                  {/* 💸 TAXATION */}
+                  {!isCollapsed && (
+                    <div className="px-4 py-2 mt-4 border-t border-slate-100 pt-4">
+                      <div className="flex items-center gap-2 text-[10px] font-bold text-amber-600 uppercase tracking-widest">
+                        <Calculator className="w-3 h-3" />
+                        <span>Taxation</span>
+                      </div>
+                      <p className="text-[9px] text-slate-500 mt-0.5">Tax implications & strategies</p>
+                    </div>
+                  )}
+                  <SidebarItem 
+                    label="MF Taxation" 
+                    active={currentSection === 'mf-taxation'} 
+                    onClick={() => onSectionChange('mf-taxation')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Tax Saving Funds (ELSS)" 
+                    active={currentSection === 'mf-elss'} 
+                    onClick={() => onSectionChange('mf-elss')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Tax Optimization" 
+                    active={currentSection === 'mf-tax-optimization'} 
+                    onClick={() => onSectionChange('mf-tax-optimization')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
                 </CollapsibleContent>
               </Collapsible>
             ) : (
@@ -594,7 +927,7 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                 icon={<BarChart3 className="w-4 h-4" />} 
                 label="Mutual Funds" 
                 active={currentSection.startsWith('mf-')} 
-                onClick={() => onSectionChange('mf-equity-types')} 
+                onClick={() => onSectionChange('mf-overview')} 
                 isCollapsed={isCollapsed} 
               />
             )}
@@ -615,6 +948,16 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                   </div>
                 </CollapsibleTrigger>
                 <CollapsibleContent className="space-y-1">
+                  {/* 📚 FOUNDATIONS - Start Here */}
+                  {!isCollapsed && (
+                    <div className="px-4 py-2 mt-2">
+                      <div className="flex items-center gap-2 text-[10px] font-bold text-blue-600 uppercase tracking-widest">
+                        <BookOpen className="w-3 h-3" />
+                        <span>Foundations</span>
+                      </div>
+                      <p className="text-[9px] text-slate-500 mt-0.5">Start your equity journey here</p>
+                    </div>
+                  )}
                   <SidebarItem 
                     label="Overview" 
                     active={currentSection === 'equity-overview'} 
@@ -630,23 +973,9 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                     isCollapsed={isCollapsed} 
                   />
                   <SidebarItem 
-                    label="Scrips" 
-                    active={currentSection === 'equity-scrips'} 
-                    onClick={() => onSectionChange('equity-scrips')} 
-                    isSubItem 
-                    isCollapsed={isCollapsed} 
-                  />
-                  <SidebarItem 
-                    label="Macro Analysis" 
-                    active={currentSection === 'equity-macro'} 
-                    onClick={() => onSectionChange('equity-macro')} 
-                    isSubItem 
-                    isCollapsed={isCollapsed} 
-                  />
-                  <SidebarItem 
-                    label="Face Value & Splits" 
-                    active={currentSection === 'equity-face-value'} 
-                    onClick={() => onSectionChange('equity-face-value')} 
+                    label="Order Types" 
+                    active={currentSection === 'equity-order-types'} 
+                    onClick={() => onSectionChange('equity-order-types')} 
                     isSubItem 
                     isCollapsed={isCollapsed} 
                   />
@@ -658,43 +987,131 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                     isCollapsed={isCollapsed} 
                   />
                   <SidebarItem 
-                    label="Technical Basics" 
-                    active={currentSection === 'equity-technical'} 
-                    onClick={() => onSectionChange('equity-technical')} 
+                    label="Face Value & Splits" 
+                    active={currentSection === 'equity-face-value'} 
+                    onClick={() => onSectionChange('equity-face-value')} 
                     isSubItem 
                     isCollapsed={isCollapsed} 
                   />
                   <SidebarItem 
-                    label="Fundamental Analysis" 
-                    active={currentSection === 'equity-fundamental'} 
-                    onClick={() => onSectionChange('equity-fundamental')} 
+                    label="Corporate Actions" 
+                    active={currentSection === 'equity-corporate-actions'} 
+                    onClick={() => onSectionChange('equity-corporate-actions')} 
                     isSubItem 
                     isCollapsed={isCollapsed} 
                   />
-                  <SidebarItem 
-                    label="Beyond Price Valuation" 
-                    active={currentSection === 'equity-beyond-valuation'} 
-                    onClick={() => onSectionChange('equity-beyond-valuation')} 
-                    isSubItem 
-                    isCollapsed={isCollapsed} 
-                  />
-                  <SidebarItem 
-                    label="Moat Analysis" 
-                    active={currentSection === 'equity-moat'} 
-                    onClick={() => onSectionChange('equity-moat')} 
-                    isSubItem 
-                    isCollapsed={isCollapsed} 
-                  />
-                  
-                  {/* Companies Section */}
-                  <Collapsible defaultOpen={currentSection.startsWith('equity-') && (currentSection === 'equity-competition' || currentSection === 'equity-debt' || currentSection === 'equity-valuation' || currentSection === 'equity-value-investing' || currentSection === 'equity-pricing-power' || currentSection === 'equity-quality')}>
+
+                  {/* 📊 ANALYSIS FRAMEWORKS */}
+                  {!isCollapsed && (
+                    <div className="px-4 py-2 mt-4 border-t border-slate-100 pt-4">
+                      <div className="flex items-center gap-2 text-[10px] font-bold text-purple-600 uppercase tracking-widest">
+                        <BarChart3 className="w-3 h-3" />
+                        <span>Analysis Methods</span>
+                      </div>
+                      <p className="text-[9px] text-slate-500 mt-0.5">Learn to analyze stocks</p>
+                    </div>
+                  )}
+                  <Collapsible defaultOpen={currentSection === 'equity-macro' || currentSection === 'equity-fundamental' || currentSection === 'equity-technical'}>
                     <CollapsibleTrigger className="w-full">
                       <div className="flex items-center justify-between pl-11 pr-4 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900">
-                        <span>Companies</span>
+                        <span>3 Analysis Types</span>
                         <ChevronDown className="w-3 h-3" />
                       </div>
                     </CollapsibleTrigger>
                     <CollapsibleContent className="space-y-1">
+                      <SidebarItem 
+                        icon={<Globe className="w-3.5 h-3.5" />}
+                        label="Macro Analysis" 
+                        active={currentSection === 'equity-macro'} 
+                        onClick={() => onSectionChange('equity-macro')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
+                      <SidebarItem 
+                        icon={<Calculator className="w-3.5 h-3.5" />}
+                        label="Fundamental Analysis" 
+                        active={currentSection === 'equity-fundamental'} 
+                        onClick={() => onSectionChange('equity-fundamental')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
+                      <SidebarItem 
+                        icon={<BarChart3 className="w-3.5 h-3.5" />}
+                        label="Technical Analysis" 
+                        active={currentSection === 'equity-technical'} 
+                        onClick={() => onSectionChange('equity-technical')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
+                    </CollapsibleContent>
+                  </Collapsible>
+
+                  {/* 🏢 COMPANY EVALUATION */}
+                  {!isCollapsed && (
+                    <div className="px-4 py-2 mt-4 border-t border-slate-100 pt-4">
+                      <div className="flex items-center gap-2 text-[10px] font-bold text-emerald-600 uppercase tracking-widest">
+                        <Building2 className="w-3 h-3" />
+                        <span>Company Evaluation</span>
+                      </div>
+                      <p className="text-[9px] text-slate-500 mt-0.5">Deep dive into businesses</p>
+                    </div>
+                  )}
+                  <Collapsible defaultOpen={currentSection.startsWith('equity-') && (currentSection === 'equity-valuation' || currentSection === 'equity-quality' || currentSection === 'equity-moat' || currentSection === 'equity-value-investing' || currentSection === 'equity-beyond-valuation' || currentSection === 'equity-pricing-power' || currentSection === 'equity-competition' || currentSection === 'equity-debt')}>
+                    <CollapsibleTrigger className="w-full">
+                      <div className="flex items-center justify-between pl-11 pr-4 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900">
+                        <span>8 Key Metrics</span>
+                        <ChevronDown className="w-3 h-3" />
+                      </div>
+                    </CollapsibleTrigger>
+                    <CollapsibleContent className="space-y-1">
+                      <SidebarItem 
+                        icon={<Calculator className="w-3.5 h-3.5" />}
+                        label="Valuation" 
+                        active={currentSection === 'equity-valuation'} 
+                        onClick={() => onSectionChange('equity-valuation')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
+                      <SidebarItem 
+                        icon={<Trophy className="w-3.5 h-3.5" />}
+                        label="Quality" 
+                        active={currentSection === 'equity-quality'} 
+                        onClick={() => onSectionChange('equity-quality')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
+                      <SidebarItem 
+                        icon={<ShieldCheck className="w-3.5 h-3.5" />}
+                        label="Moat Analysis" 
+                        active={currentSection === 'equity-moat'} 
+                        onClick={() => onSectionChange('equity-moat')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
+                      <SidebarItem 
+                        icon={<Search className="w-3.5 h-3.5" />}
+                        label="Value Investing" 
+                        active={currentSection === 'equity-value-investing'} 
+                        onClick={() => onSectionChange('equity-value-investing')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
+                      <SidebarItem 
+                        icon={<Compass className="w-3.5 h-3.5" />}
+                        label="Beyond Valuation" 
+                        active={currentSection === 'equity-beyond-valuation'} 
+                        onClick={() => onSectionChange('equity-beyond-valuation')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
+                      <SidebarItem 
+                        icon={<Briefcase className="w-3.5 h-3.5" />}
+                        label="Pricing Power" 
+                        active={currentSection === 'equity-pricing-power'} 
+                        onClick={() => onSectionChange('equity-pricing-power')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
                       <SidebarItem 
                         icon={<Swords className="w-3.5 h-3.5" />}
                         label="Competition" 
@@ -711,50 +1128,96 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                         className="pl-14 text-xs" 
                         isCollapsed={isCollapsed} 
                       />
+                    </CollapsibleContent>
+                  </Collapsible>
+
+                  {/* 🧠 PSYCHOLOGY & TIMING */}
+                  {!isCollapsed && (
+                    <div className="px-4 py-2 mt-4 border-t border-slate-100 pt-4">
+                      <div className="flex items-center gap-2 text-[10px] font-bold text-pink-600 uppercase tracking-widest">
+                        <Heart className="w-3 h-3" />
+                        <span>Psychology & Timing</span>
+                      </div>
+                      <p className="text-[9px] text-slate-500 mt-0.5">Master emotions & market cycles</p>
+                    </div>
+                  )}
+                  <Collapsible defaultOpen={currentSection === 'equity-market-cycles' || currentSection === 'equity-behavioral-finance'}>
+                    <CollapsibleTrigger className="w-full">
+                      <div className="flex items-center justify-between pl-11 pr-4 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900">
+                        <span>Psychology & Timing</span>
+                        <ChevronDown className="w-3 h-3" />
+                      </div>
+                    </CollapsibleTrigger>
+                    <CollapsibleContent className="space-y-1">
                       <SidebarItem 
-                        icon={<Calculator className="w-3.5 h-3.5" />}
-                        label="Valuation" 
-                        active={currentSection === 'equity-valuation'} 
-                        onClick={() => onSectionChange('equity-valuation')} 
+                        icon={<BarChart3 className="w-3.5 h-3.5" />}
+                        label="Market Cycles" 
+                        active={currentSection === 'equity-market-cycles'} 
+                        onClick={() => onSectionChange('equity-market-cycles')} 
                         className="pl-14 text-xs" 
                         isCollapsed={isCollapsed} 
                       />
                       <SidebarItem 
-                        icon={<Search className="w-3.5 h-3.5" />}
-                        label="Value Investing" 
-                        active={currentSection === 'equity-value-investing'} 
-                        onClick={() => onSectionChange('equity-value-investing')} 
-                        className="pl-14 text-xs" 
-                        isCollapsed={isCollapsed} 
-                      />
-                      <SidebarItem 
-                        icon={<Briefcase className="w-3.5 h-3.5" />}
-                        label="Pricing Power" 
-                        active={currentSection === 'equity-pricing-power'} 
-                        onClick={() => onSectionChange('equity-pricing-power')} 
-                        className="pl-14 text-xs" 
-                        isCollapsed={isCollapsed} 
-                      />
-                      <SidebarItem 
-                        icon={<Trophy className="w-3.5 h-3.5" />}
-                        label="Quality" 
-                        active={currentSection === 'equity-quality'} 
-                        onClick={() => onSectionChange('equity-quality')} 
+                        icon={<Heart className="w-3.5 h-3.5" />}
+                        label="Behavioral Finance" 
+                        active={currentSection === 'equity-behavioral-finance'} 
+                        onClick={() => onSectionChange('equity-behavioral-finance')} 
                         className="pl-14 text-xs" 
                         isCollapsed={isCollapsed} 
                       />
                     </CollapsibleContent>
                   </Collapsible>
 
-                  {/* New: Portfolio & Derivatives */}
-                  <Collapsible defaultOpen={currentSection === 'equity-portfolio-management' || currentSection === 'equity-derivatives'}>
+                  {/* 🔍 RESEARCH & TOOLS */}
+                  {!isCollapsed && (
+                    <div className="px-4 py-2 mt-4 border-t border-slate-100 pt-4">
+                      <div className="flex items-center gap-2 text-[10px] font-bold text-orange-600 uppercase tracking-widest">
+                        <Search className="w-3 h-3" />
+                        <span>Research & Tools</span>
+                      </div>
+                      <p className="text-[9px] text-slate-500 mt-0.5">Practical resources</p>
+                    </div>
+                  )}
+                  <SidebarItem 
+                    label="Research Tools" 
+                    onClick={() => onSectionChange('equity-research-tools')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Scrips (Watchlist)" 
+                    active={currentSection === 'equity-scrips'} 
+                    onClick={() => onSectionChange('equity-scrips')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+
+                  {/* 💼 PORTFOLIO STRATEGY */}
+                  {!isCollapsed && (
+                    <div className="px-4 py-2 mt-4 border-t border-slate-100 pt-4">
+                      <div className="flex items-center gap-2 text-[10px] font-bold text-indigo-600 uppercase tracking-widest">
+                        <PieChart className="w-3 h-3" />
+                        <span>Portfolio Strategy</span>
+                      </div>
+                      <p className="text-[9px] text-slate-500 mt-0.5">Build & manage your portfolio</p>
+                    </div>
+                  )}
+                  <Collapsible defaultOpen={currentSection === 'equity-index-investing' || currentSection === 'equity-portfolio-management' || currentSection === 'equity-exit-strategy'}>
                     <CollapsibleTrigger className="w-full">
                       <div className="flex items-center justify-between pl-11 pr-4 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900">
-                        <span>Advanced Tools</span>
+                        <span>3 Building Blocks</span>
                         <ChevronDown className="w-3 h-3" />
                       </div>
                     </CollapsibleTrigger>
                     <CollapsibleContent className="space-y-1">
+                      <SidebarItem 
+                        icon={<BarChart3 className="w-3.5 h-3.5" />}
+                        label="Index Investing" 
+                        active={currentSection === 'equity-index-investing'} 
+                        onClick={() => onSectionChange('equity-index-investing')} 
+                        className="pl-14 text-xs" 
+                        isCollapsed={isCollapsed} 
+                      />
                       <SidebarItem 
                         icon={<PieChart className="w-3.5 h-3.5" />}
                         label="Portfolio & Risk" 
@@ -764,15 +1227,40 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                         isCollapsed={isCollapsed} 
                       />
                       <SidebarItem 
-                        icon={<Zap className="w-3.5 h-3.5" />}
-                        label="Derivatives (F&O)" 
-                        active={currentSection === 'equity-derivatives'} 
-                        onClick={() => onSectionChange('equity-derivatives')} 
+                        icon={<Compass className="w-3.5 h-3.5" />}
+                        label="Exit Strategy" 
+                        active={currentSection === 'equity-exit-strategy'} 
+                        onClick={() => onSectionChange('equity-exit-strategy')} 
                         className="pl-14 text-xs" 
                         isCollapsed={isCollapsed} 
                       />
                     </CollapsibleContent>
                   </Collapsible>
+
+                  {/* 💰 TAX & ADVANCED */}
+                  {!isCollapsed && (
+                    <div className="px-4 py-2 mt-4 border-t border-slate-100 pt-4">
+                      <div className="flex items-center gap-2 text-[10px] font-bold text-red-600 uppercase tracking-widest">
+                        <Zap className="w-3 h-3" />
+                        <span>Tax & Advanced</span>
+                      </div>
+                      <p className="text-[9px] text-slate-500 mt-0.5">Optimize & go deeper</p>
+                    </div>
+                  )}
+                  <SidebarItem 
+                    label="Tax Strategy" 
+                    active={currentSection === 'equity-tax-strategy'} 
+                    onClick={() => onSectionChange('equity-tax-strategy')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Derivatives (F&O)" 
+                    active={currentSection === 'equity-derivatives'} 
+                    onClick={() => onSectionChange('equity-derivatives')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
                 </CollapsibleContent>
               </Collapsible>
             ) : (
@@ -871,6 +1359,10 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                   </div>
                 </CollapsibleTrigger>
                 <CollapsibleContent className="space-y-1">
+                  {/* Foundations */}
+                  <div className="px-4 py-2 text-xs font-semibold text-slate-500 uppercase tracking-wide">
+                    Foundations
+                  </div>
                   <SidebarItem 
                     label="Overview" 
                     active={currentSection === 're-overview'} 
@@ -879,9 +1371,42 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                     isCollapsed={isCollapsed} 
                   />
                   <SidebarItem 
-                    label="Rent vs. Buy Analysis" 
-                    active={currentSection === 're-rental-returns'} 
-                    onClick={() => onSectionChange('re-rental-returns')} 
+                    label="Investment Types" 
+                    active={currentSection === 're-investment-types'} 
+                    onClick={() => onSectionChange('re-investment-types')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Residential vs Commercial" 
+                    active={currentSection === 're-residential-commercial'} 
+                    onClick={() => onSectionChange('re-residential-commercial')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Location Analysis" 
+                    active={currentSection === 're-location-analysis'} 
+                    onClick={() => onSectionChange('re-location-analysis')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+
+                  {/* Due Diligence */}
+                  <div className="px-4 py-2 text-xs font-semibold text-slate-500 uppercase tracking-wide mt-2">
+                    Due Diligence
+                  </div>
+                  <SidebarItem 
+                    label="Property Valuation" 
+                    active={currentSection === 're-property-valuation'} 
+                    onClick={() => onSectionChange('re-property-valuation')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Legal Due Diligence" 
+                    active={currentSection === 're-legal-diligence'} 
+                    onClick={() => onSectionChange('re-legal-diligence')} 
                     isSubItem 
                     isCollapsed={isCollapsed} 
                   />
@@ -893,6 +1418,91 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                     isCollapsed={isCollapsed} 
                   />
                   <SidebarItem 
+                    label="Builder Research" 
+                    active={currentSection === 're-builder-research'} 
+                    onClick={() => onSectionChange('re-builder-research')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Market Research" 
+                    active={currentSection === 're-market-research'} 
+                    onClick={() => onSectionChange('re-market-research')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+
+                  {/* Financing */}
+                  <div className="px-4 py-2 text-xs font-semibold text-slate-500 uppercase tracking-wide mt-2">
+                    Financing
+                  </div>
+                  <SidebarItem 
+                    label="Home Loan Basics" 
+                    active={currentSection === 're-home-loan-basics'} 
+                    onClick={() => onSectionChange('re-home-loan-basics')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="EMI Planning" 
+                    active={currentSection === 're-emi-planning'} 
+                    onClick={() => onSectionChange('re-emi-planning')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Loan Eligibility" 
+                    active={currentSection === 're-loan-eligibility'} 
+                    onClick={() => onSectionChange('re-loan-eligibility')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+
+                  {/* Investment Analysis */}
+                  <div className="px-4 py-2 text-xs font-semibold text-slate-500 uppercase tracking-wide mt-2">
+                    Investment Analysis
+                  </div>
+                  <SidebarItem 
+                    label="Rent vs Buy" 
+                    active={currentSection === 're-rental-returns'} 
+                    onClick={() => onSectionChange('re-rental-returns')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="ROI & Cash Flow" 
+                    active={currentSection === 're-roi-analysis'} 
+                    onClick={() => onSectionChange('re-roi-analysis')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Rental Yield Calculator" 
+                    active={currentSection === 're-rental-yield'} 
+                    onClick={() => onSectionChange('re-rental-yield')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Appreciation Factors" 
+                    active={currentSection === 're-appreciation-factors'} 
+                    onClick={() => onSectionChange('re-appreciation-factors')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Exit Strategy" 
+                    active={currentSection === 're-exit-strategy'} 
+                    onClick={() => onSectionChange('re-exit-strategy')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+
+                  {/* Alternative Investments */}
+                  <div className="px-4 py-2 text-xs font-semibold text-slate-500 uppercase tracking-wide mt-2">
+                    Alternative Investments
+                  </div>
+                  <SidebarItem 
                     label="REITs & Fractional" 
                     active={currentSection === 're-reits-fractional'} 
                     onClick={() => onSectionChange('re-reits-fractional')} 
@@ -900,9 +1510,49 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                     isCollapsed={isCollapsed} 
                   />
                   <SidebarItem 
-                    label="Rental Yield Calc" 
-                    active={currentSection === 're-rental-yield'} 
-                    onClick={() => onSectionChange('re-rental-yield')} 
+                    label="Commercial Properties" 
+                    active={currentSection === 're-commercial'} 
+                    onClick={() => onSectionChange('re-commercial')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Plots & Under Construction" 
+                    active={currentSection === 're-plots-construction'} 
+                    onClick={() => onSectionChange('re-plots-construction')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+
+                  {/* Risk & Tax */}
+                  <div className="px-4 py-2 text-xs font-semibold text-slate-500 uppercase tracking-wide mt-2">
+                    Risk & Tax
+                  </div>
+                  <SidebarItem 
+                    label="Common Mistakes" 
+                    active={currentSection === 're-common-mistakes'} 
+                    onClick={() => onSectionChange('re-common-mistakes')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Red Flags" 
+                    active={currentSection === 're-red-flags'} 
+                    onClick={() => onSectionChange('re-red-flags')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Risk Mitigation" 
+                    active={currentSection === 're-risk-mitigation'} 
+                    onClick={() => onSectionChange('re-risk-mitigation')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Hidden Costs" 
+                    active={currentSection === 're-hidden-costs'} 
+                    onClick={() => onSectionChange('re-hidden-costs')} 
                     isSubItem 
                     isCollapsed={isCollapsed} 
                   />
@@ -941,10 +1591,94 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                   </div>
                 </CollapsibleTrigger>
                 <CollapsibleContent className="space-y-1">
+                  {/* Foundations */}
+                  <div className="px-4 py-2 text-xs font-semibold text-slate-500 uppercase tracking-wide">
+                    Foundations
+                  </div>
                   <SidebarItem 
                     label="Overview" 
                     active={currentSection === 'bonds-overview'} 
                     onClick={() => onSectionChange('bonds-overview')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Bond Basics" 
+                    active={currentSection === 'bonds-basics'} 
+                    onClick={() => onSectionChange('bonds-basics')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Types of Bonds" 
+                    active={currentSection === 'bonds-types'} 
+                    onClick={() => onSectionChange('bonds-types')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Government Bonds" 
+                    active={currentSection === 'bonds-government'} 
+                    onClick={() => onSectionChange('bonds-government')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Corporate Bonds" 
+                    active={currentSection === 'bonds-corporate'} 
+                    onClick={() => onSectionChange('bonds-corporate')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+
+                  {/* Selection & Purchase */}
+                  <div className="px-4 py-2 text-xs font-semibold text-slate-500 uppercase tracking-wide mt-2">
+                    Selection & Purchase
+                  </div>
+                  <SidebarItem 
+                    label="How to Buy Bonds" 
+                    active={currentSection === 'bonds-how-to-buy'} 
+                    onClick={() => onSectionChange('bonds-how-to-buy')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Bond Selection" 
+                    active={currentSection === 'bonds-selection'} 
+                    onClick={() => onSectionChange('bonds-selection')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Credit Ratings" 
+                    active={currentSection === 'bonds-ratings'} 
+                    onClick={() => onSectionChange('bonds-ratings')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Rating Importance" 
+                    active={currentSection === 'bonds-importance'} 
+                    onClick={() => onSectionChange('bonds-importance')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Bond Research" 
+                    active={currentSection === 'bonds-research'} 
+                    onClick={() => onSectionChange('bonds-research')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+
+                  {/* Returns & Calculations */}
+                  <div className="px-4 py-2 text-xs font-semibold text-slate-500 uppercase tracking-wide mt-2">
+                    Returns & Calculations
+                  </div>
+                  <SidebarItem 
+                    label="Yield Calculations" 
+                    active={currentSection === 'bonds-yield'} 
+                    onClick={() => onSectionChange('bonds-yield')} 
                     isSubItem 
                     isCollapsed={isCollapsed} 
                   />
@@ -956,30 +1690,83 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                     isCollapsed={isCollapsed} 
                   />
 
-                  <Collapsible defaultOpen={currentSection.startsWith('bonds-') && currentSection !== 'bonds-overview' && currentSection !== 'bonds-consider'}>
-                    <CollapsibleTrigger className="w-full">
-                      <div className="flex items-center justify-between pl-11 pr-4 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900">
-                        <span>Credit Ratings</span>
-                        <ChevronDown className="w-3 h-3" />
-                      </div>
-                    </CollapsibleTrigger>
-                    <CollapsibleContent className="space-y-1">
-                      <SidebarItem 
-                        label="Importance" 
-                        active={currentSection === 'bonds-importance'} 
-                        onClick={() => onSectionChange('bonds-importance')} 
-                        className="pl-14 text-xs" 
-                        isCollapsed={isCollapsed} 
-                      />
-                      <SidebarItem 
-                        label="Rating Scale" 
-                        active={currentSection === 'bonds-ratings'} 
-                        onClick={() => onSectionChange('bonds-ratings')} 
-                        className="pl-14 text-xs" 
-                        isCollapsed={isCollapsed} 
-                      />
-                    </CollapsibleContent>
-                  </Collapsible>
+                  {/* Risk Management */}
+                  <div className="px-4 py-2 text-xs font-semibold text-slate-500 uppercase tracking-wide mt-2">
+                    Risk Management
+                  </div>
+                  <SidebarItem 
+                    label="Interest Rate Risk" 
+                    active={currentSection === 'bonds-interest-risk'} 
+                    onClick={() => onSectionChange('bonds-interest-risk')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Credit Risk" 
+                    active={currentSection === 'bonds-credit-risk'} 
+                    onClick={() => onSectionChange('bonds-credit-risk')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Bond Risks" 
+                    active={currentSection === 'bonds-risks'} 
+                    onClick={() => onSectionChange('bonds-risks')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Common Mistakes" 
+                    active={currentSection === 'bonds-mistakes'} 
+                    onClick={() => onSectionChange('bonds-mistakes')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+
+                  {/* Portfolio Strategy */}
+                  <div className="px-4 py-2 text-xs font-semibold text-slate-500 uppercase tracking-wide mt-2">
+                    Portfolio Strategy
+                  </div>
+                  <SidebarItem 
+                    label="Bond Laddering" 
+                    active={currentSection === 'bonds-laddering'} 
+                    onClick={() => onSectionChange('bonds-laddering')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Portfolio Construction" 
+                    active={currentSection === 'bonds-portfolio'} 
+                    onClick={() => onSectionChange('bonds-portfolio')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Bonds vs Debt Funds" 
+                    active={currentSection === 'bonds-vs-debt-funds'} 
+                    onClick={() => onSectionChange('bonds-vs-debt-funds')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+
+                  {/* Platforms & Tax */}
+                  <div className="px-4 py-2 text-xs font-semibold text-slate-500 uppercase tracking-wide mt-2">
+                    Platforms & Tax
+                  </div>
+                  <SidebarItem 
+                    label="Trading Platforms" 
+                    active={currentSection === 'bonds-platforms'} 
+                    onClick={() => onSectionChange('bonds-platforms')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Taxation" 
+                    active={currentSection === 'bonds-taxation'} 
+                    onClick={() => onSectionChange('bonds-taxation')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
                 </CollapsibleContent>
               </Collapsible>
             ) : (
