@@ -1961,6 +1961,16 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                 isCollapsed={isCollapsed} 
               />
             )}
+
+            {/* Build Wealth Link */}
+            <div className="pt-2">
+              <SidebarItem 
+                icon={<Rocket className="w-4 h-4" />} 
+                label="Build Wealth" 
+                onClick={() => navigate('/build-wealth')} 
+                isCollapsed={isCollapsed} 
+              />
+            </div>
           </nav>
         </div>
 
