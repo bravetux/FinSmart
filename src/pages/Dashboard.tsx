@@ -163,10 +163,18 @@ import BondTaxation from '@/components/dashboard/bonds/BondTaxation';
 
 // Loans Components
 import LoansOverview from '@/components/dashboard/loans/LoansOverview';
+import TypesOfLoans from '@/components/dashboard/loans/TypesOfLoans';
+import WhenToTakeLoans from '@/components/dashboard/loans/WhenToTakeLoans';
+import HowLoansWork from '@/components/dashboard/loans/HowLoansWork';
+import SmartBorrowing from '@/components/dashboard/loans/SmartBorrowing';
+import LoanClosure from '@/components/dashboard/loans/LoanClosure';
 
 // Insurance Components
+import InsuranceOverview from '@/components/dashboard/insurance/InsuranceOverview';
 import HealthInsurance from '@/components/dashboard/insurance/HealthInsurance';
 import TermInsurance from '@/components/dashboard/insurance/TermInsurance';
+import VehicleInsurance from '@/components/dashboard/insurance/VehicleInsurance';
+import BusinessInsurance from '@/components/dashboard/insurance/BusinessInsurance';
 
 // Diversification: PMS / AIF / SIF / Bitcoin / Overseas
 import PMS from '@/components/dashboard/diversification/PMS';
@@ -244,10 +252,16 @@ const Dashboard = () => {
         return <WealthMindset />;
         
       // Insurance
+      case 'insurance-overview':
+        return <InsuranceOverview />;
       case 'insurance-health':
         return <HealthInsurance />;
       case 'insurance-term':
         return <TermInsurance />;
+      case 'insurance-vehicle':
+        return <VehicleInsurance />;
+      case 'insurance-business':
+        return <BusinessInsurance />;
 
       // Mutual Funds - Foundations
       case 'mf-overview':
@@ -502,6 +516,16 @@ const Dashboard = () => {
       // Loans
       case 'loans-overview':
         return <LoansOverview />;
+      case 'loans-types':
+        return <TypesOfLoans />;
+      case 'loans-when':
+        return <WhenToTakeLoans />;
+      case 'loans-how':
+        return <HowLoansWork />;
+      case 'loans-smart':
+        return <SmartBorrowing />;
+      case 'loans-closure':
+        return <LoanClosure />;
 
       // Diversification
       case 'pms':
@@ -559,8 +583,11 @@ const Dashboard = () => {
       
       'income-overview': 'Income Roadmap',
       
+      'insurance-overview': 'Insurance 101',
       'insurance-health': 'Health Insurance',
       'insurance-term': 'Term Insurance',
+      'insurance-vehicle': 'Vehicle Insurance',
+      'insurance-business': 'Business Insurance',
 
       'mf-equity-types': 'Equity Funds',
       'mf-debt-types': 'Debt Funds',
@@ -623,6 +650,11 @@ const Dashboard = () => {
       'bonds-consider': 'Things to Consider',
 
       'loans-overview': 'Loan Overview',
+      'loans-types': 'Types of Loans',
+      'loans-when': 'When to Take Loans',
+      'loans-how': 'How Loans Work',
+      'loans-smart': 'Smart Borrowing',
+      'loans-closure': 'Loan Closure Tips',
 
       // Diversification
       'pms': 'Portfolio Management Services (PMS)',

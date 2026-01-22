@@ -492,6 +492,14 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                 </CollapsibleTrigger>
                 <CollapsibleContent className="space-y-1">
                   <SidebarItem 
+                    icon={<BookOpen className="w-4 h-4" />}
+                    label="Insurance 101" 
+                    active={currentSection === 'insurance-overview'} 
+                    onClick={() => onSectionChange('insurance-overview')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
                     icon={<Heart className="w-4 h-4" />}
                     label="Health Insurance" 
                     active={currentSection === 'insurance-health'} 
@@ -507,6 +515,22 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                     isSubItem 
                     isCollapsed={isCollapsed} 
                   />
+                  <SidebarItem 
+                    icon={<Swords className="w-4 h-4" />}
+                    label="Vehicle Insurance" 
+                    active={currentSection === 'insurance-vehicle'} 
+                    onClick={() => onSectionChange('insurance-vehicle')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    icon={<Briefcase className="w-4 h-4" />}
+                    label="Business Insurance" 
+                    active={currentSection === 'insurance-business'} 
+                    onClick={() => onSectionChange('insurance-business')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
                 </CollapsibleContent>
               </Collapsible>
             ) : (
@@ -514,7 +538,7 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                 icon={<Shield className="w-4 h-4" />} 
                 label="Insurance" 
                 active={currentSection.startsWith('insurance-')} 
-                onClick={() => onSectionChange('insurance-health')} 
+                onClick={() => onSectionChange('insurance-overview')} 
                 isCollapsed={isCollapsed} 
               />
             )}
@@ -1799,6 +1823,41 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                     label="Overview" 
                     active={currentSection === 'loans-overview'} 
                     onClick={() => onSectionChange('loans-overview')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Types of Loans" 
+                    active={currentSection === 'loans-types'} 
+                    onClick={() => onSectionChange('loans-types')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="When to Take" 
+                    active={currentSection === 'loans-when'} 
+                    onClick={() => onSectionChange('loans-when')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="How Loans Work" 
+                    active={currentSection === 'loans-how'} 
+                    onClick={() => onSectionChange('loans-how')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Smart Borrowing" 
+                    active={currentSection === 'loans-smart'} 
+                    onClick={() => onSectionChange('loans-smart')} 
+                    isSubItem 
+                    isCollapsed={isCollapsed} 
+                  />
+                  <SidebarItem 
+                    label="Loan Closure Tips" 
+                    active={currentSection === 'loans-closure'} 
+                    onClick={() => onSectionChange('loans-closure')} 
                     isSubItem 
                     isCollapsed={isCollapsed} 
                   />
