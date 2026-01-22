@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BarChart3, LineChart, Building2, ScrollText, Bitcoin, Globe, ShieldCheck, Gem, ChevronDown, ChevronLeft, ChevronRight, Coins, Baby, Banknote, PiggyBank, HandCoins, Zap, ArrowRightLeft, PieChart, ShieldAlert, Calculator, Scale, Rocket, Search, Shield, Heart, Home, Swords, Briefcase, Wallet, Trophy, BookOpen, Compass } from 'lucide-react';
 import { cn } from "@/lib/utils";
@@ -56,6 +56,36 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
   const navigate = useNavigate();
   const [isCollapsed, setIsCollapsed] = useState(false);
   const { currency, setCurrencyByCode, currencies } = useCurrency();
+  
+  // Controlled state for each main section
+  const [openSections, setOpenSections] = useState<Record<string, boolean>>({
+    kids: currentSection.startsWith('kids-'),
+    income: currentSection.startsWith('income-'),
+    insurance: currentSection.startsWith('insurance-'),
+    mf: currentSection.startsWith('mf-'),
+    equity: currentSection.startsWith('equity-'),
+    gold: currentSection.startsWith('gold-'),
+    realEstate: currentSection.startsWith('re-'),
+    bonds: currentSection.startsWith('bonds-'),
+    loans: currentSection.startsWith('loans-'),
+    diversification: ['pms', 'aif', 'sif', 'bitcoin', 'overseas'].includes(currentSection)
+  });
+
+  // Update open sections when currentSection changes
+  useEffect(() => {
+    setOpenSections({
+      kids: currentSection.startsWith('kids-'),
+      income: currentSection.startsWith('income-'),
+      insurance: currentSection.startsWith('insurance-'),
+      mf: currentSection.startsWith('mf-'),
+      equity: currentSection.startsWith('equity-'),
+      gold: currentSection.startsWith('gold-'),
+      realEstate: currentSection.startsWith('re-'),
+      bonds: currentSection.startsWith('bonds-'),
+      loans: currentSection.startsWith('loans-'),
+      diversification: ['pms', 'aif', 'sif', 'bitcoin', 'overseas'].includes(currentSection)
+    });
+  }, [currentSection]);
 
   return (
     <TooltipProvider>
@@ -149,7 +179,7 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
           <nav className="space-y-1 flex-1">
             {/* Kids */}
             {!isCollapsed ? (
-              <Collapsible defaultOpen={currentSection.startsWith('kids-')} className="space-y-1">
+              <Collapsible open={openSections.kids} onOpenChange={(open) => setOpenSections(prev => ({ ...prev, kids: open }))} className="space-y-1">
                 <CollapsibleTrigger className="w-full">
                   <div className={cn(
                     "flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-colors",
@@ -364,7 +394,7 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
 
             {/* Income Section */}
             {!isCollapsed ? (
-              <Collapsible defaultOpen={currentSection.startsWith('income-')} className="space-y-1">
+              <Collapsible open={openSections.income} onOpenChange={(open) => setOpenSections(prev => ({ ...prev, income: open }))} className="space-y-1">
                 <CollapsibleTrigger className="w-full">
                   <div className={cn(
                     "flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-colors",
@@ -477,7 +507,7 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
             
             {/* Insurance */}
             {!isCollapsed ? (
-              <Collapsible defaultOpen={currentSection.startsWith('insurance-')} className="space-y-1">
+              <Collapsible open={openSections.insurance} onOpenChange={(open) => setOpenSections(prev => ({ ...prev, insurance: open }))} className="space-y-1">
                 <CollapsibleTrigger className="w-full">
                   <div className={cn(
                     "flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-colors",
@@ -545,7 +575,7 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
 
             {/* Mutual Funds */}
             {!isCollapsed ? (
-              <Collapsible defaultOpen={currentSection.startsWith('mf-')} className="space-y-1">
+              <Collapsible open={openSections.mf} onOpenChange={(open) => setOpenSections(prev => ({ ...prev, mf: open }))} className="space-y-1">
                 <CollapsibleTrigger className="w-full">
                   <div className={cn(
                     "flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-colors",
@@ -958,7 +988,7 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
 
             {/* Equity */}
             {!isCollapsed ? (
-              <Collapsible defaultOpen={currentSection.startsWith('equity-')} className="space-y-1">
+              <Collapsible open={openSections.equity} onOpenChange={(open) => setOpenSections(prev => ({ ...prev, equity: open }))} className="space-y-1">
                 <CollapsibleTrigger className="w-full">
                   <div className={cn(
                     "flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-colors",
@@ -1299,7 +1329,7 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
 
             {/* Gold */}
             {!isCollapsed ? (
-              <Collapsible defaultOpen={currentSection.startsWith('gold-')} className="space-y-1">
+              <Collapsible open={openSections.gold} onOpenChange={(open) => setOpenSections(prev => ({ ...prev, gold: open }))} className="space-y-1">
                 <CollapsibleTrigger className="w-full">
                   <div className={cn(
                     "flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-colors",
@@ -1369,7 +1399,7 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
 
             {/* Real Estate */}
             {!isCollapsed ? (
-              <Collapsible defaultOpen={currentSection.startsWith('re-')} className="space-y-1">
+              <Collapsible open={openSections.realEstate} onOpenChange={(open) => setOpenSections(prev => ({ ...prev, realEstate: open }))} className="space-y-1">
                 <CollapsibleTrigger className="w-full">
                   <div className={cn(
                     "flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-colors",
@@ -1601,7 +1631,7 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
 
             {/* Bonds */}
             {!isCollapsed ? (
-              <Collapsible defaultOpen={currentSection.startsWith('bonds-')} className="space-y-1">
+              <Collapsible open={openSections.bonds} onOpenChange={(open) => setOpenSections(prev => ({ ...prev, bonds: open }))} className="space-y-1">
                 <CollapsibleTrigger className="w-full">
                   <div className={cn(
                     "flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-colors",
@@ -1805,7 +1835,7 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
 
             {/* Loans Section */}
             {!isCollapsed ? (
-              <Collapsible defaultOpen={currentSection.startsWith('loans-')} className="space-y-1">
+              <Collapsible open={openSections.loans} onOpenChange={(open) => setOpenSections(prev => ({ ...prev, loans: open }))} className="space-y-1">
                 <CollapsibleTrigger className="w-full">
                   <div className={cn(
                     "flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-colors",
@@ -1875,7 +1905,7 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
 
             {/* Diversification */}
             {!isCollapsed ? (
-              <Collapsible className="pt-2">
+              <Collapsible open={openSections.diversification} onOpenChange={(open) => setOpenSections(prev => ({ ...prev, diversification: open }))} className="pt-2">
                 <CollapsibleTrigger className="w-full">
                   <div className="flex items-center justify-between px-4 py-2 text-xs font-semibold text-slate-400 uppercase tracking-wider hover:text-slate-600">
                     Diversification

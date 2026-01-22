@@ -1,5 +1,6 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import DashboardSidebar from '@/components/DashboardSidebar';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -185,7 +186,37 @@ import Overseas from '@/components/dashboard/diversification/Overseas';
 
 
 const Dashboard = () => {
+  const [searchParams] = useSearchParams();
   const [activeSection, setActiveSection] = useState('kids-overview');
+  const mainContentRef = React.useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const section = searchParams.get('section');
+    if (section) {
+      // Map section query parameter to actual section IDs
+      const sectionMap: { [key: string]: string } = {
+        'kids': 'kids-overview',
+        'income': 'income-overview',
+        'insurance': 'insurance-overview',
+        'loans': 'loans-overview',
+        'mf': 'mf-overview',
+        'equity': 'equity-overview',
+        'bonds': 'bonds-overview',
+        'gold': 'gold-overview',
+        'real-estate': 're-overview',
+        'diversification': 'pms'
+      };
+      const mappedSection = sectionMap[section] || section;
+      setActiveSection(mappedSection);
+    }
+  }, [searchParams]);
+
+  // Scroll to top when active section changes
+  useEffect(() => {
+    if (mainContentRef.current) {
+      mainContentRef.current.scrollTo(0, 0);
+    }
+  }, [activeSection]);
 
   const renderContent = () => {
     switch (activeSection) {
@@ -683,7 +714,7 @@ const Dashboard = () => {
   return (
     <div className="flex min-h-screen bg-slate-50/50">
       <DashboardSidebar currentSection={activeSection} onSectionChange={setActiveSection} />
-      <main className="flex-1 p-8 overflow-y-auto">
+      <main ref={mainContentRef} className="flex-1 p-8 overflow-y-auto">
         <header className="flex items-center justify-between mb-8">
           <div className="space-y-1">
             <div className="flex items-center gap-2 text-xs font-bold text-blue-600 uppercase tracking-widest">
