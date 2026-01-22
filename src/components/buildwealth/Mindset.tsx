@@ -528,9 +528,9 @@ const Mindset = () => {
 
       {/* Bottom CTA */}
       <div className="p-8 bg-gradient-to-br from-purple-600 to-indigo-700 text-white rounded-2xl shadow-2xl">
-        <h3 className="text-xl font-bold mb-3">Remember: Psychology > Strategy</h3>
+        <h3 className="text-xl font-bold mb-3">Remember: Psychology {'>'}  Strategy</h3>
         <p className="text-sm text-purple-100 mb-4 max-w-2xl">
-          The difference between ₹10 Crore and ₹0 at retirement isn't intelligence or strategy—it's <strong>mental discipline, patience, and avoiding emotional mistakes</strong>. 
+          The difference between ₹10 Crore and ₹0 at retirement isn&apos;t intelligence or strategy—it&apos;s <strong>mental discipline, patience, and avoiding emotional mistakes</strong>. 
           Master your mind first, money follows.
         </p>
         <div className="flex flex-wrap gap-3">
