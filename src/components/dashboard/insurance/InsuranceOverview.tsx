@@ -373,7 +373,7 @@ const InsuranceOverview = () => {
                     <td className="p-3 text-slate-600">₹1,000–₹1,500</td>
                   </tr>
                   <tr className="bg-emerald-100 font-bold">
-                    <td className="p-3" colspan="2">Total Monthly Cost</td>
+                    <td className="p-3" colSpan={2}>Total Monthly Cost</td>
                     <td className="p-3 text-emerald-700">₹30,000–₹45,000/year</td>
                     <td className="p-3 text-emerald-700">₹2,500–₹3,750/month</td>
                   </tr>
