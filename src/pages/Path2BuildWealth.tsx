@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 // New Components
 import BuildWealthSidebar from '@/components/BuildWealthSidebar';
 import Roadmap from '../components/buildwealth/Roadmap';
+import Milestones from '../components/buildwealth/Milestones';
 import Mindset from '../components/buildwealth/Mindset';
 import Wisdom from '../components/buildwealth/Wisdom';
 import PPP from '../components/buildwealth/PPP';
@@ -19,6 +20,8 @@ const Path2BuildWealth = () => {
     switch (activeSection) {
       case 'roadmap':
         return <Roadmap />;
+      case 'milestones':
+        return <Milestones />;
       case 'ppp':
         return <PPP />;
       case 'mindset':
@@ -33,12 +36,13 @@ const Path2BuildWealth = () => {
   const getSectionTitle = (id: string) => {
     const titles: Record<string, string> = {
       'roadmap': '4-Step Wealth Path',
+      'milestones': 'Wealth Building Milestones',
       'ppp': 'Purchasing Power Parity',
       'mindset': 'Mindset & Psychology',
       'wisdom': 'Investor Wisdom & Quotes',
     };
     return titles[id] || 'The Path to Build Wealth';
-  };
+  }
 
   return (
     <div className="flex min-h-screen bg-slate-50/50">

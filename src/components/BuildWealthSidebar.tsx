@@ -51,6 +51,7 @@ const BuildWealthSidebar = ({ currentSection, onSectionChange }: { currentSectio
 
   const sections = [
     { id: 'roadmap', label: '4-Step Wealth Path', icon: <Coins className="w-4 h-4" /> },
+    { id: 'milestones', label: 'Wealth Milestones', icon: <LineChart className="w-4 h-4" /> },
     { id: 'ppp', label: 'Purchasing Power (PPP)', icon: <Globe className="w-4 h-4" /> },
     { id: 'mindset', label: 'Mindset & Psychology', icon: <Brain className="w-4 h-4" /> },
     { id: 'wisdom', label: 'Investor Wisdom & Quotes', icon: <Quote className="w-4 h-4" /> },
