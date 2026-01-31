@@ -1,53 +1,54 @@
 "use client";
 
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import Navbar from '@/components/Navbar';
-import Hero from '@/components/Hero';
-import Stats from '@/components/Stats';
-import Features from '@/components/Features';
-import Curriculum from '@/components/Curriculum';
-import Footer from '@/components/Footer';
-import { MadeWithDyad } from "@/components/made-with-dyad";
+import React, { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import BuildWealthSidebar from '@/components/BuildWealthSidebar';
+import Roadmap from '@/components/buildwealth/Roadmap';
+import Milestones from '@/components/buildwealth/Milestones';
+import PPP from '@/components/buildwealth/PPP';
+import Mindset from '@/components/buildwealth/Mindset';
+import Wisdom from '@/components/buildwealth/Wisdom';
+import RealEstate from '@/components/buildwealth/RealEstate'; // New component
+
+const sectionComponents: { [key: string]: React.FC } = {
+  roadmap: Roadmap,
+  milestones: Milestones,
+  ppp: PPP,
+  mindset: Mindset,
+  wisdom: Wisdom,
+  realestate: RealEstate,
+};
 
 const Index = () => {
+  const location = useLocation();
   const navigate = useNavigate();
+  
+  // Determine initial section from URL hash, default to 'roadmap'
+  const initialSection = location.hash.substring(1) || 'roadmap';
+  const [currentSection, setCurrentSection] = useState(initialSection);
+
+  useEffect(() => {
+    // Update URL hash when section changes
+    navigate(`#${currentSection}`, { replace: true });
+  }, [currentSection, navigate]);
+
+  const handleSectionChange = (sectionId: string) => {
+    setCurrentSection(sectionId);
+  };
+
+  const CurrentComponent = sectionComponents[currentSection] || Roadmap;
 
   return (
-    <div className="min-h-screen bg-white selection:bg-blue-100 selection:text-blue-900">
-      <Navbar />
-      <main>
-        <Hero />
-        <Stats />
-        <Features />
-        <Curriculum />
-        
-        {/* Simple CTA Section */}
-        <section className="py-20">
-          <div className="container mx-auto px-4">
-            <div className="bg-slate-900 rounded-[2.5rem] p-8 md:p-16 text-center text-white space-y-8 relative overflow-hidden">
-              <div className="relative z-10 space-y-4">
-                <h2 className="text-3xl md:text-5xl font-bold">Ready to take control?</h2>
-                <p className="text-slate-400 text-lg max-w-xl mx-auto">
-                  Join 50,000+ others who are building their financial future today. Free to start, forever valuable.
-                </p>
-                <div className="pt-4">
-                  <button 
-                    className="px-10 py-4 bg-white text-slate-900 font-bold rounded-2xl hover:bg-slate-100 transition-all transform hover:scale-105 active:scale-95"
-                    onClick={() => navigate('/dashboard')}
-                  >
-                    Start Your Journey
-                  </button>
-                </div>
-              </div>
-              {/* Decorative Glow */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-blue-500/10 blur-[120px] pointer-events-none" />
-            </div>
-          </div>
-        </section>
+    <div className="flex min-h-screen bg-slate-50">
+      <BuildWealthSidebar 
+        currentSection={currentSection} 
+        onSectionChange={handleSectionChange} 
+      />
+      <main className="flex-1 p-4 md:p-8 lg:p-12 overflow-y-auto">
+        <div className="max-w-4xl mx-auto">
+          <CurrentComponent />
+        </div>
       </main>
-      <Footer />
-      <MadeWithDyad />
     </div>
   );
 };
