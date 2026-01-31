@@ -1,47 +1,53 @@
 "use client";
 
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Home, LineChart } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import Navbar from '@/components/Navbar';
+import Hero from '@/components/Hero';
+import Stats from '@/components/Stats';
+import Features from '@/components/Features';
+import Curriculum from '@/components/Curriculum';
+import Footer from '@/components/Footer';
+import { MadeWithDyad } from "@/components/made-with-dyad";
 
 const Index = () => {
+  const navigate = useNavigate();
+
   return (
-    <div className="p-8 max-w-4xl mx-auto space-y-8">
-      <h1 className="text-4xl font-bold text-slate-900">Welcome to FinSmart</h1>
-      <p className="text-lg text-slate-600">Navigate your financial journey:</p>
-      
-      <div className="grid md:grid-cols-2 gap-6">
-        <Card className="hover:shadow-lg transition-shadow">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-3 text-primary">
-              <LineChart className="w-6 h-6" />
-              Build Wealth Path
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-slate-700 mb-4">Explore milestones, mindset, and strategies for long-term wealth creation.</p>
-            <Link to="/build-wealth" className="text-blue-600 hover:underline font-medium">
-              Go to Wealth Path →
-            </Link>
-          </CardContent>
-        </Card>
+    <div className="min-h-screen bg-white selection:bg-blue-100 selection:text-blue-900">
+      <Navbar />
+      <main>
+        <Hero />
+        <Stats />
+        <Features />
+        <Curriculum />
         
-        <Card className="hover:shadow-lg transition-shadow">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-3 text-emerald-600">
-              <Home className="w-6 h-6" />
-              Dashboard (Placeholder)
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-slate-700 mb-4">A placeholder for your main financial dashboard.</p>
-            <Link to="/" className="text-gray-500 font-medium cursor-not-allowed">
-              (Current Page)
-            </Link>
-          </CardContent>
-        </Card>
-      </div>
+        {/* Simple CTA Section */}
+        <section className="py-20">
+          <div className="container mx-auto px-4">
+            <div className="bg-slate-900 rounded-[2.5rem] p-8 md:p-16 text-center text-white space-y-8 relative overflow-hidden">
+              <div className="relative z-10 space-y-4">
+                <h2 className="text-3xl md:text-5xl font-bold">Ready to take control?</h2>
+                <p className="text-slate-400 text-lg max-w-xl mx-auto">
+                  Join 50,000+ others who are building their financial future today. Free to start, forever valuable.
+                </p>
+                <div className="pt-4">
+                  <button 
+                    className="px-10 py-4 bg-white text-slate-900 font-bold rounded-2xl hover:bg-slate-100 transition-all transform hover:scale-105 active:scale-95"
+                    onClick={() => navigate('/dashboard')}
+                  >
+                    Start Your Journey
+                  </button>
+                </div>
+              </div>
+              {/* Decorative Glow */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-blue-500/10 blur-[120px] pointer-events-none" />
+            </div>
+          </div>
+        </section>
+      </main>
+      <Footer />
+      <MadeWithDyad />
     </div>
   );
 };
