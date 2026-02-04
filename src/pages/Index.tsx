@@ -18,6 +18,9 @@ const Index = () => {
         <p className="text-lg text-slate-600">
           Your personal guide to financial freedom and strategic wealth building.
         </p>
+        <p className="text-sm text-slate-500 mt-[-10px] mb-4">
+          By Bravetux
+        </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4 pt-4">
           <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700">
             <Link to="/dashboard">Go to Dashboard</Link>
