@@ -29,6 +29,8 @@ const Path2BuildWealth = () => {
         return <Mindset />;
       case 'wisdom':
         return <Wisdom />;
+      case 'realestate':
+        return <RealEstate />;
       default:
         return <Roadmap />;
     }
@@ -41,6 +43,7 @@ const Path2BuildWealth = () => {
       'ppp': 'Purchasing Power Parity',
       'mindset': 'Mindset & Psychology',
       'wisdom': 'Investor Wisdom & Quotes',
+      'realestate': 'Real Estate Investment',
     };
     return titles[id] || 'The Path to Build Wealth';
   }
