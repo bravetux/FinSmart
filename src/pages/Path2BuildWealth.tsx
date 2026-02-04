@@ -11,7 +11,6 @@ import Milestones from '../components/buildwealth/Milestones';
 import Mindset from '../components/buildwealth/Mindset';
 import Wisdom from '../components/buildwealth/Wisdom';
 import PPP from '../components/buildwealth/PPP';
-import RealEstate from '../components/buildwealth/RealEstate';
 
 const Path2BuildWealth = () => {
   const navigate = useNavigate();
@@ -29,8 +28,6 @@ const Path2BuildWealth = () => {
         return <Mindset />;
       case 'wisdom':
         return <Wisdom />;
-      case 'realestate':
-        return <RealEstate />;
       default:
         return <Roadmap />;
     }
@@ -43,7 +40,6 @@ const Path2BuildWealth = () => {
       'ppp': 'Purchasing Power Parity',
       'mindset': 'Mindset & Psychology',
       'wisdom': 'Investor Wisdom & Quotes',
-      'realestate': 'Real Estate Investment',
     };
     return titles[id] || 'The Path to Build Wealth';
   }
