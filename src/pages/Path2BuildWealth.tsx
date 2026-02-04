@@ -11,6 +11,7 @@ import Milestones from '../components/buildwealth/Milestones';
 import Mindset from '../components/buildwealth/Mindset';
 import Wisdom from '../components/buildwealth/Wisdom';
 import PPP from '../components/buildwealth/PPP';
+import RealEstate from '../components/buildwealth/RealEstate';
 
 const Path2BuildWealth = () => {
   const navigate = useNavigate();
