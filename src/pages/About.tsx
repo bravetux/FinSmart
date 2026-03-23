@@ -41,16 +41,17 @@ const About = () => {
   ];
 
   const dailyDriverTools = [
-    'Java',
-    'Selenium',
-    'Python',
-    'Shell',
-    'Git',
-    'Systemd',
-    'cron',
-    'LLMs',
     { name: 'C', highlighted: true },
-    { name: 'Linux System Programming', highlighted: true }
+    { name: 'Linux System Programming', highlighted: true },
+    { name: 'Python', emerald: true },
+    { name: 'Gen AI', emerald: true },
+    { name: 'LLM', emerald: true },
+    { name: 'Agentic AI', emerald: true },
+    { name: 'Strands', emerald: true },
+    { name: 'n8n', emerald: true },
+    { name: 'LangChain', emerald: true },
+    { name: 'LangGraph', emerald: true },
+    { name: 'Enterprise Agentic AI', emerald: true },
   ];
 
   const spaTools = ['React', 'TypeScript', 'Vite', 'React Router', 'Tailwind CSS', 'shadcn/ui'];
@@ -120,7 +121,7 @@ const About = () => {
             </CardHeader>
             <CardContent>
               <p className="text-slate-600 mb-6">
-                Beyond technology, I'm deeply passionate about finance and have helped thousands of people with their financial planning and diversification strategies.
+                Beyond technology, I'm deeply passionate about finance — focused on simplifying financial planning, investment strategies, and wealth diversification for individuals and families.
               </p>
               <ul className="space-y-3">
                 {financeWork.map((item, index) => (
@@ -148,17 +149,21 @@ const About = () => {
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
               {dailyDriverTools.map((tool, index) => (
-                <div 
-                  key={index} 
+                <div
+                  key={index}
                   className={`p-4 rounded-lg text-center ${
-                    typeof tool === 'object' && tool.highlighted 
-                      ? 'bg-yellow-100 border-2 border-yellow-300' 
+                    typeof tool === 'object' && tool.highlighted
+                      ? 'bg-yellow-100 border-2 border-yellow-300'
+                      : typeof tool === 'object' && tool.emerald
+                      ? 'bg-emerald-100 border-2 border-emerald-300'
                       : 'bg-slate-100'
                   }`}
                 >
                   <span className={`font-medium ${
-                    typeof tool === 'object' && tool.highlighted 
-                      ? 'text-yellow-800' 
+                    typeof tool === 'object' && tool.highlighted
+                      ? 'text-yellow-800'
+                      : typeof tool === 'object' && tool.emerald
+                      ? 'text-emerald-800'
                       : 'text-slate-800'
                   }`}>
                     {typeof tool === 'object' ? tool.name : tool}
