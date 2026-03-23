@@ -8,6 +8,12 @@ import { ArrowUpRight, LineChart } from 'lucide-react';
 
 // Kids Components
 import KidsOverview from '@/components/dashboard/kids/KidsOverview';
+import NeedsVsWants from '@/components/dashboard/kids/NeedsVsWants';
+import GoalSetting from '@/components/dashboard/kids/GoalSetting';
+import WhatIsAStock from '@/components/dashboard/kids/WhatIsAStock';
+import InsuranceBasics from '@/components/dashboard/kids/InsuranceBasics';
+import SmartShopping from '@/components/dashboard/kids/SmartShopping';
+import DelayedGratification from '@/components/dashboard/kids/DelayedGratification';
 import MoneySection from '@/components/dashboard/kids/MoneySection';
 import PiggyBankSection from '@/components/dashboard/kids/PiggyBankSection';
 import BudgetingSection from '@/components/dashboard/kids/BudgetingSection';
@@ -75,6 +81,7 @@ import ELSS from '@/components/dashboard/mf/ELSS';
 import TaxOptimization from '@/components/dashboard/mf/TaxOptimization';
 import FundMetrics from '@/components/dashboard/mf/FundMetrics';
 import PassiveInvesting from '@/components/dashboard/mf/PassiveInvesting';
+import FundRatios from '@/components/dashboard/mf/FundRatios';
 
 // Equity Components
 import EquityOverview from '@/components/dashboard/equity/EquityOverview';
@@ -162,8 +169,14 @@ import BondVsDebtFunds from '@/components/dashboard/bonds/BondVsDebtFunds';
 import BondPlatforms from '@/components/dashboard/bonds/BondPlatforms';
 import BondTaxation from '@/components/dashboard/bonds/BondTaxation';
 
+// Tax Saving Components
+import TaxSavingOverview from '@/components/dashboard/taxsaving/TaxSavingOverview';
+import PPF from '@/components/dashboard/taxsaving/PPF';
+import NPS from '@/components/dashboard/taxsaving/NPS';
+
 // Loans Components
 import LoansOverview from '@/components/dashboard/loans/LoansOverview';
+import CreditCards from '@/components/dashboard/loans/CreditCards';
 import TypesOfLoans from '@/components/dashboard/loans/TypesOfLoans';
 import WhenToTakeLoans from '@/components/dashboard/loans/WhenToTakeLoans';
 import HowLoansWork from '@/components/dashboard/loans/HowLoansWork';
@@ -223,6 +236,18 @@ const Dashboard = () => {
       // Kids
       case 'kids-overview':
         return <KidsOverview />;
+      case 'kids-needs-wants':
+        return <NeedsVsWants />;
+      case 'kids-goal-setting':
+        return <GoalSetting />;
+      case 'kids-stock-basics':
+        return <WhatIsAStock />;
+      case 'kids-insurance-basics':
+        return <InsuranceBasics />;
+      case 'kids-smart-shopping':
+        return <SmartShopping />;
+      case 'kids-delayed-gratification':
+        return <DelayedGratification />;
       case 'kids-money':
         return <MoneySection />;
       case 'kids-piggy-bank':
@@ -379,6 +404,8 @@ const Dashboard = () => {
         return <ELSS />;
       case 'mf-tax-optimization':
         return <TaxOptimization />;
+      case 'mf-fund-ratios':
+        return <FundRatios />;
         
       // Equity
       case 'equity-overview':
@@ -544,6 +571,14 @@ const Dashboard = () => {
       case 'bonds-taxation':
         return <BondTaxation />;
 
+      // Tax Saving
+      case 'taxsaving-overview':
+        return <TaxSavingOverview />;
+      case 'taxsaving-ppf':
+        return <PPF />;
+      case 'taxsaving-nps':
+        return <NPS />;
+
       // Loans
       case 'loans-overview':
         return <LoansOverview />;
@@ -557,6 +592,8 @@ const Dashboard = () => {
         return <SmartBorrowing />;
       case 'loans-closure':
         return <LoanClosure />;
+      case 'loans-credit-cards':
+        return <CreditCards />;
 
       // Diversification
       case 'pms':
@@ -593,6 +630,12 @@ const Dashboard = () => {
   const getSectionTitle = (id: string) => {
     const titles: Record<string, string> = {
       'kids-overview': 'Kids Wealth Adventure',
+      'kids-needs-wants': 'Needs vs. Wants: The Money Superpower',
+      'kids-goal-setting': 'Save With a Purpose: Your Money Goals',
+      'kids-stock-basics': 'Stocks: Own a Tiny Piece of Your Favourite Company',
+      'kids-insurance-basics': 'Insurance: Your Financial Umbrella',
+      'kids-smart-shopping': 'Smart Shopping: Make Every Rupee Count',
+      'kids-delayed-gratification': 'The Waiting Game: Your Secret Money Superpower',
       'kids-money': 'The Magic of Money',
       'kids-piggy-bank': 'Piggy Bank Power',
       'kids-budgeting': 'The Budgeting Adventure',
@@ -634,6 +677,7 @@ const Dashboard = () => {
       'mf-taxation': 'Taxation of Mutual Funds',
       'mf-metrics': 'Fund Metrics & Selection',
       'mf-passive': 'Passive Investing (Index/ETF)',
+      'mf-fund-ratios': 'Beyond Returns: Reading Fund Scorecards',
       
       'equity-overview': 'Equity Market Basics',
       'equity-laws': 'Equity Laws',
@@ -680,12 +724,17 @@ const Dashboard = () => {
       'bonds-importance': 'Credit Ratings',
       'bonds-consider': 'Things to Consider',
 
+      'taxsaving-overview': 'Your Tax-Saving Toolkit',
+      'taxsaving-ppf': 'PPF: The Government\'s Triple Tax-Free Gift',
+      'taxsaving-nps': 'NPS: Build Your Own Pension',
+
       'loans-overview': 'Loan Overview',
       'loans-types': 'Types of Loans',
       'loans-when': 'When to Take Loans',
       'loans-how': 'How Loans Work',
       'loans-smart': 'Smart Borrowing',
       'loans-closure': 'Loan Closure Tips',
+      'loans-credit-cards': 'Credit Cards: The Double-Edged Sword',
 
       // Diversification
       'pms': 'Portfolio Management Services (PMS)',
@@ -701,6 +750,7 @@ const Dashboard = () => {
     if (id.startsWith('kids-')) return "Early Foundations";
     if (id.startsWith('income-')) return "Income Generation";
     if (id.startsWith('insurance-')) return "Insurance & Protection";
+    if (id.startsWith('taxsaving-')) return "Tax Saving Investments";
     if (id.startsWith('mf-')) return "Mutual Funds Masterclass";
     if (id.startsWith('equity-')) return "Equity Markets";
     if (id.startsWith('gold-')) return "Precious Metals Module";

@@ -68,6 +68,7 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
     realEstate: currentSection.startsWith('re-'),
     bonds: currentSection.startsWith('bonds-'),
     loans: currentSection.startsWith('loans-'),
+    taxsaving: currentSection.startsWith('taxsaving-'),
     diversification: ['pms', 'aif', 'sif', 'bitcoin', 'overseas'].includes(currentSection)
   });
 
@@ -83,6 +84,7 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
       realEstate: currentSection.startsWith('re-'),
       bonds: currentSection.startsWith('bonds-'),
       loans: currentSection.startsWith('loans-'),
+      taxsaving: currentSection.startsWith('taxsaving-'),
       diversification: ['pms', 'aif', 'sif', 'bitcoin', 'overseas'].includes(currentSection)
     });
   }, [currentSection]);
@@ -210,16 +212,30 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                       </div>
                     </CollapsibleTrigger>
                     <CollapsibleContent className="space-y-1">
-                      <SidebarItem 
-                        label="Magic Money" 
-                        active={currentSection === 'kids-money'} 
-                        onClick={() => onSectionChange('kids-money')} 
-                        className="pl-14 text-xs" 
-                        isCollapsed={isCollapsed} 
+                      <SidebarItem
+                        label="Magic Money"
+                        active={currentSection === 'kids-money'}
+                        onClick={() => onSectionChange('kids-money')}
+                        className="pl-14 text-xs"
+                        isCollapsed={isCollapsed}
                       />
-                      <SidebarItem 
-                        label="Earning Engine" 
-                        active={currentSection === 'kids-earning'} 
+                      <SidebarItem
+                        label="Needs vs. Wants"
+                        active={currentSection === 'kids-needs-wants'}
+                        onClick={() => onSectionChange('kids-needs-wants')}
+                        className="pl-14 text-xs"
+                        isCollapsed={isCollapsed}
+                      />
+                      <SidebarItem
+                        label="Goal Setting"
+                        active={currentSection === 'kids-goal-setting'}
+                        onClick={() => onSectionChange('kids-goal-setting')}
+                        className="pl-14 text-xs"
+                        isCollapsed={isCollapsed}
+                      />
+                      <SidebarItem
+                        label="Earning Engine"
+                        active={currentSection === 'kids-earning'}
                         onClick={() => onSectionChange('kids-earning')} 
                         className="pl-14 text-xs" 
                         isCollapsed={isCollapsed} 
@@ -250,15 +266,22 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                       </div>
                     </CollapsibleTrigger>
                     <CollapsibleContent className="space-y-1">
-                      <SidebarItem 
-                        label="Money Tree (Investing)" 
-                        active={currentSection === 'kids-investing'} 
-                        onClick={() => onSectionChange('kids-investing')} 
-                        className="pl-14 text-xs" 
-                        isCollapsed={isCollapsed} 
+                      <SidebarItem
+                        label="Money Tree (Investing)"
+                        active={currentSection === 'kids-investing'}
+                        onClick={() => onSectionChange('kids-investing')}
+                        className="pl-14 text-xs"
+                        isCollapsed={isCollapsed}
                       />
-                      <SidebarItem 
-                        label="Shrinking Cookie (Inflation)" 
+                      <SidebarItem
+                        label="What is a Stock?"
+                        active={currentSection === 'kids-stock-basics'}
+                        onClick={() => onSectionChange('kids-stock-basics')}
+                        className="pl-14 text-xs"
+                        isCollapsed={isCollapsed}
+                      />
+                      <SidebarItem
+                        label="Shrinking Cookie (Inflation)"
                         active={currentSection === 'kids-inflation'} 
                         onClick={() => onSectionChange('kids-inflation')} 
                         className="pl-14 text-xs" 
@@ -373,19 +396,40 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                     </CollapsibleContent>
                   </Collapsible>
 
-                  <SidebarItem 
-                    label="Safety Shield" 
-                    active={currentSection === 'kids-safety'} 
-                    onClick={() => onSectionChange('kids-safety')} 
-                    isSubItem 
-                    isCollapsed={isCollapsed} 
+                  <SidebarItem
+                    label="Safety Shield"
+                    active={currentSection === 'kids-safety'}
+                    onClick={() => onSectionChange('kids-safety')}
+                    isSubItem
+                    isCollapsed={isCollapsed}
+                  />
+                  <SidebarItem
+                    label="Smart Shopping"
+                    active={currentSection === 'kids-smart-shopping'}
+                    onClick={() => onSectionChange('kids-smart-shopping')}
+                    isSubItem
+                    isCollapsed={isCollapsed}
+                  />
+                  <SidebarItem
+                    label="The Waiting Game"
+                    active={currentSection === 'kids-delayed-gratification'}
+                    onClick={() => onSectionChange('kids-delayed-gratification')}
+                    isSubItem
+                    isCollapsed={isCollapsed}
+                  />
+                  <SidebarItem
+                    label="Insurance Basics"
+                    active={currentSection === 'kids-insurance-basics'}
+                    onClick={() => onSectionChange('kids-insurance-basics')}
+                    isSubItem
+                    isCollapsed={isCollapsed}
                   />
                 </CollapsibleContent>
               </Collapsible>
             ) : (
-              <SidebarItem 
-                icon={<Baby className="w-4 h-4" />} 
-                label="Kids" 
+              <SidebarItem
+                icon={<Baby className="w-4 h-4" />}
+                label="Kids"
                 active={currentSection.startsWith('kids-')} 
                 onClick={() => onSectionChange('kids-overview')} 
                 isCollapsed={isCollapsed} 
@@ -570,6 +614,55 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                 active={currentSection.startsWith('insurance-')} 
                 onClick={() => onSectionChange('insurance-overview')} 
                 isCollapsed={isCollapsed} 
+              />
+            )}
+
+            {/* Tax Saving */}
+            {!isCollapsed ? (
+              <Collapsible open={openSections.taxsaving} onOpenChange={(open) => setOpenSections(prev => ({ ...prev, taxsaving: open }))} className="space-y-1">
+                <CollapsibleTrigger className="w-full">
+                  <div className={cn(
+                    "flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium transition-colors",
+                    currentSection.startsWith('taxsaving-') ? "text-primary" : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                  )}>
+                    <div className="flex items-center gap-3">
+                      <Calculator className="w-4 h-4" />
+                      <span>Tax Saving</span>
+                    </div>
+                    <ChevronDown className={cn("w-4 h-4 transition-transform", !currentSection.startsWith('taxsaving-') && "-rotate-90")} />
+                  </div>
+                </CollapsibleTrigger>
+                <CollapsibleContent className="space-y-1">
+                  <SidebarItem
+                    label="Tax-Saving Toolkit"
+                    active={currentSection === 'taxsaving-overview'}
+                    onClick={() => onSectionChange('taxsaving-overview')}
+                    isSubItem
+                    isCollapsed={isCollapsed}
+                  />
+                  <SidebarItem
+                    label="PPF (Public Provident Fund)"
+                    active={currentSection === 'taxsaving-ppf'}
+                    onClick={() => onSectionChange('taxsaving-ppf')}
+                    isSubItem
+                    isCollapsed={isCollapsed}
+                  />
+                  <SidebarItem
+                    label="NPS (National Pension System)"
+                    active={currentSection === 'taxsaving-nps'}
+                    onClick={() => onSectionChange('taxsaving-nps')}
+                    isSubItem
+                    isCollapsed={isCollapsed}
+                  />
+                </CollapsibleContent>
+              </Collapsible>
+            ) : (
+              <SidebarItem
+                icon={<Calculator className="w-4 h-4" />}
+                label="Tax Saving"
+                active={currentSection.startsWith('taxsaving-')}
+                onClick={() => onSectionChange('taxsaving-overview')}
+                isCollapsed={isCollapsed}
               />
             )}
 
@@ -808,12 +901,19 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                     isSubItem 
                     isCollapsed={isCollapsed} 
                   />
-                  <SidebarItem 
-                    label="Fund House Comparison" 
-                    active={currentSection === 'mf-fund-house'} 
-                    onClick={() => onSectionChange('mf-fund-house')} 
-                    isSubItem 
-                    isCollapsed={isCollapsed} 
+                  <SidebarItem
+                    label="Fund House Comparison"
+                    active={currentSection === 'mf-fund-house'}
+                    onClick={() => onSectionChange('mf-fund-house')}
+                    isSubItem
+                    isCollapsed={isCollapsed}
+                  />
+                  <SidebarItem
+                    label="Fund Ratios (Sharpe, Sortino...)"
+                    active={currentSection === 'mf-fund-ratios'}
+                    onClick={() => onSectionChange('mf-fund-ratios')}
+                    isSubItem
+                    isCollapsed={isCollapsed}
                   />
 
                   {/* 📊 PASSIVE INVESTING */}
@@ -1884,19 +1984,26 @@ const DashboardSidebar = ({ currentSection, onSectionChange }: { currentSection:
                     isSubItem 
                     isCollapsed={isCollapsed} 
                   />
-                  <SidebarItem 
-                    label="Loan Closure Tips" 
-                    active={currentSection === 'loans-closure'} 
-                    onClick={() => onSectionChange('loans-closure')} 
-                    isSubItem 
-                    isCollapsed={isCollapsed} 
+                  <SidebarItem
+                    label="Loan Closure Tips"
+                    active={currentSection === 'loans-closure'}
+                    onClick={() => onSectionChange('loans-closure')}
+                    isSubItem
+                    isCollapsed={isCollapsed}
+                  />
+                  <SidebarItem
+                    label="Credit Cards"
+                    active={currentSection === 'loans-credit-cards'}
+                    onClick={() => onSectionChange('loans-credit-cards')}
+                    isSubItem
+                    isCollapsed={isCollapsed}
                   />
                 </CollapsibleContent>
               </Collapsible>
             ) : (
-              <SidebarItem 
-                icon={<HandCoins className="w-4 h-4" />} 
-                label="Loans" 
+              <SidebarItem
+                icon={<HandCoins className="w-4 h-4" />}
+                label="Loans"
                 active={currentSection.startsWith('loans-')} 
                 onClick={() => onSectionChange('loans-overview')} 
                 isCollapsed={isCollapsed} 

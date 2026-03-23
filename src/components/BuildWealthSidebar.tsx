@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { LineChart, Brain, Coins, Quote, ChevronLeft, ChevronRight, Globe, Home } from 'lucide-react';
+import { LineChart, Brain, Coins, Quote, ChevronLeft, ChevronRight, Globe, Home, Clock, FileText } from 'lucide-react';
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 
@@ -20,6 +20,8 @@ const BuildWealthSidebar: React.FC<BuildWealthSidebarProps> = ({ currentSection,
     { id: 'mindset', label: 'Mindset & Psychology', icon: <Brain className="w-4 h-4" /> },
     { id: 'wisdom', label: 'Investor Wisdom & Quotes', icon: <Quote className="w-4 h-4" /> },
     { id: 'realestate', label: 'Real Estate Investment', icon: <Home className="w-4 h-4" /> },
+    { id: 'retirement', label: 'Retirement Planning', icon: <Clock className="w-4 h-4" /> },
+    { id: 'estate-planning', label: 'Will & Estate Planning', icon: <FileText className="w-4 h-4" /> },
   ];
 
   return (

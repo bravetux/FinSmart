@@ -12,6 +12,8 @@ import Mindset from '../components/buildwealth/Mindset';
 import Wisdom from '../components/buildwealth/Wisdom';
 import PPP from '../components/buildwealth/PPP';
 import RealEstate from '../components/buildwealth/RealEstate';
+import RetirementPlanning from '../components/buildwealth/RetirementPlanning';
+import EstatePlanning from '../components/buildwealth/EstatePlanning';
 
 const Path2BuildWealth = () => {
   const navigate = useNavigate();
@@ -31,6 +33,10 @@ const Path2BuildWealth = () => {
         return <Wisdom />;
       case 'realestate':
         return <RealEstate />;
+      case 'retirement':
+        return <RetirementPlanning />;
+      case 'estate-planning':
+        return <EstatePlanning />;
       default:
         return <Roadmap />;
     }
@@ -44,6 +50,8 @@ const Path2BuildWealth = () => {
       'mindset': 'Mindset & Psychology',
       'wisdom': 'Investor Wisdom & Quotes',
       'realestate': 'Real Estate Investment',
+      'retirement': 'Retirement Planning',
+      'estate-planning': 'Will & Estate Planning',
     };
     return titles[id] || 'The Path to Build Wealth';
   }
